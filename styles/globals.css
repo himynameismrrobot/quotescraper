@@ -1,0 +1,5 @@
+/* postcss-preset-env */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
