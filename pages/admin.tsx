@@ -103,6 +103,7 @@ const AdminPage: React.FC = () => {
   const [crawlLogs, setCrawlLogs] = useState<string[]>([]);
   const [isCrawling, setIsCrawling] = useState(false);
   const [specificArticleUrl, setSpecificArticleUrl] = useState('');
+  const [editingDateId, setEditingDateId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchOrganizations();
@@ -305,7 +306,7 @@ const AdminPage: React.FC = () => {
     }
   };
 
-  const updateStagedQuote = async (id: string, field: 'summary' | 'rawQuoteText', value: string) => {
+  const updateStagedQuote = async (id: string, field: 'summary' | 'rawQuoteText' | 'articleDate', value: string) => {
     try {
       const response = await fetch(`/api/staged-quotes/${id}`, {
         method: 'PATCH',
@@ -681,8 +682,8 @@ const AdminPage: React.FC = () => {
               <Table className="table-fixed w-full">
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="w-24">Article Date</TableHead>
-                    <TableHead className="w-64">Article</TableHead>
+                    <TableHead className="w-36">Article Date</TableHead>
+                    <TableHead className="w-48">Article</TableHead>
                     <TableHead className="w-32">Speaker Name</TableHead>
                     <TableHead className="w-1/3">Quote Summary</TableHead>
                     <TableHead className="w-2/5">Raw Quote Text</TableHead>
@@ -692,16 +693,44 @@ const AdminPage: React.FC = () => {
                 <TableBody>
                   {stagedQuotes.map((quote) => (
                     <TableRow key={quote.id}>
-                      <TableCell className="w-24 whitespace-nowrap">
-                        {new Date(quote.articleDate).toLocaleDateString()}
+                      <TableCell className="w-36 whitespace-nowrap">
+                        <div className="flex items-center space-x-2">
+                          {editingDateId === quote.id ? (
+                            <Input
+                              type="date"
+                              defaultValue={new Date(quote.articleDate).toISOString().split('T')[0]}
+                              className="w-32"
+                              autoFocus
+                              onBlur={() => setEditingDateId(null)}
+                              onChange={(e) => {
+                                if (e.target.value) {
+                                  updateStagedQuote(quote.id, 'articleDate', e.target.value);
+                                  setEditingDateId(null);
+                                }
+                              }}
+                            />
+                          ) : (
+                            <>
+                              <span>{new Date(quote.articleDate).toLocaleDateString()}</span>
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                className="h-6 w-6 p-0"
+                                onClick={() => setEditingDateId(quote.id)}
+                              >
+                                ✏️
+                              </Button>
+                            </>
+                          )}
+                        </div>
                       </TableCell>
-                      <TableCell className="w-64">
-                        <div className="w-64 overflow-hidden">
+                      <TableCell className="w-48">
+                        <div className="w-48 break-words">
                           <a 
                             href={quote.articleUrl} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:underline block overflow-hidden overflow-ellipsis"
+                            className="text-blue-500 hover:underline block"
                           >
                             {quote.articleHeadline || quote.articleUrl}
                           </a>
