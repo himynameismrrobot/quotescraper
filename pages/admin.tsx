@@ -104,6 +104,7 @@ const AdminPage: React.FC = () => {
   const [isCrawling, setIsCrawling] = useState(false);
   const [specificArticleUrl, setSpecificArticleUrl] = useState('');
   const [editingDateId, setEditingDateId] = useState<string | null>(null);
+  const [editingSpeakerId, setEditingSpeakerId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchOrganizations();
@@ -306,7 +307,7 @@ const AdminPage: React.FC = () => {
     }
   };
 
-  const updateStagedQuote = async (id: string, field: 'summary' | 'rawQuoteText' | 'articleDate', value: string) => {
+  const updateStagedQuote = async (id: string, field: 'summary' | 'rawQuoteText' | 'articleDate' | 'speakerName', value: string) => {
     try {
       const response = await fetch(`/api/staged-quotes/${id}`, {
         method: 'PATCH',
@@ -736,7 +737,38 @@ const AdminPage: React.FC = () => {
                           </a>
                         </div>
                       </TableCell>
-                      <TableCell className="w-32 whitespace-nowrap">{quote.speakerName}</TableCell>
+                      <TableCell className="w-32">
+                        <div className="flex items-center space-x-2">
+                          {editingSpeakerId === quote.id ? (
+                            <Input
+                              value={quote.speakerName}
+                              onChange={(e) => updateStagedQuote(quote.id, 'speakerName', e.target.value)}
+                              className="w-28"
+                              autoFocus
+                              onBlur={() => setEditingSpeakerId(null)}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  setEditingSpeakerId(null);
+                                }
+                              }}
+                            />
+                          ) : (
+                            <>
+                              <div className="break-words">
+                                {quote.speakerName}
+                              </div>
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                className="h-6 w-6 p-0 flex-shrink-0"
+                                onClick={() => setEditingSpeakerId(quote.id)}
+                              >
+                                ✏️
+                              </Button>
+                            </>
+                          )}
+                        </div>
+                      </TableCell>
                       <TableCell className="w-1/3">
                         <Textarea
                           value={quote.summary}

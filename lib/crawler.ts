@@ -115,7 +115,7 @@ export async function extractQuotesFromArticle(
     messages: [
       { 
         role: "system", 
-        content: "You are a helpful assistant that extracts quotes from news articles. Always respond with valid JSON only, without any markdown formatting or extra text." 
+        content: "You are a helpful assistant that extracts quoted text from news articles. Always respond with valid JSON only, without any markdown formatting or extra text." 
       },
       {
         role: "user",
@@ -126,7 +126,11 @@ export async function extractQuotesFromArticle(
         Also extract the quote date in YYYY-MM-DD format. Use the article date as the date. The article URL is: ${url}. 
         If the article date is not in the article text also look at the URL to see if you can determine the date from there. If those both fail, use the current date. 
         Return ONLY a JSON array of objects with 'speaker', 'text', 'quote_summary', 'date' properties. If you can't find any quotes, return an empty array. 
-        No other text or formatting: ${articleText}
+        No other text or formatting:
+        
+        === START OF ARTICLE TEXT ===
+        ${articleText}
+        === END OF ARTICLE TEXT ===
 
         Here's an example of how to extract and format quotes from an article:
         ###EXAMPLE ARTICLE TEXT###
