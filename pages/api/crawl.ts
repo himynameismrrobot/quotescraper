@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { crawlWebsite } from '../../lib/crawler';
+import fs from 'fs';
+import path from 'path';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -12,36 +14,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'URL is required' });
   }
 
-  console.log('Starting crawl API handler for URL:', url);
+  // Create logs directory if it doesn't exist
+  const logsDir = path.join(process.cwd(), 'logs');
+  if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir);
+  }
 
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache, no-transform',
-    'Connection': 'keep-alive',
-  });
-
-  const sendLog = (message: string) => {
-    console.log('Sending log:', message); // Add this line
-    res.write(`data: ${message}\n\n`);
-    // Flush the response to ensure the client receives the message immediately
-    if (res.flush) {
-      res.flush();
-    }
+  // Create a log file with timestamp
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const logFile = path.join(logsDir, `crawl-${timestamp}.log`);
+  
+  const writeToLog = (message: string) => {
+    fs.appendFileSync(logFile, message + '\n');
+    console.log(message);
   };
 
+  writeToLog('\n=== STARTING PARENT URL CRAWL ===');
+  writeToLog('URL: ' + url);
+
   try {
-    console.log('About to call crawlWebsite function');
-    sendLog('Starting crawl process...');
-    await crawlWebsite(url, sendLog);
-    console.log('crawlWebsite function completed');
-    sendLog('Crawl completed');
+    await crawlWebsite(url, writeToLog);
+    writeToLog('Parent URL crawl completed successfully');
   } catch (error) {
-    console.error('Error during crawl:', error);
-    sendLog(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    // Log the full error object
-    console.log('Full error object:', error);
+    writeToLog('Error during parent URL crawl: ' + error);
+    writeToLog('Full error object: ' + JSON.stringify(error, null, 2));
   } finally {
-    console.log('Ending crawl API handler');
-    res.end();
+    writeToLog('=== CRAWL COMPLETE ===\n');
+    res.status(200).json({ message: 'Crawl completed' });
   }
 }

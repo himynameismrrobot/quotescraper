@@ -34,8 +34,8 @@ export async function findHeadlinesWithQuotes(html: string, baseUrl: string, sen
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
-      { role: "system", content: "You are a helpful assistant that identifies news headlines likely to contain quotes. Always respond with valid JSON only, without any markdown formatting or extra text." },
-      { role: "user", content: `Analyze the following HTML and return a JSON array of objects with 'url' and 'headline' properties for headlines likely to contain quotes. Respond ONLY with the JSON array, no other text or formatting: ${html}` }
+      { role: "system", content: "You are a helpful assistant that identifies headlines on news websites. Always respond with valid JSON only, without any markdown formatting or extra text." },
+      { role: "user", content: `Analyze the following HTML and return a JSON array of objects with 'url' and 'headline' properties for all news article headlines. Respond ONLY with the JSON array, no other text or formatting: ${html}` }
     ],
   });
 
@@ -119,7 +119,7 @@ export async function extractQuotesFromArticle(
       },
       {
         role: "user",
-        content: `Extract every single quote from the following article text. There could be quotes from multiple speakers, make sure to extract them all. If a quote needs context to make sense feel free to include this in brackets at the start of the quote but keep it short.
+        content: `Extract all the quoted text from the following article text. Only the text between quotation marks should be extracted. There could be quotes from multiple speakers, make sure to extract them all. If a quote needs context to make sense feel free to include this in brackets at the start of the quote but keep it short.
         For the extracted quote text, ensure it only contains text that was spoken by the speaker as opposed to anything written by the article author. 
         Some quotes may be broken up across the article. If this is the case, merge them together into one contiguous quote. 
         But do not merge quotes that discuss different topics. For each quote, also provide a more succinct version of the quote written as if the speaker had spoken it themselves. 
