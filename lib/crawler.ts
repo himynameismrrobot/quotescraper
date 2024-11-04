@@ -23,6 +23,14 @@ interface Quote {
 }
 
 export async function findHeadlinesWithQuotes(html: string, baseUrl: string, sendLog: (message: string) => void): Promise<Article[]> {
+  sendLog('\n=== CONTENT BEING SENT TO OPENAI FOR HEADLINE EXTRACTION ===\n');
+  // Break the HTML into chunks for logging
+
+  sendLog(html);
+  
+  sendLog('\n=== END OF CONTENT SENT TO OPENAI FOR HEADLINE EXTRACTION ===\n');
+  sendLog(`Total content length: ${html.length} characters`);
+
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
@@ -190,157 +198,192 @@ export async function extractQuotesFromArticle(
 export async function crawlWebsite(url: string, sendLog: (message: string) => void): Promise<void> {
   const browser = await puppeteer.launch({
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-web-security',
+      '--disable-features=IsolateOrigins,site-per-process',
+      '--window-size=1920,1080',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu'
+    ]
   });
   const page = await browser.newPage();
   
-  // Set longer timeouts
-  await page.setDefaultNavigationTimeout(120000); // 2 minutes
-  await page.setDefaultTimeout(120000);
+  // Set a real user agent
+  await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+  
+  // Add more realistic browser headers
+  await page.setExtraHTTPHeaders({
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'none',
+    'Sec-Fetch-User': '?1'
+  });
+
+  // Add this line to intercept and block unnecessary resources
+  await page.setRequestInterception(true);
+  page.on('request', (request) => {
+    if (['image', 'stylesheet', 'font', 'media'].includes(request.resourceType())) {
+      request.abort();
+    } else {
+      request.continue();
+    }
+  });
+
+  sendLog('Browser configured with user agent and headers');
 
   try {
     sendLog(`Navigating to ${url}`);
     try {
       await page.goto(url, { 
         waitUntil: 'networkidle0',
-        timeout: 120000 // 2 minutes
+        timeout: 120000 
       });
       sendLog('Page loaded successfully');
+
+      // Wait for content to be available
+      await page.waitForSelector('main', { timeout: 10000 });
+      sendLog('Main content found');
+
+      // Log the actual HTML for debugging
+      const pageContent = await page.content();
+      sendLog(`Page content length: ${pageContent.length} characters`);
+
+      // Extract only the relevant content based on the website
+      const html = await page.evaluate(() => {
+        let mainContent = '';
+        
+        if (window.location.hostname.includes('theguardian.com')) {
+          // Guardian's main content area
+          const content = document.querySelector('#container-content');
+          mainContent = content ? content.innerHTML : '';
+        } else if (window.location.hostname.includes('bbc.com')) {
+          // BBC's main content area
+          const content = document.querySelector('#main-content');
+          mainContent = content ? content.innerHTML : '';
+        } else if (window.location.hostname.includes('manchestereveningnews.co.uk')) {
+          // Updated MEN extraction to focus on article links
+          const articles = Array.from(document.querySelectorAll('a[data-testid="article-link"]'));
+          mainContent = articles.map(article => ({
+            url: article.getAttribute('href'),
+            headline: article.textContent?.trim() || ''
+          })).join('\n');
+        }
+
+        // Fallback to looking for common content area selectors
+        if (!mainContent) {
+          const selectors = [
+            'main',
+            '.main-content',
+            '#content',
+            '.content',
+            'article',
+            '.articles',
+            '.stories'
+          ];
+          
+          for (const selector of selectors) {
+            const element = document.querySelector(selector);
+            if (element) {
+              mainContent = element.innerHTML;
+              break;
+            }
+          }
+        }
+
+        return mainContent || document.body.innerHTML;
+      });
+
+      sendLog(`Extracted main content area from page`);
+
+      const articles = await findHeadlinesWithQuotes(html, url, sendLog);
+      sendLog(`Found ${articles.length} articles with potential quotes:`);
+      articles.forEach((article, index) => {
+        sendLog(`${index + 1}. ${article.headline}`);
+      });
+
+      let allQuotes: Quote[] = [];
+
+      for (const article of articles) {
+        sendLog(`\nScraping article: ${article.headline}`);
+        sendLog(`URL: ${article.url}`);
+        
+        try {
+          sendLog('Attempting to navigate to article URL');
+          await page.goto(article.url, { 
+            waitUntil: 'networkidle0',
+            timeout: 120000 
+          });
+          sendLog('Successfully navigated to article URL');
+        } catch (articleNavigationError) {
+          sendLog(`Navigation error for article: ${articleNavigationError instanceof Error ? articleNavigationError.message : 'Unknown error'}`);
+          sendLog('Attempting to proceed with partial page load');
+          await page.waitForTimeout(5000);
+        }
+        
+        sendLog('Extracting article content');
+        const articleHtml = await page.evaluate(() => {
+          let articleContent = '';
+          
+          // Try to find the main article content
+          const selectors = [
+            'article',
+            '.article-body',
+            '.article-content',
+            '.story-body',
+            'main article',
+            '[data-test-id="article-body"]'
+          ];
+          
+          for (const selector of selectors) {
+            const element = document.querySelector(selector);
+            if (element) {
+              articleContent = element.innerHTML;
+              break;
+            }
+          }
+          
+          return articleContent || document.body.innerHTML; // Fallback to entire body if no content found
+        });
+        sendLog(`Article content extracted. Length: ${articleHtml.length} characters`);
+
+        sendLog('Calling extractQuotesFromArticle');
+        const quotes = await extractQuotesFromArticle(articleHtml, article.url, article.headline, sendLog);
+        sendLog(`Found ${quotes.length} quotes in this article:`);
+        
+        // Save quotes to the database
+        for (const quote of quotes) {
+          try {
+            await prisma.quoteStaging.create({
+              data: {
+                summary: quote.quote_summary,
+                rawQuoteText: quote.text,
+                speakerName: quote.speaker,
+                articleDate: new Date(quote.date + 'T00:00:00Z'),
+                articleUrl: article.url, // Use article.url instead of quote.articleUrl
+                articleHeadline: article.headline, // Use article.headline directly
+                parentMonitoredUrl: url,
+              },
+            });
+            sendLog(`Saved quote from ${quote.speaker} to the database`);
+          } catch (error) {
+            sendLog(`Error saving quote from ${quote.speaker}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          }
+        }
+      }
     } catch (navigationError) {
       sendLog(`Navigation error: ${navigationError instanceof Error ? navigationError.message : 'Unknown error'}`);
       sendLog('Attempting to proceed with partial page load');
-      // Try to get content even if page didn't fully load
-      await page.waitForTimeout(5000); // Wait 5 seconds for any content to load
-    }
-
-    // Extract only the relevant content based on the website
-    const html = await page.evaluate(() => {
-      let mainContent = '';
-      
-      if (window.location.hostname.includes('theguardian.com')) {
-        // Guardian's main content area
-        const content = document.querySelector('#container-content');
-        mainContent = content ? content.innerHTML : '';
-      } else if (window.location.hostname.includes('bbc.com')) {
-        // BBC's main content area
-        const content = document.querySelector('#main-content');
-        mainContent = content ? content.innerHTML : '';
-      } else if (window.location.hostname.includes('manchestereveningnews.co.uk')) {
-        // MEN's article content
-        const headline = document.querySelector('h1')?.textContent || '';
-        const subheadline = document.querySelector('.sub-headline')?.textContent || '';
-        const author = document.querySelector('.author-section')?.textContent || '';
-        const date = document.querySelector('time')?.textContent || '';
-        const articleBody = Array.from(document.querySelectorAll('.article-body > p'))
-          .map(p => p.textContent)
-          .filter(text => text && !text.includes('READ MORE:') && !text.includes('READ NEXT:'))
-          .join('\n\n');
-        
-        mainContent = [headline, subheadline, author, date, articleBody]
-          .filter(Boolean)
-          .join('\n\n');
-      }
-
-      // Fallback to looking for common content area selectors
-      if (!mainContent) {
-        const selectors = [
-          'main',
-          '.main-content',
-          '#content',
-          '.content',
-          'article',
-          '.articles',
-          '.stories'
-        ];
-        
-        for (const selector of selectors) {
-          const element = document.querySelector(selector);
-          if (element) {
-            mainContent = element.innerHTML;
-            break;
-          }
-        }
-      }
-
-      return mainContent || document.body.innerHTML;
-    });
-
-    sendLog(`Extracted main content area from page`);
-
-    const articles = await findHeadlinesWithQuotes(html, url, sendLog);
-    sendLog(`Found ${articles.length} articles with potential quotes:`);
-    articles.forEach((article, index) => {
-      sendLog(`${index + 1}. ${article.headline}`);
-    });
-
-    let allQuotes: Quote[] = [];
-
-    for (const article of articles) {
-      sendLog(`\nScraping article: ${article.headline}`);
-      sendLog(`URL: ${article.url}`);
-      
-      try {
-        sendLog('Attempting to navigate to article URL');
-        await page.goto(article.url, { 
-          waitUntil: 'networkidle0',
-          timeout: 120000 
-        });
-        sendLog('Successfully navigated to article URL');
-      } catch (articleNavigationError) {
-        sendLog(`Navigation error for article: ${articleNavigationError instanceof Error ? articleNavigationError.message : 'Unknown error'}`);
-        sendLog('Attempting to proceed with partial page load');
-        await page.waitForTimeout(5000);
-      }
-      
-      sendLog('Extracting article content');
-      const articleHtml = await page.evaluate(() => {
-        let articleContent = '';
-        
-        // Try to find the main article content
-        const selectors = [
-          'article',
-          '.article-body',
-          '.article-content',
-          '.story-body',
-          'main article',
-          '[data-test-id="article-body"]'
-        ];
-        
-        for (const selector of selectors) {
-          const element = document.querySelector(selector);
-          if (element) {
-            articleContent = element.innerHTML;
-            break;
-          }
-        }
-        
-        return articleContent || document.body.innerHTML; // Fallback to entire body if no content found
-      });
-      sendLog(`Article content extracted. Length: ${articleHtml.length} characters`);
-
-      sendLog('Calling extractQuotesFromArticle');
-      const quotes = await extractQuotesFromArticle(articleHtml, article.url, article.headline, sendLog);
-      sendLog(`Found ${quotes.length} quotes in this article:`);
-      
-      // Save quotes to the database
-      for (const quote of quotes) {
-        try {
-          await prisma.quoteStaging.create({
-            data: {
-              summary: quote.quote_summary,
-              rawQuoteText: quote.text,
-              speakerName: quote.speaker,
-              articleDate: new Date(quote.date + 'T00:00:00Z'),
-              articleUrl: article.url, // Use article.url instead of quote.articleUrl
-              articleHeadline: article.headline, // Use article.headline directly
-              parentMonitoredUrl: url,
-            },
-          });
-          sendLog(`Saved quote from ${quote.speaker} to the database`);
-        } catch (error) {
-          sendLog(`Error saving quote from ${quote.speaker}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-        }
-      }
+      await page.waitForTimeout(5000);
     }
   } catch (error) {
     sendLog(`Error during crawl: ${error instanceof Error ? error.message : 'Unknown error'}`);
