@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       });
 
-      // Format dates to ISO string for the frontend
+      // Format dates consistently
       const formattedQuotes = stagedQuotes.map(quote => ({
         ...quote,
         articleDate: quote.articleDate.toISOString(),

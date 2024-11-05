@@ -15,6 +15,13 @@ import { PlusCircle, Trash2, Upload, RefreshCw, Check, X } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { useRouter } from 'next/router';
 import { Textarea } from "../components/ui/textarea";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Calendar } from "@/components/ui/calendar"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
+import { format } from "date-fns"
+import { CalendarIcon, CheckIcon } from "lucide-react"
+import { cn } from "@/lib/utils";
+import { AddSpeakerModal } from '../components/AddSpeakerModal';
 
 interface Organization {
   id: string;
@@ -105,6 +112,11 @@ const AdminPage: React.FC = () => {
   const [specificArticleUrl, setSpecificArticleUrl] = useState('');
   const [editingDateId, setEditingDateId] = useState<string | null>(null);
   const [editingSpeakerId, setEditingSpeakerId] = useState<string | null>(null);
+  const [addSpeakerModal, setAddSpeakerModal] = useState<{
+    isOpen: boolean;
+    speakerName: string;
+    quoteId: string;
+  } | null>(null);
 
   useEffect(() => {
     fetchOrganizations();
@@ -328,13 +340,31 @@ const AdminPage: React.FC = () => {
       const response = await fetch(`/api/staged-quotes/${id}/accept`, {
         method: 'POST',
       });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to accept quote');
+      
+      const data = await response.json();
+      
+      if (response.status === 400 && data.message === 'Speaker not found. Please add the speaker first.') {
+        // Silently handle the speaker-not-found case by showing the modal
+        const stagedQuote = stagedQuotes.find(q => q.id === id);
+        if (stagedQuote) {
+          setAddSpeakerModal({
+            isOpen: true,
+            speakerName: stagedQuote.speakerName,
+            quoteId: id,
+          });
+        }
+        return; // Return early without showing any error
       }
+      
+      if (!response.ok) {
+        // Only show alerts for other types of errors
+        throw new Error(data.message || 'Failed to accept quote');
+      }
+      
       fetchStagedQuotes();
       fetchSavedQuotes();
     } catch (error: unknown) {
+      // Only show alerts for non-speaker-related errors
       console.error('Error accepting quote:', error);
       if (error instanceof Error) {
         alert(error.message);
@@ -436,6 +466,48 @@ const AdminPage: React.FC = () => {
       fetchStagedQuotes();
     } catch (error) {
       console.error('Error rejecting all quotes:', error);
+    }
+  };
+
+  const handleAddSpeakerAndQuote = async (organizationId: string | null, imageUrl: string | null) => {
+    if (!addSpeakerModal) return;
+
+    try {
+      // Create speaker first
+      const createSpeakerResponse = await fetch('/api/speakers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: addSpeakerModal.speakerName,
+          organizationId: organizationId,
+          imageUrl: imageUrl
+        }),
+      });
+
+      if (!createSpeakerResponse.ok) {
+        const errorData = await createSpeakerResponse.json();
+        throw new Error(errorData.message || 'Failed to create speaker');
+      }
+
+      // Now try accepting the quote again
+      const acceptResponse = await fetch(`/api/staged-quotes/${addSpeakerModal.quoteId}/accept`, {
+        method: 'POST',
+      });
+
+      if (!acceptResponse.ok) {
+        const errorData = await acceptResponse.json();
+        throw new Error(errorData.message || 'Failed to accept quote');
+      }
+
+      // Refresh the quotes lists
+      await fetchStagedQuotes();
+      await fetchSavedQuotes();
+      
+      // Close the modal
+      setAddSpeakerModal(null);
+    } catch (error) {
+      console.error('Error in handleAddSpeakerAndQuote:', error);
+      alert(error instanceof Error ? error.message : 'Failed to add speaker and save quote');
     }
   };
 
@@ -695,35 +767,32 @@ const AdminPage: React.FC = () => {
                   {stagedQuotes.map((quote) => (
                     <TableRow key={quote.id}>
                       <TableCell className="w-36 whitespace-nowrap">
-                        <div className="flex items-center space-x-2">
-                          {editingDateId === quote.id ? (
-                            <Input
-                              type="date"
-                              defaultValue={new Date(quote.articleDate).toISOString().split('T')[0]}
-                              className="w-32"
-                              autoFocus
-                              onBlur={() => setEditingDateId(null)}
-                              onChange={(e) => {
-                                if (e.target.value) {
-                                  updateStagedQuote(quote.id, 'articleDate', e.target.value);
-                                  setEditingDateId(null);
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant={"outline"}
+                              className={cn(
+                                "w-[240px] justify-start text-left font-normal",
+                                !quote.articleDate && "text-muted-foreground"
+                              )}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {quote.articleDate ? format(new Date(quote.articleDate), "PPP") : <span>Pick a date</span>}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={new Date(quote.articleDate)}
+                              onSelect={(date) => {
+                                if (date) {
+                                  updateStagedQuote(quote.id, 'articleDate', date.toISOString());
                                 }
                               }}
+                              initialFocus
                             />
-                          ) : (
-                            <>
-                              <span>{new Date(quote.articleDate).toLocaleDateString()}</span>
-                              <Button 
-                                variant="ghost" 
-                                size="sm" 
-                                className="h-6 w-6 p-0"
-                                onClick={() => setEditingDateId(quote.id)}
-                              >
-                                ✏️
-                              </Button>
-                            </>
-                          )}
-                        </div>
+                          </PopoverContent>
+                        </Popover>
                       </TableCell>
                       <TableCell className="w-48">
                         <div className="w-48 break-words">
@@ -738,36 +807,45 @@ const AdminPage: React.FC = () => {
                         </div>
                       </TableCell>
                       <TableCell className="w-32">
-                        <div className="flex items-center space-x-2">
-                          {editingSpeakerId === quote.id ? (
-                            <Input
-                              value={quote.speakerName}
-                              onChange={(e) => updateStagedQuote(quote.id, 'speakerName', e.target.value)}
-                              className="w-28"
-                              autoFocus
-                              onBlur={() => setEditingSpeakerId(null)}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                  setEditingSpeakerId(null);
-                                }
-                              }}
-                            />
-                          ) : (
-                            <>
-                              <div className="break-words">
-                                {quote.speakerName}
-                              </div>
-                              <Button 
-                                variant="ghost" 
-                                size="sm" 
-                                className="h-6 w-6 p-0 flex-shrink-0"
-                                onClick={() => setEditingSpeakerId(quote.id)}
-                              >
-                                ✏️
-                              </Button>
-                            </>
-                          )}
-                        </div>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              role="combobox"
+                              className="w-[200px] justify-between"
+                            >
+                              {quote.speakerName || "Select speaker..."}
+                              <CheckIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-[200px] p-0">
+                            <Command shouldFilter={true}>
+                              <CommandInput placeholder="Search speakers..." />
+                              <CommandList>
+                                <CommandEmpty>No speaker found.</CommandEmpty>
+                                <CommandGroup>
+                                  {speakers && speakers.map((speaker) => (
+                                    <CommandItem
+                                      key={speaker.id}
+                                      onSelect={() => {
+                                        updateStagedQuote(quote.id, 'speakerName', speaker.name);
+                                      }}
+                                      value={speaker.name}
+                                    >
+                                      <CheckIcon
+                                        className={cn(
+                                          "mr-2 h-4 w-4",
+                                          quote.speakerName === speaker.name ? "opacity-100" : "opacity-0"
+                                        )}
+                                      />
+                                      {speaker.name}
+                                    </CommandItem>
+                                  ))}
+                                </CommandGroup>
+                              </CommandList>
+                            </Command>
+                          </PopoverContent>
+                        </Popover>
                       </TableCell>
                       <TableCell className="w-1/3">
                         <Textarea
@@ -872,6 +950,15 @@ const AdminPage: React.FC = () => {
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
         {renderContent()}
+        {addSpeakerModal && (
+          <AddSpeakerModal
+            isOpen={true}
+            onClose={() => setAddSpeakerModal(null)}
+            onConfirm={handleAddSpeakerAndQuote}
+            speakerName={addSpeakerModal.speakerName}
+            organizations={organizations}
+          />
+        )}
       </div>
     </AdminLayout>
   );

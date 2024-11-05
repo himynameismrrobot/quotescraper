@@ -14,8 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           console.log('Invalid date: empty value');
           return res.status(400).json({ message: 'Invalid date format' });
         }
-        console.log('Converting date:', updates.articleDate);
-        updates.articleDate = new Date(`${updates.articleDate}T00:00:00Z`);
+        updates.articleDate = new Date(updates.articleDate);
         console.log('Converted date:', updates.articleDate);
       }
 
@@ -23,8 +22,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         where: { id: String(id) },
         data: updates,
       });
-      console.log('Successfully updated quote:', updatedQuote);
-      res.status(200).json(updatedQuote);
+
+      const formattedQuote = {
+        ...updatedQuote,
+        articleDate: updatedQuote.articleDate.toISOString(),
+      };
+
+      console.log('Successfully updated quote:', formattedQuote);
+      res.status(200).json(formattedQuote);
     } catch (error) {
       console.error('Error updating staged quote:', error);
       res.status(500).json({ message: 'Error updating staged quote' });
