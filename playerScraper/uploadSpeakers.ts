@@ -1,14 +1,20 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { PrismaClient } from '@prisma/client';
+import * as dotenv from 'dotenv';
 
-const prisma = new PrismaClient();
+// Load environment variables from the playerScraper directory
+dotenv.config({ path: path.join(__dirname, '.env') });
 
-interface PlayerData {
-  teamName: string;
-  playerName: string;
-  playerImageUrl: string;
+// Verify DATABASE_URL is loaded
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is not set');
 }
+
+// Initialize Prisma client with debug logging
+const prisma = new PrismaClient({
+  log: ['query', 'info', 'warn', 'error'],
+});
 
 async function uploadSpeakers() {
   try {
@@ -27,25 +33,57 @@ async function uploadSpeakers() {
       
       const [teamName, playerName, playerImageUrl] = row.split(',');
       
-      // Check if speaker already exists
-      const existingSpeaker = await prisma.speaker.findUnique({
-        where: { name: playerName }
-      });
-      
-      if (existingSpeaker) {
-        console.log(`Speaker already exists: ${playerName}`);
-        continue;
-      }
-      
-      // Create new speaker
-      await prisma.speaker.create({
-        data: {
-          name: playerName,
-          imageUrl: playerImageUrl
+      console.log(`Processing player: ${playerName} from team: ${teamName}`);
+
+      try {
+        // Check if speaker already exists
+        const existingSpeaker = await prisma.speaker.findUnique({
+          where: { name: playerName }
+        });
+        
+        if (existingSpeaker) {
+          console.log(`Speaker already exists: ${playerName}`);
+          continue;
         }
-      });
-      
-      console.log(`Added new speaker: ${playerName}`);
+
+        // Look up the organization by team name
+        const organization = await prisma.organization.findFirst({
+          where: { name: teamName }
+        });
+
+        if (!organization) {
+          console.log(`Organization not found for team: ${teamName}`);
+          // Create the organization if it doesn't exist
+          const newOrganization = await prisma.organization.create({
+            data: {
+              name: teamName,
+            }
+          });
+          console.log(`Created new organization: ${teamName}`);
+
+          // Create new speaker with organization
+          await prisma.speaker.create({
+            data: {
+              name: playerName,
+              imageUrl: playerImageUrl,
+              organizationId: newOrganization.id
+            }
+          });
+        } else {
+          // Create new speaker with existing organization
+          await prisma.speaker.create({
+            data: {
+              name: playerName,
+              imageUrl: playerImageUrl,
+              organizationId: organization.id
+            }
+          });
+        }
+        
+        console.log(`Added new speaker: ${playerName} with organization: ${teamName}`);
+      } catch (error) {
+        console.error(`Error processing player ${playerName}:`, error);
+      }
     }
     
     console.log('Upload completed successfully');
@@ -58,4 +96,4 @@ async function uploadSpeakers() {
 }
 
 // Execute the upload
-uploadSpeakers(); 
+uploadSpeakers();

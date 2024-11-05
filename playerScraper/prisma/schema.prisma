@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Speaker {
+  id             String       @id @default(cuid())
+  name           String       @unique
+  imageUrl       String?
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  savedQuotes    SavedQuote[]
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String?
+  speakers  Speaker[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MonitoredURL {
+  id            String   @id @default(cuid())
+  url           String   @unique
+  logoUrl       String?
+  lastCrawledAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model QuoteStaging {
+  id                 String   @id @default(cuid())
+  summary            String
+  rawQuoteText       String
+  speakerName        String
+  articleDate        DateTime
+  articleUrl         String
+  articleHeadline    String?  // Add this field
+  parentMonitoredUrl String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model SavedQuote {
+  id              String   @id @default(cuid())
+  summary         String
+  rawQuoteText    String
+  articleDate     DateTime
+  articleUrl      String
+  articleHeadline String?  // Add this field
+  speakerId       String
+  speaker         Speaker  @relation(fields: [speakerId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
