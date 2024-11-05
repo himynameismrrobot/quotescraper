@@ -244,6 +244,20 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
         }
       }
     }
+
+    // After successfully saving quotes, update the lastCrawledAt timestamp
+    try {
+      await prisma.monitoredURL.update({
+        where: { url: url },
+        data: { 
+          lastCrawledAt: new Date() 
+        },
+      });
+      sendLog('Updated last crawled timestamp');
+    } catch (error) {
+      sendLog(`Error updating lastCrawledAt: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+
   } catch (error) {
     sendLog(`Error during crawl: ${error instanceof Error ? error.message : 'Unknown error'}`);
   } finally {
