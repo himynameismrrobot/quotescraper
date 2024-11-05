@@ -2,7 +2,6 @@ import * as puppeteer from 'puppeteer';
 import OpenAI from 'openai';
 import * as dotenv from 'dotenv';
 import prisma from './prisma';
-import * as cheerio from 'cheerio';
 
 dotenv.config();
 
@@ -20,6 +19,12 @@ interface Quote {
   articleUrl: string;
   articleHeadline?: string; // Add this to track the headline
   summary: string;
+}
+
+function getJinaReaderUrl(url: string): string {
+  // Remove any existing protocol (http:// or https://)
+  const cleanUrl = url.replace(/^(https?:\/\/)/, '');
+  return `https://r.jina.ai/${cleanUrl}`;
 }
 
 export async function findHeadlinesWithQuotes(html: string, baseUrl: string, sendLog: (message: string) => void): Promise<Article[]> {
@@ -67,48 +72,15 @@ export async function findHeadlinesWithQuotes(html: string, baseUrl: string, sen
 }
 
 export async function extractQuotesFromArticle(
-  html: string, 
+  markdown: string, 
   url: string, 
   headline: string, 
   sendLog: (message: string) => void
 ): Promise<Quote[]> {
-  // First, extract just the article text content
-  const $ = cheerio.load(html);
-  let articleText = '';
-
-  // Try different selectors for article content
-  const selectors = [
-    '.article-body-commercial-selector', // Guardian
-    'article[data-test-id="article-review-body"]', // Guardian alternative
-    '.article__body', // BBC
-    '.article-body', // MEN
-    'article p', // Generic article paragraphs
-    '.story-body p', // Generic story paragraphs
-  ];
-
-  for (const selector of selectors) {
-    const content = $(selector).text().trim();
-    if (content) {
-      articleText = content;
-      sendLog(`Found content using selector: ${selector}`);
-      break;
-    }
-  }
-
-  // If no content found through selectors, try to get all paragraph text
-  if (!articleText) {
-    articleText = $('p').text().trim();
-    sendLog('No content found with specific selectors, falling back to all paragraph text');
-  }
-
-  // Log the text that will be sent to OpenAI
   sendLog('\n=== START OF TEXT TO BE SENT TO OPENAI FOR QUOTE EXTRACTION ===\n');
-  const chunkSize = 500;
-  for (let i = 0; i < articleText.length; i += chunkSize) {
-    sendLog(articleText.slice(i, i + chunkSize));
-  }
+  sendLog(markdown);
   sendLog('\n=== END OF TEXT TO BE SENT TO OPENAI FOR QUOTE EXTRACTION ===\n');
-  sendLog(`Total text length: ${articleText.length} characters`);
+  sendLog(`Total text length: ${markdown.length} characters`);
 
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
@@ -129,7 +101,7 @@ export async function extractQuotesFromArticle(
         No other text or formatting:
         
         === START OF ARTICLE TEXT ===
-        ${articleText}
+        ${markdown}
         === END OF ARTICLE TEXT ===
 
         Here's an example of how to extract and format quotes from an article:
@@ -177,18 +149,13 @@ export async function extractQuotesFromArticle(
 
   let content = response.choices[0].message?.content || '[]';
   
-  sendLog("OpenAI response received for quote extraction");
-  console.log("OpenAI response:", content);
-
-  content = content.replace(/^```json\s*/, '').replace(/\s*```$/, '');
-
   try {
     const quotes: Quote[] = JSON.parse(content);
     sendLog(`Successfully parsed ${quotes.length} quotes from the article`);
     return quotes.map(quote => ({ 
       ...quote, 
       articleUrl: url,
-      articleHeadline: headline, // Add the headline to each quote
+      articleHeadline: headline,
       summary: quote.quote_summary
     }));
   } catch (error) {
@@ -215,185 +182,67 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
       '--disable-gpu'
     ]
   });
-  const page = await browser.newPage();
-  
-  // Set a real user agent
-  await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-  
-  // Add more realistic browser headers
-  await page.setExtraHTTPHeaders({
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"',
-    'Sec-Fetch-Dest': 'document',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-Site': 'none',
-    'Sec-Fetch-User': '?1'
-  });
-
-  // Add this line to intercept and block unnecessary resources
-  await page.setRequestInterception(true);
-  page.on('request', (request) => {
-    if (['image', 'stylesheet', 'font', 'media'].includes(request.resourceType())) {
-      request.abort();
-    } else {
-      request.continue();
-    }
-  });
-
-  sendLog('Browser configured with user agent and headers');
 
   try {
-    sendLog(`Navigating to ${url}`);
-    try {
-      await page.goto(url, { 
-        waitUntil: 'networkidle0',
-        timeout: 120000 
-      });
-      sendLog('Page loaded successfully');
+    const jinaUrl = getJinaReaderUrl(url);
+    sendLog(`Navigating to Jina reader URL: ${jinaUrl}`);
+    
+    const page = await browser.newPage();
+    await page.goto(jinaUrl, { waitUntil: 'networkidle0', timeout: 120000 });
+    sendLog('Page loaded successfully');
 
-      // Wait for content to be available
-      await page.waitForSelector('main', { timeout: 10000 });
-      sendLog('Main content found');
+    // Extract the markdown content
+    const markdown = await page.evaluate(() => {
+      // Just get the entire body text since it's already markdown from Jina
+      return document.body.innerText;
+    });
+    sendLog('Extracted markdown content from Jina reader');
 
-      // Log the actual HTML for debugging
-      const pageContent = await page.content();
-      sendLog(`Page content length: ${pageContent.length} characters`);
+    // Add logging to see what we got
+    sendLog('Extracted markdown content:');
+    sendLog(markdown);
 
-      // Extract only the relevant content based on the website
-      const html = await page.evaluate(() => {
-        let mainContent = '';
-        
-        if (window.location.hostname.includes('theguardian.com')) {
-          // Guardian's main content area
-          const content = document.querySelector('#container-content');
-          mainContent = content ? content.innerHTML : '';
-        } else if (window.location.hostname.includes('bbc.com')) {
-          // First try live updates
-          const liveUpdates = Array.from(document.querySelectorAll('.lx-stream__post-text'));
-          if (liveUpdates.length > 0) {
-            mainContent = liveUpdates.map(update => update.textContent).join('\n\n');
-          } else {
-            // Fallback to regular article
-            const content = document.querySelector('.article__body, .qa-story-body');
-            mainContent = content ? content.innerHTML : '';
-          }
-        } else if (window.location.hostname.includes('manchestereveningnews.co.uk')) {
-          // Updated MEN extraction to focus on article links
-          const articles = Array.from(document.querySelectorAll('a[data-testid="article-link"]'));
-          mainContent = articles.map(article => ({
-            url: article.getAttribute('href'),
-            headline: article.textContent?.trim() || ''
-          })).join('\n');
-        }
+    // Send markdown to OpenAI for headline extraction
+    const articles = await findHeadlinesWithQuotes(markdown, url, sendLog);
+    sendLog(`Found ${articles.length} articles with potential quotes:`);
+    
+    for (const article of articles) {
+      sendLog(`\nScraping article: ${article.headline}`);
+      
+      // Convert article URL to Jina reader URL
+      const jinaArticleUrl = getJinaReaderUrl(article.url);
+      sendLog(`Navigating to Jina reader URL for article: ${jinaArticleUrl}`);
+      
+      await page.goto(jinaArticleUrl, { waitUntil: 'networkidle0', timeout: 120000 });
+      sendLog('Article page loaded successfully');
 
-        // Fallback to looking for common content area selectors
-        if (!mainContent) {
-          const selectors = [
-            'main',
-            '.main-content',
-            '#content',
-            '.content',
-            'article',
-            '.articles',
-            '.stories'
-          ];
-          
-          for (const selector of selectors) {
-            const element = document.querySelector(selector);
-            if (element) {
-              mainContent = element.innerHTML;
-              break;
-            }
-          }
-        }
+      // Extract the markdown content
+      const articleMarkdown = await page.evaluate(() => document.body.innerText);
+      sendLog('Extracted markdown content from article');
 
-        return mainContent || document.body.innerHTML;
-      });
+      // Extract quotes from the markdown
+      const quotes = await extractQuotesFromArticle(articleMarkdown, article.url, article.headline, sendLog);
+      sendLog(`Found ${quotes.length} quotes in this article`);
 
-      sendLog(`Extracted main content area from page`);
-
-      const articles = await findHeadlinesWithQuotes(html, url, sendLog);
-      sendLog(`Found ${articles.length} articles with potential quotes:`);
-      articles.forEach((article, index) => {
-        sendLog(`${index + 1}. ${article.headline}`);
-      });
-
-      let allQuotes: Quote[] = [];
-
-      for (const article of articles) {
-        sendLog(`\nScraping article: ${article.headline}`);
-        sendLog(`URL: ${article.url}`);
-        
+      // Save quotes to database
+      for (const quote of quotes) {
         try {
-          sendLog('Attempting to navigate to article URL');
-          await page.goto(article.url, { 
-            waitUntil: 'networkidle0',
-            timeout: 120000 
+          await prisma.quoteStaging.create({
+            data: {
+              summary: quote.quote_summary,
+              rawQuoteText: quote.text,
+              speakerName: quote.speaker,
+              articleDate: new Date(quote.date + 'T00:00:00Z'),
+              articleUrl: article.url,
+              articleHeadline: article.headline,
+              parentMonitoredUrl: url,
+            },
           });
-          sendLog('Successfully navigated to article URL');
-        } catch (articleNavigationError) {
-          sendLog(`Navigation error for article: ${articleNavigationError instanceof Error ? articleNavigationError.message : 'Unknown error'}`);
-          sendLog('Attempting to proceed with partial page load');
-          await page.waitForTimeout(5000);
-        }
-        
-        sendLog('Extracting article content');
-        const articleHtml = await page.evaluate(() => {
-          let articleContent = '';
-          
-          // Try to find the main article content
-          const selectors = [
-            'article',
-            '.article-body',
-            '.article-content',
-            '.story-body',
-            'main article',
-            '[data-test-id="article-body"]'
-          ];
-          
-          for (const selector of selectors) {
-            const element = document.querySelector(selector);
-            if (element) {
-              articleContent = element.innerHTML;
-              break;
-            }
-          }
-          
-          return articleContent || document.body.innerHTML; // Fallback to entire body if no content found
-        });
-        sendLog(`Article content extracted. Length: ${articleHtml.length} characters`);
-
-        sendLog('Calling extractQuotesFromArticle');
-        const quotes = await extractQuotesFromArticle(articleHtml, article.url, article.headline, sendLog);
-        sendLog(`Found ${quotes.length} quotes in this article:`);
-        
-        // Save quotes to the database
-        for (const quote of quotes) {
-          try {
-            await prisma.quoteStaging.create({
-              data: {
-                summary: quote.quote_summary,
-                rawQuoteText: quote.text,
-                speakerName: quote.speaker,
-                articleDate: new Date(quote.date + 'T00:00:00Z'),
-                articleUrl: article.url, // Use article.url instead of quote.articleUrl
-                articleHeadline: article.headline, // Use article.headline directly
-                parentMonitoredUrl: url,
-              },
-            });
-            sendLog(`Saved quote from ${quote.speaker} to the database`);
-          } catch (error) {
-            sendLog(`Error saving quote from ${quote.speaker}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-          }
+          sendLog(`Saved quote from ${quote.speaker} to the database`);
+        } catch (error) {
+          sendLog(`Error saving quote: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
       }
-    } catch (navigationError) {
-      sendLog(`Navigation error: ${navigationError instanceof Error ? navigationError.message : 'Unknown error'}`);
-      sendLog('Attempting to proceed with partial page load');
-      await page.waitForTimeout(5000);
     }
   } catch (error) {
     sendLog(`Error during crawl: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -404,132 +253,42 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
 }
 
 export async function crawlSpecificArticle(url: string, sendLog: (message: string) => void): Promise<void> {
-  sendLog('\n=== STARTING PUPPETEER ===');
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
-  sendLog('Browser launched');
-  
-  const page = await browser.newPage();
-  sendLog('New page created');
-  
-  await page.setDefaultNavigationTimeout(120000);
-  await page.setDefaultTimeout(120000);
 
   try {
-    sendLog(`Puppeteer navigating to: ${url}`);
-    try {
-      await page.goto(url, { 
-        waitUntil: 'networkidle0',
-        timeout: 120000 
-      });
-      sendLog('Page loaded successfully');
-    } catch (navigationError) {
-      sendLog(`Navigation error: ${navigationError instanceof Error ? navigationError.message : 'Unknown error'}`);
-      sendLog('Attempting to proceed with partial page load');
-      await page.waitForTimeout(5000);
-    }
+    const jinaUrl = getJinaReaderUrl(url);
+    sendLog(`Navigating to Jina reader URL: ${jinaUrl}`);
+    
+    const page = await browser.newPage();
+    await page.goto(jinaUrl, { waitUntil: 'networkidle0', timeout: 120000 });
+    sendLog('Page loaded successfully');
 
-    sendLog('Puppeteer extracting article headline');
+    // Extract the markdown content
+    const markdown = await page.evaluate(() => {
+      // Just get the entire body text since it's already markdown from Jina
+      return document.body.innerText;
+    });
+    sendLog('Extracted markdown content from Jina reader');
+
+    // Add logging to see what we got
+    sendLog('Extracted markdown content:');
+    sendLog(markdown);
+
+    // Extract the headline (you might need to adjust this based on Jina's output format)
     const articleHeadline = await page.evaluate(() => {
-      const selectors = ['h1', '.article-headline', '.article-title'];
-      for (const selector of selectors) {
-        const element = document.querySelector(selector);
-        if (element) return element.textContent?.trim() || '';
-      }
-      return '';
+      const firstLine = document.body.innerText.split('\n')[0];
+      return firstLine || '';
     });
     sendLog(`Found article headline: ${articleHeadline}`);
 
-    sendLog('Puppeteer extracting article content');
-    const html = await page.evaluate(() => {
-      let mainContent = '';
-      
-      if (window.location.hostname.includes('theguardian.com')) {
-        const content = document.querySelector('.article-body-commercial-selector');
-        mainContent = content ? content.innerHTML : '';
-      } else if (window.location.hostname.includes('bbc.com')) {
-        const content = document.querySelector('.article__body');
-        mainContent = content ? content.innerHTML : '';
-      } else if (window.location.hostname.includes('manchestereveningnews.co.uk')) {
-        const articleBody = Array.from(document.querySelectorAll('.article-body > p'))
-          .map(p => p.textContent)
-          .filter(text => text && !text.includes('READ MORE:') && !text.includes('READ NEXT:'))
-          .join('\n\n');
-        mainContent = articleBody;
-      }
+    // Extract quotes from the markdown
+    const quotes = await extractQuotesFromArticle(markdown, url, articleHeadline, sendLog);
+    sendLog(`Found ${quotes.length} quotes in this article`);
 
-      // Fallback to common article content selectors
-      if (!mainContent) {
-        const selectors = [
-          'article',
-          '.article-body',
-          '.article-content',
-          '.story-body',
-          'main article',
-          '[data-test-id="article-body"]'
-        ];
-        
-        for (const selector of selectors) {
-          const element = document.querySelector(selector);
-          if (element) {
-            mainContent = element.innerHTML;
-            break;
-          }
-        }
-      }
-
-      return mainContent || document.body.innerHTML;
-    });
-    sendLog('Puppeteer extracted raw HTML content');
-    sendLog('\n=== PUPPETEER COMPLETE ===\n');
-
-    sendLog('\n=== STARTING CHEERIO PROCESSING ===');
-    sendLog('Cheerio loading HTML content');
-    const $ = cheerio.load(html);
-    let articleText = '';
-
-    sendLog('Cheerio extracting text content from HTML');
-    // Try different selectors for article content
-    const selectors = [
-      '.article-body-commercial-selector',
-      'article[data-test-id="article-review-body"]',
-      '.article__body',
-      '.article-body',
-      'article p',
-      '.story-body p',
-    ];
-
-    for (const selector of selectors) {
-      const content = $(selector).text().trim();
-      if (content) {
-        articleText = content;
-        sendLog(`Cheerio found content using selector: ${selector}`);
-        break;
-      }
-    }
-
-    if (!articleText) {
-      sendLog('No content found with specific selectors, falling back to all paragraph text');
-      articleText = $('p').text().trim();
-    }
-    sendLog('\n=== CHEERIO PROCESSING COMPLETE ===\n');
-
-    sendLog('\n=== STARTING OPENAI PROCESSING ===');
-    sendLog('\n=== TEXT BEING SENT TO OPENAI FOR QUOTE EXTRACTION ===\n');
-    const chunkSize = 500;
-    for (let i = 0; i < articleText.length; i += chunkSize) {
-      sendLog(articleText.slice(i, i + chunkSize));
-    }
-    sendLog('\n=== END OF TEXT BEING SENT TO OPENAI ===\n');
-
-    // Pass articleText instead of html to extractQuotesFromArticle
-    const quotes = await extractQuotesFromArticle(articleText, url, articleHeadline, sendLog);
-    sendLog(`OpenAI found ${quotes.length} quotes in this article`);
-    sendLog('\n=== OPENAI PROCESSING COMPLETE ===\n');
-
-    // Save quotes to the database
+    // Save quotes to database
     for (const quote of quotes) {
       try {
         await prisma.quoteStaging.create({
@@ -545,7 +304,7 @@ export async function crawlSpecificArticle(url: string, sendLog: (message: strin
         });
         sendLog(`Saved quote from ${quote.speaker} to the database`);
       } catch (error) {
-        sendLog(`Error saving quote from ${quote.speaker}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        sendLog(`Error saving quote: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
     }
   } catch (error) {
