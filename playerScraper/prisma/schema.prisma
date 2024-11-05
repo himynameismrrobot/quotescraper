@@ -27,35 +27,13 @@ model Organization {
   updatedAt DateTime @updatedAt
 }
 
-model MonitoredURL {
-  id            String   @id @default(cuid())
-  url           String   @unique
-  logoUrl       String?
-  lastCrawledAt DateTime?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
-model QuoteStaging {
-  id                 String   @id @default(cuid())
-  summary            String
-  rawQuoteText       String
-  speakerName        String
-  articleDate        DateTime
-  articleUrl         String
-  articleHeadline    String?  // Add this field
-  parentMonitoredUrl String
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
-}
-
 model SavedQuote {
   id              String   @id @default(cuid())
   summary         String
   rawQuoteText    String
   articleDate     DateTime
   articleUrl      String
-  articleHeadline String?  // Add this field
+  articleHeadline String?
   speakerId       String
   speaker         Speaker  @relation(fields: [speakerId], references: [id])
   createdAt       DateTime @default(now())
