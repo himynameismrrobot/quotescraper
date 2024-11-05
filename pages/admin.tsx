@@ -752,27 +752,27 @@ const AdminPage: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <Table className="table-fixed w-full">
+              <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="w-36">Article Date</TableHead>
+                    <TableHead className="w-36">Date & Speaker</TableHead>
                     <TableHead className="w-48">Article</TableHead>
-                    <TableHead className="w-32">Speaker Name</TableHead>
-                    <TableHead className="w-1/3">Quote Summary</TableHead>
-                    <TableHead className="w-2/5">Raw Quote Text</TableHead>
+                    <TableHead className="w-[300px]">Quote Summary</TableHead>
+                    <TableHead className="w-[400px]">Raw Quote Text</TableHead>
                     <TableHead className="w-24">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {stagedQuotes.map((quote) => (
                     <TableRow key={quote.id}>
-                      <TableCell className="w-36 whitespace-nowrap">
+                      <TableCell className="space-y-2">
+                        {/* Date Picker */}
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
                               variant={"outline"}
                               className={cn(
-                                "w-[240px] justify-start text-left font-normal",
+                                "w-[200px] justify-start text-left font-normal",
                                 !quote.articleDate && "text-muted-foreground"
                               )}
                             >
@@ -793,20 +793,8 @@ const AdminPage: React.FC = () => {
                             />
                           </PopoverContent>
                         </Popover>
-                      </TableCell>
-                      <TableCell className="w-48">
-                        <div className="w-48 break-words">
-                          <a 
-                            href={quote.articleUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-blue-500 hover:underline block"
-                          >
-                            {quote.articleHeadline || quote.articleUrl}
-                          </a>
-                        </div>
-                      </TableCell>
-                      <TableCell className="w-32">
+
+                        {/* Speaker Selector */}
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
@@ -847,21 +835,29 @@ const AdminPage: React.FC = () => {
                           </PopoverContent>
                         </Popover>
                       </TableCell>
-                      <TableCell className="w-1/3">
-                        <Textarea
-                          value={quote.summary}
-                          onChange={(e) => updateStagedQuote(quote.id, 'summary', e.target.value)}
-                          style={{ width: '100%', minHeight: '100px' }}
-                        />
+                      <TableCell>
+                        <div className="max-w-[180px] break-words">
+                          <a 
+                            href={quote.articleUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            {quote.articleHeadline || quote.articleUrl}
+                          </a>
+                        </div>
                       </TableCell>
-                      <TableCell className="w-2/5">
-                        <Textarea
-                          value={quote.rawQuoteText}
-                          onChange={(e) => updateStagedQuote(quote.id, 'rawQuoteText', e.target.value)}
-                          style={{ width: '100%', minHeight: '100px' }}
-                        />
+                      <TableCell>
+                        <div className="max-w-[280px] break-words">
+                          {quote.summary}
+                        </div>
                       </TableCell>
-                      <TableCell className="w-24">
+                      <TableCell>
+                        <div className="max-w-[380px] break-words">
+                          {quote.rawQuoteText}
+                        </div>
+                      </TableCell>
+                      <TableCell>
                         <div className="flex flex-col space-y-2">
                           <Button variant="outline" size="sm" onClick={() => acceptQuote(quote.id)} className="whitespace-nowrap">
                             <Check className="h-4 w-4 mr-1" />
