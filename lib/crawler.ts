@@ -271,9 +271,15 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
           const content = document.querySelector('#container-content');
           mainContent = content ? content.innerHTML : '';
         } else if (window.location.hostname.includes('bbc.com')) {
-          // BBC's main content area
-          const content = document.querySelector('#main-content');
-          mainContent = content ? content.innerHTML : '';
+          // First try live updates
+          const liveUpdates = Array.from(document.querySelectorAll('.lx-stream__post-text'));
+          if (liveUpdates.length > 0) {
+            mainContent = liveUpdates.map(update => update.textContent).join('\n\n');
+          } else {
+            // Fallback to regular article
+            const content = document.querySelector('.article__body, .qa-story-body');
+            mainContent = content ? content.innerHTML : '';
+          }
         } else if (window.location.hostname.includes('manchestereveningnews.co.uk')) {
           // Updated MEN extraction to focus on article links
           const articles = Array.from(document.querySelectorAll('a[data-testid="article-link"]'));
