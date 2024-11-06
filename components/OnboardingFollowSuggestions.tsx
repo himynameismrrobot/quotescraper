@@ -62,8 +62,10 @@ export default function OnboardingFollowSuggestions() {
         throw new Error('Failed to save follows');
       }
 
-      // Use replace instead of push to prevent back button from returning to onboarding
-      await router.replace('/newsfeed');
+      // Force session update to get the new username
+      await router.push('/newsfeed');
+      // Refresh the session to get the updated data
+      window.location.href = '/newsfeed';
     } catch (error) {
       console.error('Error saving follows:', error);
       alert('Failed to save follows. Please try again.');
