@@ -7,7 +7,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import OnboardingFollowSuggestions from '@/components/OnboardingFollowSuggestions';
 
 export default function OnboardingPage() {
-  const { data: session, status } = useSession();
+  const { data: session, status } = useSession({ required: true });
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -22,6 +22,16 @@ export default function OnboardingPage() {
       router.push('/auth/signin');
     }
   }, [status, router]);
+
+  useEffect(() => {
+    if (session?.user) {
+      setFormData({
+        name: session.user.name || '',
+        username: '',
+        image: session.user.image || '',
+      });
+    }
+  }, [session]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +62,7 @@ export default function OnboardingPage() {
         throw new Error(data.message || 'Failed to save user data');
       }
 
+      console.log('Moving to next step');
       setStep(2);
     } catch (error) {
       console.error('Error saving user data:', error);

@@ -22,14 +22,16 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
-    async signIn({ user, account, profile }) {
-      console.log("🟢 SignIn callback started:", { user, account, profile });
+    async signIn({ user, account }) {
+      console.log("🟢 SignIn callback started:", { user, account });
       try {
         if (account?.provider === "google") {
           let dbUser = await prisma.user.findUnique({
             where: { email: user.email! },
             include: { accounts: true },
           });
+
+          console.log("🟡 Database user lookup result:", dbUser);
 
           if (!dbUser) {
             dbUser = await prisma.user.create({
@@ -52,7 +54,7 @@ export const authOptions: NextAuthOptions = {
             console.log("🟣 Created new user:", dbUser);
           }
 
-          // Create session and log it
+          // Create session
           const session = await prisma.session.create({
             data: {
               sessionToken: account.access_token!,
@@ -64,16 +66,10 @@ export const authOptions: NextAuthOptions = {
             sessionId: session.id,
             userId: session.userId,
             expires: session.expires,
-            token: session.sessionToken.substring(0, 10) + '...' // Log partial token for security
+            token: session.sessionToken.substring(0, 10) + '...'
           });
 
-          if (!dbUser.username) {
-            console.log("🟠 User needs onboarding");
-            return `/onboarding?email=${encodeURIComponent(user.email!)}`;
-          }
-          
-          console.log("🟤 User exists and has completed onboarding");
-          return true;
+          return true; // Always return true to allow sign in
         }
         return true;
       } catch (error) {
@@ -96,12 +92,25 @@ export const authOptions: NextAuthOptions = {
         },
       });
 
+      // If user needs onboarding, send them there
       if (session?.user && !session.user.username) {
         console.log("🟠 Redirecting to onboarding");
         return `${baseUrl}/onboarding`;
       }
 
-      return url.startsWith(baseUrl) ? url : baseUrl;
+      // If URL is signin or base URL, and user has completed onboarding, send to newsfeed
+      if (url.includes('/auth/signin') || url === baseUrl || url === `${baseUrl}/`) {
+        console.log("🟤 Redirecting to newsfeed");
+        return `${baseUrl}/newsfeed`; // Changed from / to /newsfeed
+      }
+
+      // Otherwise, allow the URL if it's from our base URL
+      if (url.startsWith(baseUrl)) {
+        return url;
+      }
+      
+      // Default to newsfeed
+      return `${baseUrl}/newsfeed`; // Changed from / to /newsfeed
     },
   },
   pages: {

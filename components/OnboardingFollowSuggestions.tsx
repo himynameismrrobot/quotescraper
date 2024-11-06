@@ -62,8 +62,8 @@ export default function OnboardingFollowSuggestions() {
         throw new Error('Failed to save follows');
       }
 
-      // Redirect to newsfeed
-      router.push('/');
+      // Use replace instead of push to prevent back button from returning to onboarding
+      await router.replace('/newsfeed');
     } catch (error) {
       console.error('Error saving follows:', error);
       alert('Failed to save follows. Please try again.');
