@@ -32,7 +32,12 @@ export default withAuth(
         const hasSessionToken = req.cookies.has('next-auth.session-token');
 
         // Protected routes that require authentication
-        if (req.nextUrl.pathname === '/newsfeed' || req.nextUrl.pathname === '/profile') {
+        if (
+          req.nextUrl.pathname === '/newsfeed' || 
+          req.nextUrl.pathname === '/profile' ||
+          req.nextUrl.pathname === '/admin' ||
+          req.nextUrl.pathname.startsWith('/admin/')
+        ) {
           console.log("🔑 Protected route access check - Has session token:", hasSessionToken);
           return hasSessionToken;
         }
