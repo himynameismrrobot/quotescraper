@@ -9,7 +9,6 @@ export default withAuth(
     console.log("🎫 Full token data:", req.nextauth?.token);
     console.log("🔐 Request cookies:", req.cookies);
     
-    // Allow all requests to proceed to the next middleware/handler
     return NextResponse.next();
   },
   {
@@ -29,11 +28,12 @@ export default withAuth(
           return true;
         }
 
-        // Allow access to newsfeed only if user has a token
-        if (req.nextUrl.pathname === '/newsfeed') {
-          // Check for session token in cookies
-          const hasSessionToken = req.cookies.has('next-auth.session-token');
-          console.log("🔑 Newsfeed access check - Has session token:", hasSessionToken);
+        // Check for session token in cookies for protected routes
+        const hasSessionToken = req.cookies.has('next-auth.session-token');
+
+        // Protected routes that require authentication
+        if (req.nextUrl.pathname === '/newsfeed' || req.nextUrl.pathname === '/profile') {
+          console.log("🔑 Protected route access check - Has session token:", hasSessionToken);
           return hasSessionToken;
         }
 
@@ -46,7 +46,6 @@ export default withAuth(
         return !!token;
       },
     },
-    secret: process.env.NEXTAUTH_SECRET,
     pages: {
       signIn: '/auth/signin',
     },
