@@ -153,7 +153,7 @@ async function extractPlayersWithAI(html: string, teamName: string): Promise<Pla
   }
 }
 
-async function scrapeTeamPlayers(url: string = 'https://www.sofascore.com/team/football/wolverhampton/3'): Promise<void> {
+async function scrapeTeamPlayers(url: string = 'https://www.sofascore.com/team/football/manchester-united/35'): Promise<void> {
   const browser = await puppeteer.launch({
     headless: true,
     args: [
@@ -190,7 +190,7 @@ async function scrapeTeamPlayers(url: string = 'https://www.sofascore.com/team/f
     console.log('Page content extracted, sending to OpenAI...');
 
     // Use OpenAI to extract player data
-    const players = await extractPlayersWithAI(pageContent, 'Wolves');
+    const players = await extractPlayersWithAI(pageContent, 'Manchester United');
     console.log(`Found ${players.length} players using AI`);
 
     // Log each player found

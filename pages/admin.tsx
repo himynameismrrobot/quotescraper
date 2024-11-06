@@ -298,9 +298,9 @@ const AdminPage: React.FC = () => {
         }
       }
       setCrawlLogs(prevLogs => [...prevLogs, 'Crawl completed successfully']);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error triggering crawl:', error);
-      setCrawlLogs(prevLogs => [...prevLogs, `Crawl failed: ${error.message}`]);
+      setCrawlLogs(prevLogs => [...prevLogs, `Crawl failed: ${error instanceof Error ? error.message : 'Unknown error'}`]);
     } finally {
       setIsCrawling(false);
     }

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import EchoLayout from '../components/EchoLayout';
 import QuoteCard from '../components/QuoteCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
@@ -16,10 +18,26 @@ interface Quote {
 const NewsfeedPage: React.FC = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [activeTab, setActiveTab] = useState("everyone");
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
+    if (status === "loading") return;
+    
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+      return;
+    }
+
+    // Check if user needs onboarding
+    if (session?.user && !session.user.username) {
+      router.push("/onboarding");
+      return;
+    }
+
+    // Only fetch quotes if user is authenticated and has completed onboarding
     fetchQuotes();
-  }, []);
+  }, [status, session, router]);
 
   const fetchQuotes = async () => {
     try {
@@ -33,6 +51,16 @@ const NewsfeedPage: React.FC = () => {
       console.error('Error fetching quotes:', error);
     }
   };
+
+  // Show loading state while checking authentication
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  // Don't render anything while redirecting
+  if (status === "unauthenticated" || (session?.user && !session.user.username)) {
+    return null;
+  }
 
   return (
     <EchoLayout>

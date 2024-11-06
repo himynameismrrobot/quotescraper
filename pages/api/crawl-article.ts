@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { crawlSpecificArticle } from '../../lib/crawler';
+import fs from 'fs';
+import path from 'path';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -12,22 +14,32 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'URL is required' });
   }
 
-  console.log('\n=== STARTING CRAWL FOR SPECIFIC ARTICLE ===');
-  console.log('URL:', url);
+  // Create logs directory if it doesn't exist
+  const logsDir = path.join(process.cwd(), 'logs');
+  if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir);
+  }
 
-  const sendLog = (message: string) => {
-    // Log to terminal instead of trying to send to UI
+  // Create a log file with timestamp
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const logFile = path.join(logsDir, `crawl-${timestamp}.log`);
+  
+  const writeToLog = (message: string) => {
+    fs.appendFileSync(logFile, message + '\n');
     console.log(message);
   };
 
+  writeToLog('\n=== STARTING CRAWL FOR SPECIFIC ARTICLE ===');
+  writeToLog('URL: ' + url);
+
   try {
-    await crawlSpecificArticle(url, sendLog);
-    console.log('Article crawl completed successfully');
+    await crawlSpecificArticle(url, writeToLog);
+    writeToLog('Article crawl completed successfully');
   } catch (error) {
-    console.error('Error during article crawl:', error);
-    console.error('Full error object:', error);
+    writeToLog('Error during article crawl: ' + error);
+    writeToLog('Full error object: ' + JSON.stringify(error, null, 2));
   } finally {
-    console.log('=== CRAWL COMPLETE ===\n');
+    writeToLog('=== CRAWL COMPLETE ===\n');
     res.status(200).json({ message: 'Crawl completed' });
   }
 }

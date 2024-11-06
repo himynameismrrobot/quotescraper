@@ -17,7 +17,7 @@ interface Quote {
   text: string;
   date: string;
   articleUrl: string;
-  articleHeadline?: string; // Add this to track the headline
+  articleHeadline?: string;
   summary: string;
 }
 

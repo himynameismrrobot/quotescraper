@@ -29,4 +29,4 @@ files.forEach(file => {
 fs.writeFileSync(combinedFilePath, allRows.join('\n'));
 
 console.log(`Combined ${files.length} files into all_players.csv`);
-console.log(`Total entries: ${allRows.length - 1}`); // Subtract 1 for header row 
+console.log(`Total entries: ${allRows.length - 1}`); // Subtract 1 for header row
