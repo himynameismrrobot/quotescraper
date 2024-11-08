@@ -15,33 +15,13 @@ interface Quote {
   articleDate: string;
 }
 
-const NewsfeedPage: React.FC = () => {
+const NewsfeedPage = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [activeTab, setActiveTab] = useState("everyone");
-  const { data: session, status } = useSession();
-  const router = useRouter();
+  const [activeTab, setActiveTab] = useState('all');
 
-  useEffect(() => {
-    console.log("Session status in newsfeed:", status, session);
-    
-    if (status === "unauthenticated") {
-      router.push("/auth/signin");
-      return;
-    }
-
-    if (status === "authenticated" && !session.user.username) {
-      router.push("/onboarding");
-      return;
-    }
-
-    if (status === "authenticated") {
-      fetchQuotes();
-    }
-  }, [status, session, router]);
-
-  const fetchQuotes = async () => {
+  const fetchQuotes = async (tab: string) => {
     try {
-      const response = await fetch('/api/quotes');
+      const response = await fetch(`/api/quotes?tab=${tab}`);
       if (!response.ok) {
         throw new Error('Failed to fetch quotes');
       }
@@ -52,46 +32,55 @@ const NewsfeedPage: React.FC = () => {
     }
   };
 
-  // Show loading state while checking authentication
-  if (status === "loading") {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    fetchQuotes(activeTab);
+  }, [activeTab]); // Re-fetch when tab changes
 
-  // Don't render anything while redirecting
-  if (status === "unauthenticated" || (session?.user && !session.user.username)) {
-    return null;
-  }
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+  };
 
   return (
     <EchoLayout>
-      <div className="fixed top-0 left-0 right-0 bg-white z-10 px-4 pt-4 pb-2">
-        <h1 className="text-2xl font-bold mb-4">Newsfeed</h1>
-        <Tabs defaultValue="everyone">
+      <div className="container mx-auto px-4">
+        <Tabs defaultValue="all" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="everyone" onClick={() => setActiveTab("everyone")}>Everyone</TabsTrigger>
-            <TabsTrigger value="following" onClick={() => setActiveTab("following")}>Following</TabsTrigger>
+            <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="following">Following</TabsTrigger>
           </TabsList>
-        </Tabs>
-      </div>
-      <div className="container mx-auto pt-32">
-        <Tabs defaultValue="everyone">
-          <TabsContent value="everyone">
-            {quotes.map((quote) => (
-              <QuoteCard
-                key={quote.id}
-                id={quote.id}
-                summary={quote.summary}
-                speakerName={quote.speakerName}
-                speakerImage={quote.speakerImage}
-                organizationLogo={quote.organizationLogo}
-                articleDate={quote.articleDate}
-                likes={0}
-                comments={0}
-              />
-            ))}
+          <TabsContent value="all">
+            <div className="space-y-4">
+              {quotes.map((quote) => (
+                <QuoteCard
+                  key={quote.id}
+                  id={quote.id}
+                  summary={quote.summary}
+                  speakerName={quote.speakerName}
+                  speakerImage={quote.speakerImage}
+                  organizationLogo={quote.organizationLogo}
+                  articleDate={quote.articleDate}
+                  likes={0}
+                  comments={0}
+                />
+              ))}
+            </div>
           </TabsContent>
           <TabsContent value="following">
-            <p>You're not following anyone yet. Follow speakers to see their quotes here!</p>
+            <div className="space-y-4">
+              {quotes.map((quote) => (
+                <QuoteCard
+                  key={quote.id}
+                  id={quote.id}
+                  summary={quote.summary}
+                  speakerName={quote.speakerName}
+                  speakerImage={quote.speakerImage}
+                  organizationLogo={quote.organizationLogo}
+                  articleDate={quote.articleDate}
+                  likes={0}
+                  comments={0}
+                />
+              ))}
+            </div>
           </TabsContent>
         </Tabs>
       </div>

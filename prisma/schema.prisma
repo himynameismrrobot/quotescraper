@@ -62,6 +62,7 @@ model SavedQuote {
   speaker         Speaker  @relation(fields: [speakerId], references: [id])
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  reactions       QuoteReaction[]
 }
 
 model Account {
@@ -101,6 +102,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   following     Following[]
+  reactions     QuoteReaction[]
 }
 
 model Following {
@@ -115,4 +117,16 @@ model Following {
 
   @@unique([userId, speakerId])
   @@unique([userId, orgId])
+}
+
+model QuoteReaction {
+  id        String     @id @default(cuid())
+  emoji     String     // Unicode emoji
+  quote     SavedQuote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  quoteId   String
+  users     User[]     // Many-to-many relationship with users who reacted
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([quoteId, emoji]) // Ensure one record per emoji per quote
 }

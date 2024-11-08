@@ -1,0 +1,45 @@
+// ... existing models remain unchanged ...
+
+// Add this new model after your existing models
+model QuoteReaction {
+  id        String     @id @default(cuid())
+  emoji     String     // Unicode emoji
+  quote     SavedQuote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  quoteId   String
+  users     User[]     // Many-to-many relationship with users who reacted
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([quoteId, emoji]) // Ensure one record per emoji per quote
+}
+
+// Update the SavedQuote model by adding the reactions field
+model SavedQuote {
+  id              String   @id @default(cuid())
+  summary         String
+  rawQuoteText    String
+  articleDate     DateTime
+  articleUrl      String
+  articleHeadline String?
+  speakerId       String
+  speaker         Speaker  @relation(fields: [speakerId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  reactions       QuoteReaction[] // Add this line
+}
+
+// Update the User model by adding the reactions field
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username      String?   @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  following     Following[]
+  reactions     QuoteReaction[] // Add this line
+}
+
+// ... rest of the models remain unchanged ... 
