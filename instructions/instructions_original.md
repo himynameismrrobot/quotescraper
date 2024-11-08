@@ -43,6 +43,8 @@ You will be using NextJS 15, shadcn, tailwind, Lucide icon
         1. All accepted quotes will display on a screen in a table with columns for quote summary, rawquote, speaker name, article date, article URL
 2. Echo App: the system will have a external user facing web app that allows users who sign up for Echo to explore the published quotes in a UI/UX that is similar to Twitter's
     1. The user should be able to sign up/log in with Google
+      1. This should create a new account in the database and store the user's Google Account ID in the database so that they can be identified
+      2. After signing up with Google the user should be redirected to the Onboarding Flow
     2. Onboarding Flow
         1. The user should be asked to input their name (required), username (required), and profile photo (optional)
         2. The user should be asked to select the organizations they are interested in to follow them

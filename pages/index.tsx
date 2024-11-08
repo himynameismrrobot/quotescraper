@@ -10,16 +10,16 @@ export default function Home() {
     if (status === 'loading') return;
 
     if (status === 'unauthenticated') {
-      router.push('/auth/signin');
+      router.replace('/auth/signin');
       return;
     }
 
     if (session?.user && !session.user.username) {
-      router.push('/onboarding');
+      router.replace('/onboarding');
       return;
     }
 
-    router.push('/newsfeed');
+    router.replace('/newsfeed');
   }, [status, session, router]);
 
   // Show loading state while checking session
@@ -29,4 +29,4 @@ export default function Home() {
 
   // Don't render anything while redirecting
   return null;
-} 
+}

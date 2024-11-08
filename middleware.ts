@@ -36,7 +36,8 @@ export default withAuth(
           req.nextUrl.pathname === '/newsfeed' || 
           req.nextUrl.pathname === '/profile' ||
           req.nextUrl.pathname === '/admin' ||
-          req.nextUrl.pathname.startsWith('/admin/')
+          req.nextUrl.pathname.startsWith('/admin/') ||
+          req.nextUrl.pathname.match(/^\/quote\/[^/]+$/)
         ) {
           console.log("🔑 Protected route access check - Has session token:", hasSessionToken);
           return hasSessionToken;
