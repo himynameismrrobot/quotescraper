@@ -13,6 +13,10 @@ interface Quote {
   speakerImage?: string;
   organizationLogo?: string;
   articleDate: string;
+  reactions?: {
+    emoji: string;
+    users: { id: string }[];
+  }[];
 }
 
 const NewsfeedPage = () => {
@@ -59,8 +63,8 @@ const NewsfeedPage = () => {
                   speakerImage={quote.speakerImage}
                   organizationLogo={quote.organizationLogo}
                   articleDate={quote.articleDate}
-                  likes={0}
                   comments={0}
+                  reactions={quote.reactions}
                 />
               ))}
             </div>
@@ -76,8 +80,8 @@ const NewsfeedPage = () => {
                   speakerImage={quote.speakerImage}
                   organizationLogo={quote.organizationLogo}
                   articleDate={quote.articleDate}
-                  likes={0}
                   comments={0}
+                  reactions={quote.reactions}
                 />
               ))}
             </div>

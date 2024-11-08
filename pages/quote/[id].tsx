@@ -19,6 +19,10 @@ interface Quote {
   articleHeadline?: string;
   parentMonitoredUrl: string;
   parentMonitoredUrlLogo?: string;
+  reactions?: {
+    emoji: string;
+    users: { id: string }[];
+  }[];
 }
 
 const QuoteDetailPage: React.FC = () => {
@@ -72,13 +76,13 @@ const QuoteDetailPage: React.FC = () => {
         <div className="max-w-[600px] mx-auto">
           <QuoteCard
             id={quote.id}
-            summary={quote.rawQuoteText} // Use rawQuoteText as the summary for the detail view
+            summary={quote.rawQuoteText}
             speakerName={quote.speakerName}
             speakerImage={quote.speakerImage}
             organizationLogo={quote.organizationLogo}
             articleDate={quote.articleDate}
-            likes={0}
             comments={0}
+            reactions={quote.reactions}
           />
           <Card className="mb-4">
             <CardHeader>

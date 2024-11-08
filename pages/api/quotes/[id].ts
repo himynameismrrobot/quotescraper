@@ -63,6 +63,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           articleHeadline: quote.articleHeadline,
           parentMonitoredUrl: monitoredUrl?.url || quote.articleUrl,
           parentMonitoredUrlLogo: monitoredUrl?.logoUrl,
+          reactions: await prisma.quoteReaction.findMany({
+            where: { quoteId: quote.id },
+            include: {
+              users: {
+                select: {
+                  id: true,
+                },
+              },
+            },
+          }),
         };
 
         console.log('Formatted quote response:', formattedQuote);

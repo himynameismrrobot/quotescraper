@@ -1,21 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
-import { ThumbsUp, MessageSquare, Share } from 'lucide-react';
+import { MessageSquare, Share } from 'lucide-react';
+import ReactionButton from './reactions/ReactionButton';
+import ReactionPill from './reactions/ReactionPill';
+import { useSession } from 'next-auth/react';
+
+interface Reaction {
+  emoji: string;
+  users: { id: string }[];
+}
 
 interface QuoteCardProps {
   id: string;
   summary: string;
-  rawQuoteText?: string; // Make this optional since we won't always need it
+  rawQuoteText?: string;
   speakerName: string;
   speakerImage?: string;
   organizationLogo?: string;
   articleDate: string;
-  likes: number;
   comments: number;
+  reactions?: Reaction[];
 }
 
 const QuoteCard: React.FC<QuoteCardProps> = ({
@@ -25,63 +32,115 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   speakerImage,
   organizationLogo,
   articleDate,
-  likes,
   comments,
+  reactions = [],
 }) => {
-  const router = useRouter();
+  const { data: session } = useSession();
+  const userId = session?.user?.id;
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    // Prevent navigation if the click is on a button, link, or avatar
-    if (
-      e.target instanceof HTMLElement &&
-      (e.target.closest('button') ||
-        e.target.closest('a') ||
-        e.target.closest('.avatar-click-area'))
-    ) {
-      return;
+  const handleReactionSelect = async (emoji: string) => {
+    try {
+      console.log('Sending reaction:', { quoteId: id, emoji });
+      const response = await fetch(`/api/quotes/${id}/reactions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ emoji }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to add reaction');
+      }
+      
+      console.log('Reaction response:', data);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error adding reaction:', error);
+      throw error;
     }
-    router.push(`/quote/${id}`);
+  };
+
+  const handleReactionClick = async (emoji: string) => {
+    const hasReacted = reactions
+      .find(r => r.emoji === emoji)
+      ?.users.some(u => u.id === userId);
+
+    try {
+      const response = await fetch(`/api/quotes/${id}/reactions`, {
+        method: hasReacted ? 'DELETE' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ emoji }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
+      }
+
+      // Refresh the quote data to get updated reactions
+      window.location.reload();
+    } catch (error) {
+      console.error('Error updating reaction:', error);
+    }
   };
 
   return (
-    <Card className="mb-4 max-w-[600px] mx-auto cursor-pointer" onClick={handleCardClick}>
-      <CardContent className="pt-4">
-        <div className="flex items-center mb-2">
-          <div className="avatar-click-area">
-            <Avatar className="mr-2">
-              <AvatarImage src={speakerImage} alt={speakerName} />
-              <AvatarFallback>{speakerName[0]}</AvatarFallback>
-            </Avatar>
-          </div>
-          <div>
-            <Link href={`/speaker/${encodeURIComponent(speakerName)}`}>
-              <span className="font-bold hover:underline">{speakerName}</span>
-            </Link>
-            <p className="text-sm text-gray-500">{new Date(articleDate).toLocaleDateString()}</p>
-          </div>
-          {organizationLogo && (
-            <div className="avatar-click-area ml-auto">
-              <img src={organizationLogo} alt="Organization" className="w-6 h-6" />
+    <Card className="w-full">
+      <Link href={`/quote/${id}`}>
+        <CardContent className="pt-6 cursor-pointer hover:bg-gray-50 transition-colors">
+          <div className="flex items-center mb-2">
+            <div className="avatar-click-area" onClick={(e) => e.stopPropagation()}>
+              <Avatar className="mr-2">
+                <AvatarImage src={speakerImage} alt={speakerName} />
+                <AvatarFallback>{speakerName[0]}</AvatarFallback>
+              </Avatar>
             </div>
-          )}
+            <div>
+              <Link href={`/speaker/${encodeURIComponent(speakerName)}`} onClick={(e) => e.stopPropagation()}>
+                <span className="font-bold hover:underline">{speakerName}</span>
+              </Link>
+              <p className="text-sm text-gray-500">{new Date(articleDate).toLocaleDateString()}</p>
+            </div>
+            {organizationLogo && (
+              <div className="avatar-click-area ml-auto">
+                <img src={organizationLogo} alt="Organization" className="w-6 h-6" />
+              </div>
+            )}
+          </div>
+          <p className="text-lg">{summary}</p>
+        </CardContent>
+      </Link>
+      <CardFooter className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
+        <div className="flex flex-wrap gap-2">
+          {reactions.map((reaction) => (
+            <ReactionPill
+              key={reaction.emoji}
+              emoji={reaction.emoji}
+              count={reaction.users.length}
+              isUserReaction={reaction.users.some(u => u.id === userId)}
+              onClick={() => handleReactionClick(reaction.emoji)}
+            />
+          ))}
         </div>
-        <p className="text-lg">{summary}</p>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="ghost" size="sm">
-          <ThumbsUp className="mr-2 h-4 w-4" />
-          {likes}
-        </Button>
-        <Link href={`/quote/${id}`}>
+        <div className="flex space-x-2">
+          <ReactionButton 
+            quoteId={id} 
+            onReactionSelect={handleReactionSelect}
+          />
           <Button variant="ghost" size="sm">
-            <MessageSquare className="mr-2 h-4 w-4" />
+            <MessageSquare className="h-4 w-4 mr-1" />
             {comments}
           </Button>
-        </Link>
-        <Button variant="ghost" size="sm">
-          <Share className="mr-2 h-4 w-4" />
-          Share
-        </Button>
+          <Button variant="ghost" size="sm">
+            <Share className="h-4 w-4 mr-1" />
+          </Button>
+        </div>
       </CardFooter>
     </Card>
   );

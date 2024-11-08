@@ -1,13 +1,21 @@
 import { PrismaClient } from '@prisma/client'
 
-declare global {
-  var prisma: PrismaClient | undefined
+// Prevent multiple instances of Prisma Client in development
+const globalForPrisma = global as unknown as { prisma: PrismaClient }
+
+let prisma: PrismaClient;
+
+try {
+  prisma = globalForPrisma.prisma || new PrismaClient({
+    log: ['query', 'error', 'warn'],
+  });
+} catch (error) {
+  console.error('Failed to initialize Prisma client:', error);
+  prisma = new PrismaClient({
+    log: ['query', 'error', 'warn'],
+  });
 }
 
-const prisma = global.prisma || new PrismaClient()
-
-if (process.env.NODE_ENV !== 'production') {
-  global.prisma = prisma
-}
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 export default prisma

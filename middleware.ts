@@ -18,6 +18,15 @@ export default withAuth(
         console.log("🎟️ Token:", token);
         console.log("🔐 Request cookies:", req.cookies);
 
+        // For API routes, return 401 instead of redirecting
+        if (req.nextUrl.pathname.startsWith('/api/')) {
+          const hasSessionToken = req.cookies.has('next-auth.session-token');
+          if (!hasSessionToken) {
+            return false; // This will return 401 for API routes
+          }
+          return true;
+        }
+
         // Always allow access to auth-related routes
         if (req.nextUrl.pathname.startsWith('/auth')) {
           return true;
@@ -63,12 +72,12 @@ export const config = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
-     * - api (API routes)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
-     * - auth (authentication routes)
+     * - api (API routes - handle these separately)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|auth).*)',
+    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/api/:path*'  // Add this line to specifically handle API routes
   ],
 };

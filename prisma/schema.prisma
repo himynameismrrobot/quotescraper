@@ -128,5 +128,6 @@ model QuoteReaction {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 
-  @@unique([quoteId, emoji]) // Ensure one record per emoji per quote
+  @@unique([quoteId, emoji])
+  @@map("QuoteReaction")
 }

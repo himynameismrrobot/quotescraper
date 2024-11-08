@@ -15,11 +15,22 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async session({ session, user }) {
-      console.log("🔵 Session callback:", { session, user });
+      console.log("🔵 Session callback - Before:", { 
+        sessionUser: session.user, 
+        dbUser: user,
+        userId: user.id 
+      });
+
       if (session.user) {
         session.user.id = user.id;
         session.user.username = user.username as string | null;
       }
+
+      console.log("🔵 Session callback - After:", { 
+        sessionUser: session.user,
+        hasUserId: !!session.user?.id
+      });
+
       return session;
     },
     async signIn({ user, account }) {

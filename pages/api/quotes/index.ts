@@ -53,30 +53,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 organization: true,
               },
             },
-          },
-          orderBy: {
-            articleDate: 'desc',
-          },
-        });
-
-        const formattedQuotes = quotes.map((quote) => ({
-          id: quote.id,
-          summary: quote.summary,
-          rawQuoteText: quote.rawQuoteText,
-          speakerName: quote.speaker.name,
-          speakerImage: quote.speaker.imageUrl,
-          organizationLogo: quote.speaker.organization?.logoUrl,
-          articleDate: quote.articleDate.toISOString(),
-        }));
-
-        res.status(200).json(formattedQuotes);
-      } else {
-        // Return all quotes if not on following tab
-        const quotes = await prisma.savedQuote.findMany({
-          include: {
-            speaker: {
+            reactions: {
               include: {
-                organization: true,
+                users: {
+                  select: {
+                    id: true,
+                  },
+                },
               },
             },
           },
@@ -93,6 +76,43 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           speakerImage: quote.speaker.imageUrl,
           organizationLogo: quote.speaker.organization?.logoUrl,
           articleDate: quote.articleDate.toISOString(),
+          reactions: quote.reactions,
+        }));
+
+        res.status(200).json(formattedQuotes);
+      } else {
+        // Return all quotes if not on following tab
+        const quotes = await prisma.savedQuote.findMany({
+          include: {
+            speaker: {
+              include: {
+                organization: true,
+              },
+            },
+            reactions: {
+              include: {
+                users: {
+                  select: {
+                    id: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: {
+            articleDate: 'desc',
+          },
+        });
+
+        const formattedQuotes = quotes.map((quote) => ({
+          id: quote.id,
+          summary: quote.summary,
+          rawQuoteText: quote.rawQuoteText,
+          speakerName: quote.speaker.name,
+          speakerImage: quote.speaker.imageUrl,
+          organizationLogo: quote.speaker.organization?.logoUrl,
+          articleDate: quote.articleDate.toISOString(),
+          reactions: quote.reactions,
         }));
 
         res.status(200).json(formattedQuotes);
