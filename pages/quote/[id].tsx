@@ -5,7 +5,7 @@ import QuoteCard from '../../components/QuoteCard';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
 
 interface Quote {
   id: string;
@@ -16,6 +16,7 @@ interface Quote {
   organizationLogo?: string;
   articleDate: string;
   articleUrl: string;
+  articleHeadline?: string;
   parentMonitoredUrl: string;
   parentMonitoredUrlLogo?: string;
 }
@@ -39,6 +40,7 @@ const QuoteDetailPage: React.FC = () => {
         throw new Error('Failed to fetch quote');
       }
       const data = await response.json();
+      console.log('Quote data:', data);
       setQuote(data);
     } catch (error) {
       console.error('Error fetching quote:', error);
@@ -82,17 +84,28 @@ const QuoteDetailPage: React.FC = () => {
             <CardHeader>
               <CardTitle>Source</CardTitle>
             </CardHeader>
-            <CardContent className="flex items-center">
-              {quote.parentMonitoredUrlLogo && (
-                <img 
-                  src={quote.parentMonitoredUrlLogo} 
-                  alt="Source Logo" 
-                  className="w-6 h-6 mr-2"
-                />
-              )}
-              <a href={quote.articleUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                {quote.articleUrl}
-              </a>
+            <CardContent>
+              <div className="flex items-center gap-2">
+                {quote.parentMonitoredUrlLogo ? (
+                  <img 
+                    src={quote.parentMonitoredUrlLogo} 
+                    alt="Source Logo" 
+                    className="w-8 h-8 object-contain"
+                  />
+                ) : (
+                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
+                    <LinkIcon className="w-4 h-4 text-gray-400" />
+                  </div>
+                )}
+                <a 
+                  href={quote.articleUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-blue-500 hover:underline flex-1"
+                >
+                  {quote.articleHeadline || quote.articleUrl}
+                </a>
+              </div>
             </CardContent>
           </Card>
           <Card>
