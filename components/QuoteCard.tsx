@@ -124,7 +124,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   return (
     <Card className={`w-full ${className || ''}`}>
       <Link href={`/quote/${id}`}>
-        <CardContent className="pt-6 cursor-pointer hover:bg-gray-50 transition-colors">
+        <CardContent className="pt-4 pb-2 cursor-pointer hover:bg-gray-50 transition-colors">
           <div className="flex items-center mb-2">
             <div className="avatar-click-area" onClick={(e) => e.stopPropagation()}>
               <Avatar className="mr-2">
@@ -144,22 +144,22 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
               </div>
             )}
           </div>
-          <p className="text-lg">{summary}</p>
+          <p className="text-lg mb-2">{summary}</p>
+          <div className="flex items-center gap-4" onClick={(e) => e.stopPropagation()}>
+            {reactions.map((reaction) => (
+              <ReactionPill
+                key={reaction.emoji}
+                emoji={reaction.emoji}
+                count={reaction.users.length}
+                isUserReaction={reaction.users.some(u => u.id === userId)}
+                onClick={() => handleReactionClick(reaction.emoji)}
+              />
+            ))}
+          </div>
         </CardContent>
       </Link>
-      <CardFooter className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center gap-4 w-full">
-          {reactions.map((reaction) => (
-            <ReactionPill
-              key={reaction.emoji}
-              emoji={reaction.emoji}
-              count={reaction.users.length}
-              isUserReaction={reaction.users.some(u => u.id === userId)}
-              onClick={() => handleReactionClick(reaction.emoji)}
-            />
-          ))}
-        </div>
-        <div className="flex justify-center space-x-2 w-full">
+      <CardFooter className="flex justify-center py-2 border-t" onClick={(e) => e.stopPropagation()}>
+        <div className="flex space-x-2">
           <ReactionButton 
             quoteId={id} 
             onReactionSelect={handleReactionSelect}
