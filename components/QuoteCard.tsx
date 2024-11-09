@@ -125,22 +125,22 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
     <Card className={`w-full ${className || ''}`}>
       <Link href={`/quote/${id}`}>
         <CardContent className="pt-4 pb-2 cursor-pointer hover:bg-gray-50 transition-colors">
-          <div className="flex items-center mb-2">
+          <div className="flex items-center mb-3">
             <div className="avatar-click-area" onClick={(e) => e.stopPropagation()}>
-              <Avatar className="mr-2">
+              <Avatar className="mr-3 h-12 w-12">
                 <AvatarImage src={speakerImage} alt={speakerName} />
-                <AvatarFallback>{speakerName[0]}</AvatarFallback>
+                <AvatarFallback className="text-lg">{speakerName[0]}</AvatarFallback>
               </Avatar>
             </div>
             <div>
               <Link href={`/speaker/${encodeURIComponent(speakerName)}`} onClick={(e) => e.stopPropagation()}>
-                <span className="font-bold hover:underline">{speakerName}</span>
+                <span className="font-bold hover:underline text-lg">{speakerName}</span>
               </Link>
               <p className="text-sm text-gray-500">{new Date(articleDate).toLocaleDateString()}</p>
             </div>
             {organizationLogo && (
               <div className="avatar-click-area ml-auto">
-                <img src={organizationLogo} alt="Organization" className="w-6 h-6" />
+                <img src={organizationLogo} alt="Organization" className="w-10 h-10" />
               </div>
             )}
           </div>
