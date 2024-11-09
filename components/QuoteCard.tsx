@@ -148,7 +148,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
         </CardContent>
       </Link>
       <CardFooter className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex items-center gap-4 w-full">
           {reactions.map((reaction) => (
             <ReactionPill
               key={reaction.emoji}
@@ -159,7 +159,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
             />
           ))}
         </div>
-        <div className="flex space-x-2">
+        <div className="flex justify-center space-x-2 w-full">
           <ReactionButton 
             quoteId={id} 
             onReactionSelect={handleReactionSelect}
