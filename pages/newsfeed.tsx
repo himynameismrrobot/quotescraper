@@ -6,6 +6,7 @@ import QuoteCard from '../components/QuoteCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Button } from "../components/ui/button";
 import { Home, Search, User } from "lucide-react";
+import BottomNav from '../components/BottomNav';
 
 interface Quote {
   id: string;
@@ -62,7 +63,7 @@ const NewsfeedPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <EchoLayout>
-        <div className="pb-16">
+        <div className="pb-24">
           <Tabs defaultValue={activeTab} className="w-full" onValueChange={handleTabChange}>
             <div className="fixed top-0 left-0 right-0 z-10 px-4 py-2">
               <div className="max-w-2xl mx-auto">
@@ -92,32 +93,7 @@ const NewsfeedPage = () => {
             </div>
           </Tabs>
         </div>
-        <nav className="fixed bottom-0 left-0 right-0 bg-gray-950/90 backdrop-blur-md border-t border-white/5 p-2 flex justify-around items-center z-50">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
-            onClick={() => router.push('/newsfeed')}
-          >
-            <Home className="h-6 w-6" />
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
-            onClick={() => router.push('/search')}
-          >
-            <Search className="h-6 w-6" />
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
-            onClick={() => router.push('/profile')}
-          >
-            <User className="h-6 w-6" />
-          </Button>
-        </nav>
+        <BottomNav />
       </EchoLayout>
     </div>
   );
