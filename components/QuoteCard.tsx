@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Button } from './ui/button';
-import { MessageSquare, Share } from 'lucide-react';
+import { MessageSquare, Link2 } from 'lucide-react';
+import { useToast } from './ui/use-toast';
 import ReactionButton from './reactions/ReactionButton';
 import ReactionPill from './reactions/ReactionPill';
 import { useSession } from 'next-auth/react';
@@ -40,6 +41,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
 }) => {
   const { data: session } = useSession();
   const router = useRouter();
+  const { toast } = useToast();
   const userId = session?.user?.id;
 
   const handleReactionSelect = async (emoji: string) => {
@@ -99,6 +101,26 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
     router.push(`/quote/${id}#comments`);
   };
 
+  const handleCopyLink = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const quoteUrl = `${window.location.origin}/quote/${id}`;
+    
+    try {
+      await navigator.clipboard.writeText(quoteUrl);
+      toast({
+        description: "Link copied to clipboard",
+        duration: 2000,
+      });
+    } catch (error) {
+      console.error('Failed to copy link:', error);
+      toast({
+        variant: "destructive",
+        description: "Failed to copy link",
+        duration: 2000,
+      });
+    }
+  };
+
   return (
     <Card className={`w-full ${className || ''}`}>
       <Link href={`/quote/${id}`}>
@@ -146,8 +168,8 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
             <MessageSquare className="h-4 w-4 mr-1" />
             {comments}
           </Button>
-          <Button variant="ghost" size="sm">
-            <Share className="h-4 w-4 mr-1" />
+          <Button variant="ghost" size="sm" onClick={handleCopyLink}>
+            <Link2 className="h-4 w-4 mr-1" />
           </Button>
         </div>
       </CardFooter>

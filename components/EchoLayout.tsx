@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Home, Search, User } from 'lucide-react';
+import { Toaster } from "./ui/toaster";
 
 interface EchoLayoutProps {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ const EchoLayout: React.FC<EchoLayoutProps> = ({ children }) => {
           </Link>
         </div>
       </nav>
+      <Toaster />
     </div>
   );
 };
