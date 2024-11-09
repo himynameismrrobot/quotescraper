@@ -44,7 +44,6 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
         throw new Error('Failed to add reaction');
       }
 
-      // Refresh the page to show updated reactions
       window.location.reload();
     } catch (error) {
       console.error('Error adding reaction:', error);
@@ -71,7 +70,6 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
         throw new Error('Failed to update reaction');
       }
 
-      // Refresh the page to show updated reactions
       window.location.reload();
     } catch (error) {
       console.error('Error updating reaction:', error);
@@ -79,51 +77,53 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
   };
 
   return (
-    <div className="space-y-4">
-      {comments.map((comment) => (
-        <div key={comment.id} className="flex items-start gap-4">
-          <Avatar>
-            <AvatarImage src={comment.user.image || undefined} alt={comment.user.name || 'User'} />
-            <AvatarFallback>{comment.user.name?.[0] || 'U'}</AvatarFallback>
-          </Avatar>
-          <div className="flex-1">
-            <div className="bg-gray-50 rounded-lg p-3">
-              <p className="font-semibold">{comment.user.name}</p>
-              <p className="text-sm text-gray-600">{comment.text}</p>
-            </div>
-            <div className="mt-2 flex items-center gap-2">
-              <span className="text-xs text-gray-500">
-                {new Date(comment.createdAt).toLocaleDateString()}
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {comment.reactions.map((reaction) => (
-                  <ReactionPill
-                    key={reaction.emoji}
-                    emoji={reaction.emoji}
-                    count={reaction.users.length}
-                    isUserReaction={reaction.users.some(u => u.id === userId)}
-                    onClick={() => handleReactionClick(comment.id, reaction.emoji)}
-                  />
-                ))}
+    <div className="max-h-[500px] overflow-y-auto pr-2">
+      <div className="space-y-4">
+        {comments.map((comment) => (
+          <div key={comment.id} className="flex items-start gap-4">
+            <Avatar>
+              <AvatarImage src={comment.user.image || undefined} alt={comment.user.name || 'User'} />
+              <AvatarFallback>{comment.user.name?.[0] || 'U'}</AvatarFallback>
+            </Avatar>
+            <div className="flex-1">
+              <div className="bg-gray-50 rounded-lg p-3">
+                <p className="font-semibold">{comment.user.name}</p>
+                <p className="text-sm text-gray-600">{comment.text}</p>
               </div>
-              <ReactionButton
-                quoteId={comment.id}
-                onReactionSelect={(emoji) => handleReactionSelect(comment.id, emoji)}
-              />
+              <div className="mt-2 flex items-center gap-2">
+                <span className="text-xs text-gray-500">
+                  {new Date(comment.createdAt).toLocaleDateString()}
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {comment.reactions.map((reaction) => (
+                    <ReactionPill
+                      key={reaction.emoji}
+                      emoji={reaction.emoji}
+                      count={reaction.users.length}
+                      isUserReaction={reaction.users.some(u => u.id === userId)}
+                      onClick={() => handleReactionClick(comment.id, reaction.emoji)}
+                    />
+                  ))}
+                </div>
+                <ReactionButton
+                  quoteId={comment.id}
+                  onReactionSelect={(emoji) => handleReactionSelect(comment.id, emoji)}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-      {hasMore && (
-        <div className="text-center pt-4">
-          <button
-            onClick={onLoadMore}
-            className="text-blue-500 hover:text-blue-600"
-          >
-            Load more comments
-          </button>
-        </div>
-      )}
+        ))}
+        {hasMore && (
+          <div className="text-center pt-4">
+            <button
+              onClick={onLoadMore}
+              className="text-blue-500 hover:text-blue-600"
+            >
+              Load more comments
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

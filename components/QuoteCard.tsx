@@ -24,6 +24,7 @@ interface QuoteCardProps {
   articleDate: string;
   comments: number;
   reactions?: Reaction[];
+  className?: string;
 }
 
 const QuoteCard: React.FC<QuoteCardProps> = ({
@@ -35,6 +36,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   articleDate,
   comments,
   reactions = [],
+  className,
 }) => {
   const { data: session } = useSession();
   const router = useRouter();
@@ -98,7 +100,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   };
 
   return (
-    <Card className="w-full">
+    <Card className={`w-full ${className || ''}`}>
       <Link href={`/quote/${id}`}>
         <CardContent className="pt-6 cursor-pointer hover:bg-gray-50 transition-colors">
           <div className="flex items-center mb-2">

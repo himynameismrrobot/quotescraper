@@ -136,6 +136,7 @@ const QuoteDetailPage: React.FC = () => {
             articleDate={quote.articleDate}
             comments={totalComments}
             reactions={quote.reactions}
+            className="mb-4"
           />
           <Card className="mb-4">
             <CardHeader>
