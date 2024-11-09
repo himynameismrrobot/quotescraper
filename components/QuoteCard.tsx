@@ -122,53 +122,68 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   };
 
   return (
-    <Card className={`w-full ${className || ''}`}>
-      <Link href={`/quote/${id}`}>
-        <CardContent className="pt-4 pb-2 cursor-pointer hover:bg-gray-50 transition-colors">
+    <Card className={`w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl hover:bg-white/[0.15] transition-all ${className || ''}`}>
+      <CardContent className="pt-4 pb-2 cursor-pointer transition-colors">
+        <Link href={`/quote/${id}`}>
           <div className="flex items-center mb-3">
             <div className="avatar-click-area" onClick={(e) => e.stopPropagation()}>
-              <Avatar className="mr-3 h-12 w-12">
+              <Avatar className="mr-3 h-12 w-12 ring-2 ring-white/20">
                 <AvatarImage src={speakerImage} alt={speakerName} />
-                <AvatarFallback className="text-lg">{speakerName[0]}</AvatarFallback>
+                <AvatarFallback className="text-lg bg-white/10 text-white">{speakerName[0]}</AvatarFallback>
               </Avatar>
             </div>
             <div>
               <Link href={`/speaker/${encodeURIComponent(speakerName)}`} onClick={(e) => e.stopPropagation()}>
-                <span className="font-bold hover:underline text-lg">{speakerName}</span>
+                <span className="font-bold hover:underline text-lg text-white">{speakerName}</span>
               </Link>
-              <p className="text-sm text-gray-500">{new Date(articleDate).toLocaleDateString()}</p>
+              <p className="text-sm text-gray-300">{new Date(articleDate).toLocaleDateString()}</p>
             </div>
             {organizationLogo && (
               <div className="avatar-click-area ml-auto">
-                <img src={organizationLogo} alt="Organization" className="w-10 h-10" />
+                <img 
+                  src={organizationLogo} 
+                  alt="Organization" 
+                  className="w-10 h-10 rounded-full"
+                />
               </div>
             )}
           </div>
-          <p className="text-lg mb-2">{summary}</p>
-          <div className="flex items-center gap-4" onClick={(e) => e.stopPropagation()}>
-            {reactions.map((reaction) => (
-              <ReactionPill
-                key={reaction.emoji}
-                emoji={reaction.emoji}
-                count={reaction.users.length}
-                isUserReaction={reaction.users.some(u => u.id === userId)}
-                onClick={() => handleReactionClick(reaction.emoji)}
-              />
-            ))}
-          </div>
-        </CardContent>
-      </Link>
-      <CardFooter className="flex justify-center py-2 border-t" onClick={(e) => e.stopPropagation()}>
+          <p className="text-lg mb-2 text-gray-100">{summary}</p>
+        </Link>
+        
+        <div className="flex items-center gap-4">
+          {reactions.map((reaction) => (
+            <ReactionPill
+              key={reaction.emoji}
+              emoji={reaction.emoji}
+              count={reaction.users.length}
+              isUserReaction={reaction.users.some(u => u.id === userId)}
+              onClick={() => handleReactionClick(reaction.emoji)}
+            />
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter className="flex justify-center py-2 border-t border-white/10">
         <div className="flex space-x-2">
           <ReactionButton 
             quoteId={id} 
             onReactionSelect={handleReactionSelect}
           />
-          <Button variant="ghost" size="sm" onClick={handleCommentClick}>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={handleCommentClick}
+            className="text-gray-300 hover:text-white hover:bg-white/10"
+          >
             <MessageSquare className="h-4 w-4 mr-1" />
             {comments}
           </Button>
-          <Button variant="ghost" size="sm" onClick={handleCopyLink}>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={handleCopyLink}
+            className="text-gray-300 hover:text-white hover:bg-white/10"
+          >
             <Link2 className="h-4 w-4 mr-1" />
           </Button>
         </div>

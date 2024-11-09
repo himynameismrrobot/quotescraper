@@ -6,7 +6,12 @@ import CommentList from '../../components/comments/CommentList';
 import CommentInput from '../../components/comments/CommentInput';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
+import { ArrowLeft, Link as LinkIcon, Home, Search, User } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
+import Link from 'next/link';
+import ReactionButton from '../../components/reactions/ReactionButton';
+import ReactionPill from '../../components/reactions/ReactionPill';
+import { useSession } from 'next-auth/react';
 
 interface Quote {
   id: string;
@@ -50,6 +55,8 @@ const QuoteDetailPage: React.FC = () => {
   const [hasMore, setHasMore] = useState(false);
   const [isLoadingComments, setIsLoadingComments] = useState(false);
   const [totalComments, setTotalComments] = useState(0);
+  const { data: session } = useSession();
+  const userId = session?.user?.id;
 
   useEffect(() => {
     if (id) {
@@ -111,82 +118,161 @@ const QuoteDetailPage: React.FC = () => {
     fetchComments(1, true);
   };
 
+  const handleReactionSelect = async (emoji: string) => {
+    // ... existing reaction handling code ...
+  };
+
+  const handleReactionClick = async (emoji: string) => {
+    // ... existing reaction click code ...
+  };
+
   if (!quote) {
     return <div>Loading...</div>;
   }
 
   return (
-    <EchoLayout>
-      <div className="container mx-auto px-4">
-        <Button 
-          variant="ghost" 
-          onClick={() => router.back()} 
-          className="mb-4"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
-        </Button>
-        <div className="max-w-[600px] mx-auto">
-          <QuoteCard
-            id={quote.id}
-            summary={quote.rawQuoteText}
-            speakerName={quote.speakerName}
-            speakerImage={quote.speakerImage}
-            organizationLogo={quote.organizationLogo}
-            articleDate={quote.articleDate}
-            comments={totalComments}
-            reactions={quote.reactions}
-            className="mb-4"
-          />
-          <Card className="mb-4">
-            <CardHeader>
-              <CardTitle>Source</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-2">
-                {quote.parentMonitoredUrlLogo ? (
-                  <img 
-                    src={quote.parentMonitoredUrlLogo} 
-                    alt="Source Logo" 
-                    className="w-8 h-8 object-contain"
-                  />
-                ) : (
-                  <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-                    <LinkIcon className="w-4 h-4 text-gray-400" />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <EchoLayout>
+        <div className="max-w-2xl mx-auto px-4 py-6">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mb-4 text-gray-300 hover:text-white hover:bg-white/10"
+            onClick={() => router.back()}
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back
+          </Button>
+
+          <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl mb-6">
+            <CardContent className="pt-6">
+              <div className="flex items-center mb-4">
+                <div className="avatar-click-area">
+                  <Avatar className="mr-3 h-12 w-12 ring-2 ring-white/20">
+                    <AvatarImage src={quote.speakerImage} alt={quote.speakerName} />
+                    <AvatarFallback className="text-lg bg-white/10 text-white">
+                      {quote.speakerName[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <div>
+                  <Link href={`/speaker/${encodeURIComponent(quote.speakerName)}`}>
+                    <span className="font-bold hover:underline text-lg text-white">
+                      {quote.speakerName}
+                    </span>
+                  </Link>
+                  <p className="text-sm text-gray-300">
+                    {new Date(quote.articleDate).toLocaleDateString()}
+                  </p>
+                </div>
+                {quote.organizationLogo && (
+                  <div className="ml-auto">
+                    <img 
+                      src={quote.organizationLogo} 
+                      alt="Organization" 
+                      className="w-10 h-10 rounded-full"
+                    />
                   </div>
                 )}
-                <a 
-                  href={quote.articleUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-blue-500 hover:underline flex-1"
-                >
-                  {quote.articleHeadline || quote.articleUrl}
-                </a>
+              </div>
+              <p className="text-lg mb-4 text-gray-100">{quote.summary}</p>
+              {quote.rawQuoteText && (
+                <p className="text-gray-300 mb-4">"{quote.rawQuoteText}"</p>
+              )}
+              <div className="flex items-center gap-4">
+                {quote.reactions?.map((reaction) => (
+                  <ReactionPill
+                    key={reaction.emoji}
+                    emoji={reaction.emoji}
+                    count={reaction.users.length}
+                    isUserReaction={reaction.users.some(u => u.id === userId)}
+                    onClick={() => handleReactionClick(reaction.emoji)}
+                  />
+                ))}
+                <ReactionButton 
+                  quoteId={quote.id} 
+                  onReactionSelect={handleReactionSelect}
+                />
               </div>
             </CardContent>
           </Card>
-          <Card>
+
+          <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl mb-6">
             <CardHeader>
-              <CardTitle id="comments">Comments</CardTitle>
+              <CardTitle className="text-white">Source</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="mb-6">
-                <CommentInput 
-                  quoteId={quote.id} 
-                  onCommentAdded={handleCommentAdded}
-                />
+              <div className="flex items-center gap-4 mb-4">
+                {quote.parentMonitoredUrlLogo && (
+                  <img 
+                    src={quote.parentMonitoredUrlLogo} 
+                    alt="Source" 
+                    className="w-10 h-10 rounded-full"
+                  />
+                )}
+                <div className="flex-1">
+                  <a 
+                    href={quote.articleUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-white hover:underline block"
+                  >
+                    {quote.articleHeadline || quote.parentMonitoredUrl}
+                  </a>
+                  <p className="text-sm text-gray-300">
+                    {new URL(quote.parentMonitoredUrl).hostname}
+                  </p>
+                </div>
               </div>
-              <CommentList 
-                comments={comments}
-                onLoadMore={handleLoadMore}
-                hasMore={hasMore}
-              />
+            </CardContent>
+          </Card>
+
+          <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl">
+            <CardHeader>
+              <CardTitle className="text-white">Comments</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <CommentInput quoteId={quote.id} onCommentAdded={handleCommentAdded} />
+                <div className="h-[500px] overflow-y-auto pr-2">
+                  <CommentList 
+                    comments={comments}
+                    onLoadMore={handleLoadMore}
+                    hasMore={hasMore}
+                  />
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
-      </div>
-    </EchoLayout>
+      </EchoLayout>
+      <nav className="fixed bottom-0 left-0 right-0 bg-gray-950/90 backdrop-blur-md border-t border-white/5 p-2 flex justify-around items-center z-50">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
+          onClick={() => router.push('/newsfeed')}
+        >
+          <Home className="h-6 w-6" />
+        </Button>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
+          onClick={() => router.push('/search')}
+        >
+          <Search className="h-6 w-6" />
+        </Button>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="w-12 h-12 text-white hover:text-white hover:bg-white/10"
+          onClick={() => router.push('/profile')}
+        >
+          <User className="h-6 w-6" />
+        </Button>
+      </nav>
+    </div>
   );
 };
 

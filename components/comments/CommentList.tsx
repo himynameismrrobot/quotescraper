@@ -1,5 +1,6 @@
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Button } from '../ui/button';
 import ReactionButton from '../reactions/ReactionButton';
 import ReactionPill from '../reactions/ReactionPill';
 import { useSession } from 'next-auth/react';
@@ -36,7 +37,6 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
@@ -62,12 +62,11 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update reaction');
+        throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
       }
 
       window.location.reload();
@@ -77,34 +76,34 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
   };
 
   return (
-    <div className="max-h-[500px] overflow-y-auto pr-2">
-      <div className="space-y-4">
-        {comments.map((comment) => (
-          <div key={comment.id} className="flex items-start gap-4">
-            <Avatar>
-              <AvatarImage src={comment.user.image || undefined} alt={comment.user.name || 'User'} />
-              <AvatarFallback>{comment.user.name?.[0] || 'U'}</AvatarFallback>
+    <div className="space-y-4">
+      {comments.map((comment, index) => (
+        <div key={comment.id}>
+          <div className="flex gap-3">
+            <Avatar className="h-10 w-10 ring-2 ring-white/20">
+              <AvatarImage src={comment.user.image || undefined} />
+              <AvatarFallback className="bg-white/10 text-white">
+                {comment.user.name?.[0] || '?'}
+              </AvatarFallback>
             </Avatar>
             <div className="flex-1">
-              <div className="bg-gray-50 rounded-lg p-3">
-                <p className="font-semibold">{comment.user.name}</p>
-                <p className="text-sm text-gray-600">{comment.text}</p>
-              </div>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="text-xs text-gray-500">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-semibold text-white">{comment.user.name}</span>
+                <span className="text-sm text-gray-400">
                   {new Date(comment.createdAt).toLocaleDateString()}
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  {comment.reactions.map((reaction) => (
-                    <ReactionPill
-                      key={reaction.emoji}
-                      emoji={reaction.emoji}
-                      count={reaction.users.length}
-                      isUserReaction={reaction.users.some(u => u.id === userId)}
-                      onClick={() => handleReactionClick(comment.id, reaction.emoji)}
-                    />
-                  ))}
-                </div>
+              </div>
+              <p className="text-gray-200 mb-3">{comment.text}</p>
+              <div className="flex items-center gap-2">
+                {comment.reactions.map((reaction) => (
+                  <ReactionPill
+                    key={reaction.emoji}
+                    emoji={reaction.emoji}
+                    count={reaction.users.length}
+                    isUserReaction={reaction.users.some(u => u.id === userId)}
+                    onClick={() => handleReactionClick(comment.id, reaction.emoji)}
+                  />
+                ))}
                 <ReactionButton
                   quoteId={comment.id}
                   onReactionSelect={(emoji) => handleReactionSelect(comment.id, emoji)}
@@ -112,18 +111,22 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
               </div>
             </div>
           </div>
-        ))}
-        {hasMore && (
-          <div className="text-center pt-4">
-            <button
-              onClick={onLoadMore}
-              className="text-blue-500 hover:text-blue-600"
-            >
-              Load more comments
-            </button>
-          </div>
-        )}
-      </div>
+          {index < comments.length - 1 && (
+            <div className="my-4 border-t border-white/10" />
+          )}
+        </div>
+      ))}
+      {hasMore && (
+        <div className="flex justify-center pt-2">
+          <Button 
+            onClick={onLoadMore} 
+            variant="ghost"
+            className="text-gray-300 hover:text-white hover:bg-white/10"
+          >
+            Load more comments
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

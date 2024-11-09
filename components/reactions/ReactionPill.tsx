@@ -1,31 +1,34 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface ReactionPillProps {
   emoji: string;
   count: number;
-  isUserReaction?: boolean;
-  onClick?: () => void;
+  isUserReaction: boolean;
+  onClick: () => void;
 }
 
 const ReactionPill: React.FC<ReactionPillProps> = ({
   emoji,
   count,
-  isUserReaction = false,
+  isUserReaction,
   onClick,
 }) => {
   return (
     <button
       onClick={onClick}
-      className={cn(
-        "inline-flex items-center gap-1 px-2 py-1 rounded-full text-sm",
-        "hover:bg-gray-100 transition-colors",
-        "border border-gray-200",
-        isUserReaction ? "bg-blue-50" : "bg-gray-50"
-      )}
+      className={`
+        flex items-center gap-1.5 px-3 py-1.5 rounded-full
+        transition-all duration-200
+        ${isUserReaction 
+          ? 'bg-white/20 backdrop-blur-lg shadow-lg' 
+          : 'bg-white/10 hover:bg-white/15 backdrop-blur-md'
+        }
+        border border-white/10
+        text-white
+      `}
     >
-      <span>{emoji}</span>
-      <span className="text-gray-600">{count}</span>
+      <span className="text-sm">{emoji}</span>
+      <span className="text-sm font-medium">{count}</span>
     </button>
   );
 };
