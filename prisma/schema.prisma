@@ -7,6 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Organization {
+  id        String    @id @default(cuid())
+  name      String
+  logoUrl   String?
+  speakers  Speaker[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  followers Following[]
+}
+
 model Speaker {
   id             String       @id @default(cuid())
   name           String       @unique
@@ -16,53 +26,22 @@ model Speaker {
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
   savedQuotes    SavedQuote[]
-  followers     Following[]
+  followers      Following[]
 }
 
-model Organization {
-  id        String   @id @default(cuid())
-  name      String
-  logoUrl   String?
-  speakers  Speaker[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  followers Following[]
-}
-
-model MonitoredURL {
-  id            String   @id @default(cuid())
-  url           String   @unique
-  logoUrl       String?
-  lastCrawledAt DateTime?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
-model QuoteStaging {
-  id                 String   @id @default(cuid())
-  summary            String
-  rawQuoteText       String
-  speakerName        String
-  articleDate        DateTime
-  articleUrl         String
-  articleHeadline    String?  // Add this field
-  parentMonitoredUrl String
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
-}
-
-model SavedQuote {
-  id              String   @id @default(cuid())
-  summary         String
-  rawQuoteText    String
-  articleDate     DateTime
-  articleUrl      String
-  articleHeadline String?  // Add this field
-  speakerId       String
-  speaker         Speaker  @relation(fields: [speakerId], references: [id])
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  reactions       QuoteReaction[]
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username      String?   @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  following     Following[]
+  reactions     QuoteReaction[]
+  comments      Comment[]
+  commentReactions CommentReaction[] @relation("UserCommentReactions")
 }
 
 model Account {
@@ -78,8 +57,7 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -92,42 +70,92 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  username      String?   @unique
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  following     Following[]
-  reactions     QuoteReaction[]
-}
-
 model Following {
-  id         String   @id @default(cuid())
-  userId     String
-  speakerId  String?
-  orgId      String?
-  createdAt  DateTime @default(now())
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  speaker    Speaker? @relation(fields: [speakerId], references: [id])
+  id           String        @id @default(cuid())
+  userId       String
+  speakerId    String?
+  orgId        String?
+  createdAt    DateTime      @default(now())
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  speaker      Speaker?      @relation(fields: [speakerId], references: [id])
   organization Organization? @relation(fields: [orgId], references: [id])
 
   @@unique([userId, speakerId])
   @@unique([userId, orgId])
 }
 
+model SavedQuote {
+  id              String   @id @default(cuid())
+  summary         String
+  rawQuoteText    String
+  articleDate     DateTime
+  articleUrl      String
+  articleHeadline String?
+  speakerId       String
+  speaker         Speaker  @relation(fields: [speakerId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  reactions       QuoteReaction[]
+  comments        Comment[]
+}
+
 model QuoteReaction {
   id        String     @id @default(cuid())
-  emoji     String     // Unicode emoji
+  emoji     String
   quote     SavedQuote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
   quoteId   String
-  users     User[]     // Many-to-many relationship with users who reacted
+  users     User[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 
   @@unique([quoteId, emoji])
   @@map("QuoteReaction")
+}
+
+model MonitoredURL {
+  id            String    @id @default(cuid())
+  url           String    @unique
+  logoUrl       String?
+  lastCrawledAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model QuoteStaging {
+  id                 String   @id @default(cuid())
+  summary            String
+  rawQuoteText       String
+  speakerName        String
+  articleDate        DateTime
+  articleUrl         String
+  articleHeadline    String?
+  parentMonitoredUrl String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Comment {
+  id        String           @id @default(cuid())
+  text      String
+  quote     SavedQuote      @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  quoteId   String
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  createdAt DateTime        @default(now())
+  reactions CommentReaction[]
+
+  @@map("Comment")
+}
+
+model CommentReaction {
+  id        String   @id @default(cuid())
+  emoji     String
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  commentId String
+  users     User[]   @relation("UserCommentReactions")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([commentId, emoji])
+  @@map("CommentReaction")
 }

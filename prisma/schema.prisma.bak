@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Speaker {
+  id             String       @id @default(cuid())
+  name           String       @unique
+  imageUrl       String?
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  savedQuotes    SavedQuote[]
+  followers     Following[]
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String?
+  speakers  Speaker[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  followers Following[]
+}
+
+model MonitoredURL {
+  id            String   @id @default(cuid())
+  url           String   @unique
+  logoUrl       String?
+  lastCrawledAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model QuoteStaging {
+  id                 String   @id @default(cuid())
+  summary            String
+  rawQuoteText       String
+  speakerName        String
+  articleDate        DateTime
+  articleUrl         String
+  articleHeadline    String?  // Add this field
+  parentMonitoredUrl String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model SavedQuote {
+  id              String   @id @default(cuid())
+  summary         String
+  rawQuoteText    String
+  articleDate     DateTime
+  articleUrl      String
+  articleHeadline String?  // Add this field
+  speakerId       String
+  speaker         Speaker  @relation(fields: [speakerId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  reactions       QuoteReaction[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  username      String?   @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  following     Following[]
+  reactions     QuoteReaction[]
+}
+
+model Following {
+  id         String   @id @default(cuid())
+  userId     String
+  speakerId  String?
+  orgId      String?
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  speaker    Speaker? @relation(fields: [speakerId], references: [id])
+  organization Organization? @relation(fields: [orgId], references: [id])
+
+  @@unique([userId, speakerId])
+  @@unique([userId, orgId])
+}
+
+model QuoteReaction {
+  id        String     @id @default(cuid())
+  emoji     String     // Unicode emoji
+  quote     SavedQuote @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  quoteId   String
+  users     User[]     // Many-to-many relationship with users who reacted
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([quoteId, emoji])
+  @@map("QuoteReaction")
+}

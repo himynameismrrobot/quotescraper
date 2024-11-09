@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import EchoLayout from '../../components/EchoLayout';
 import QuoteCard from '../../components/QuoteCard';
+import CommentList from '../../components/comments/CommentList';
+import CommentInput from '../../components/comments/CommentInput';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { Input } from '../../components/ui/input';
 import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
 
 interface Quote {
@@ -25,15 +26,34 @@ interface Quote {
   }[];
 }
 
+interface Comment {
+  id: string;
+  text: string;
+  createdAt: string;
+  user: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  };
+  reactions: {
+    emoji: string;
+    users: { id: string }[];
+  }[];
+}
+
 const QuoteDetailPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
   const [quote, setQuote] = useState<Quote | null>(null);
-  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [isLoadingComments, setIsLoadingComments] = useState(false);
 
   useEffect(() => {
     if (id) {
       fetchQuote();
+      fetchComments(1, true);
     }
   }, [id]);
 
@@ -44,18 +64,42 @@ const QuoteDetailPage: React.FC = () => {
         throw new Error('Failed to fetch quote');
       }
       const data = await response.json();
-      console.log('Quote data:', data);
       setQuote(data);
     } catch (error) {
       console.error('Error fetching quote:', error);
     }
   };
 
-  const handleCommentSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Implement comment submission logic here
-    console.log('Submitted comment:', comment);
-    setComment('');
+  const fetchComments = async (pageNum: number, reset: boolean = false) => {
+    if (!id || isLoadingComments) return;
+
+    setIsLoadingComments(true);
+    try {
+      const response = await fetch(`/api/quotes/${id}/comments?page=${pageNum}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch comments');
+      }
+      const data = await response.json();
+      
+      setComments(prev => reset ? data.comments : [...prev, ...data.comments]);
+      setHasMore(data.hasMore);
+      setPage(pageNum);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    } finally {
+      setIsLoadingComments(false);
+    }
+  };
+
+  const handleLoadMore = () => {
+    if (hasMore && !isLoadingComments) {
+      fetchComments(page + 1);
+    }
+  };
+
+  const handleCommentAdded = () => {
+    // Refresh comments from the beginning
+    fetchComments(1, true);
   };
 
   if (!quote) {
@@ -81,7 +125,7 @@ const QuoteDetailPage: React.FC = () => {
             speakerImage={quote.speakerImage}
             organizationLogo={quote.organizationLogo}
             articleDate={quote.articleDate}
-            comments={0}
+            comments={comments.length}
             reactions={quote.reactions}
           />
           <Card className="mb-4">
@@ -117,18 +161,17 @@ const QuoteDetailPage: React.FC = () => {
               <CardTitle>Comments</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleCommentSubmit} className="mb-4">
-                <Input
-                  type="text"
-                  placeholder="Add a comment..."
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  className="mb-2"
+              <div className="mb-6">
+                <CommentInput 
+                  quoteId={quote.id} 
+                  onCommentAdded={handleCommentAdded}
                 />
-                <Button type="submit">Submit Comment</Button>
-              </form>
-              {/* Add comment list here when implemented */}
-              <p>Comments will be displayed here.</p>
+              </div>
+              <CommentList 
+                comments={comments}
+                onLoadMore={handleLoadMore}
+                hasMore={hasMore}
+              />
             </CardContent>
           </Card>
         </div>
