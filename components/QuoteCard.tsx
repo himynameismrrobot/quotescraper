@@ -7,6 +7,7 @@ import { MessageSquare, Share } from 'lucide-react';
 import ReactionButton from './reactions/ReactionButton';
 import ReactionPill from './reactions/ReactionPill';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 interface Reaction {
   emoji: string;
@@ -36,6 +37,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   reactions = [],
 }) => {
   const { data: session } = useSession();
+  const router = useRouter();
   const userId = session?.user?.id;
 
   const handleReactionSelect = async (emoji: string) => {
@@ -90,6 +92,11 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
     }
   };
 
+  const handleCommentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    router.push(`/quote/${id}#comments`);
+  };
+
   return (
     <Card className="w-full">
       <Link href={`/quote/${id}`}>
@@ -133,7 +140,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
             quoteId={id} 
             onReactionSelect={handleReactionSelect}
           />
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" onClick={handleCommentClick}>
             <MessageSquare className="h-4 w-4 mr-1" />
             {comments}
           </Button>

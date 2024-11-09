@@ -49,11 +49,19 @@ const QuoteDetailPage: React.FC = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [isLoadingComments, setIsLoadingComments] = useState(false);
+  const [totalComments, setTotalComments] = useState(0);
 
   useEffect(() => {
     if (id) {
       fetchQuote();
       fetchComments(1, true);
+      
+      // Scroll to comments section if hash is present
+      if (window.location.hash === '#comments') {
+        setTimeout(() => {
+          document.querySelector('#comments')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
     }
   }, [id]);
 
@@ -83,6 +91,7 @@ const QuoteDetailPage: React.FC = () => {
       
       setComments(prev => reset ? data.comments : [...prev, ...data.comments]);
       setHasMore(data.hasMore);
+      setTotalComments(data.total);
       setPage(pageNum);
     } catch (error) {
       console.error('Error fetching comments:', error);
@@ -125,7 +134,7 @@ const QuoteDetailPage: React.FC = () => {
             speakerImage={quote.speakerImage}
             organizationLogo={quote.organizationLogo}
             articleDate={quote.articleDate}
-            comments={comments.length}
+            comments={totalComments}
             reactions={quote.reactions}
           />
           <Card className="mb-4">
@@ -158,7 +167,7 @@ const QuoteDetailPage: React.FC = () => {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Comments</CardTitle>
+              <CardTitle id="comments">Comments</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="mb-6">

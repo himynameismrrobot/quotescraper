@@ -62,6 +62,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 },
               },
             },
+            _count: {
+              select: {
+                comments: true
+              }
+            }
           },
           orderBy: {
             articleDate: 'desc',
@@ -77,6 +82,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           organizationLogo: quote.speaker.organization?.logoUrl,
           articleDate: quote.articleDate.toISOString(),
           reactions: quote.reactions,
+          comments: quote._count.comments,
         }));
 
         res.status(200).json(formattedQuotes);
@@ -98,6 +104,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 },
               },
             },
+            _count: {
+              select: {
+                comments: true
+              }
+            }
           },
           orderBy: {
             articleDate: 'desc',
@@ -113,6 +124,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           organizationLogo: quote.speaker.organization?.logoUrl,
           articleDate: quote.articleDate.toISOString(),
           reactions: quote.reactions,
+          comments: quote._count.comments,
         }));
 
         res.status(200).json(formattedQuotes);
