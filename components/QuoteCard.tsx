@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -36,17 +36,17 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   organizationLogo,
   articleDate,
   comments,
-  reactions = [],
+  reactions: initialReactions = [],
   className,
 }) => {
   const { data: session } = useSession();
   const router = useRouter();
   const { toast } = useToast();
   const userId = session?.user?.id;
+  const [reactions, setReactions] = useState(initialReactions);
 
   const handleReactionSelect = async (emoji: string) => {
     try {
-      console.log('Sending reaction:', { quoteId: id, emoji });
       const response = await fetch(`/api/quotes/${id}/reactions`, {
         method: 'POST',
         headers: {
@@ -62,11 +62,24 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
         throw new Error(data.message || 'Failed to add reaction');
       }
       
-      console.log('Reaction response:', data);
-      window.location.reload();
+      // Update local state
+      const existingReaction = reactions.find(r => r.emoji === emoji);
+      if (existingReaction) {
+        setReactions(reactions.map(r => 
+          r.emoji === emoji 
+            ? { ...r, users: [...r.users, { id: userId! }] }
+            : r
+        ));
+      } else {
+        setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+      }
     } catch (error) {
       console.error('Error adding reaction:', error);
-      throw error;
+      toast({
+        variant: "destructive",
+        description: "Failed to add reaction",
+        duration: 2000,
+      });
     }
   };
 
@@ -89,10 +102,32 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
         throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
       }
 
-      // Refresh the quote data to get updated reactions
-      window.location.reload();
+      // Update local state
+      if (hasReacted) {
+        setReactions(reactions.map(r => 
+          r.emoji === emoji 
+            ? { ...r, users: r.users.filter(u => u.id !== userId) }
+            : r
+        ).filter(r => r.users.length > 0)); // Remove reaction if no users left
+      } else {
+        const existingReaction = reactions.find(r => r.emoji === emoji);
+        if (existingReaction) {
+          setReactions(reactions.map(r => 
+            r.emoji === emoji 
+              ? { ...r, users: [...r.users, { id: userId! }] }
+              : r
+          ));
+        } else {
+          setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+        }
+      }
     } catch (error) {
       console.error('Error updating reaction:', error);
+      toast({
+        variant: "destructive",
+        description: `Failed to ${hasReacted ? 'remove' : 'add'} reaction`,
+        duration: 2000,
+      });
     }
   };
 

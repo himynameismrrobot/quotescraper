@@ -58,13 +58,13 @@ const QuoteDetailPage: React.FC = () => {
   const [totalComments, setTotalComments] = useState(0);
   const { data: session } = useSession();
   const userId = session?.user?.id;
+  const [reactions, setReactions] = useState<Quote['reactions']>([]);
 
   useEffect(() => {
     if (id) {
       fetchQuote();
       fetchComments(1, true);
       
-      // Scroll to comments section if hash is present
       if (window.location.hash === '#comments') {
         setTimeout(() => {
           document.querySelector('#comments')?.scrollIntoView({ behavior: 'smooth' });
@@ -81,6 +81,7 @@ const QuoteDetailPage: React.FC = () => {
       }
       const data = await response.json();
       setQuote(data);
+      setReactions(data.reactions || []);
     } catch (error) {
       console.error('Error fetching quote:', error);
     }
@@ -120,11 +121,79 @@ const QuoteDetailPage: React.FC = () => {
   };
 
   const handleReactionSelect = async (emoji: string) => {
-    // ... existing reaction handling code ...
+    try {
+      const response = await fetch(`/api/quotes/${id}/reactions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ emoji }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to add reaction');
+      }
+      
+      // Update local state
+      const existingReaction = reactions.find(r => r.emoji === emoji);
+      if (existingReaction) {
+        setReactions(reactions.map(r => 
+          r.emoji === emoji 
+            ? { ...r, users: [...r.users, { id: userId! }] }
+            : r
+        ));
+      } else {
+        setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+      }
+    } catch (error) {
+      console.error('Error adding reaction:', error);
+    }
   };
 
   const handleReactionClick = async (emoji: string) => {
-    // ... existing reaction click code ...
+    const hasReacted = reactions
+      .find(r => r.emoji === emoji)
+      ?.users.some(u => u.id === userId);
+
+    try {
+      const response = await fetch(`/api/quotes/${id}/reactions`, {
+        method: hasReacted ? 'DELETE' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ emoji }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
+      }
+
+      // Update local state
+      if (hasReacted) {
+        setReactions(reactions.map(r => 
+          r.emoji === emoji 
+            ? { ...r, users: r.users.filter(u => u.id !== userId) }
+            : r
+        ).filter(r => r.users.length > 0));
+      } else {
+        const existingReaction = reactions.find(r => r.emoji === emoji);
+        if (existingReaction) {
+          setReactions(reactions.map(r => 
+            r.emoji === emoji 
+              ? { ...r, users: [...r.users, { id: userId! }] }
+              : r
+          ));
+        } else {
+          setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+        }
+      }
+    } catch (error) {
+      console.error('Error updating reaction:', error);
+    }
   };
 
   if (!quote) {
@@ -181,7 +250,7 @@ const QuoteDetailPage: React.FC = () => {
                 <p className="text-gray-300 mb-4">"{quote.rawQuoteText}"</p>
               )}
               <div className="flex items-center gap-4">
-                {quote.reactions?.map((reaction) => (
+                {reactions.map((reaction) => (
                   <ReactionPill
                     key={reaction.emoji}
                     emoji={reaction.emoji}
