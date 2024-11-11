@@ -1,0 +1,7 @@
+
+=== STARTING PARENT URL CRAWL ===
+URL: https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc
+Error during parent URL crawl: Error: `cookies` was called outside a request scope. Read more: https://nextjs.org/docs/messages/next-dynamic-api-wrong-context
+Full error object: {}
+=== CRAWL COMPLETE ===
+

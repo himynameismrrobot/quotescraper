@@ -1,11 +1,17 @@
 import * as puppeteer from 'puppeteer';
 import OpenAI from 'openai';
 import * as dotenv from 'dotenv';
-import prisma from './prisma';
+import { createClient } from '@supabase/supabase-js';
 
 dotenv.config();
 
 const openai = new OpenAI();
+
+// Initialize Supabase client directly
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY! // Use service role key for server operations
+);
 
 interface Article {
   url: string;
@@ -18,7 +24,7 @@ interface Quote {
   date: string;
   articleUrl: string;
   articleHeadline?: string;
-  summary: string;
+  quote_summary: string;
 }
 
 function getJinaReaderUrl(url: string): string {
@@ -166,6 +172,16 @@ export async function extractQuotesFromArticle(
   }
 }
 
+// Add this function to generate embeddings
+async function generateEmbedding(text: string): Promise<number[]> {
+  const response = await openai.embeddings.create({
+    model: "text-embedding-3-small",
+    input: text,
+  });
+
+  return response.data[0].embedding;
+}
+
 export async function crawlWebsite(url: string, sendLog: (message: string) => void): Promise<void> {
   const browser = await puppeteer.launch({
     headless: true,
@@ -184,6 +200,24 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
   });
 
   try {
+    // Update lastCrawledAt at the start of the crawl
+    try {
+      const { error: updateError } = await supabase
+        .from('monitored_urls')
+        .update({ 
+          last_crawled_at: new Date().toISOString()
+        })
+        .eq('url', url);
+
+      if (updateError) {
+        sendLog(`Warning: Failed to update lastCrawledAt: ${updateError.message}`);
+      } else {
+        sendLog('Updated last crawled timestamp');
+      }
+    } catch (error) {
+      sendLog(`Warning: Error updating lastCrawledAt: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+
     const jinaUrl = getJinaReaderUrl(url);
     sendLog(`Navigating to Jina reader URL: ${jinaUrl}`);
     
@@ -227,42 +261,52 @@ export async function crawlWebsite(url: string, sendLog: (message: string) => vo
       // Save quotes to database
       for (const quote of quotes) {
         try {
-          await prisma.quoteStaging.create({
-            data: {
+          // Generate embeddings for content and summary
+          sendLog('Generating embeddings for quote...');
+          const [contentEmbedding, summaryEmbedding] = await Promise.all([
+            generateEmbedding(quote.text),
+            generateEmbedding(quote.quote_summary)
+          ]);
+
+          const { error } = await supabase
+            .from('quote_staging')
+            .insert({
               summary: quote.quote_summary,
-              rawQuoteText: quote.text,
-              speakerName: quote.speaker,
-              articleDate: new Date(quote.date + 'T00:00:00Z'),
-              articleUrl: article.url,
-              articleHeadline: article.headline,
-              parentMonitoredUrl: url,
-            },
-          });
-          sendLog(`Saved quote from ${quote.speaker} to the database`);
+              raw_quote_text: quote.text,
+              speaker_name: quote.speaker,
+              article_date: new Date(quote.date + 'T00:00:00Z'),
+              article_url: article.url,
+              article_headline: article.headline,
+              parent_monitored_url: url,
+              content_vector: contentEmbedding,
+              summary_vector: summaryEmbedding
+            });
+
+          if (error) throw error;
+          sendLog(`Saved quote from ${quote.speaker} to the database with embeddings`);
         } catch (error) {
           sendLog(`Error saving quote: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
       }
     }
-
-    // After successfully saving quotes, update the lastCrawledAt timestamp
-    try {
-      await prisma.monitoredURL.update({
-        where: { url: url },
-        data: { 
-          lastCrawledAt: new Date() 
-        },
-      });
-      sendLog('Updated last crawled timestamp');
-    } catch (error) {
-      sendLog(`Error updating lastCrawledAt: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    }
-
   } catch (error) {
     sendLog(`Error during crawl: ${error instanceof Error ? error.message : 'Unknown error'}`);
   } finally {
     await browser.close();
     sendLog('Browser closed');
+  }
+}
+
+// Add this helper function to extract root domain
+function getRootDomain(url: string): string {
+  try {
+    const urlObj = new URL(url);
+    const parts = urlObj.hostname.split('.');
+    // Get the last two parts of the domain (e.g., 'theguardian.com' from 'www.theguardian.com')
+    return parts.slice(-2).join('.');
+  } catch (error) {
+    console.error('Error parsing URL:', error);
+    return url;
   }
 }
 
@@ -273,6 +317,27 @@ export async function crawlSpecificArticle(url: string, sendLog: (message: strin
   });
 
   try {
+    // Find matching parent URL
+    const { data: monitoredUrls } = await supabase
+      .from('monitored_urls')
+      .select('url');
+
+    const articleRootDomain = getRootDomain(url);
+    let parentUrl = url; // Default to the article URL itself
+
+    if (monitoredUrls) {
+      const matchingParentUrl = monitoredUrls.find(monitored => 
+        getRootDomain(monitored.url) === articleRootDomain
+      );
+
+      if (matchingParentUrl) {
+        parentUrl = matchingParentUrl.url;
+        sendLog(`Found matching parent URL: ${parentUrl}`);
+      } else {
+        sendLog(`No matching parent URL found for domain: ${articleRootDomain}`);
+      }
+    }
+
     const jinaUrl = getJinaReaderUrl(url);
     sendLog(`Navigating to Jina reader URL: ${jinaUrl}`);
     
@@ -305,18 +370,29 @@ export async function crawlSpecificArticle(url: string, sendLog: (message: strin
     // Save quotes to database
     for (const quote of quotes) {
       try {
-        await prisma.quoteStaging.create({
-          data: {
+        // Generate embeddings for content and summary
+        sendLog('Generating embeddings for quote...');
+        const [contentEmbedding, summaryEmbedding] = await Promise.all([
+          generateEmbedding(quote.text),
+          generateEmbedding(quote.quote_summary)
+        ]);
+
+        const { error } = await supabase
+          .from('quote_staging')
+          .insert({
             summary: quote.quote_summary,
-            rawQuoteText: quote.text,
-            speakerName: quote.speaker,
-            articleDate: new Date(quote.date + 'T00:00:00Z'),
-            articleUrl: url,
-            articleHeadline: articleHeadline,
-            parentMonitoredUrl: url,
-          },
-        });
-        sendLog(`Saved quote from ${quote.speaker} to the database`);
+            raw_quote_text: quote.text,
+            speaker_name: quote.speaker,
+            article_date: new Date(quote.date + 'T00:00:00Z'),
+            article_url: url,
+            article_headline: articleHeadline,
+            parent_monitored_url: parentUrl, // Use the matched parent URL
+            content_vector: contentEmbedding,
+            summary_vector: summaryEmbedding
+          });
+
+        if (error) throw error;
+        sendLog(`Saved quote from ${quote.speaker} to the database with embeddings`);
       } catch (error) {
         sendLog(`Error saving quote: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }

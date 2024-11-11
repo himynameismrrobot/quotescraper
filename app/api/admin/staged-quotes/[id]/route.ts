@@ -4,7 +4,7 @@ import { checkAdminAccess } from '@/utils/admin-check'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     // Check admin access
@@ -14,11 +14,12 @@ export async function GET(
     }
 
     const supabase = await createClient()
+    const id = await context.params.id
     
     const { data: quote, error: dbError } = await supabase
       .from('quote_staging')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single()
 
     if (dbError) throw dbError
@@ -41,7 +42,7 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     // Check admin access
@@ -52,6 +53,7 @@ export async function PATCH(
 
     const supabase = await createClient()
     const json = await request.json()
+    const id = await context.params.id
     
     const { data: quote, error: dbError } = await supabase
       .from('quote_staging')
@@ -61,7 +63,7 @@ export async function PATCH(
         article_date: json.articleDate,
         speaker_name: json.speakerName
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
@@ -79,30 +81,22 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    // Check admin access
-    const { error: adminError, status } = await checkAdminAccess()
-    if (adminError) {
-      return NextResponse.json({ error: adminError }, { status })
-    }
-
     const supabase = await createClient()
-    
-    const { error: dbError } = await supabase
+    const id = await context.params.id
+
+    const { error } = await supabase
       .from('quote_staging')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
-    if (dbError) throw dbError
+    if (error) throw error
 
-    return new NextResponse(null, { status: 204 })
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error deleting staged quote:', error)
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    )
+    console.error('Error:', error)
+    return NextResponse.json({ error: 'Failed to delete staged quote' }, { status: 500 })
   }
 } 

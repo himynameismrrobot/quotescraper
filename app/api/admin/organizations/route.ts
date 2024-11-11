@@ -1,98 +1,49 @@
 import { createClient } from '@/utils/supabase/server'
 import { NextResponse } from 'next/server'
-import { checkAdminAccess } from '@/utils/admin-check'
 
 export async function GET() {
-  try {
-    // Check admin access
-    const { error: adminError, status } = await checkAdminAccess()
-    if (adminError) {
-      return NextResponse.json({ error: adminError }, { status })
-    }
+  const supabase = await createClient()
 
-    const supabase = await createClient()
-    
-    const { data: organizations, error: dbError } = await supabase
+  try {
+    const { data, error } = await supabase
       .from('organizations')
-      .select('*')
+      .select(`
+        id,
+        name,
+        logo_url,
+        created_at,
+        updated_at
+      `)
       .order('name')
 
-    if (dbError) throw dbError
+    if (error) throw error
 
-    return NextResponse.json(organizations)
+    const transformedData = data.map(org => ({
+      ...org,
+      logo_url: org.logo_url
+    }))
+
+    return NextResponse.json(transformedData)
   } catch (error) {
-    console.error('Error fetching organizations:', error)
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    )
+    console.error('Error:', error)
+    return NextResponse.json({ error: 'Failed to fetch organizations' }, { status: 500 })
   }
 }
 
 export async function POST(request: Request) {
+  const supabase = await createClient()
+
   try {
-    // Check admin access
-    const { error: adminError, status } = await checkAdminAccess()
-    if (adminError) {
-      return NextResponse.json({ error: adminError }, { status })
-    }
-
-    const supabase = await createClient()
-    const json = await request.json()
-    
-    const { data: organization, error: dbError } = await supabase
+    const body = await request.json()
+    const { error } = await supabase
       .from('organizations')
-      .insert([{
-        name: json.name,
-        logo_url: json.logoUrl
-      }])
-      .select()
-      .single()
+      .insert([body])
 
-    if (dbError) throw dbError
+    if (error) throw error
 
-    return NextResponse.json(organization)
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error creating organization:', error)
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    )
-  }
-}
-
-export async function DELETE(request: Request) {
-  try {
-    // Check admin access
-    const { error: adminError, status } = await checkAdminAccess()
-    if (adminError) {
-      return NextResponse.json({ error: adminError }, { status })
-    }
-
-    const supabase = await createClient()
-    const { searchParams } = new URL(request.url)
-    const id = searchParams.get('id')
-    
-    if (!id) {
-      return NextResponse.json(
-        { error: 'ID is required' },
-        { status: 400 }
-      )
-    }
-
-    const { error: dbError } = await supabase
-      .from('organizations')
-      .delete()
-      .eq('id', id)
-
-    if (dbError) throw dbError
-
-    return new NextResponse(null, { status: 204 })
-  } catch (error) {
-    console.error('Error deleting organization:', error)
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    )
+    console.error('Error:', error)
+    return NextResponse.json({ error: 'Failed to add organization' }, { status: 500 })
   }
 } 

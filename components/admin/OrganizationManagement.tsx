@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { PlusCircle, Trash2, Upload } from 'lucide-react';
-import { createClient } from '@/utils/supabase/client';
-
-const supabase = createClient();
+import { PlusCircle, Trash2 } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Organization {
   id: string;
@@ -16,6 +15,7 @@ const OrganizationManagement: React.FC = () => {
   const [organizations, setOrganizations] = useState<Organization[]>([]);
   const [newOrgName, setNewOrgName] = useState('');
   const [newOrgLogo, setNewOrgLogo] = useState('');
+  const [imageLoadErrors, setImageLoadErrors] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     fetchOrganizations();
@@ -23,13 +23,12 @@ const OrganizationManagement: React.FC = () => {
 
   const fetchOrganizations = async () => {
     try {
-      const { data, error } = await supabase
-        .from('organizations')
-        .select('*')
-        .order('name');
-
-      if (error) throw error;
-      setOrganizations(data || []);
+      const response = await fetch('/api/admin/organizations');
+      if (!response.ok) {
+        throw new Error('Failed to fetch organizations');
+      }
+      const data = await response.json();
+      setOrganizations(data);
     } catch (error) {
       console.error('Error fetching organizations:', error);
     }
@@ -39,14 +38,21 @@ const OrganizationManagement: React.FC = () => {
     if (!newOrgName.trim()) return;
 
     try {
-      const { error } = await supabase
-        .from('organizations')
-        .insert([{
+      const response = await fetch('/api/admin/organizations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           name: newOrgName,
           logo_url: newOrgLogo || null
-        }]);
+        }),
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to add organization');
+      }
 
       setNewOrgName('');
       setNewOrgLogo('');
@@ -58,55 +64,100 @@ const OrganizationManagement: React.FC = () => {
 
   const handleRemoveOrganization = async (id: string) => {
     try {
-      const { error } = await supabase
-        .from('organizations')
-        .delete()
-        .eq('id', id);
+      const response = await fetch(`/api/admin/organizations/${id}`, {
+        method: 'DELETE',
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        throw new Error('Failed to remove organization');
+      }
+
       fetchOrganizations();
     } catch (error) {
       console.error('Error removing organization:', error);
     }
   };
 
+  const handleImageError = (orgId: string) => {
+    setImageLoadErrors(prev => ({
+      ...prev,
+      [orgId]: true
+    }));
+  };
+
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold">Organization Management</h2>
-      <div className="flex space-x-4">
-        <Input
-          type="text"
-          placeholder="Organization name"
-          value={newOrgName}
-          onChange={(e) => setNewOrgName(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Logo URL"
-          value={newOrgLogo}
-          onChange={(e) => setNewOrgLogo(e.target.value)}
-        />
-        <Button onClick={handleAddOrganization}>
-          <PlusCircle className="mr-2 h-4 w-4" />
-          Add Organization
-        </Button>
-      </div>
-      <ul className="space-y-4">
-        {organizations.map((org) => (
-          <li key={org.id} className="flex items-center justify-between bg-white p-4 rounded-lg shadow">
-            <div className="flex items-center space-x-4">
-              {org.logo_url && (
-                <img src={org.logo_url} alt={org.name} className="w-10 h-10 rounded-full object-cover" />
-              )}
-              <span>{org.name}</span>
-            </div>
-            <Button variant="destructive" onClick={() => handleRemoveOrganization(org.id)}>
-              <Trash2 className="h-4 w-4" />
-            </Button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Organization Management</CardTitle>
+        <CardDescription>Add or remove organizations</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex space-x-4 mb-4">
+          <Input
+            type="text"
+            placeholder="Organization name"
+            value={newOrgName}
+            onChange={(e) => setNewOrgName(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="Logo URL"
+            value={newOrgLogo}
+            onChange={(e) => setNewOrgLogo(e.target.value)}
+          />
+          <Button onClick={handleAddOrganization}>
+            <PlusCircle className="mr-2 h-4 w-4" />
+            Add Organization
+          </Button>
+        </div>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Logo</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Action</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {organizations.map((org) => (
+              <TableRow key={org.id}>
+                <TableCell>
+                  {org.logo_url ? (
+                    <div className="w-10 h-10 relative">
+                      <img 
+                        src={org.logo_url}
+                        alt={org.name}
+                        className="w-10 h-10 rounded-full object-cover absolute inset-0"
+                        onError={(e) => {
+                          console.error(`Failed to load image for ${org.name}:`, org.logo_url);
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          // Show fallback
+                          const fallback = document.createElement('div');
+                          fallback.className = 'w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center';
+                          fallback.textContent = org.name[0];
+                          target.parentNode?.appendChild(fallback);
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+                      {org.name[0]}
+                    </div>
+                  )}
+                </TableCell>
+                <TableCell>{org.name}</TableCell>
+                <TableCell>
+                  <Button variant="destructive" size="sm" onClick={() => handleRemoveOrganization(org.id)}>
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
   );
 };
 
