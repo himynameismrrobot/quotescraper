@@ -5,9 +5,15 @@ export async function GET(request: Request) {
   try {
     const supabase = await createClient()
     const { searchParams } = new URL(request.url)
-    const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 10
+    const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 20
     const offset = searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : 0
     
+    // First, get total count for pagination
+    const { count } = await supabase
+      .from('quotes')
+      .select('*', { count: 'exact', head: true })
+
+    // Then get the quotes for current page
     const { data: quotes, error } = await supabase
       .from('quotes')
       .select(`
@@ -33,7 +39,7 @@ export async function GET(request: Request) {
         ),
         comments:comments!quote_id(count)
       `)
-      .order('created_at', { ascending: false })
+      .order('article_date', { ascending: false }) // Sort by article_date instead of created_at
       .range(offset, offset + limit - 1)
 
     if (error) {
@@ -51,7 +57,14 @@ export async function GET(request: Request) {
       comments: quote.comments?.[0]?.count || 0
     }));
 
-    return NextResponse.json(transformedQuotes)
+    // Add pagination metadata
+    const hasMore = Boolean(count && offset + quotes.length < count);
+
+    return NextResponse.json({
+      quotes: transformedQuotes,
+      hasMore,
+      total: count
+    })
   } catch (error) {
     console.error('Error fetching quotes:', error)
     return NextResponse.json(

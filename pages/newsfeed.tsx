@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from "next/router";
 import EchoLayout from '../components/EchoLayout';
 import QuoteCard from '../components/QuoteCard';
@@ -33,24 +33,116 @@ interface Quote {
 const NewsfeedPage = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
   const [activeTab, setActiveTab] = useState('all');
+  const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const router = useRouter();
+  const LIMIT = 20;
 
-  const fetchQuotes = async (tab: string) => {
+  // Add refs to track state in event listeners
+  const loadingRef = useRef(loading);
+  const hasMoreRef = useRef(hasMore);
+  const offsetRef = useRef(offset);
+  const activeTabRef = useRef(activeTab);
+
+  // Update refs when state changes
+  useEffect(() => {
+    loadingRef.current = loading;
+    hasMoreRef.current = hasMore;
+    offsetRef.current = offset;
+    activeTabRef.current = activeTab;
+  }, [loading, hasMore, offset, activeTab]);
+
+  const fetchQuotes = async (tab: string, currentOffset: number, append = false) => {
+    if (loadingRef.current) {
+      console.log('Skipping fetch - already loading');
+      return;
+    }
+    
     try {
-      const response = await fetch(`/api/quotes?tab=${tab}`);
+      setLoading(true);
+      console.log('Fetching quotes:', { tab, currentOffset, append });
+      
+      const response = await fetch(`/api/quotes?tab=${tab}&limit=${LIMIT}&offset=${currentOffset}`);
       if (!response.ok) {
         throw new Error('Failed to fetch quotes');
       }
       const data = await response.json();
-      setQuotes(data);
+      
+      console.log('Fetched quotes:', { 
+        newQuotesCount: data.quotes.length,
+        hasMore: data.hasMore,
+        total: data.total,
+        currentOffset,
+        nextOffset: currentOffset + data.quotes.length
+      });
+
+      if (data.quotes.length === 0) {
+        setHasMore(false);
+        return;
+      }
+      
+      setHasMore(data.hasMore);
+      setQuotes(prev => append ? [...prev, ...data.quotes] : data.quotes);
+      if (data.quotes.length > 0) {
+        setOffset(currentOffset + data.quotes.length);
+      }
     } catch (error) {
       console.error('Error fetching quotes:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
+  // Initial fetch when tab changes
   useEffect(() => {
-    fetchQuotes(activeTab);
+    console.log('Tab changed, resetting and fetching initial quotes');
+    setQuotes([]);
+    setOffset(0);
+    setHasMore(true);
+    fetchQuotes(activeTab, 0);
   }, [activeTab]);
+
+  // Set up scroll listener once
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      if (loadingRef.current || !hasMoreRef.current) {
+        console.log('Skipping scroll handler:', { loading: loadingRef.current, hasMore: hasMoreRef.current });
+        return;
+      }
+
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight;
+      const threshold = documentHeight - 800;
+      
+      console.log('Scroll metrics:', {
+        scrollPosition,
+        documentHeight,
+        threshold,
+        shouldFetch: scrollPosition > threshold
+      });
+
+      if (scrollPosition > threshold) {
+        console.log('Fetching more quotes:', { offset: offsetRef.current });
+        fetchQuotes(activeTabRef.current, offsetRef.current, true);
+      }
+    }, 500);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []); // Empty dependency array
+
+  // Helper function to throttle scroll events
+  const throttle = (func: Function, limit: number) => {
+    let inThrottle: boolean;
+    return function(...args: any[]) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  };
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
@@ -60,15 +152,25 @@ const NewsfeedPage = () => {
     <div className="space-y-6 max-w-2xl mx-auto px-4">
       {quotes.map((quote) => (
         <QuoteCard
-          key={quote.id}
+          key={`${quote.id}-${activeTab}`}
           quote={quote}
         />
       ))}
+      {loading && (
+        <div className="text-center py-4 text-gray-400">
+          Loading more quotes...
+        </div>
+      )}
+      {!hasMore && quotes.length > 0 && (
+        <div className="text-center py-4 text-gray-400">
+          No more quotes to load
+        </div>
+      )}
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 fixed inset-0 overflow-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <EchoLayout>
         <div className="pb-24">
           <Tabs defaultValue={activeTab} className="w-full" onValueChange={handleTabChange}>
