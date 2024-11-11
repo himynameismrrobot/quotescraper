@@ -1,17 +1,17 @@
-import { headers } from 'next/headers'
-import { createClient } from '@/utils/supabase/server'
+import { AuthStateProvider } from '@/components/AuthStateProvider'
+import '@/styles/globals.css'
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const headersList = headers()
-  
   return (
     <html lang="en">
       <body>
-        {children}
+        <AuthStateProvider>
+          {children}
+        </AuthStateProvider>
       </body>
     </html>
   )

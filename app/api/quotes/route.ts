@@ -8,8 +8,6 @@ export async function GET(request: Request) {
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 10
     const offset = searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : 0
     
-    console.log('Fetching quotes...');
-
     const { data: quotes, error } = await supabase
       .from('quotes')
       .select(`
@@ -33,7 +31,7 @@ export async function GET(request: Request) {
             user:users(*)
           )
         ),
-        comments:comments(count)
+        comments:comments!quote_id(count)
       `)
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
@@ -43,21 +41,15 @@ export async function GET(request: Request) {
       throw error;
     }
 
-    console.log('Raw quotes data:', quotes);
-
     // Transform the data to match the expected format
-    const transformedQuotes = quotes.map(quote => {
-      const transformed = {
-        ...quote,
-        reactions: quote.reactions?.map(reaction => ({
-          emoji: reaction.emoji,
-          users: reaction.users?.map(u => ({ id: u.user.id })) || []
-        })) || [],
-        comments: quote.comments?.length || 0
-      };
-      console.log('Transformed quote:', transformed);
-      return transformed;
-    });
+    const transformedQuotes = quotes.map(quote => ({
+      ...quote,
+      reactions: quote.reactions?.map(reaction => ({
+        emoji: reaction.emoji,
+        users: reaction.users?.map(u => ({ id: u.user.id })) || []
+      })) || [],
+      comments: quote.comments?.[0]?.count || 0
+    }));
 
     return NextResponse.json(transformedQuotes)
   } catch (error) {

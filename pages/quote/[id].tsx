@@ -68,7 +68,7 @@ const QuoteDetailPage: React.FC = () => {
   const [reactions, setReactions] = useState<Quote['reactions']>([]);
 
   useEffect(() => {
-    if (id) {
+    if (id && !quote) {
       fetchQuote();
       fetchComments(1, true);
       
@@ -78,7 +78,7 @@ const QuoteDetailPage: React.FC = () => {
         }, 100);
       }
     }
-  }, [id]);
+  }, [id, quote]);
 
   const fetchQuote = async () => {
     try {
@@ -185,7 +185,31 @@ const QuoteDetailPage: React.FC = () => {
   };
 
   if (!quote) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <EchoLayout>
+          <div className="max-w-2xl mx-auto px-4 py-6 pb-24">
+            <div className="animate-pulse">
+              <div className="h-12 w-32 bg-white/10 rounded mb-4" /> {/* Back button */}
+              <div className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl mb-6 p-6 rounded-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-white/10 rounded-full mr-3" /> {/* Avatar */}
+                  <div>
+                    <div className="h-6 w-32 bg-white/10 rounded mb-2" /> {/* Name */}
+                    <div className="h-4 w-24 bg-white/10 rounded" /> {/* Date */}
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="h-4 bg-white/10 rounded w-full" />
+                  <div className="h-4 bg-white/10 rounded w-5/6" />
+                  <div className="h-4 bg-white/10 rounded w-4/6" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </EchoLayout>
+      </div>
+    );
   }
 
   return (

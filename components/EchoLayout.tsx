@@ -1,19 +1,16 @@
-import React from 'react';
-import { Toaster } from "./ui/toaster";
+'use client'
+
+import { Toaster } from './ui/toaster'
 
 interface EchoLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-const EchoLayout: React.FC<EchoLayoutProps> = ({ children }) => {
+export default function EchoLayout({ children }: EchoLayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
-        {children}
-      </main>
+    <>
+      {children}
       <Toaster />
-    </div>
-  );
-};
-
-export default EchoLayout;
+    </>
+  )
+}

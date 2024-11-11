@@ -16,7 +16,7 @@ export async function GET(
         user:users(*)
       `)
       .eq('quote_id', id)
-      .order('created_at', { ascending: true })
+      .order('created_at', { ascending: false })
 
     if (error) throw error
 

@@ -9,42 +9,74 @@ export async function GET(
     const supabase = await createClient()
     const id = await params.id
     
-    const { data: quote, error } = await supabase
-      .from('quotes')
-      .select(`
-        *,
-        speaker:speakers(
-          *,
-          organization:organizations(*)
-        ),
-        reactions:quote_reactions(
-          *,
-          users:quote_reactions_users(
-            user:users(*)
+    // Use Promise.all to make parallel requests
+    const [quoteResult, commentsResult] = await Promise.all([
+      supabase
+        .from('quotes')
+        .select(`
+          id,
+          summary,
+          raw_quote_text,
+          article_date,
+          article_url,
+          article_headline,
+          parent_monitored_url,
+          parent_monitored_url_logo,
+          speaker:speakers!inner(
+            id,
+            name,
+            image_url,
+            organization:organizations(
+              id,
+              name,
+              logo_url
+            )
+          ),
+          reactions:quote_reactions(
+            emoji,
+            users:quote_reactions_users(
+              user_id
+            )
           )
-        )
-      `)
-      .eq('id', id)
-      .single()
+        `)
+        .eq('id', id)
+        .single(),
 
-    if (error) throw error
-    if (!quote) {
+      supabase
+        .from('comments')
+        .select(`
+          id,
+          text,
+          created_at,
+          user:users!inner(
+            id,
+            name,
+            image
+          )
+        `)
+        .eq('quote_id', id)
+        .order('created_at', { ascending: false })
+    ])
+
+    if (quoteResult.error) throw quoteResult.error
+    if (!quoteResult.data) {
       return NextResponse.json(
         { error: 'Quote not found' },
         { status: 404 }
       )
     }
 
-    // Transform the reactions data to match the expected format
-    const transformedQuote = {
-      ...quote,
-      reactions: quote.reactions?.map(reaction => ({
+    // Transform and combine the data
+    const transformedData = {
+      ...quoteResult.data,
+      reactions: quoteResult.data.reactions?.map(reaction => ({
         emoji: reaction.emoji,
-        users: reaction.users?.map(u => ({ id: u.user.id })) || []
-      })) || []
+        users: reaction.users?.map(u => ({ id: u.user_id })) || []
+      })) || [],
+      comments: commentsResult.data || []
     }
 
-    return NextResponse.json(transformedQuote)
+    return NextResponse.json(transformedData)
   } catch (error) {
     console.error('Error fetching quote:', error)
     return NextResponse.json(

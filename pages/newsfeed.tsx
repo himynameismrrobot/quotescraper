@@ -42,7 +42,6 @@ const NewsfeedPage = () => {
         throw new Error('Failed to fetch quotes');
       }
       const data = await response.json();
-      console.log('Fetched quotes:', data);
       setQuotes(data);
     } catch (error) {
       console.error('Error fetching quotes:', error);
@@ -69,13 +68,13 @@ const NewsfeedPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 fixed inset-0 overflow-auto">
       <EchoLayout>
         <div className="pb-24">
           <Tabs defaultValue={activeTab} className="w-full" onValueChange={handleTabChange}>
-            <div className="fixed top-0 left-0 right-0 z-10 px-4 py-2">
-              <div className="max-w-2xl mx-auto">
-                <TabsList className="grid w-full grid-cols-2 bg-white/10 backdrop-blur-sm border border-white/20">
+            <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-b from-gray-900 to-gray-900/80 backdrop-blur-xl border-b border-white/10">
+              <div className="max-w-2xl mx-auto px-4 py-3">
+                <TabsList className="grid w-full grid-cols-2 bg-white/10 border border-white/20">
                   <TabsTrigger 
                     value="all" 
                     className="data-[state=active]:bg-white/20 text-white"
@@ -91,11 +90,11 @@ const NewsfeedPage = () => {
                 </TabsList>
               </div>
             </div>
-            <div className="mt-14">
-              <TabsContent value="all">
+            <div className="mt-16">
+              <TabsContent value="all" className="mt-0">
                 {renderQuotes(quotes)}
               </TabsContent>
-              <TabsContent value="following">
+              <TabsContent value="following" className="mt-0">
                 {renderQuotes(quotes)}
               </TabsContent>
             </div>
