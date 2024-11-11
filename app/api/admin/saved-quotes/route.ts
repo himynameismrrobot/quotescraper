@@ -12,45 +12,38 @@ export async function GET() {
 
     const supabase = await createClient()
     
-    const { data: quotes, error: dbError } = await supabase
+    const { data: quotes, error } = await supabase
       .from('quotes')
       .select(`
-        *,
-        speaker:speakers(
-          *,
-          organization:organizations(*)
-        ),
-        reactions:quote_reactions(
-          *,
-          users:quote_reactions_users(
-            user:users(*)
-          )
-        )
+        id,
+        summary,
+        raw_quote_text,
+        speaker:speakers!inner(name),
+        article_date,
+        article_url,
+        article_headline,
+        created_at
       `)
-      .order('article_date', { ascending: false })
+      .order('created_at', { ascending: false })
 
-    if (dbError) throw dbError
+    if (error) throw error
 
-    // Transform the data to match the expected format
-    const transformedQuotes = quotes?.map(quote => ({
+    const transformedQuotes = quotes.map(quote => ({
       id: quote.id,
       summary: quote.summary,
       raw_quote_text: quote.raw_quote_text,
+      speaker_name: quote.speaker.name,
       article_date: quote.article_date,
       article_url: quote.article_url,
       article_headline: quote.article_headline,
-      speaker_name: quote.speaker.name,
-      reactions: quote.reactions?.map(reaction => ({
-        emoji: reaction.emoji,
-        users: reaction.users?.map(u => ({ id: u.user.id })) || []
-      })) || []
-    }));
+      created_at: quote.created_at
+    }))
 
     return NextResponse.json(transformedQuotes)
   } catch (error) {
-    console.error('Error fetching saved quotes:', error)
+    console.error('Error:', error)
     return NextResponse.json(
-      { error: 'Internal Server Error' },
+      { error: 'Failed to fetch saved quotes' },
       { status: 500 }
     )
   }

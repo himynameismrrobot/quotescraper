@@ -79,7 +79,7 @@ const SavedQuotesManagement: React.FC = () => {
               {sortQuotes(savedQuotes).map((quote) => (
                 <TableRow key={quote.id}>
                   <TableCell className="w-24 whitespace-nowrap">
-                    {new Date(quote.created_at).toLocaleDateString()}
+                    {new Date(quote.article_date).toLocaleDateString()}
                   </TableCell>
                   <TableCell className="w-64">
                     <div className="w-64 overflow-hidden">
