@@ -39,22 +39,8 @@ const NewsfeedPage = () => {
   const router = useRouter();
   const LIMIT = 20;
 
-  // Add refs to track state in event listeners
-  const loadingRef = useRef(loading);
-  const hasMoreRef = useRef(hasMore);
-  const offsetRef = useRef(offset);
-  const activeTabRef = useRef(activeTab);
-
-  // Update refs when state changes
-  useEffect(() => {
-    loadingRef.current = loading;
-    hasMoreRef.current = hasMore;
-    offsetRef.current = offset;
-    activeTabRef.current = activeTab;
-  }, [loading, hasMore, offset, activeTab]);
-
   const fetchQuotes = async (tab: string, currentOffset: number, append = false) => {
-    if (loadingRef.current) {
+    if (loading) {
       console.log('Skipping fetch - already loading');
       return;
     }
@@ -77,11 +63,6 @@ const NewsfeedPage = () => {
         nextOffset: currentOffset + data.quotes.length
       });
 
-      if (data.quotes.length === 0) {
-        setHasMore(false);
-        return;
-      }
-      
       setHasMore(data.hasMore);
       setQuotes(prev => append ? [...prev, ...data.quotes] : data.quotes);
       if (data.quotes.length > 0) {
@@ -103,11 +84,11 @@ const NewsfeedPage = () => {
     fetchQuotes(activeTab, 0);
   }, [activeTab]);
 
-  // Set up scroll listener once
+  // Handle scroll events
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      if (loadingRef.current || !hasMoreRef.current) {
-        console.log('Skipping scroll handler:', { loading: loadingRef.current, hasMore: hasMoreRef.current });
+    const handleScroll = () => {
+      if (loading || !hasMore) {
+        console.log('Skipping scroll handler:', { loading, hasMore });
         return;
       }
 
@@ -119,30 +100,19 @@ const NewsfeedPage = () => {
         scrollPosition,
         documentHeight,
         threshold,
-        shouldFetch: scrollPosition > threshold
+        shouldFetch: scrollPosition > threshold,
+        offset
       });
 
       if (scrollPosition > threshold) {
-        console.log('Fetching more quotes:', { offset: offsetRef.current });
-        fetchQuotes(activeTabRef.current, offsetRef.current, true);
+        console.log('Fetching more quotes:', { offset });
+        fetchQuotes(activeTab, offset, true);
       }
-    }, 500);
+    };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // Empty dependency array
-
-  // Helper function to throttle scroll events
-  const throttle = (func: Function, limit: number) => {
-    let inThrottle: boolean;
-    return function(...args: any[]) {
-      if (!inThrottle) {
-        func.apply(this, args);
-        inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
-      }
-    };
-  };
+  }, [loading, hasMore, offset, activeTab]); // Add dependencies here
 
   const handleTabChange = (value: string) => {
     setActiveTab(value);
@@ -170,7 +140,8 @@ const NewsfeedPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative">
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 -z-10" />
       <EchoLayout>
         <div className="pb-24">
           <Tabs defaultValue={activeTab} className="w-full" onValueChange={handleTabChange}>
