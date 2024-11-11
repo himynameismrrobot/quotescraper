@@ -13,6 +13,7 @@ interface Quote {
   summary: string;
   raw_quote_text: string;
   article_date: string;
+  created_at: string;
   speaker: {
     id: string;
     name: string;

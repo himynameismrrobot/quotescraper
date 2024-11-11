@@ -7,8 +7,8 @@ import { SavedQuote } from '@/types/admin';
 
 const sortQuotes = (quotes: SavedQuote[]): SavedQuote[] => {
   return [...quotes].sort((a, b) => {
-    // First, sort by article date (newest first)
-    const dateComparison = new Date(b.article_date).getTime() - new Date(a.article_date).getTime();
+    // Sort by created_at date (newest first)
+    const dateComparison = new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
     if (dateComparison !== 0) return dateComparison;
 
     // Then, sort by article headline
@@ -79,7 +79,7 @@ const SavedQuotesManagement: React.FC = () => {
               {sortQuotes(savedQuotes).map((quote) => (
                 <TableRow key={quote.id}>
                   <TableCell className="w-24 whitespace-nowrap">
-                    {new Date(quote.article_date).toLocaleDateString()}
+                    {new Date(quote.created_at).toLocaleDateString()}
                   </TableCell>
                   <TableCell className="w-64">
                     <div className="w-64 overflow-hidden">

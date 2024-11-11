@@ -38,7 +38,7 @@ export async function GET(request: Request) {
         ),
         comments:comments!quote_id(count)
       `)
-      .order('article_date', { ascending: false })
+      .order('created_at', { ascending: false })
 
     // If on following tab, filter by followed speakers only
     if (tab === 'following' && user) {

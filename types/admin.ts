@@ -40,4 +40,5 @@ export interface SavedQuote {
   article_date: string;
   article_url: string;
   article_headline: string;
+  created_at: string;
 } 
