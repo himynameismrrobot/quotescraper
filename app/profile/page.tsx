@@ -18,26 +18,38 @@ export default function ProfilePage() {
   const supabase = createClient()
 
   useEffect(() => {
-    if (loading) return;
+    let timeoutId: NodeJS.Timeout;
 
-    if (!user) {
-      router.push('/auth/signin')
-      return
-    }
+    // Only redirect if we're explicitly not loading and have no user
+    if (!loading) {
+      if (!user) {
+        // Add a small delay before redirect to allow for auth state to settle
+        timeoutId = setTimeout(() => {
+          router.push('/auth/signin')
+        }, 500)
+      } else {
+        // Only fetch profile if we have a user
+        const fetchProfile = async () => {
+          const { data, error } = await supabase
+            .from('users')
+            .select('*')
+            .eq('id', user.id)
+            .single()
 
-    const fetchProfile = async () => {
-      const { data, error } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', user.id)
-        .single()
+          if (!error) {
+            setProfile(data)
+          }
+        }
 
-      if (!error) {
-        setProfile(data)
+        fetchProfile()
       }
     }
 
-    fetchProfile()
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
   }, [user, loading, router])
 
   const handleLogout = async () => {
@@ -46,7 +58,7 @@ export default function ProfilePage() {
   }
 
   // Show loading state while checking auth
-  if (loading) {
+  if (loading || !user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <EchoLayout>
@@ -66,11 +78,6 @@ export default function ProfilePage() {
         </EchoLayout>
       </div>
     )
-  }
-
-  // Don't render anything if not authenticated
-  if (!user) {
-    return null
   }
 
   return (
