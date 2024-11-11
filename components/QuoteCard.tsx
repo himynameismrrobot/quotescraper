@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter } from './ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -9,6 +9,7 @@ import ReactionButton from './reactions/ReactionButton';
 import ReactionPill from './reactions/ReactionPill';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/components/AuthStateProvider';
+import CommentList from './comments/CommentList';
 
 interface Quote {
   id: string;
@@ -32,12 +33,19 @@ interface Quote {
   comments?: number;
 }
 
-const QuoteCard = ({ quote }: { quote: Quote }) => {
+interface QuoteCardProps {
+  quote: Quote;
+  showComments?: boolean;
+}
+
+const QuoteCard = ({ quote, showComments = false }: QuoteCardProps) => {
   console.log('Quote data:', quote);
   const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
   const [reactions, setReactions] = useState<Quote['reactions']>(quote.reactions || []);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [hasMoreComments, setHasMoreComments] = useState(false);
 
   const handleReactionSelect = async (emoji: string) => {
     if (!user) {
@@ -149,6 +157,31 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
     }
   };
 
+  const fetchComments = async () => {
+    try {
+      const response = await fetch(`/api/quotes/${quote.id}/comments?page=1`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch comments');
+      }
+      const data = await response.json();
+      setComments(data.comments);
+      setHasMoreComments(data.hasMore);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
+  };
+
+  const loadMoreComments = async () => {
+    // ... load more comments logic if needed ...
+  };
+
+  // Only fetch comments if we're showing them
+  useEffect(() => {
+    if (showComments) {
+      fetchComments();
+    }
+  }, [quote.id, showComments]);
+
   return (
     <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl hover:bg-white/[0.15] transition-all">
       <CardContent className="pt-4 pb-2 cursor-pointer transition-colors">
@@ -222,6 +255,16 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
           </Button>
         </div>
       </CardFooter>
+
+      {/* Only show comments if showComments is true */}
+      {showComments && (
+        <CommentList 
+          comments={comments} 
+          onLoadMore={loadMoreComments}
+          hasMore={hasMoreComments}
+          onCommentUpdate={fetchComments}
+        />
+      )}
     </Card>
   );
 };

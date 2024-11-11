@@ -7,21 +7,36 @@ export async function GET(
 ) {
   try {
     const supabase = await createClient()
-    const { id } = context.params
+    const id = await context.params.id
     
     const { data: comments, error } = await supabase
       .from('comments')
       .select(`
         *,
-        user:users(*)
+        user:users(*),
+        reactions:comment_reactions(
+          id,
+          emoji,
+          users:comment_reactions_users(
+            user_id
+          )
+        )
       `)
       .eq('quote_id', id)
       .order('created_at', { ascending: false })
 
     if (error) throw error
 
+    const transformedComments = comments?.map(comment => ({
+      ...comment,
+      reactions: comment.reactions?.map(reaction => ({
+        emoji: reaction.emoji,
+        users: reaction.users?.map(u => ({ id: u.user_id })) || []
+      })) || []
+    }));
+
     return NextResponse.json({
-      comments: comments || [],
+      comments: transformedComments || [],
       hasMore: false,
       total: comments?.length || 0
     })
@@ -40,8 +55,9 @@ export async function POST(
 ) {
   try {
     const supabase = await createClient()
+    const id = await context.params.id
+    
     const json = await request.json()
-    const { id } = context.params
     
     const { data: { session } } = await supabase.auth.getSession()
     if (!session) {

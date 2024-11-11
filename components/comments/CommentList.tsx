@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import ReactionButton from '../reactions/ReactionButton';
@@ -24,14 +24,32 @@ interface CommentListProps {
   comments: Comment[];
   onLoadMore?: () => void;
   hasMore?: boolean;
+  onCommentUpdate?: () => void;
 }
 
-const CommentList: React.FC<CommentListProps> = ({ comments = [], onLoadMore, hasMore }) => {
+const CommentList: React.FC<CommentListProps> = ({ 
+  comments = [], 
+  onLoadMore, 
+  hasMore,
+  onCommentUpdate
+}) => {
   const { user } = useAuth();
   const userId = user?.id;
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [localComments, setLocalComments] = useState<Comment[]>(comments);
+
+  // Update local comments when props change
+  React.useEffect(() => {
+    setLocalComments(comments);
+  }, [comments]);
 
   const handleReactionSelect = async (commentId: string, emoji: string) => {
+    if (isUpdating) return;
+    
     try {
+      setIsUpdating(true);
+      console.log('Adding reaction:', { commentId, emoji });
+      
       const response = await fetch(`/api/comments/${commentId}/reactions`, {
         method: 'POST',
         headers: {
@@ -41,15 +59,48 @@ const CommentList: React.FC<CommentListProps> = ({ comments = [], onLoadMore, ha
       });
 
       if (!response.ok) {
-        throw new Error('Failed to add reaction');
+        const error = await response.json();
+        console.error('Server error:', error);
+        throw new Error(error.message || 'Failed to add reaction');
       }
+
+      // Update local state
+      setLocalComments(prevComments => 
+        prevComments.map(comment => {
+          if (comment.id === commentId) {
+            const existingReaction = comment.reactions?.find(r => r.emoji === emoji);
+            const updatedReactions = comment.reactions || [];
+            
+            if (existingReaction) {
+              existingReaction.users = [...existingReaction.users, { id: userId! }];
+              return { ...comment, reactions: updatedReactions };
+            } else {
+              return {
+                ...comment,
+                reactions: [...updatedReactions, { emoji, users: [{ id: userId! }] }]
+              };
+            }
+          }
+          return comment;
+        })
+      );
+
+      onCommentUpdate?.();
     } catch (error) {
       console.error('Error adding reaction:', error);
+      throw error;
+    } finally {
+      setIsUpdating(false);
     }
   };
 
   const handleReactionClick = async (commentId: string, emoji: string) => {
+    if (isUpdating) return;
+    
     try {
+      setIsUpdating(true);
+      console.log('Removing reaction:', { commentId, emoji });
+      
       const response = await fetch(`/api/comments/${commentId}/reactions`, {
         method: 'DELETE',
         headers: {
@@ -59,20 +110,47 @@ const CommentList: React.FC<CommentListProps> = ({ comments = [], onLoadMore, ha
       });
 
       if (!response.ok) {
-        throw new Error('Failed to remove reaction');
+        const error = await response.json();
+        console.error('Server error:', error);
+        throw new Error(error.message || 'Failed to remove reaction');
       }
+
+      // Update local state
+      setLocalComments(prevComments => 
+        prevComments.map(comment => {
+          if (comment.id === commentId) {
+            const updatedReactions = comment.reactions?.map(reaction => {
+              if (reaction.emoji === emoji) {
+                return {
+                  ...reaction,
+                  users: reaction.users.filter(u => u.id !== userId)
+                };
+              }
+              return reaction;
+            }).filter(reaction => reaction.users.length > 0) || [];
+            
+            return { ...comment, reactions: updatedReactions };
+          }
+          return comment;
+        })
+      );
+
+      onCommentUpdate?.();
     } catch (error) {
       console.error('Error removing reaction:', error);
+      throw error;
+    } finally {
+      setIsUpdating(false);
     }
   };
 
-  if (!comments.length) {
+  if (!localComments.length) {
     return <p className="text-gray-500 text-center py-4">No comments yet</p>;
   }
 
   return (
     <div className="space-y-4">
-      {comments.map((comment) => (
+      {localComments.map((comment) => (
         <div key={comment.id} className="flex space-x-4">
           <Avatar>
             <AvatarImage src={comment.user.image || undefined} />
@@ -121,4 +199,4 @@ const CommentList: React.FC<CommentListProps> = ({ comments = [], onLoadMore, ha
   );
 };
 
-export default CommentList; 
+export default CommentList;

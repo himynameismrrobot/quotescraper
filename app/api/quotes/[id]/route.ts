@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const supabase = await createClient()
-    const { id } = context.params
+    const id = await context.params.id
     
     // Use Promise.all to make parallel requests
     const [quoteResult, commentsResult] = await Promise.all([
