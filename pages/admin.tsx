@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
 import CrawlProgressPanel from '../components/CrawlProgressPanel';
@@ -22,6 +24,11 @@ import { format } from "date-fns"
 import { CalendarIcon, CheckIcon } from "lucide-react"
 import { cn } from "@/lib/utils";
 import { AddSpeakerModal } from '../components/AddSpeakerModal';
+import { useAuth } from '@/components/AuthStateProvider';
+import { createClient } from '@/utils/supabase/client';
+
+// Initialize Supabase client
+const supabase = createClient();
 
 interface Organization {
   id: string;
@@ -93,6 +100,7 @@ const sortQuotes = (quotes: SortedSavedQuote[]): SortedSavedQuote[] => {
 };
 
 const AdminPage: React.FC = () => {
+  const { user, loading } = useAuth();
   const router = useRouter();
   const [activeSection, setActiveSection] = useState("organizations");
   const [organizations, setOrganizations] = useState<Organization[]>([]);
@@ -119,6 +127,28 @@ const AdminPage: React.FC = () => {
   } | null>(null);
 
   useEffect(() => {
+    const checkAdminAccess = async () => {
+      if (!loading) {
+        if (!user) {
+          router.push('/auth/signin');
+          return;
+        }
+
+        // Get verified user data
+        const { data: { user: verifiedUser }, error } = await supabase.auth.getUser();
+        
+        if (error || !verifiedUser?.user_metadata?.is_admin) {
+          console.error('Not an admin:', error);
+          router.push('/');
+          return;
+        }
+      }
+    };
+
+    checkAdminAccess();
+  }, [user, loading, router]);
+
+  useEffect(() => {
     fetchOrganizations();
     fetchSpeakers();
     fetchMonitoredUrls();
@@ -139,40 +169,34 @@ const AdminPage: React.FC = () => {
 
   const fetchOrganizations = async () => {
     try {
-      const response = await fetch('/api/organizations');
-      if (!response.ok) {
-        throw new Error('Failed to fetch organizations');
-      }
+      const response = await fetch('/api/admin/organizations');
+      if (!response.ok) throw new Error('Failed to fetch organizations');
       const data = await response.json();
       setOrganizations(data);
     } catch (error) {
       console.error('Error fetching organizations:', error);
-      // You might want to set an error state here and display it to the user
     }
   };
 
   const addOrganization = async () => {
     try {
-      const response = await fetch('/api/organizations', {
+      const response = await fetch('/api/admin/organizations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newOrgName, logoUrl: newOrgLogo }),
       });
-      if (!response.ok) {
-        throw new Error('Failed to add organization');
-      }
+      if (!response.ok) throw new Error('Failed to add organization');
       setNewOrgName('');
       setNewOrgLogo('');
       fetchOrganizations();
     } catch (error) {
       console.error('Error adding organization:', error);
-      // You might want to set an error state here and display it to the user
     }
   };
 
   const removeOrganization = async (id: string) => {
     try {
-      const response = await fetch(`/api/organizations?id=${id}`, {
+      const response = await fetch(`/api/admin/organizations?id=${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -187,7 +211,7 @@ const AdminPage: React.FC = () => {
 
   const fetchSpeakers = async () => {
     try {
-      const response = await fetch('/api/speakers');
+      const response = await fetch('/api/admin/speakers');
       if (!response.ok) {
         throw new Error('Failed to fetch speakers');
       }
@@ -200,7 +224,7 @@ const AdminPage: React.FC = () => {
 
   const addSpeaker = async () => {
     try {
-      const response = await fetch('/api/speakers', {
+      const response = await fetch('/api/admin/speakers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: newSpeakerName, imageUrl: newSpeakerImage, organizationId: newSpeakerOrg }),
@@ -219,7 +243,7 @@ const AdminPage: React.FC = () => {
 
   const removeSpeaker = async (id: string) => {
     try {
-      const response = await fetch(`/api/speakers?id=${id}`, {
+      const response = await fetch(`/api/admin/speakers?id=${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -233,7 +257,7 @@ const AdminPage: React.FC = () => {
 
   const fetchMonitoredUrls = async () => {
     try {
-      const response = await fetch('/api/monitored-urls');
+      const response = await fetch('/api/admin/monitored-urls');
       if (!response.ok) {
         throw new Error('Failed to fetch monitored URLs');
       }
@@ -246,7 +270,7 @@ const AdminPage: React.FC = () => {
 
   const addMonitoredUrl = async () => {
     try {
-      const response = await fetch('/api/monitored-urls', {
+      const response = await fetch('/api/admin/monitored-urls', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: newUrl, logoUrl: newUrlLogo }),
@@ -264,7 +288,7 @@ const AdminPage: React.FC = () => {
 
   const removeMonitoredUrl = async (id: string) => {
     try {
-      const response = await fetch(`/api/monitored-urls?id=${id}`, {
+      const response = await fetch(`/api/admin/monitored-urls?id=${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -308,7 +332,7 @@ const AdminPage: React.FC = () => {
 
   const fetchStagedQuotes = async () => {
     try {
-      const response = await fetch('/api/staged-quotes');
+      const response = await fetch('/api/admin/staged-quotes');
       if (!response.ok) {
         throw new Error('Failed to fetch staged quotes');
       }
@@ -321,7 +345,7 @@ const AdminPage: React.FC = () => {
 
   const updateStagedQuote = async (id: string, field: 'summary' | 'rawQuoteText' | 'articleDate' | 'speakerName', value: string) => {
     try {
-      const response = await fetch(`/api/staged-quotes/${id}`, {
+      const response = await fetch(`/api/admin/staged-quotes/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [field]: value }),
@@ -337,7 +361,7 @@ const AdminPage: React.FC = () => {
 
   const acceptQuote = async (id: string) => {
     try {
-      const response = await fetch(`/api/staged-quotes/${id}/accept`, {
+      const response = await fetch(`/api/admin/staged-quotes/${id}/accept`, {
         method: 'POST',
       });
       
@@ -376,7 +400,7 @@ const AdminPage: React.FC = () => {
 
   const rejectQuote = async (id: string) => {
     try {
-      const response = await fetch(`/api/staged-quotes/${id}`, {
+      const response = await fetch(`/api/admin/staged-quotes/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -390,7 +414,7 @@ const AdminPage: React.FC = () => {
 
   const fetchSavedQuotes = async () => {
     try {
-      const response = await fetch('/api/saved-quotes');
+      const response = await fetch('/api/admin/saved-quotes');
       if (!response.ok) {
         throw new Error('Failed to fetch saved quotes');
       }
@@ -435,7 +459,7 @@ const AdminPage: React.FC = () => {
   // Add this function with the other API call functions
   const deleteSavedQuote = async (id: string) => {
     try {
-      const response = await fetch(`/api/saved-quotes/${id}`, {
+      const response = await fetch(`/api/admin/saved-quotes/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -457,7 +481,7 @@ const AdminPage: React.FC = () => {
 
       // Reject each quote sequentially
       for (const quote of stagedQuotes) {
-        await fetch(`/api/staged-quotes/${quote.id}`, {
+        await fetch(`/api/admin/staged-quotes/${quote.id}`, {
           method: 'DELETE',
         });
       }
@@ -474,7 +498,7 @@ const AdminPage: React.FC = () => {
 
     try {
       // Create speaker first
-      const createSpeakerResponse = await fetch('/api/speakers', {
+      const createSpeakerResponse = await fetch('/api/admin/speakers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -490,7 +514,7 @@ const AdminPage: React.FC = () => {
       }
 
       // Now try accepting the quote again
-      const acceptResponse = await fetch(`/api/staged-quotes/${addSpeakerModal.quoteId}/accept`, {
+      const acceptResponse = await fetch(`/api/admin/staged-quotes/${addSpeakerModal.quoteId}/accept`, {
         method: 'POST',
       });
 
@@ -940,6 +964,17 @@ const AdminPage: React.FC = () => {
         return <h2>Select a section from the sidebar</h2>;
     }
   };
+
+  // Show loading state while checking auth
+  if (loading) {
+    return (
+      <AdminLayout>
+        <div className="container mx-auto">
+          <h1 className="text-3xl font-bold mb-6">Loading...</h1>
+        </div>
+      </AdminLayout>
+    );
+  }
 
   return (
     <AdminLayout>

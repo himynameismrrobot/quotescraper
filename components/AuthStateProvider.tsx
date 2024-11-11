@@ -26,9 +26,9 @@ export function AuthStateProvider({
   const supabase = createClient()
 
   useEffect(() => {
-    // Check active session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
+    // Check active session using getUser instead of getSession
+    supabase.auth.getUser().then(({ data: { user }, error }) => {
+      setUser(user)
       setLoading(false)
     })
 
@@ -36,7 +36,14 @@ export function AuthStateProvider({
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
+      // When auth state changes, verify the user with getUser
+      if (session?.user) {
+        supabase.auth.getUser().then(({ data: { user } }) => {
+          setUser(user)
+        })
+      } else {
+        setUser(null)
+      }
       setLoading(false)
     })
 

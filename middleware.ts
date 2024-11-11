@@ -43,12 +43,17 @@ export async function middleware(request: NextRequest) {
       return response
     }
 
-    const {
-      data: { session },
-    } = await supabase.auth.getSession()
-
-    if (!session) {
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+    if (userError || !user) {
       return NextResponse.redirect(new URL('/auth/signin', request.url))
+    }
+
+    // Check for admin routes
+    if (request.nextUrl.pathname.startsWith('/admin')) {
+      const { data: { user: verifiedUser }, error: verifyError } = await supabase.auth.getUser()
+      if (verifyError || !verifiedUser?.user_metadata?.is_admin) {
+        return NextResponse.redirect(new URL('/newsfeed', request.url))
+      }
     }
 
     return response

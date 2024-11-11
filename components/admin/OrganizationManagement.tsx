@@ -2,18 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { PlusCircle, Trash2, Upload } from 'lucide-react';
-import axios from 'axios';
+import { createClient } from '@/utils/supabase/client';
+
+const supabase = createClient();
 
 interface Organization {
   id: string;
   name: string;
-  logoUrl: string;
+  logo_url: string | null;
 }
 
 const OrganizationManagement: React.FC = () => {
   const [organizations, setOrganizations] = useState<Organization[]>([]);
   const [newOrgName, setNewOrgName] = useState('');
-  const [logoFile, setLogoFile] = useState<File | null>(null);
+  const [newOrgLogo, setNewOrgLogo] = useState('');
 
   useEffect(() => {
     fetchOrganizations();
@@ -21,8 +23,13 @@ const OrganizationManagement: React.FC = () => {
 
   const fetchOrganizations = async () => {
     try {
-      const response = await axios.get('/api/organizations');
-      setOrganizations(response.data);
+      const { data, error } = await supabase
+        .from('organizations')
+        .select('*')
+        .order('name');
+
+      if (error) throw error;
+      setOrganizations(data || []);
     } catch (error) {
       console.error('Error fetching organizations:', error);
     }
@@ -32,21 +39,18 @@ const OrganizationManagement: React.FC = () => {
     if (!newOrgName.trim()) return;
 
     try {
-      let logoUrl = '';
-      if (logoFile) {
-        // TODO: Implement file upload to a storage service (e.g., AWS S3)
-        // and get the URL of the uploaded file
-        logoUrl = 'https://example.com/placeholder.png';
-      }
+      const { error } = await supabase
+        .from('organizations')
+        .insert([{
+          name: newOrgName,
+          logo_url: newOrgLogo || null
+        }]);
 
-      const response = await axios.post('/api/organizations', {
-        name: newOrgName,
-        logoUrl,
-      });
+      if (error) throw error;
 
-      setOrganizations([response.data, ...organizations]);
       setNewOrgName('');
-      setLogoFile(null);
+      setNewOrgLogo('');
+      fetchOrganizations();
     } catch (error) {
       console.error('Error adding organization:', error);
     }
@@ -54,17 +58,15 @@ const OrganizationManagement: React.FC = () => {
 
   const handleRemoveOrganization = async (id: string) => {
     try {
-      await axios.delete(`/api/organizations?id=${id}`);
-      setOrganizations(organizations.filter((org) => org.id !== id));
+      const { error } = await supabase
+        .from('organizations')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+      fetchOrganizations();
     } catch (error) {
       console.error('Error removing organization:', error);
-    }
-  };
-
-  const handleLogoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setLogoFile(file);
     }
   };
 
@@ -76,30 +78,26 @@ const OrganizationManagement: React.FC = () => {
           type="text"
           placeholder="Organization name"
           value={newOrgName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewOrgName(e.target.value)}
+          onChange={(e) => setNewOrgName(e.target.value)}
         />
-        <label className="cursor-pointer">
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={handleLogoUpload}
-            className="hidden"
-          />
-          <div className="flex items-center justify-center px-4 py-2 bg-gray-100 rounded-md">
-            <Upload className="w-5 h-5 mr-2" />
-            <span>Upload Logo</span>
-          </div>
-        </label>
+        <Input
+          type="text"
+          placeholder="Logo URL"
+          value={newOrgLogo}
+          onChange={(e) => setNewOrgLogo(e.target.value)}
+        />
         <Button onClick={handleAddOrganization}>
           <PlusCircle className="mr-2 h-4 w-4" />
           Add Organization
         </Button>
       </div>
       <ul className="space-y-4">
-        {organizations.map((org: Organization) => (
+        {organizations.map((org) => (
           <li key={org.id} className="flex items-center justify-between bg-white p-4 rounded-lg shadow">
             <div className="flex items-center space-x-4">
-              <img src={org.logoUrl} alt={org.name} className="w-10 h-10 rounded-full object-cover" />
+              {org.logo_url && (
+                <img src={org.logo_url} alt={org.name} className="w-10 h-10 rounded-full object-cover" />
+              )}
               <span>{org.name}</span>
             </div>
             <Button variant="destructive" onClick={() => handleRemoveOrganization(org.id)}>
