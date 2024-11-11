@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/components/AuthStateProvider';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface CommentInputProps {
@@ -10,12 +10,13 @@ interface CommentInputProps {
 }
 
 const CommentInput: React.FC<CommentInputProps> = ({ quoteId, onCommentAdded }) => {
+  const { user } = useAuth();
   const [comment, setComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { data: session } = useSession();
 
-  const handleSubmit = async () => {
-    if (!comment.trim() || isSubmitting) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!comment.trim() || !user) return;
 
     setIsSubmitting(true);
     try {
@@ -40,34 +41,34 @@ const CommentInput: React.FC<CommentInputProps> = ({ quoteId, onCommentAdded }) 
     }
   };
 
-  if (!session) return null;
+  if (!user) {
+    return null;
+  }
 
   return (
-    <div className="flex gap-4 p-4 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg shadow-xl">
-      <Avatar className="h-10 w-10 ring-2 ring-white/20">
-        <AvatarImage src={session.user?.image || undefined} />
-        <AvatarFallback className="bg-white/10 text-white">
-          {session.user?.name?.[0] || '?'}
-        </AvatarFallback>
-      </Avatar>
-      <div className="flex-1 space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="flex items-start space-x-4">
+        <Avatar>
+          <AvatarImage src={user.user_metadata.avatar_url} />
+          <AvatarFallback>{user.user_metadata.name?.[0]}</AvatarFallback>
+        </Avatar>
         <Textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="Write a comment..."
-          className="min-h-[80px] bg-white/5 border-white/10 text-white placeholder:text-gray-400"
+          className="flex-1 min-h-[100px] bg-white/10 border-white/20 text-white"
         />
-        <div className="flex justify-end">
-          <Button 
-            onClick={handleSubmit} 
-            disabled={!comment.trim() || isSubmitting}
-            className="bg-white/10 text-white hover:bg-white/20"
-          >
-            Post
-          </Button>
-        </div>
       </div>
-    </div>
+      <div className="flex justify-end">
+        <Button 
+          type="submit" 
+          disabled={!comment.trim() || isSubmitting}
+          className="bg-white/10 hover:bg-white/20 text-white"
+        >
+          {isSubmitting ? 'Posting...' : 'Post Comment'}
+        </Button>
+      </div>
+    </form>
   );
 };
 

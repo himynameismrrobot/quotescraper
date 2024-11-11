@@ -3,18 +3,18 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import ReactionButton from '../reactions/ReactionButton';
 import ReactionPill from '../reactions/ReactionPill';
-import { useSession } from 'next-auth/react';
+import { useAuth } from '@/components/AuthStateProvider';
 
 interface Comment {
   id: string;
   text: string;
-  createdAt: string;
+  created_at: string;
   user: {
     id: string;
     name: string | null;
     image: string | null;
   };
-  reactions: {
+  reactions?: {
     emoji: string;
     users: { id: string }[];
   }[];
@@ -26,9 +26,9 @@ interface CommentListProps {
   hasMore?: boolean;
 }
 
-const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore }) => {
-  const { data: session } = useSession();
-  const userId = session?.user?.id;
+const CommentList: React.FC<CommentListProps> = ({ comments = [], onLoadMore, hasMore }) => {
+  const { user } = useAuth();
+  const userId = user?.id;
 
   const handleReactionSelect = async (commentId: string, emoji: string) => {
     try {
@@ -43,22 +43,15 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
       if (!response.ok) {
         throw new Error('Failed to add reaction');
       }
-
-      window.location.reload();
     } catch (error) {
       console.error('Error adding reaction:', error);
     }
   };
 
   const handleReactionClick = async (commentId: string, emoji: string) => {
-    const comment = comments.find(c => c.id === commentId);
-    const hasReacted = comment?.reactions
-      .find(r => r.emoji === emoji)
-      ?.users.some(u => u.id === userId);
-
     try {
       const response = await fetch(`/api/comments/${commentId}/reactions`, {
-        method: hasReacted ? 'DELETE' : 'POST',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -66,64 +59,61 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onLoadMore, hasMore
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
+        throw new Error('Failed to remove reaction');
       }
-
-      window.location.reload();
     } catch (error) {
-      console.error('Error updating reaction:', error);
+      console.error('Error removing reaction:', error);
     }
   };
 
+  if (!comments.length) {
+    return <p className="text-gray-500 text-center py-4">No comments yet</p>;
+  }
+
   return (
     <div className="space-y-4">
-      {comments.map((comment, index) => (
-        <div key={comment.id}>
-          <div className="flex gap-3">
-            <Avatar className="h-10 w-10 ring-2 ring-white/20">
-              <AvatarImage src={comment.user.image || undefined} />
-              <AvatarFallback className="bg-white/10 text-white">
-                {comment.user.name?.[0] || '?'}
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
+      {comments.map((comment) => (
+        <div key={comment.id} className="flex space-x-4">
+          <Avatar>
+            <AvatarImage src={comment.user.image || undefined} />
+            <AvatarFallback>{comment.user.name?.[0]}</AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
                 <span className="font-semibold text-white">{comment.user.name}</span>
                 <span className="text-sm text-gray-400">
-                  {new Date(comment.createdAt).toLocaleDateString()}
+                  {new Date(comment.created_at).toLocaleDateString()}
                 </span>
               </div>
-              <p className="text-gray-200 mb-3">{comment.text}</p>
-              <div className="flex items-center gap-2">
-                {comment.reactions.map((reaction) => (
-                  <ReactionPill
-                    key={reaction.emoji}
-                    emoji={reaction.emoji}
-                    count={reaction.users.length}
-                    isUserReaction={reaction.users.some(u => u.id === userId)}
-                    onClick={() => handleReactionClick(comment.id, reaction.emoji)}
-                  />
-                ))}
-                <ReactionButton
-                  quoteId={comment.id}
-                  onReactionSelect={(emoji) => handleReactionSelect(comment.id, emoji)}
+              <p className="text-gray-200">{comment.text}</p>
+            </div>
+            <div className="mt-2 flex items-center gap-2">
+              <ReactionButton 
+                quoteId={comment.id} 
+                onReactionSelect={(emoji) => handleReactionSelect(comment.id, emoji)}
+              />
+              {comment.reactions?.map((reaction) => (
+                <ReactionPill
+                  key={reaction.emoji}
+                  emoji={reaction.emoji}
+                  count={reaction.users.length}
+                  isUserReaction={reaction.users.some(u => u.id === userId)}
+                  onClick={() => handleReactionClick(comment.id, reaction.emoji)}
                 />
-              </div>
+              ))}
             </div>
           </div>
-          {index < comments.length - 1 && (
-            <div className="my-4 border-t border-white/10" />
-          )}
         </div>
       ))}
       {hasMore && (
-        <div className="flex justify-center pt-2">
+        <div className="text-center pt-4">
           <Button 
-            onClick={onLoadMore} 
-            variant="ghost"
+            variant="ghost" 
+            onClick={onLoadMore}
             className="text-gray-300 hover:text-white hover:bg-white/10"
           >
-            Load more comments
+            Load More
           </Button>
         </div>
       )}

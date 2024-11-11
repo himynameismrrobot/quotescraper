@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import OnboardingFollowSuggestions from '@/components/OnboardingFollowSuggestions';
+import { useAuth } from '@/components/AuthStateProvider';
 
 export default function OnboardingPage() {
-  const { data: session, status } = useSession({ required: true });
+  const { user, loading } = useAuth();
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -17,52 +17,45 @@ export default function OnboardingPage() {
   });
 
   useEffect(() => {
-    console.log("Session status:", status, session);
-    if (status === "unauthenticated") {
+    if (!loading && !user) {
       router.push('/auth/signin');
     }
-  }, [status, router]);
+  }, [loading, user, router]);
 
   useEffect(() => {
-    if (session?.user) {
+    if (user) {
       setFormData({
-        name: session.user.name || '',
+        name: user.user_metadata.name || '',
         username: '',
-        image: session.user.image || '',
+        image: user.user_metadata.avatar_url || '',
       });
     }
-  }, [session]);
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (status !== 'authenticated' || !session?.user?.email) {
-      console.error('No session available');
+    if (!user?.email) {
+      console.error('No user available');
       return;
     }
     
     try {
-      console.log('Submitting form data:', formData);
       const response = await fetch('/api/user/onboarding', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          email: session.user.email,
+          email: user.email,
         }),
       });
 
-      console.log('Response status:', response.status);
       const data = await response.json();
-      console.log('Response data:', data);
-
+      
       if (!response.ok) {
         throw new Error(data.message || 'Failed to save user data');
       }
 
-      console.log('Moving to next step');
       setStep(2);
     } catch (error) {
       console.error('Error saving user data:', error);
@@ -70,7 +63,7 @@ export default function OnboardingPage() {
     }
   };
 
-  if (status === 'loading') {
+  if (loading) {
     return <div>Loading...</div>;
   }
 

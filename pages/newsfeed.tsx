@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import EchoLayout from '../components/EchoLayout';
 import QuoteCard from '../components/QuoteCard';
@@ -7,15 +6,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Button } from "../components/ui/button";
 import { Home, Search, User } from "lucide-react";
 import BottomNav from '../components/BottomNav';
+import { useAuth } from '@/components/AuthStateProvider';
 
 interface Quote {
   id: string;
   summary: string;
-  rawQuoteText?: string;
-  speakerName: string;
-  speakerImage?: string;
-  organizationLogo?: string;
-  articleDate: string;
+  raw_quote_text: string;
+  article_date: string;
+  speaker: {
+    id: string;
+    name: string;
+    image_url: string | null;
+    organization: {
+      id: string;
+      name: string;
+      logo_url: string | null;
+    } | null;
+  };
   reactions?: {
     emoji: string;
     users: { id: string }[];
@@ -35,6 +42,7 @@ const NewsfeedPage = () => {
         throw new Error('Failed to fetch quotes');
       }
       const data = await response.json();
+      console.log('Fetched quotes:', data);
       setQuotes(data);
     } catch (error) {
       console.error('Error fetching quotes:', error);
@@ -54,7 +62,7 @@ const NewsfeedPage = () => {
       {quotes.map((quote) => (
         <QuoteCard
           key={quote.id}
-          {...quote}
+          quote={quote}
         />
       ))}
     </div>

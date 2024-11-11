@@ -1,7 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '../auth/[...nextauth]';
-import prisma from '@/lib/prisma';
+import { createClient } from '@/utils/supabase/server';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -9,48 +7,45 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const session = await getServerSession(req, res, authOptions);
-    console.log('Session in onboarding API:', session);
+    const supabase = createClient();
+    const { data: { user }, error } = await supabase.auth.getUser();
     
-    if (!session?.user?.email) {
-      console.log('No session or email found');
+    if (error || !user?.email) {
       return res.status(401).json({ message: 'Not authenticated' });
     }
 
     const { name, username, image } = req.body;
-    console.log('Received data:', { name, username, image });
 
-    // Check if username is already taken
-    const existingUser = await prisma.user.findUnique({
-      where: { username },
-      select: { id: true }
-    });
+    // Check if username is taken
+    const { data: existingUser } = await supabase
+      .from('users')
+      .select('id')
+      .eq('username', username)
+      .single();
 
     if (existingUser) {
-      console.log('Username already taken:', username);
       return res.status(400).json({ message: 'Username already taken' });
     }
 
-    // Update user profile
-    console.log('Updating user profile for email:', session.user.email);
-    const updatedUser = await prisma.user.update({
-      where: { 
-        email: session.user.email 
-      },
-      data: {
+    // Update user
+    const { data: updatedUser, error: updateError } = await supabase
+      .from('users')
+      .update({
         name,
         username,
-        image: image || session.user.image,
-      },
-    });
+        image: image || user.user_metadata.avatar_url,
+        updated_at: new Date().toISOString()
+      })
+      .eq('id', user.id)
+      .select()
+      .single();
 
-    console.log('Updated user:', updatedUser);
+    if (updateError) throw updateError;
     res.status(200).json(updatedUser);
   } catch (error) {
     console.error('Error in onboarding:', error);
     res.status(500).json({ 
-      message: error instanceof Error ? error.message : 'Error updating user profile',
-      error: error instanceof Error ? error.stack : 'Unknown error'
+      message: error instanceof Error ? error.message : 'Error updating user profile'
     });
   }
 } 

@@ -6,26 +6,33 @@ import CommentList from '../../components/comments/CommentList';
 import CommentInput from '../../components/comments/CommentInput';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { ArrowLeft, Link as LinkIcon, Home, Search, User } from 'lucide-react';
+import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import Link from 'next/link';
 import ReactionButton from '../../components/reactions/ReactionButton';
 import ReactionPill from '../../components/reactions/ReactionPill';
-import { useSession } from 'next-auth/react';
 import BottomNav from '../../components/BottomNav';
+import { useAuth } from '@/components/AuthStateProvider';
 
 interface Quote {
   id: string;
   summary: string;
-  rawQuoteText: string;
-  speakerName: string;
-  speakerImage?: string;
-  organizationLogo?: string;
-  articleDate: string;
-  articleUrl: string;
-  articleHeadline?: string;
-  parentMonitoredUrl: string;
-  parentMonitoredUrlLogo?: string;
+  raw_quote_text: string;
+  article_date: string;
+  article_url: string;
+  article_headline?: string;
+  parent_monitored_url: string;
+  parent_monitored_url_logo?: string;
+  speaker: {
+    id: string;
+    name: string;
+    image_url: string | null;
+    organization: {
+      id: string;
+      name: string;
+      logo_url: string | null;
+    } | null;
+  };
   reactions?: {
     emoji: string;
     users: { id: string }[];
@@ -35,13 +42,13 @@ interface Quote {
 interface Comment {
   id: string;
   text: string;
-  createdAt: string;
+  created_at: string;
   user: {
     id: string;
     name: string | null;
     image: string | null;
   };
-  reactions: {
+  reactions?: {
     emoji: string;
     users: { id: string }[];
   }[];
@@ -50,14 +57,14 @@ interface Comment {
 const QuoteDetailPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
+  const { user } = useAuth();
+  const userId = user?.id;
   const [quote, setQuote] = useState<Quote | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [isLoadingComments, setIsLoadingComments] = useState(false);
   const [totalComments, setTotalComments] = useState(0);
-  const { data: session } = useSession();
-  const userId = session?.user?.id;
   const [reactions, setReactions] = useState<Quote['reactions']>([]);
 
   useEffect(() => {
@@ -121,50 +128,47 @@ const QuoteDetailPage: React.FC = () => {
   };
 
   const handleReactionSelect = async (emoji: string) => {
+    if (!userId) return;
+
     try {
       const response = await fetch(`/api/quotes/${id}/reactions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
-      const data = await response.json();
-      
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to add reaction');
+        throw new Error('Failed to add reaction');
       }
       
       // Update local state
-      const existingReaction = reactions.find(r => r.emoji === emoji);
+      const newReactions = [...(reactions || [])];
+      const existingReaction = newReactions.find(r => r.emoji === emoji);
       if (existingReaction) {
-        setReactions(reactions.map(r => 
-          r.emoji === emoji 
-            ? { ...r, users: [...r.users, { id: userId! }] }
-            : r
-        ));
+        existingReaction.users = [...existingReaction.users, { id: userId }];
       } else {
-        setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+        newReactions.push({ emoji, users: [{ id: userId }] });
       }
+      setReactions(newReactions);
     } catch (error) {
       console.error('Error adding reaction:', error);
     }
   };
 
   const handleReactionClick = async (emoji: string) => {
-    const hasReacted = reactions
-      .find(r => r.emoji === emoji)
+    if (!userId) return;
+
+    const hasReacted = reactions?.find(r => r.emoji === emoji)
       ?.users.some(u => u.id === userId);
 
     try {
-      const response = await fetch(`/api/quotes/${id}/reactions`, {
+      const response = await fetch(`/api/quotes/${id}/reactions?emoji=${emoji}`, {
         method: hasReacted ? 'DELETE' : 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
@@ -172,25 +176,9 @@ const QuoteDetailPage: React.FC = () => {
         throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
       }
 
-      // Update local state
-      if (hasReacted) {
-        setReactions(reactions.map(r => 
-          r.emoji === emoji 
-            ? { ...r, users: r.users.filter(u => u.id !== userId) }
-            : r
-        ).filter(r => r.users.length > 0));
-      } else {
-        const existingReaction = reactions.find(r => r.emoji === emoji);
-        if (existingReaction) {
-          setReactions(reactions.map(r => 
-            r.emoji === emoji 
-              ? { ...r, users: [...r.users, { id: userId! }] }
-              : r
-          ));
-        } else {
-          setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
-        }
-      }
+      // Update local state with the returned data
+      const updatedQuote = await response.json();
+      setReactions(updatedQuote.reactions || []);
     } catch (error) {
       console.error('Error updating reaction:', error);
     }
@@ -219,38 +207,35 @@ const QuoteDetailPage: React.FC = () => {
               <div className="flex items-center mb-4">
                 <div className="avatar-click-area">
                   <Avatar className="mr-3 h-12 w-12 ring-2 ring-white/20">
-                    <AvatarImage src={quote.speakerImage} alt={quote.speakerName} />
+                    <AvatarImage src={quote.speaker.image_url || undefined} alt={quote.speaker.name} />
                     <AvatarFallback className="text-lg bg-white/10 text-white">
-                      {quote.speakerName[0]}
+                      {quote.speaker.name[0]}
                     </AvatarFallback>
                   </Avatar>
                 </div>
                 <div>
-                  <Link href={`/speaker/${encodeURIComponent(quote.speakerName)}`}>
+                  <Link href={`/speaker/${quote.speaker.id}`}>
                     <span className="font-bold hover:underline text-lg text-white">
-                      {quote.speakerName}
+                      {quote.speaker.name}
                     </span>
                   </Link>
                   <p className="text-sm text-gray-300">
-                    {new Date(quote.articleDate).toLocaleDateString()}
+                    {new Date(quote.article_date).toLocaleDateString()}
                   </p>
                 </div>
-                {quote.organizationLogo && (
+                {quote.speaker.organization?.logo_url && (
                   <div className="ml-auto">
                     <img 
-                      src={quote.organizationLogo} 
-                      alt="Organization" 
+                      src={quote.speaker.organization.logo_url} 
+                      alt={quote.speaker.organization.name}
                       className="w-10 h-10 rounded-full"
                     />
                   </div>
                 )}
               </div>
-              <p className="text-lg mb-4 text-gray-100">{quote.summary}</p>
-              {quote.rawQuoteText && (
-                <p className="text-gray-300 mb-4">"{quote.rawQuoteText}"</p>
-              )}
+              <p className="text-gray-200 mb-4">"{quote.raw_quote_text}"</p>
               <div className="flex items-center gap-4">
-                {reactions.map((reaction) => (
+                {reactions?.map((reaction) => (
                   <ReactionPill
                     key={reaction.emoji}
                     emoji={reaction.emoji}
@@ -273,25 +258,22 @@ const QuoteDetailPage: React.FC = () => {
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-4 mb-4">
-                {quote.parentMonitoredUrlLogo && (
+                {quote.parent_monitored_url_logo && (
                   <img 
-                    src={quote.parentMonitoredUrlLogo} 
+                    src={quote.parent_monitored_url_logo} 
                     alt="Source" 
                     className="w-10 h-10 rounded-full"
                   />
                 )}
                 <div className="flex-1">
                   <a 
-                    href={quote.articleUrl} 
+                    href={quote.article_url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-white hover:underline block"
                   >
-                    {quote.articleHeadline || quote.parentMonitoredUrl}
+                    {quote.article_headline || quote.parent_monitored_url}
                   </a>
-                  <p className="text-sm text-gray-300">
-                    {new URL(quote.parentMonitoredUrl).hostname}
-                  </p>
                 </div>
               </div>
             </CardContent>
@@ -303,7 +285,10 @@ const QuoteDetailPage: React.FC = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <CommentInput quoteId={quote.id} onCommentAdded={handleCommentAdded} />
+                <CommentInput 
+                  quoteId={id as string} 
+                  onCommentAdded={handleCommentAdded}
+                />
                 <div className="h-[500px] overflow-y-auto pr-2">
                   <CommentList 
                     comments={comments}

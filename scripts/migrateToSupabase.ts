@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client';
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@/utils/supabase/server';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
-import { Database } from '../lib/database.types';
+import { Database } from '@/utils/supabase/database.types';
 import { v4 as uuidv4 } from 'uuid';
 
 dotenv.config();
@@ -12,15 +12,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-const supabase = createClient<Database>(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-const supabaseAdmin = createClient<Database>(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+const supabase = createClient();
 
 const idMap = new Map<string, string>();
 
@@ -36,12 +28,12 @@ async function preMigrationChecks() {
   console.log('Running pre-migration checks...');
   
   // Check vector extension using raw query
-  const { data: vectorEnabled, error: vectorError } = await supabaseAdmin.rpc('check_vector_extension');
+  const { data: vectorEnabled, error: vectorError } = await supabase.rpc('check_vector_extension');
   
   if (vectorError) {
     console.error('Error checking vector extension:', vectorError);
     // Try alternative check
-    const { data: extensions } = await supabaseAdmin
+    const { data: extensions } = await supabase
       .from('pg_extension')
       .select('extname, schema')
       .eq('extname', 'vector')
@@ -56,7 +48,7 @@ async function preMigrationChecks() {
       console.log('Vector extension found in wrong schema, attempting to update...');
       try {
         // Use raw SQL to alter the extension schema
-        await supabaseAdmin.rpc('alter_vector_schema');
+        await supabase.rpc('alter_vector_schema');
         console.log('Successfully moved vector extension to public schema');
       } catch (alterError) {
         throw new Error(`Vector extension exists but not in public schema. Please run: ALTER EXTENSION vector SET SCHEMA public;`);
@@ -67,13 +59,17 @@ async function preMigrationChecks() {
   console.log('✅ Vector extension check passed');
 
   // Check if tables exist using raw query
-  const { data: tables, error: tablesError } = await supabaseAdmin.rpc('list_tables');
+  const { data: tables, error: tablesError } = await supabase.rpc('list_tables');
   
   if (tablesError) {
     throw new Error(`Failed to list tables: ${tablesError.message}`);
   }
 
-  const tableNames = tables?.map(t => t.table_name) || [];
+  interface TableInfo {
+    table_name: string;
+  }
+
+  const tableNames = tables?.map((t: TableInfo) => t.table_name) || [];
   
   const requiredTables = [
     'organizations', 'speakers', 'users', 'accounts', 'sessions',
@@ -101,7 +97,7 @@ async function preMigrationChecks() {
 
   // Check database access with a simple query
   try {
-    const { data: org } = await supabaseAdmin
+    const { data: org } = await supabase
       .from('organizations')
       .select('id')
       .limit(1);
@@ -520,8 +516,16 @@ async function validateDataIntegrity() {
     .from('speakers')
     .select('id');
 
-  const speakerIds = new Set(speakers?.map(s => s.id));
-  const orphanedQuotes = quotes?.filter(q => !speakerIds.has(q.speaker_id));
+  interface Speaker {
+    id: string;
+  }
+
+  interface Quote {
+    speaker_id: string;
+  }
+
+  const speakerIds = new Set(speakers?.map((s: Speaker) => s.id));
+  const orphanedQuotes = quotes?.filter((q: Quote) => !speakerIds.has(q.speaker_id));
 
   if (orphanedQuotes?.length) {
     console.error(`Found ${orphanedQuotes.length} quotes with invalid speaker_id`);

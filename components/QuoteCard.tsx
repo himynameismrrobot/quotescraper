@@ -7,125 +7,127 @@ import { MessageSquare, Link2 } from 'lucide-react';
 import { useToast } from './ui/use-toast';
 import ReactionButton from './reactions/ReactionButton';
 import ReactionPill from './reactions/ReactionPill';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { createClient } from '@/utils/supabase/client';
+import { useRouter } from 'next/navigation';
 
-interface Reaction {
-  emoji: string;
-  users: { id: string }[];
-}
-
-interface QuoteCardProps {
+interface Quote {
   id: string;
   summary: string;
-  rawQuoteText?: string;
-  speakerName: string;
-  speakerImage?: string;
-  organizationLogo?: string;
-  articleDate: string;
-  comments: number;
-  reactions?: Reaction[];
-  className?: string;
+  raw_quote_text: string;
+  article_date: string;
+  speaker: {
+    id: string;
+    name: string;
+    image_url: string | null;
+    organization: {
+      id: string;
+      name: string;
+      logo_url: string | null;
+    } | null;
+  };
+  reactions?: {
+    emoji: string;
+    users: { id: string }[];
+  }[];
+  comments?: number;
 }
 
-const QuoteCard: React.FC<QuoteCardProps> = ({
-  id,
-  summary,
-  speakerName,
-  speakerImage,
-  organizationLogo,
-  articleDate,
-  comments,
-  reactions: initialReactions = [],
-  className,
-}) => {
-  const { data: session } = useSession();
+const QuoteCard = ({ quote }: { quote: Quote }) => {
+  console.log('Quote data:', quote);
+  const supabase = createClient();
   const router = useRouter();
   const { toast } = useToast();
-  const userId = session?.user?.id;
-  const [reactions, setReactions] = useState(initialReactions);
+  const [reactions, setReactions] = useState<Quote['reactions']>(quote.reactions || []);
+  const [userId, setUserId] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUserId(user?.id || null);
+    };
+    getUser();
+  }, []);
 
   const handleReactionSelect = async (emoji: string) => {
+    if (!userId) {
+      toast({
+        variant: "destructive",
+        description: "Please sign in to react to quotes",
+        duration: 2000,
+      });
+      router.push('/auth/signin');
+      return;
+    }
+
     try {
-      const response = await fetch(`/api/quotes/${id}/reactions`, {
+      const response = await fetch(`/api/quotes/${quote.id}/reactions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
-      const data = await response.json();
-      
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to add reaction');
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to add reaction');
       }
       
       // Update local state
-      const existingReaction = reactions.find(r => r.emoji === emoji);
+      const newReactions = [...(reactions || [])];
+      const existingReaction = newReactions.find(r => r.emoji === emoji);
       if (existingReaction) {
-        setReactions(reactions.map(r => 
-          r.emoji === emoji 
-            ? { ...r, users: [...r.users, { id: userId! }] }
-            : r
-        ));
+        existingReaction.users = [...existingReaction.users, { id: userId }];
       } else {
-        setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
+        newReactions.push({ emoji, users: [{ id: userId }] });
       }
+      setReactions(newReactions);
     } catch (error) {
       console.error('Error adding reaction:', error);
       toast({
         variant: "destructive",
-        description: "Failed to add reaction",
+        description: error instanceof Error ? error.message : "Failed to add reaction",
         duration: 2000,
       });
     }
   };
 
   const handleReactionClick = async (emoji: string) => {
-    const hasReacted = reactions
-      .find(r => r.emoji === emoji)
+    if (!userId) {
+      toast({
+        variant: "destructive",
+        description: "Please sign in to react to quotes",
+        duration: 2000,
+      });
+      router.push('/auth/signin');
+      return;
+    }
+
+    const hasReacted = reactions?.find(r => r.emoji === emoji)
       ?.users.some(u => u.id === userId);
 
     try {
-      const response = await fetch(`/api/quotes/${id}/reactions`, {
+      const response = await fetch(`/api/quotes/${quote.id}/reactions?emoji=${emoji}`, {
         method: hasReacted ? 'DELETE' : 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify({ emoji }),
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
+        const error = await response.json();
+        throw new Error(error.message || `Failed to ${hasReacted ? 'remove' : 'add'} reaction`);
       }
 
-      // Update local state
-      if (hasReacted) {
-        setReactions(reactions.map(r => 
-          r.emoji === emoji 
-            ? { ...r, users: r.users.filter(u => u.id !== userId) }
-            : r
-        ).filter(r => r.users.length > 0)); // Remove reaction if no users left
-      } else {
-        const existingReaction = reactions.find(r => r.emoji === emoji);
-        if (existingReaction) {
-          setReactions(reactions.map(r => 
-            r.emoji === emoji 
-              ? { ...r, users: [...r.users, { id: userId! }] }
-              : r
-          ));
-        } else {
-          setReactions([...reactions, { emoji, users: [{ id: userId! }] }]);
-        }
-      }
+      // Update local state with the returned data
+      const updatedQuote = await response.json();
+      setReactions(updatedQuote.reactions || []);
     } catch (error) {
       console.error('Error updating reaction:', error);
       toast({
         variant: "destructive",
-        description: `Failed to ${hasReacted ? 'remove' : 'add'} reaction`,
+        description: error instanceof Error ? error.message : `Failed to ${hasReacted ? 'remove' : 'add'} reaction`,
         duration: 2000,
       });
     }
@@ -133,12 +135,12 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
 
   const handleCommentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    router.push(`/quote/${id}#comments`);
+    router.push(`/quote/${quote.id}#comments`);
   };
 
   const handleCopyLink = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    const quoteUrl = `${window.location.origin}/quote/${id}`;
+    const quoteUrl = `${window.location.origin}/quote/${quote.id}`;
     
     try {
       await navigator.clipboard.writeText(quoteUrl);
@@ -157,33 +159,39 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
   };
 
   return (
-    <Card className={`w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl hover:bg-white/[0.15] transition-all ${className || ''}`}>
+    <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl hover:bg-white/[0.15] transition-all">
       <CardContent className="pt-4 pb-2 cursor-pointer transition-colors">
-        <Link href={`/quote/${id}`}>
+        <Link href={`/quote/${quote.id}`}>
           <div className="flex items-center mb-3">
             <div className="avatar-click-area" onClick={(e) => e.stopPropagation()}>
               <Avatar className="mr-3 h-12 w-12 ring-2 ring-white/20">
-                <AvatarImage src={speakerImage} alt={speakerName} />
-                <AvatarFallback className="text-lg bg-white/10 text-white">{speakerName[0]}</AvatarFallback>
+                <AvatarImage src={quote.speaker.image_url || undefined} alt={quote.speaker.name} />
+                <AvatarFallback className="text-lg bg-white/10 text-white">
+                  {quote.speaker.name[0]}
+                </AvatarFallback>
               </Avatar>
             </div>
             <div>
-              <Link href={`/speaker/${encodeURIComponent(speakerName)}`} onClick={(e) => e.stopPropagation()}>
-                <span className="font-bold hover:underline text-lg text-white">{speakerName}</span>
+              <Link href={`/speaker/${quote.speaker.id}`} onClick={(e) => e.stopPropagation()}>
+                <span className="font-bold hover:underline text-lg text-white">
+                  {quote.speaker.name}
+                </span>
               </Link>
-              <p className="text-sm text-gray-300">{new Date(articleDate).toLocaleDateString()}</p>
+              <p className="text-sm text-gray-300">
+                {new Date(quote.article_date).toLocaleDateString()}
+              </p>
             </div>
-            {organizationLogo && (
+            {quote.speaker.organization?.logo_url && (
               <div className="avatar-click-area ml-auto">
                 <img 
-                  src={organizationLogo} 
-                  alt="Organization" 
+                  src={quote.speaker.organization.logo_url} 
+                  alt={quote.speaker.organization.name}
                   className="w-10 h-10 rounded-full"
                 />
               </div>
             )}
           </div>
-          <p className="text-lg mb-2 text-gray-100">{summary}</p>
+          <p className="text-lg mb-2 text-gray-100">{quote.summary}</p>
         </Link>
         
         <div className="flex items-center gap-4">
@@ -201,7 +209,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
       <CardFooter className="flex justify-center py-2 border-t border-white/10">
         <div className="flex space-x-2">
           <ReactionButton 
-            quoteId={id} 
+            quoteId={quote.id} 
             onReactionSelect={handleReactionSelect}
           />
           <Button 
@@ -211,7 +219,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
             className="text-gray-300 hover:text-white hover:bg-white/10"
           >
             <MessageSquare className="h-4 w-4 mr-1" />
-            {comments}
+            {quote.comments}
           </Button>
           <Button 
             variant="ghost" 
