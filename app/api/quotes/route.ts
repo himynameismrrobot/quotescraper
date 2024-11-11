@@ -3,16 +3,20 @@ import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
   try {
+    console.log('Quotes API called');
     const supabase = await createClient()
     const { searchParams } = new URL(request.url)
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 20
     const offset = searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : 0
     const tab = searchParams.get('tab') || 'all'
     
+    console.log('Query params:', { limit, offset, tab });
+
     // Get current user
     const { data: { user }, error: userError } = await supabase.auth.getUser()
     if (userError) throw userError
 
+    // Base query for all quotes
     let quotesQuery = supabase
       .from('quotes')
       .select(`
@@ -26,22 +30,32 @@ export async function GET(request: Request) {
         parent_monitored_url_logo,
         created_at,
         updated_at,
-        speaker:speakers(
-          *,
-          organization:organizations(*)
-        ),
-        reactions:quote_reactions(
-          *,
-          users:quote_reactions_users(
-            user:users(*)
+        speaker:speakers!inner(
+          id,
+          name,
+          image_url,
+          organization:organizations(
+            id,
+            name,
+            logo_url
           )
         ),
-        comments:comments!quote_id(count)
+        reactions:quote_reactions(
+          emoji,
+          users:quote_reactions_users(
+            user_id
+          )
+        ),
+        comments:comments(count)
       `)
       .order('created_at', { ascending: false })
 
-    // If on following tab, filter by followed speakers only
+    console.log('Base query constructed');
+
+    // If on following tab and user is logged in, filter by followed speakers
     if (tab === 'following' && user) {
+      console.log('Fetching followed speakers for user:', user.id);
+      // Get followed speaker IDs
       const { data: followedSpeakers } = await supabase
         .from('following')
         .select('speaker_id')
@@ -49,9 +63,12 @@ export async function GET(request: Request) {
 
       const speakerIds = followedSpeakers?.map(f => f.speaker_id) || []
 
-      if (speakerIds.length) {
+      if (speakerIds.length > 0) {
+        console.log('Found followed speakers:', speakerIds);
+        // Add the speaker filter to the query
         quotesQuery = quotesQuery.in('speaker_id', speakerIds)
       } else {
+        console.log('No followed speakers found');
         // If user hasn't followed anyone, return empty array
         return NextResponse.json({
           quotes: [],
@@ -60,11 +77,6 @@ export async function GET(request: Request) {
         })
       }
     }
-
-    // Get total count for pagination
-    const { count } = await supabase
-      .from('quotes')
-      .select('*', { count: 'exact', head: true })
 
     // Get paginated quotes
     const { data: quotes, error } = await quotesQuery
@@ -75,15 +87,40 @@ export async function GET(request: Request) {
       throw error;
     }
 
+    console.log('Raw quotes data:', quotes);
+
     // Transform the data to match the expected format
-    const transformedQuotes = quotes.map(quote => ({
-      ...quote,
+    const transformedQuotes = quotes?.map(quote => ({
+      id: quote.id,
+      summary: quote.summary,
+      raw_quote_text: quote.raw_quote_text,
+      article_date: quote.article_date,
+      article_url: quote.article_url,
+      article_headline: quote.article_headline,
+      created_at: quote.created_at,
+      speaker: {
+        id: quote.speaker.id,
+        name: quote.speaker.name,
+        image_url: quote.speaker.image_url,
+        organization: quote.speaker.organization ? {
+          id: quote.speaker.organization.id,
+          name: quote.speaker.organization.name,
+          logo_url: quote.speaker.organization.logo_url
+        } : null
+      },
       reactions: quote.reactions?.map(reaction => ({
         emoji: reaction.emoji,
-        users: reaction.users?.map(u => ({ id: u.user.id })) || []
+        users: reaction.users?.map(u => ({ id: u.user_id })) || []
       })) || [],
       comments: quote.comments?.[0]?.count || 0
-    }));
+    })) || [];
+
+    console.log('Transformed quotes:', transformedQuotes);
+
+    // Get total count for pagination
+    const { count } = await supabase
+      .from('quotes')
+      .select('*', { count: 'exact', head: true })
 
     // Add pagination metadata
     const hasMore = Boolean(count && offset + quotes.length < count);
