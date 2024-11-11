@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server'
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     const supabase = await createClient()
-    const id = await params.id
+    const { id } = context.params
     
     // Use Promise.all to make parallel requests
     const [quoteResult, commentsResult] = await Promise.all([

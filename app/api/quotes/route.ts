@@ -7,14 +7,13 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : 20
     const offset = searchParams.get('offset') ? parseInt(searchParams.get('offset')!) : 0
+    const tab = searchParams.get('tab') || 'all'
     
-    // First, get total count for pagination
-    const { count } = await supabase
-      .from('quotes')
-      .select('*', { count: 'exact', head: true })
+    // Get current user
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+    if (userError) throw userError
 
-    // Then get the quotes for current page
-    const { data: quotes, error } = await supabase
+    let quotesQuery = supabase
       .from('quotes')
       .select(`
         id,
@@ -39,7 +38,36 @@ export async function GET(request: Request) {
         ),
         comments:comments!quote_id(count)
       `)
-      .order('article_date', { ascending: false }) // Sort by article_date instead of created_at
+      .order('article_date', { ascending: false })
+
+    // If on following tab, filter by followed speakers only
+    if (tab === 'following' && user) {
+      const { data: followedSpeakers } = await supabase
+        .from('following')
+        .select('speaker_id')
+        .eq('user_id', user.id)
+
+      const speakerIds = followedSpeakers?.map(f => f.speaker_id) || []
+
+      if (speakerIds.length) {
+        quotesQuery = quotesQuery.in('speaker_id', speakerIds)
+      } else {
+        // If user hasn't followed anyone, return empty array
+        return NextResponse.json({
+          quotes: [],
+          hasMore: false,
+          total: 0
+        })
+      }
+    }
+
+    // Get total count for pagination
+    const { count } = await supabase
+      .from('quotes')
+      .select('*', { count: 'exact', head: true })
+
+    // Get paginated quotes
+    const { data: quotes, error } = await quotesQuery
       .range(offset, offset + limit - 1)
 
     if (error) {

@@ -5,14 +5,18 @@ import QuoteCard from '../../components/QuoteCard';
 import CommentList from '../../components/comments/CommentList';
 import CommentInput from '../../components/comments/CommentInput';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card';
-import { Button } from '../../components/ui/button';
-import { ArrowLeft, Link as LinkIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Link as LinkIcon, Link2, UserPlus, UserCheck } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import Link from 'next/link';
 import ReactionButton from '../../components/reactions/ReactionButton';
 import ReactionPill from '../../components/reactions/ReactionPill';
 import BottomNav from '../../components/BottomNav';
 import { useAuth } from '@/components/AuthStateProvider';
+import { createClient } from '@/utils/supabase/client';
+import { useToast } from '@/components/ui/use-toast';
+
+const supabase = createClient();
 
 interface Quote {
   id: string;
@@ -58,6 +62,7 @@ const QuoteDetailPage: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
   const { user } = useAuth();
+  const { toast } = useToast();
   const userId = user?.id;
   const [quote, setQuote] = useState<Quote | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -66,6 +71,7 @@ const QuoteDetailPage: React.FC = () => {
   const [isLoadingComments, setIsLoadingComments] = useState(false);
   const [totalComments, setTotalComments] = useState(0);
   const [reactions, setReactions] = useState<Quote['reactions']>([]);
+  const [isFollowing, setIsFollowing] = useState(false);
 
   useEffect(() => {
     if (id && !quote) {
@@ -79,6 +85,28 @@ const QuoteDetailPage: React.FC = () => {
       }
     }
   }, [id, quote]);
+
+  useEffect(() => {
+    const checkFollowStatus = async () => {
+      if (!user || !quote) return;
+      
+      const { data, error } = await supabase
+        .from('following')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('speaker_id', quote.speaker.id)
+        .maybeSingle();
+      
+      if (error) {
+        console.error('Error checking follow status:', error);
+        return;
+      }
+      
+      setIsFollowing(!!data);
+    };
+
+    checkFollowStatus();
+  }, [user, quote]);
 
   const fetchQuote = async () => {
     try {
@@ -184,6 +212,83 @@ const QuoteDetailPage: React.FC = () => {
     }
   };
 
+  const handleFollowClick = async () => {
+    if (!user || !quote) {
+      console.log('No user or quote:', { user, quote });
+      return;
+    }
+
+    try {
+      console.log('Attempting to follow/unfollow:', {
+        userId: user.id,
+        speakerId: quote.speaker.id,
+        currentlyFollowing: isFollowing
+      });
+      
+      // Get current session to verify authentication
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      if (sessionError || !session) {
+        console.error('Auth session error:', sessionError);
+        toast({
+          variant: "destructive",
+          description: "Authentication error. Please try signing in again.",
+          duration: 2000,
+        });
+        return;
+      }
+
+      if (isFollowing) {
+        // Unfollow
+        const { error } = await supabase
+          .from('following')
+          .delete()
+          .match({
+            user_id: user.id,
+            speaker_id: quote.speaker.id
+          });
+        
+        if (error) {
+          console.error('Unfollow error:', error);
+          throw error;
+        }
+        
+        console.log('Successfully unfollowed');
+        setIsFollowing(false);
+        toast({
+          description: "Unfollowed successfully",
+          duration: 2000,
+        });
+      } else {
+        // Follow
+        const { error } = await supabase
+          .from('following')
+          .insert({
+            user_id: user.id,
+            speaker_id: quote.speaker.id
+          });
+        
+        if (error) {
+          console.error('Follow error:', error);
+          throw error;
+        }
+        
+        console.log('Successfully followed');
+        setIsFollowing(true);
+        toast({
+          description: "Following successfully",
+          duration: 2000,
+        });
+      }
+    } catch (error) {
+      console.error('Error updating follow status:', error);
+      toast({
+        variant: "destructive",
+        description: error instanceof Error ? error.message : "Failed to update follow status",
+        duration: 2000,
+      });
+    }
+  };
+
   if (!quote) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
@@ -216,15 +321,30 @@ const QuoteDetailPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       <EchoLayout>
         <div className="max-w-2xl mx-auto px-4 py-6 pb-24">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="mb-4 text-gray-300 hover:text-white hover:bg-white/10"
-            onClick={() => router.back()}
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
-          </Button>
+          <div className="flex items-center justify-between mb-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gray-300 hover:text-white hover:bg-white/10"
+              onClick={() => router.back()}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back
+            </Button>
+
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleFollowClick}
+              className={`rounded-full px-4 ${
+                isFollowing 
+                  ? 'bg-white/10 text-white hover:bg-white/20' 
+                  : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              {isFollowing ? 'Following' : 'Follow'}
+            </Button>
+          </div>
 
           <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl mb-6">
             <CardContent className="pt-6">

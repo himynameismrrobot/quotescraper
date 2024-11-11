@@ -7,8 +7,8 @@ import { MessageSquare, Link2 } from 'lucide-react';
 import { useToast } from './ui/use-toast';
 import ReactionButton from './reactions/ReactionButton';
 import ReactionPill from './reactions/ReactionPill';
-import { createClient } from '@/utils/supabase/client';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/components/AuthStateProvider';
 
 interface Quote {
   id: string;
@@ -34,22 +34,13 @@ interface Quote {
 
 const QuoteCard = ({ quote }: { quote: Quote }) => {
   console.log('Quote data:', quote);
-  const supabase = createClient();
+  const { user } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
   const [reactions, setReactions] = useState<Quote['reactions']>(quote.reactions || []);
-  const [userId, setUserId] = useState<string | null>(null);
-
-  React.useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUserId(user?.id || null);
-    };
-    getUser();
-  }, []);
 
   const handleReactionSelect = async (emoji: string) => {
-    if (!userId) {
+    if (!user) {
       toast({
         variant: "destructive",
         description: "Please sign in to react to quotes",
@@ -77,9 +68,9 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
       const newReactions = [...(reactions || [])];
       const existingReaction = newReactions.find(r => r.emoji === emoji);
       if (existingReaction) {
-        existingReaction.users = [...existingReaction.users, { id: userId }];
+        existingReaction.users = [...existingReaction.users, { id: user.id }];
       } else {
-        newReactions.push({ emoji, users: [{ id: userId }] });
+        newReactions.push({ emoji, users: [{ id: user.id }] });
       }
       setReactions(newReactions);
     } catch (error) {
@@ -93,7 +84,7 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
   };
 
   const handleReactionClick = async (emoji: string) => {
-    if (!userId) {
+    if (!user) {
       toast({
         variant: "destructive",
         description: "Please sign in to react to quotes",
@@ -104,7 +95,7 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
     }
 
     const hasReacted = reactions?.find(r => r.emoji === emoji)
-      ?.users.some(u => u.id === userId);
+      ?.users.some(u => u.id === user.id);
 
     try {
       const response = await fetch(`/api/quotes/${quote.id}/reactions?emoji=${emoji}`, {
@@ -200,7 +191,7 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
               key={reaction.emoji}
               emoji={reaction.emoji}
               count={reaction.users.length}
-              isUserReaction={reaction.users.some(u => u.id === userId)}
+              isUserReaction={reaction.users.some(u => u.id === user.id)}
               onClick={() => handleReactionClick(reaction.emoji)}
             />
           ))}
