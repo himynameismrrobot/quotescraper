@@ -32,6 +32,8 @@ import MonitoredUrlManagement from '../components/admin/MonitoredUrlManagement';
 import StagedQuotesManagement from '../components/admin/StagedQuotesManagement';
 import SavedQuotesManagement from '../components/admin/SavedQuotesManagement';
 import { Organization } from '@/types/admin';
+import AgentsManagement from '../components/admin/AgentsManagement';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 // Initialize Supabase client
 const supabase = createClient();
@@ -102,7 +104,6 @@ const sortQuotes = (quotes: SortedSavedQuote[]): SortedSavedQuote[] => {
 const AdminPage: React.FC = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const [activeSection, setActiveSection] = useState("organizations");
   const [monitoredUrls, setMonitoredUrls] = useState<MonitoredURL[]>([]);
   const [newUrl, setNewUrl] = useState('');
   const [newUrlLogo, setNewUrlLogo] = useState('');
@@ -143,20 +144,9 @@ const AdminPage: React.FC = () => {
 
   useEffect(() => {
     fetchMonitoredUrls();
-    if (activeSection === "new-quotes") {
-      fetchStagedQuotes();
-    }
-    if (activeSection === "saved-quotes") {
-      fetchSavedQuotes();
-    }
-  }, [activeSection]);
-
-  useEffect(() => {
-    const hash = router.asPath.split('#')[1];
-    if (hash) {
-      setActiveSection(hash);
-    }
-  }, [router.asPath]);
+    fetchStagedQuotes();
+    fetchSavedQuotes();
+  }, []);
 
   const fetchMonitoredUrls = async () => {
     try {
@@ -438,23 +428,6 @@ const AdminPage: React.FC = () => {
     }
   };
 
-  const renderContent = () => {
-    switch (activeSection) {
-      case "organizations":
-        return <OrganizationManagement />;
-      case "speakers":
-        return <SpeakerManagement />;
-      case "urls":
-        return <MonitoredUrlManagement />;
-      case "new-quotes":
-        return <StagedQuotesManagement />;
-      case "saved-quotes":
-        return <SavedQuotesManagement />;
-      default:
-        return <h2>Select a section from the sidebar</h2>;
-    }
-  };
-
   // Show loading state while checking auth
   if (loading) {
     return (
@@ -470,7 +443,35 @@ const AdminPage: React.FC = () => {
     <AdminLayout>
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
-        {renderContent()}
+        <Tabs defaultValue="agents">
+          <TabsList>
+            <TabsTrigger value="agents">Agents</TabsTrigger>
+            <TabsTrigger value="organizations">Organizations</TabsTrigger>
+            <TabsTrigger value="speakers">Speakers</TabsTrigger>
+            <TabsTrigger value="urls">URLs</TabsTrigger>
+            <TabsTrigger value="new-quotes">New Quotes</TabsTrigger>
+            <TabsTrigger value="saved-quotes">Saved Quotes</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="agents">
+            <AgentsManagement />
+          </TabsContent>
+          <TabsContent value="organizations">
+            <OrganizationManagement />
+          </TabsContent>
+          <TabsContent value="speakers">
+            <SpeakerManagement />
+          </TabsContent>
+          <TabsContent value="urls">
+            <MonitoredUrlManagement />
+          </TabsContent>
+          <TabsContent value="new-quotes">
+            <StagedQuotesManagement />
+          </TabsContent>
+          <TabsContent value="saved-quotes">
+            <SavedQuotesManagement />
+          </TabsContent>
+        </Tabs>
         {addSpeakerModal && (
           <AddSpeakerModal
             isOpen={true}
