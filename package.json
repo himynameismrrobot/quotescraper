@@ -3,6 +3,10 @@
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
     "@hookform/resolvers": "^3.9.0",
+    "@langchain/community": "^0.3.13",
+    "@langchain/core": "^0.3.18",
+    "@langchain/langgraph": "^0.2.20",
+    "@langchain/openai": "^0.3.13",
     "@prisma/client": "^5.22.0",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
@@ -36,7 +40,10 @@
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/ssr": "^0.5.1",
+    "@types/jsdom": "^21.1.7",
     "axios": "^1.7.7",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -45,7 +52,10 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "embla-carousel-react": "^8.3.0",
+    "events": "^3.3.0",
     "input-otp": "^1.2.4",
+    "jsdom": "^25.0.1",
+    "langchain": "^0.3.5",
     "lucide-react": "^0.453.0",
     "next": "^15.0.1",
     "next-themes": "^0.3.0",
@@ -56,8 +66,10 @@
     "react-resizable-panels": "^2.1.4",
     "recharts": "^2.13.0",
     "sonner": "^1.5.0",
+    "stream-browserify": "^3.0.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
+    "util": "^0.12.5",
     "uuid": "^11.0.2",
     "vaul": "^1.1.0",
     "zod": "^3.23.8"
@@ -77,6 +89,7 @@
     "typescript": "5.6.3"
   },
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "scrape": "tsx AgenticScraping/echograph.ts"
   }
 }

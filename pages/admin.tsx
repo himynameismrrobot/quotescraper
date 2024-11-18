@@ -119,6 +119,7 @@ const AdminPage: React.FC = () => {
     speakerName: string;
     quoteId: string;
   } | null>(null);
+  const [organizations, setOrganizations] = useState<Organization[]>([]);
 
   useEffect(() => {
     const checkAdminAccess = async () => {
@@ -146,6 +147,21 @@ const AdminPage: React.FC = () => {
     fetchMonitoredUrls();
     fetchStagedQuotes();
     fetchSavedQuotes();
+  }, []);
+
+  useEffect(() => {
+    const fetchOrganizations = async () => {
+      try {
+        const response = await fetch('/api/admin/organizations');
+        if (!response.ok) throw new Error('Failed to fetch organizations');
+        const data = await response.json();
+        setOrganizations(data);
+      } catch (error) {
+        console.error('Error fetching organizations:', error);
+      }
+    };
+
+    fetchOrganizations();
   }, []);
 
   const fetchMonitoredUrls = async () => {

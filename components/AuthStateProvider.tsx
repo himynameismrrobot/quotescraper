@@ -26,26 +26,31 @@ export function AuthStateProvider({
   const supabase = createClient()
 
   useEffect(() => {
-    // Check active session using getUser instead of getSession
-    supabase.auth.getUser().then(({ data: { user }, error }) => {
-      setUser(user)
-      setLoading(false)
-    })
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session }, error }) => {
+      if (session?.user) {
+        setUser({
+          ...session.user,
+          access_token: session.access_token,
+        });
+      }
+      setLoading(false);
+    });
 
     // Listen for changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      // When auth state changes, verify the user with getUser
       if (session?.user) {
-        supabase.auth.getUser().then(({ data: { user } }) => {
-          setUser(user)
-        })
+        setUser({
+          ...session.user,
+          access_token: session.access_token,
+        });
       } else {
-        setUser(null)
+        setUser(null);
       }
-      setLoading(false)
-    })
+      setLoading(false);
+    });
 
     return () => {
       subscription.unsubscribe()
@@ -65,4 +70,4 @@ export const useAuth = () => {
     throw new Error('useAuth must be used within an AuthStateProvider')
   }
   return context
-} 
+}

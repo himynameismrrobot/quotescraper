@@ -2,6 +2,8 @@ import * as puppeteer from 'puppeteer';
 import OpenAI from 'openai';
 import * as dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
+import { JSDOM } from 'jsdom';
+import puppeteer from 'puppeteer';
 
 dotenv.config();
 
@@ -402,5 +404,68 @@ export async function crawlSpecificArticle(url: string, sendLog: (message: strin
   } finally {
     await browser.close();
     sendLog('Browser closed');
+  }
+}
+
+interface ArticleLink {
+  url: string
+  headline: string
+}
+
+export async function extractArticleLinks(url: string): Promise<ArticleLink[]> {
+  try {
+    // Fetch the page content
+    const response = await fetch(url)
+    if (!response.ok) throw new Error(`Failed to fetch ${url}`)
+    const html = await response.text()
+
+    // Parse the HTML
+    const dom = new JSDOM(html)
+    const document = dom.window.document
+
+    // Find all article links - this will need to be customized based on the site structure
+    const articles: ArticleLink[] = []
+    const articleElements = document.querySelectorAll('article a, .article a, .post a') // Customize selectors
+
+    articleElements.forEach(element => {
+      const link = element as HTMLAnchorElement
+      const url = link.href
+      const headline = link.textContent?.trim() || ''
+
+      // Basic validation
+      if (url && headline && isValidArticleUrl(url)) {
+        articles.push({
+          url: new URL(url, baseUrl(url)).toString(),
+          headline
+        })
+      }
+    })
+
+    return articles
+  } catch (error) {
+    console.error(`Error extracting articles from ${url}:`, error)
+    return []
+  }
+}
+
+function isValidArticleUrl(url: string): boolean {
+  // Add validation logic based on your requirements
+  // For example, check if URL contains /article/ or /news/ etc.
+  const articlePatterns = [
+    /\/article\//,
+    /\/news\//,
+    /\/press-release\//,
+    /\/story\//
+  ]
+  
+  return articlePatterns.some(pattern => pattern.test(url))
+}
+
+function baseUrl(url: string): string {
+  try {
+    const parsed = new URL(url)
+    return `${parsed.protocol}//${parsed.host}`
+  } catch {
+    return url
   }
 }

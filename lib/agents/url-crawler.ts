@@ -1,154 +1,240 @@
-import { StateGraph } from 'langgraph'
-import { createClient } from '@supabase/supabase-js'
-import { TypedDict } from 'typing_extensions'
-import { JSDOM } from 'jsdom'
+import { StateGraph, END } from '@langchain/langgraph';
+import { ChatOpenAI } from '@langchain/openai';
+import { BaseMessage, SystemMessage, HumanMessage, AIMessage } from '@langchain/core/messages';
+import { DynamicTool } from '@langchain/core/tools';
+import { createReactAgent } from '@langchain/langgraph/prebuilt';
+import { ToolNode } from '@langchain/langgraph/prebuilt';
+import { BinaryOperator } from '@langchain/langgraph/dist/channels';
 
-// Define our state schema
-interface CrawlerState extends TypedDict {
-  urls: {
-    id: string
-    url: string
-    active: boolean
-    last_crawled_at: string | null
-  }[]
-  articles: {
-    url: string
-    headline: string
-    parent_url: string
-  }[]
-  current_url_index: number
-  logs: string[]
+// Initialize OpenAI model
+const model = new ChatOpenAI({ temperature: 0 });
+
+// Add type definitions
+interface GraphState {
+  messages: BaseMessage[];
+  scratchpad: string[];
+  supabase: any;
+  urls: any[];
+  current_url_index: number;
+  logs: string[];
+  articles: any[];
 }
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Define our tools using the DynamicTool class
+const tools = [
+  new DynamicTool({
+    name: 'fetch_urls',
+    description: 'Fetch URLs from the database. Returns a list of URLs to process.',
+    func: async (input: string) => {
+      console.log('fetchUrls: Starting function with input:', input);
+      
+      try {
+        const response = {
+          action: 'fetch_urls',
+          status: 'success',
+          urls: [
+            { url: 'http://example.com' },
+            { url: 'http://example.org' }
+          ]
+        };
 
-// Node function to fetch URLs from database
-async function fetchUrls(state: CrawlerState) {
-  const { data: urls, error } = await supabase
-    .from('monitored_urls')
-    .select('*')
-    .eq('active', true)
-
-  if (error) throw error
-
-  return {
-    urls,
-    current_url_index: 0,
-    logs: ['Fetched monitored URLs from database']
-  }
-}
-
-// Node function to extract articles from current URL
-async function extractArticles(state: CrawlerState) {
-  const currentUrl = state.urls[state.current_url_index]
-  if (!currentUrl) return { articles: [] }
-
-  try {
-    const response = await fetch(currentUrl.url)
-    const html = await response.text()
-    const dom = new JSDOM(html)
-    const document = dom.window.document
-
-    const articles = Array.from(document.querySelectorAll('article a, .article a, .post a'))
-      .map(element => {
-        const link = element as HTMLAnchorElement
-        return {
-          url: new URL(link.href, currentUrl.url).toString(),
-          headline: link.textContent?.trim() || '',
-          parent_url: currentUrl.url
+        return new AIMessage({
+          content: JSON.stringify(response),
+          additional_kwargs: {
+            tool_calls: [{
+              id: `fetch_urls_${Date.now()}`,
+              type: 'function',
+              function: {
+                name: 'fetch_urls',
+                arguments: input
+              }
+            }]
+          }
+        });
+      } catch (error) {
+        return new AIMessage({
+          content: JSON.stringify({
+            action: 'fetch_urls',
+            status: 'error',
+            error: error instanceof Error ? error.message : 'Unknown error'
+          })
+        });
+      }
+    }
+  }),
+  new DynamicTool({
+    name: 'extract_articles',
+    description: 'Extract articles from a URL. Input should be a URL to process.',
+    func: async (input: string) => {
+      try {
+        const { url } = JSON.parse(input);
+        
+        if (!url) {
+          throw new Error('No URL provided');
         }
-      })
-      .filter(article => article.headline)
 
-    return {
-      articles: [...state.articles, ...articles],
-      logs: [...state.logs, `Extracted ${articles.length} articles from ${currentUrl.url}`]
+        const response = {
+          action: 'extract_articles',
+          status: 'success',
+          url,
+          article: {
+            url,
+            content: 'Extracted content here'
+          }
+        };
+
+        return new AIMessage({
+          content: JSON.stringify(response),
+          additional_kwargs: {
+            tool_calls: [{
+              id: `extract_articles_${Date.now()}`,
+              type: 'function',
+              function: {
+                name: 'extract_articles',
+                arguments: input
+              }
+            }]
+          }
+        });
+      } catch (error) {
+        return new AIMessage({
+          content: JSON.stringify({
+            action: 'extract_articles',
+            status: 'error',
+            error: error instanceof Error ? error.message : 'Unknown error'
+          })
+        });
+      }
     }
-  } catch (error) {
-    return {
-      logs: [...state.logs, `Error extracting articles from ${currentUrl.url}: ${error}`]
-    }
-  }
-}
+  })
+];
 
-// Node function to save articles to database
-async function saveArticles(state: CrawlerState) {
-  if (state.articles.length === 0) return state
-
-  const { error } = await supabase
-    .from('staged_articles')
-    .insert(
-      state.articles.map(article => ({
-        url: article.url,
-        headline: article.headline,
-        parent_url: article.parent_url,
-        discovered_at: new Date().toISOString()
-      }))
-    )
-
-  if (error) throw error
-
-  return {
-    logs: [...state.logs, `Saved ${state.articles.length} articles to database`]
-  }
-}
-
-// Node function to update last crawled timestamp
-async function updateTimestamp(state: CrawlerState) {
-  const currentUrl = state.urls[state.current_url_index]
-  if (!currentUrl) return state
-
-  const { error } = await supabase
-    .from('monitored_urls')
-    .update({ last_crawled_at: new Date().toISOString() })
-    .eq('id', currentUrl.id)
-
-  if (error) throw error
-
-  return {
-    current_url_index: state.current_url_index + 1,
-    logs: [...state.logs, `Updated last_crawled_at for ${currentUrl.url}`]
-  }
-}
-
-// Function to determine if we should continue crawling
-function shouldContinue(state: CrawlerState) {
-  if (state.current_url_index < state.urls.length) {
-    return 'extract_articles'
-  }
-  return 'end'
-}
+// Create the agent using createReactAgent
+const agent = createReactAgent({
+  llm: model,
+  tools,
+  prompt: `You are an agent designed to crawl URLs and extract articles.
+    Your goal is to:
+    1. Fetch URLs from the database using the fetch_urls tool
+    2. Extract articles from each URL using the extract_articles tool
+    3. Save the articles
+    4. Update timestamps
+    
+    Process one URL at a time and ensure each article is properly extracted before moving to the next URL.
+    
+    Available tools:
+    - fetch_urls: Use this first to get the list of URLs to process
+    - extract_articles: Use this for each URL to extract its content
+    
+    Respond with your next action or the final result.`
+});
 
 // Create and configure the graph
-export function createCrawlerGraph() {
-  const workflow = new StateGraph<CrawlerState>({
-    urls: [],
-    articles: [],
-    current_url_index: 0,
-    logs: []
-  })
+export function createCrawlerGraph(supabase: any) {
+  console.log('Creating graph...');
 
-  // Add nodes
-  workflow.addNode('fetch_urls', fetchUrls)
-  workflow.addNode('extract_articles', extractArticles)
-  workflow.addNode('save_articles', saveArticles)
-  workflow.addNode('update_timestamp', updateTimestamp)
+  const workflow = new StateGraph<GraphState>({
+    channels: {
+      messages: {
+        value: (a: BaseMessage[], b: BaseMessage[]) => b,
+        default: () => []
+      },
+      scratchpad: {
+        value: (a: string[], b: string[]) => b,
+        default: () => []
+      },
+      supabase: {
+        value: (a: any, b: any) => b,
+        default: () => supabase
+      },
+      urls: {
+        value: (a: any[] | undefined, b: any[]) => b,
+        default: () => []
+      },
+      current_url_index: {
+        value: (a: number | undefined, b: number) => b,
+        default: () => 0
+      },
+      logs: {
+        value: (a: string[] | undefined, b: string[]) => b,
+        default: () => []
+      },
+      articles: {
+        value: (a: any[] | undefined, b: any[]) => b,
+        default: () => []
+      }
+    }
+  });
 
-  // Add edges
-  workflow.addEdge('START', 'fetch_urls')
-  workflow.addEdge('fetch_urls', 'extract_articles')
-  workflow.addEdge('extract_articles', 'save_articles')
-  workflow.addEdge('save_articles', 'update_timestamp')
+  // Create tool execution node
+  const toolExecutor = new ToolNode({ tools });
+
+  // Add nodes with proper names
+  workflow.addNode("__start__", async () => ({
+    messages: [new HumanMessage("Start the URL crawling process")]
+  }));
   
-  // Add conditional edge for looping
-  workflow.addConditionalEdges(
-    'update_timestamp',
-    shouldContinue
-  )
+  workflow.addNode("agent", agent);
+  workflow.addNode("tools", toolExecutor);
 
-  return workflow.compile()
-} 
+  // Configure the flow with proper conditional edges
+  workflow.addConditionalEdges(
+    "__start__",
+    (state) => "agent"
+  );
+
+  workflow.addConditionalEdges(
+    "agent",
+    (state) => {
+      const lastMessage = state.messages[state.messages.length - 1];
+      if (lastMessage.content.includes("finish")) {
+        return "end";
+      }
+      return "tools";
+    },
+    {
+      tools: "tools",
+      end: END
+    }
+  );
+
+  // From tools back to agent
+  workflow.addEdge("tools", "agent");
+
+  console.log('Compiling graph...');
+  return workflow.compile();
+}
+
+// Example invocation for debugging
+async function runCrawler() {
+  const supabaseMock = {
+    from: () => ({
+      select: async () => ({
+        data: [{ url: 'http://example.com' }, { url: 'http://example.org' }],
+        error: null,
+      }),
+    }),
+  };
+
+  const crawlerGraph = createCrawlerGraph(supabaseMock);
+  console.log('Running crawler...');
+  
+  const result = await crawlerGraph.invoke({
+    messages: [new HumanMessage("Start the URL crawling process")],
+    scratchpad: [],
+    supabase: supabaseMock,
+    urls: [],
+    current_url_index: 0,
+    logs: [],
+    articles: []
+  }, {
+    configurable: {
+      thread_id: `crawler_${Date.now()}`,
+      checkpoint_ns: "url_crawler"
+    }
+  });
+  
+  console.log('Crawler result:', result);
+}
+
+runCrawler().catch(console.error);

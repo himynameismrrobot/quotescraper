@@ -4,6 +4,7 @@ create table if not exists public.staged_articles (
     url text not null,
     headline text,
     parent_url text not null,
+    article_date timestamp with time zone,
     discovered_at timestamp with time zone not null,
     processed boolean default false,
     processed_at timestamp with time zone
@@ -13,6 +14,7 @@ create table if not exists public.staged_articles (
 create index staged_articles_url_idx on public.staged_articles(url);
 create index staged_articles_parent_url_idx on public.staged_articles(parent_url);
 create index staged_articles_processed_idx on public.staged_articles(processed);
+create index staged_articles_article_date_idx on public.staged_articles(article_date);
 
 -- Add RLS policies
 alter table public.staged_articles enable row level security;

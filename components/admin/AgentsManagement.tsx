@@ -1,87 +1,103 @@
-import { useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { useState } from 'react';
+import { useAuth } from '@/components/AuthStateProvider';
+import { useSupabase } from '@/lib/providers/supabase-provider';
 
 export default function AgentsManagement() {
-  const [isRunning, setIsRunning] = useState(false)
-  
+  const [isRunning, setIsRunning] = useState(false);
+  const [logs, setLogs] = useState<string[]>([]);
+  const { user, loading } = useAuth();
+  const { supabase } = useSupabase();
+
   const handleRunCrawler = async () => {
-    setIsRunning(true)
-    try {
-      const response = await fetch('/api/admin/agents/crawler', {
-        method: 'POST'
-      })
-      if (!response.ok) throw new Error('Failed to run crawler')
-      // Handle success
-    } catch (error) {
-      console.error('Error running crawler:', error)
-    } finally {
-      setIsRunning(false)
+    if (!user) {
+      setLogs(prev => [...prev, 'Error: No user found']);
+      return;
     }
+
+    try {
+      setIsRunning(true);
+      setLogs(prev => [...prev, 'Starting workflow...']);
+
+      // Get monitored URLs
+      const { data: monitoredUrls, error: urlError } = await supabase
+        .from('monitored_urls')
+        .select('url');
+
+      if (urlError) {
+        throw new Error(`Failed to get monitored URLs: ${urlError.message}`);
+      }
+
+      setLogs(prev => [...prev, `Found ${monitoredUrls?.length || 0} monitored URLs`]);
+
+      // Generate a unique thread ID for this run
+      const threadId = `quote-scraper-${Date.now()}`;
+
+      // Run the workflow
+      const response = await fetch('/api/admin/agents/workflow', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${user.access_token}`,
+        },
+        body: JSON.stringify({
+          urls: monitoredUrls?.map(u => u.url) || [],
+          config: {
+            similarityThreshold: 0.85,
+            maxParallelExtractions: 5,
+            threadId,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to run workflow');
+      }
+
+      const result = await response.json();
+      setLogs(prev => [...prev, 'Workflow completed successfully']);
+      console.log('Workflow result:', result);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      setLogs(prev => [...prev, `Error: ${message}`]);
+      console.error('Error running workflow:', error);
+    } finally {
+      setIsRunning(false);
+    }
+  };
+
+  if (loading) {
+    return <div className="p-4">Loading...</div>;
+  }
+
+  if (!user) {
+    return <div className="p-4">Please sign in to access this page.</div>;
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Agent Management</CardTitle>
-        <CardDescription>
-          Monitor and control the quote extraction agents
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Tabs defaultValue="crawler">
-          <TabsList>
-            <TabsTrigger value="crawler">URL Crawler</TabsTrigger>
-            {/* Add other agent tabs as we build them */}
-          </TabsList>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Agent Management</h1>
+      
+      <div className="mb-4">
+        <button
+          onClick={handleRunCrawler}
+          disabled={isRunning}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+        >
+          {isRunning ? 'Running...' : 'Run Quote Crawler'}
+        </button>
+      </div>
 
-          <TabsContent value="crawler">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex justify-between items-center">
-                  URL Crawler Agent
-                  <Badge variant={isRunning ? "default" : "secondary"}>
-                    {isRunning ? "Running" : "Idle"}
-                  </Badge>
-                </CardTitle>
-                <CardDescription>
-                  Monitors configured URLs and extracts article links
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h4 className="font-medium">Last Run</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Never
-                      </p>
-                    </div>
-                    <Button 
-                      onClick={handleRunCrawler}
-                      disabled={isRunning}
-                    >
-                      {isRunning ? "Running..." : "Run Crawler"}
-                    </Button>
-                  </div>
-
-                  <div>
-                    <h4 className="font-medium mb-2">Recent Activity</h4>
-                    <ScrollArea className="h-[200px] w-full rounded-md border p-4">
-                      <div className="space-y-2">
-                        <p className="text-sm text-muted-foreground">No recent activity</p>
-                      </div>
-                    </ScrollArea>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
-      </CardContent>
-    </Card>
-  )
-} 
+      <div className="mt-4">
+        <h2 className="text-xl font-semibold mb-2">Logs</h2>
+        <div className="bg-gray-100 p-4 rounded max-h-96 overflow-y-auto">
+          {logs.map((log, i) => (
+            <div key={i} className="mb-1">
+              {log}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
