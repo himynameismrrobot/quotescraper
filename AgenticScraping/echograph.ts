@@ -5,6 +5,8 @@ import { createClient } from '@supabase/supabase-js';
 import { config } from 'dotenv';
 import { resolve } from 'path';
 import puppeteer from 'puppeteer';
+import OpenAI from "openai";
+import { zodResponseFormat } from "openai/helpers/zod";
 
 // Optional, add tracing in LangSmith
 // process.env.LANGCHAIN_API_KEY = "ls__..."
@@ -27,6 +29,8 @@ const supabase = createClient(
 const model = new ChatOpenAI({
     model: "gpt-4o-mini",
 });
+
+const openai = new OpenAI();
 
 //Get Jina Markdown Helper Function
 async function getJinaMarkdown(url: string): Promise<string> {
@@ -54,6 +58,30 @@ async function getJinaMarkdown(url: string): Promise<string> {
     }
 }
 
+//Helper Function for retrying if rate limited
+async function withRetry<T>(
+    operation: () => Promise<T>,
+    maxRetries: number = 3
+): Promise<T> {
+    let retryCount = 0;
+    
+    while (true) {
+        try {
+            return await operation();
+        } catch (error) {
+            if (error?.status === 429 && retryCount < maxRetries) {
+                // Get retry delay from header, or use exponential backoff
+                const retryAfterMs = parseInt(error?.headers?.['retry-after-ms']) || Math.pow(2, retryCount) * 1000;
+                console.log(`Rate limited. Retrying in ${retryAfterMs}ms...`);
+                await new Promise(resolve => setTimeout(resolve, retryAfterMs));
+                retryCount++;
+            } else {
+                throw error;
+            }
+        }
+    }
+}
+
 // Define prompts we will use
 const headlineExtractionPrompt = `
     #Instructions
@@ -77,19 +105,28 @@ const headlineExtractionPrompt = `
             "headline": "Van Nistelrooy keen to stay at Manchester United under Amorim",
     `;
 
-const quoteExtractionPrompt = `Extract all the quoted text from the following article text. Only the text between quotation marks should be extracted. 
-    There could be quotes from multiple speakers, make sure to extract them all. 
-    If a quote needs context to make sense feel free to include this in brackets at the start of the quote but keep it short.
-    For the extracted quote text, ensure it only contains text that was spoken by the speaker as opposed to anything written by the article author. 
-    Some quotes may be broken up across the article. If this is the case, merge them together into one contiguous quote. 
-    But do not merge quotes that discuss different topics. 
-    For each quote, also provide a more succinct version of the quote written as if the speaker had spoken it themselves. 
-    Also extract the quote date in YYYY-MM-DD format. Use the article date as the date. The article URL is: {article_url}. 
-    If the article date is not in the article text also look at the Article URL to see if you can determine the date from there. 
-    If those both fail, use the current date. 
-    Return ONLY a JSON array of objects with 'speaker', 'quote_raw', 'quote_summary', 'article_date' properties. 
-    If you can't find any quotes, return an empty array. 
-    No other text or formatting:
+const quoteExtractionPrompt = `Extract all quotes from the provided article. Take your time to do this.
+    Return the output as a JSON array of objects, where each object contains the following properties:
+	•	speaker: Name of the person who the quote is attributed to.
+        •	Don't extract a quote if the speaker is not known
+	•	quote_raw: The raw quote text from the article. 
+        •	Identify text enclosed within quotation marks (" "), as these represent the quotes to extract. Ensure all quotes, from every quoted speaker, are included.
+        •	If a quote lacks context to be fully understood, provide a brief contextual note in brackets at the start of the quote, but keep this note concise.
+        •	Extract only the spoken content of the quotes, excluding any narrative or commentary from the article’s author.
+        •	If a single quote is split across the article, combine the segments into one cohesive quote, but only if they pertain to the same topic. Do not merge quotes that discuss different topics.
+	•	quote_summary: A concise version of the quote.
+        •	For each quote, generate a more concise version as if the speaker had summarized it themselves. Store this in the quote_summary field.
+	•	article_date: The determined article date.
+        •	Extract the article date in YYYY-MM-DD format
+        •	Use the date provided within the article text, if available.
+        •	If not found, check the article URL for a potential date.
+        •	If no date is available in the text or URL, use the current date: {today_date}.
+
+
+	If no quotes are found, double check to make sure you didn't miss anything. If you're certain there are no quotes, return an empty JSON array.
+    Return only the JSON array, with no additional text or formatting.
+
+The article URL is: {article_url}.
     
     === START OF ARTICLE TEXT ===
     {article_url_markdown}
@@ -136,17 +173,42 @@ const quoteExtractionPrompt = `Extract all the quoted text from the following ar
     ]`;
 
 
-const quoteValidationPrompt = `Review the quote object copied below and use the rules below to flag invalid quotes. For quotes that are valid, also fix the article date if the condition listed below is met.
-    #Raw Quote Text
-    {quote_raw}
+const quoteValidationPrompt = `Review the quote object copied below and use the rules below to flag invalid quotes. 
+    For quotes that are not valid, provide a reason for the invalidity.
+    For quotes that are valid, also fix the article date and quote_summary if any of the conditions listed below are met.
+
+    # Raw Quote Text
+    {quote_object}
     
-    #Validation Rules
-    - Author text vs quoted text differentiation: ensure the raw quote text only contains the words spoken by the speaker and not the text written by the author of the article
-    - Ensure speakers are players or managers of sports organizations such as teams like Manchester United. A quote with a speaker that is not a player or manager of a sports organization is not valid (e.g., quotes from fans)
+    # Validation Rules
+    - Article author written text vs speaker quoted text: ensure the raw quote text only contains the words spoken by the speaker and not the text written by the author of the article
+    - The speaker must be a person who is named in the article (i.e., speaker cannot be unknown)
+    - The speaker must not be a fan or random people on the internet
     
     #Article Date Update Condition
-    - If the {article_date} is more than 30 days past today's date: {today_date}, then update the value of {article_date} to match today's date: {today_date}.`
+    - If the {article_date} is more than 30 days past today's date: {today_date}, then update the value of {article_date} to match today's date: {today_date}.
+    
+    # Quote Summary Update Condition
+    - If the {quote_summary} is not written in the first person, then update it to be written in the first person.
 
+    # Example Invalid Quotes and reasons:
+        {
+            "speaker": "John Smith",
+            "quote_raw": "As a lifelong United fan, I think the team needs new signings.",
+            "quote_summary": "The team needs new signings.",
+            "article_date": "2024-11-18",
+            "is_valid": false,
+            "invalid_reason": "Speaker is a random fan and not a public figure."
+        },
+        {
+            speaker: 'Unknown',
+            quote_raw: "Two of Mantato's key attributes are his pace and dribbling, while the MEN claim that he has been compared to Bukayo Saka internally due to starting out in a more defensive role at a young age before potentially moving forward.",
+            quote_summary: 'Mantato is fast and skilled, drawing comparisons to Saka for his development from defense to offense.',
+            article_date: '2024-11-15',
+            is_valid: false,
+            invalid_reason: 'Author text vs quoted text differentiation'
+        }
+    ]`;
 
 
 // Zod schemas for getting structured output from the LLM
@@ -165,7 +227,14 @@ const Quote = z.object({
     is_valid: z.boolean().optional()
 });
 
-const Quotes = z.array(Quote);
+const Quotes = z.object({
+    quotes: z.array(z.object({
+        speaker: z.string(),
+        quote_raw: z.string(),
+        quote_summary: z.string(),
+        article_date: z.string()
+    }))
+});
 
 const QuoteWithMetadata = z.object({
     parent_url: z.string().url(),
@@ -177,7 +246,16 @@ const QuoteWithMetadata = z.object({
     quote_summary: z.string()
 });
 
-const FinalQuotes = z.array(QuoteWithMetadata);
+const FinalQuotes = z.object({
+    final_quotes: z.array(z.object({
+        speaker: z.string(),
+        quote_raw: z.string(),
+        quote_summary: z.string(),
+        article_date: z.string(),
+        is_valid: z.boolean(),
+        invalid_reason: z.string().optional()
+    }))
+});
 
 const MonitoredURLStats = z.object({
     parent_url: z.string().url(),
@@ -223,6 +301,7 @@ interface ArticleState {
     parent_url: string;
     article_url: string;
     headline: string;
+    today_date: string;
 }
 
 // Interface for mapping over quotes to validate them
@@ -233,6 +312,11 @@ interface QuoteState {
     quote: z.infer<typeof Quote>;
 }
 
+// Interface for mapping over initially extracted quotes to validate them
+interface QuoteValidationState {
+    quote_object: string;
+    today_date: string;
+}
 
 
 // Function to fetch parent URLs as first node
@@ -277,6 +361,58 @@ const extractHeadlines = async (
     };
 };
 
+const extractQuotes = async (
+    state: ArticleState
+): Promise<Partial<typeof OverallState.State>> => {
+    console.log("\nExtracting quotes from article:", state.headline);
+    
+    const markdown = await getJinaMarkdown(state.article_url);
+    if (!markdown) {
+        console.log(`No markdown content found for ${state.article_url}`);
+        return { quotes: [] };
+    }
+    
+    const prompt = quoteExtractionPrompt
+        .replace("{article_url}", state.article_url)
+        .replace("{article_url_markdown}", markdown)
+        .replace("{today_date}", state.today_date);
+        
+    const completion = await withRetry(() => openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+            { role: "system", content: "You are an expert at extracting quotes from news articles." },
+            { role: "user", content: prompt }
+        ],
+        response_format: zodResponseFormat(Quotes, "initial_quotes")
+    }));
+    
+    const parsedResponse = JSON.parse(completion.choices[0].message.content);
+    console.log(`Found ${parsedResponse.quotes.length} quotes in article: ${state.headline}`);
+    
+    return { 
+        quotes: parsedResponse.quotes
+    };
+};
+
+const validateQuotes = async (
+    state: QuoteValidationState
+): Promise<Partial<typeof OverallState.State>> => {
+    console.log("\nValidating quote:", state.quote_object);
+    
+    const prompt = quoteValidationPrompt
+        .replace("{quote_object}", state.quote_object)
+        .replace(/{today_date}/g, state.today_date);
+        
+    const response = await model
+        .withStructuredOutput(FinalQuotes)
+        .invoke(prompt);
+    
+    console.log(`Validation complete. Valid: ${response.final_quotes[0].is_valid}`);
+    
+    return { 
+        final_quotes: response.final_quotes
+    };
+};
 
 // Here we define the logic to map out over the parent URLs
 // We will use this as an edge in the graph
@@ -285,15 +421,38 @@ const continueToHeadlines = (state: typeof OverallState.State) => {
     // Each `Send` object consists of the name of a node in the graph as well as the state to send to that node
     return state.parent_urls.map((parent_url) => new Send("extractHeadlines", { parent_url }));
   };
-  
+
+
+// Here we define the logic to map out over the articles
+const continueToQuotes = (state: typeof OverallState.State) => {
+    const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
+    return state.headlines.map((article) => new Send("extractQuotes", { 
+        parent_url: state.parent_urls[0],
+        article_url: article.article_url,
+        headline: article.headline,
+        today_date: today_date
+    }));
+};
+
+const continueToQuoteValidation = (state: typeof OverallState.State) => {
+    // Map over each quote and create a validation task
+    return state.quotes.map((quote) => new Send("validateQuotes", {
+        quote_object: JSON.stringify(quote),
+        today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
+    }));
+};
 
 // Construct the graph: here we put everything together to construct our graph
 const graph = new StateGraph(OverallState)
     .addNode("fetchParentURLs", fetchParentURLs)
     .addNode("extractHeadlines", extractHeadlines)
+    .addNode("extractQuotes", extractQuotes)
+    .addNode("validateQuotes", validateQuotes)
     .addEdge(START, "fetchParentURLs")
     .addConditionalEdges("fetchParentURLs", continueToHeadlines)
-    .addEdge("extractHeadlines", END);
+    .addConditionalEdges("extractHeadlines", continueToQuotes)
+    .addConditionalEdges("extractQuotes", continueToQuoteValidation)
+    .addEdge("validateQuotes", END);
 
 const app = graph.compile();
 
@@ -306,8 +465,8 @@ async function main() {
         console.log("Current State Update:");
         if (chunk.parent_urls) console.log("Parent URLs:", chunk.parent_urls);
         if (chunk.headlines) console.log("Headlines:", chunk.headlines);
-        // if (chunk.quotes) console.log("Quotes:", chunk.quotes);
-        // if (chunk.final_quotes) console.log("Final Quotes:", chunk.final_quotes);
+        if (chunk.quotes) console.log("Quotes:", chunk.quotes);
+        if (chunk.final_quotes) console.log("Final Quotes:", chunk.final_quotes);
         // if (chunk.monitored_url_stats) console.log("Stats:", chunk.monitored_url_stats);
         console.log("\n====\n");
     }
