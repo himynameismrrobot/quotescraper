@@ -7,6 +7,9 @@ import { resolve } from 'path';
 import puppeteer from 'puppeteer';
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
+import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
+import { join } from 'path';
 
 // Optional, add tracing in LangSmith
 // process.env.LANGCHAIN_API_KEY = "ls__..."
@@ -24,37 +27,96 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+// Add Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// Rate limiting configuration
+const RATE_LIMIT_CONFIG = {
+    chunkSize: 8,
+    delayBetweenChunksMs: 60000, // 1 minute
+};
+
 // OpenAI Model Initialization
  
-const model = new ChatOpenAI({
+const headlineModel = new ChatOpenAI({
     model: "gpt-4o-mini",
 });
 
+const quoteValidationModel = new ChatOpenAI({
+    model: "ft:gpt-4o-mini-2024-07-18:personal::AVXTE2Zu",
+});
+
 const openai = new OpenAI();
+
+
+// Gemini Schema for getting structured output from the LLM
+const quoteExtractionSchema = {
+    type: SchemaType.OBJECT,
+    properties: {
+        quotes: {
+            type: SchemaType.ARRAY,
+            items: {
+                type: SchemaType.OBJECT,
+                properties: {
+                    speaker: {
+                        type: SchemaType.STRING,
+                        description: "Name of the person who the quote is attributed to"
+                    },
+                    quote_raw: {
+                        type: SchemaType.STRING,
+                        description: "The raw quote text from the article"
+                    },
+                    quote_summary: {
+                        type: SchemaType.STRING,
+                        description: "A concise version of the quote"
+                    },
+                    article_date: {
+                        type: SchemaType.STRING,
+                        description: "The article date in YYYY-MM-DD format"
+                    }
+                },
+                required: ["speaker", "quote_raw", "quote_summary", "article_date"]
+            }
+        }
+    }
+};
+
+// Create Gemini model instance with schema
+const geminiModel = genAI.getGenerativeModel({
+    model: "gemini-1.5-pro-latest",
+    generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: quoteExtractionSchema,
+    }
+});
+
 
 //Get Jina Markdown Helper Function
 async function getJinaMarkdown(url: string): Promise<string> {
     const jinaUrl = `https://r.jina.ai/${encodeURIComponent(url)}`;
     console.log(`Fetching markdown from: ${jinaUrl}`);
     
-    const browser = await puppeteer.launch({ headless: 'new' });
-    const page = await browser.newPage();
-    
     try {
-        await page.goto(jinaUrl, { waitUntil: 'networkidle0' });
-        
-        // Wait for the markdown content to be available
-        await page.waitForSelector('pre', { timeout: 10000 });
-        
-        // Get the markdown content
-        const markdown = await page.$eval('pre', el => el.textContent || '');
-        
+        const response = await fetch(jinaUrl, {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer ${process.env.JINA_API_KEY}`,
+                "Accept": "text/event-stream",
+                "X-Retain-Images": "none",
+                "X-Remove-Selector": "header, footer, nav, .ad, .advertisement, .social-share, .comments"
+            }
+        });
+
+        if (!response.ok) {
+            console.error(`Failed to fetch markdown: ${response.status} ${response.statusText}`);
+            return "";
+        }
+
+        const markdown = await response.text();
         return markdown;
     } catch (error) {
-        console.error(`Error fetching markdown for ${url}:`, error);
-        return '';
-    } finally {
-        await browser.close();
+        console.error("Error fetching markdown:", error);
+        return "";
     }
 }
 
@@ -80,6 +142,36 @@ async function withRetry<T>(
             }
         }
     }
+}
+
+async function saveGraphResults(
+    modelType: 'openai' | 'gemini',
+    state: typeof OverallState.State
+): Promise<void> {
+    const outputDir = resolve('/Users/mitenmistry/Documents/Apps/QuoteScraper/AgenticScraping/quote_outputs');
+    
+    if (!existsSync(outputDir)) {
+        mkdirSync(outputDir, { recursive: true });
+    }
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const filename = `${modelType}_run_${timestamp}.json`;
+    
+    const output = {
+        model: modelType,
+        timestamp: new Date().toISOString(),
+        parent_urls: state.parent_urls,
+        headlines: state.headlines,
+        quotes: state.quotes,
+        final_quotes: state.final_quotes
+    };
+
+    writeFileSync(
+        join(outputDir, filename),
+        JSON.stringify(output, null, 2)
+    );
+    
+    console.log(`Graph results saved to: ${outputDir}/${filename}`);
 }
 
 // Define prompts we will use
@@ -111,6 +203,7 @@ const quoteExtractionPrompt = `Extract all quotes from the provided article. Tak
         •	Don't extract a quote if the speaker is not known
 	•	quote_raw: The raw quote text from the article. 
         •	Identify text enclosed within quotation marks (" "), as these represent the quotes to extract. Ensure all quotes, from every quoted speaker, are included.
+        •	Ignore header and footer content - only search for quotes that are directly from the article content.
         •	If a quote lacks context to be fully understood, provide a brief contextual note in brackets at the start of the quote, but keep this note concise.
         •	Extract only the spoken content of the quotes, excluding any narrative or commentary from the article’s author.
         •	If a single quote is split across the article, combine the segments into one cohesive quote, but only if they pertain to the same topic. Do not merge quotes that discuss different topics.
@@ -173,42 +266,14 @@ The article URL is: {article_url}.
     ]`;
 
 
-const quoteValidationPrompt = `Review the quote object copied below and use the rules below to flag invalid quotes. 
-    For quotes that are not valid, provide a reason for the invalidity.
-    For quotes that are valid, also fix the article date and quote_summary if any of the conditions listed below are met.
-
+const quoteValidationPrompt = `Assess the quote in the quote object below and determine if it is valid. If it is invalid, return the JSON object below but with an additional field called is_valid, and a field called invalid_reason. Populate these fields if you determine a quote is invalid based on the criteria below.
     # Raw Quote Text
     {quote_object}
     
     # Validation Rules
     - Article author written text vs speaker quoted text: ensure the raw quote text only contains the words spoken by the speaker and not the text written by the author of the article
-    - The speaker must be a person who is named in the article (i.e., speaker cannot be unknown)
-    - The speaker must not be a fan or random people on the internet
-    
-    #Article Date Update Condition
-    - If the {article_date} is more than 30 days past today's date: {today_date}, then update the value of {article_date} to match today's date: {today_date}.
-    
-    # Quote Summary Update Condition
-    - If the {quote_summary} is not written in the first person, then update it to be written in the first person.
-
-    # Example Invalid Quotes and reasons:
-        {
-            "speaker": "John Smith",
-            "quote_raw": "As a lifelong United fan, I think the team needs new signings.",
-            "quote_summary": "The team needs new signings.",
-            "article_date": "2024-11-18",
-            "is_valid": false,
-            "invalid_reason": "Speaker is a random fan and not a public figure."
-        },
-        {
-            speaker: 'Unknown',
-            quote_raw: "Two of Mantato's key attributes are his pace and dribbling, while the MEN claim that he has been compared to Bukayo Saka internally due to starting out in a more defensive role at a young age before potentially moving forward.",
-            quote_summary: 'Mantato is fast and skilled, drawing comparisons to Saka for his development from defense to offense.',
-            article_date: '2024-11-15',
-            is_valid: false,
-            invalid_reason: 'Author text vs quoted text differentiation'
-        }
-    ]`;
+    - The speaker must be a person who is named in the article (i.e., speaker cannot be unknown or anonymous)
+    - The speaker must not be a fan or random people on the internet`;
 
 
 // Zod schemas for getting structured output from the LLM
@@ -263,7 +328,7 @@ const MonitoredURLStats = z.object({
     no_of_articles: z.number().int(),
     no_of_quotes: z.number().int()
 });
-  
+
 
 /* Graph components: define the components that will make up the graph */
 
@@ -350,7 +415,7 @@ const extractHeadlines = async (
     }
     
     const prompt = headlineExtractionPrompt.replace("{parent_url_markdown}", markdown);
-    const response = await model
+    const response = await headlineModel
         .withStructuredOutput(Headlines)
         .invoke(prompt);
     
@@ -394,6 +459,33 @@ const extractQuotes = async (
     };
 };
 
+// Add the Gemini extraction function
+const extractQuotesWithGemini = async (
+    state: ArticleState
+): Promise<Partial<typeof OverallState.State>> => {
+    console.log("\nExtracting quotes with Gemini from article:", state.headline);
+    
+    const markdown = await getJinaMarkdown(state.article_url);
+    if (!markdown) {
+        console.log(`No markdown content found for ${state.article_url}`);
+        return { quotes: [] };
+    }
+    
+    const prompt = quoteExtractionPrompt
+        .replace("{article_url}", state.article_url)
+        .replace("{article_url_markdown}", markdown)
+        .replace("{today_date}", state.today_date);
+        
+    const result = await withRetry(() => geminiModel.generateContent(prompt));
+    const response = JSON.parse(result.response.text());
+    
+    console.log(`Found ${response.quotes.length} quotes in article: ${state.headline}`);
+    
+    return { 
+        quotes: response.quotes
+    };
+};
+
 const validateQuotes = async (
     state: QuoteValidationState
 ): Promise<Partial<typeof OverallState.State>> => {
@@ -403,7 +495,7 @@ const validateQuotes = async (
         .replace("{quote_object}", state.quote_object)
         .replace(/{today_date}/g, state.today_date);
         
-    const response = await model
+    const response = await quoteValidationModel
         .withStructuredOutput(FinalQuotes)
         .invoke(prompt);
     
@@ -412,6 +504,33 @@ const validateQuotes = async (
     return { 
         final_quotes: response.final_quotes
     };
+};
+
+// Helper function to process articles in chunks with rate limiting
+const processArticlesInChunks = async (
+    articles: ArticleState[],
+    processor: (article: ArticleState) => Promise<Partial<typeof OverallState.State>>
+): Promise<Partial<typeof OverallState.State>[]> => {
+    const results: Partial<typeof OverallState.State>[] = [];
+    
+    // Process articles in chunks
+    for (let i = 0; i < articles.length; i += RATE_LIMIT_CONFIG.chunkSize) {
+        const chunk = articles.slice(i, i + RATE_LIMIT_CONFIG.chunkSize);
+        console.log(`\nProcessing chunk ${(i/RATE_LIMIT_CONFIG.chunkSize) + 1} of ${Math.ceil(articles.length/RATE_LIMIT_CONFIG.chunkSize)} (${chunk.length} articles)`);
+        
+        // Process all articles in current chunk
+        const chunkResults = await Promise.all(chunk.map(article => processor(article)));
+        results.push(...chunkResults);
+        
+        // If this isn't the last chunk, wait before processing next chunk
+        const isLastChunk = i + RATE_LIMIT_CONFIG.chunkSize >= articles.length;
+        if (!isLastChunk) {
+            console.log(`Waiting ${RATE_LIMIT_CONFIG.delayBetweenChunksMs/1000} seconds before processing next chunk...`);
+            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_CONFIG.delayBetweenChunksMs));
+        }
+    }
+    
+    return results;
 };
 
 // Here we define the logic to map out over the parent URLs
@@ -424,14 +543,32 @@ const continueToHeadlines = (state: typeof OverallState.State) => {
 
 
 // Here we define the logic to map out over the articles
-const continueToQuotes = (state: typeof OverallState.State) => {
-    const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
-    return state.headlines.map((article) => new Send("extractQuotes", { 
-        parent_url: state.parent_urls[0],
-        article_url: article.article_url,
-        headline: article.headline,
-        today_date: today_date
+const continueToQuotes = async (state: typeof OverallState.State) => {
+    if (!state.headlines?.length) {
+        return [];
+    }
+
+    // Convert headlines to ArticleState objects
+    const articles: ArticleState[] = state.headlines.map(headline => ({
+        parent_url: headline.parent_url,
+        article_url: headline.article_url,
+        headline: headline.headline,
+        today_date: new Date().toISOString().split('T')[0]
     }));
+
+    // Process articles in chunks with rate limiting
+    const results = await processArticlesInChunks(articles, extractQuotes);
+
+    // Combine all quotes from all chunks
+    const allQuotes = results.reduce((acc, result) => {
+        if (result.quotes) {
+            acc.push(...result.quotes);
+        }
+        return acc;
+    }, [] as typeof state.quotes);
+
+    // Return a single Send object with all quotes
+    return [new Send("validateQuotes", { quotes: allQuotes })];
 };
 
 const continueToQuoteValidation = (state: typeof OverallState.State) => {
@@ -467,10 +604,19 @@ async function main() {
         if (chunk.headlines) console.log("Headlines:", chunk.headlines);
         if (chunk.quotes) console.log("Quotes:", chunk.quotes);
         if (chunk.final_quotes) console.log("Final Quotes:", chunk.final_quotes);
-        // if (chunk.monitored_url_stats) console.log("Stats:", chunk.monitored_url_stats);
+        // if (chunk.monitored_url_stats) console.log("Stats:", chunk.monitored_url_stats);       
         console.log("\n====\n");
+
+        // Save results when we have final_quotes (meaning the graph has completed)
+        if (chunk.final_quotes) {
+            await saveGraphResults(
+                'gemini', // or 'openai' depending on which model is being used
+                chunk
+            );
+        }
     }
 }
+
 
 // Run the main function
 main().catch(console.error);

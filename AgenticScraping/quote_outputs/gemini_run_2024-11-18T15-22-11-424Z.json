@@ -1,0 +1,1257 @@
+{
+  "model": "gemini",
+  "timestamp": "2024-11-18T15:22:11.424Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "headlines": [
+    {
+      "article_url": "https://www.mirror.co.uk/sport/football/transfer-news/manutd-transfer-viktor-gyokeres-amorim-34128842",
+      "headline": "Manchester United have been told that Sporting may have \"no option\" but to sell 26-year-old Swedish striker Viktor Gyokeres, but it is unlikely to be in the January transfer window."
+    },
+    {
+      "article_url": "https://www.abola.pt/futebol/noticias/sporting-manchester-united-quer-reservar-ja-geovany-quenda-2024111621564662080",
+      "headline": "United are also trying to secure a deal for Gyokeres' team-mate 17-year-old Portuguese winger Geovany Quenda."
+    },
+    {
+      "article_url": "https://talksport.com/football/2277338/paul-pogba-man-utd-juventus-contract/",
+      "headline": "There are no plans for Paul Pogba to train at Manchester United, following the 31-year-old French midfielder's departure from Juventus."
+    },
+    {
+      "article_url": "https://www.calciomercato.com/news/juventus-zirkzee-si-ma-se-centra-anche-vlahovic-ecco-a-quali-con-32427",
+      "headline": "Juventus are considering a move for Manchester United's Joshua Zirkzee, with the future of their own forward Dusan Vlahovic uncertain."
+    },
+    {
+      "article_url": "https://www.teamtalk.com/manchester-united/battle-bayern-munich-star-sparked-rival-union-berlin-chief-declares-interest",
+      "headline": "Manchester United will face competition from Union Berlin to sign 29-year-old Germany midfielder Leon Goretzka."
+    },
+    {
+      "article_url": "https://www.givemesport.com/exclusive-man-utd-deal-to-sign-next-odegaard-could-open-up/",
+      "headline": "United believe they need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature."
+    },
+    {
+      "article_url": "https://www.bbc.co.uk/sounds/play/p0k4t4nd",
+      "headline": "What can Manchester United fans expect from their new head coach?"
+    },
+    {
+      "article_url": "https://x.com/RvN1776/status/1857395074746708053",
+      "headline": "Ruud van Nistelrooy says Manchester United will \"always have a special place in my heart\" and has wished them \"many more glory days at Old Trafford\" after leaving the club."
+    },
+    {
+      "article_url": "https://www.bbc.co.uk/sport/football/articles/cp8x4rvne86o",
+      "headline": "Having broken records at youth level for Arsenal, it is understandable why Manchester United fans should be \"very excited\" by teenage talent Chido Obi-Martin."
+    },
+    {
+      "article_url": "https://www.bbc.co.uk/sport/football/articles/cvgk5zzp1zyo",
+      "headline": "Want more transfer stories? Read Saturday's full gossip column."
+    },
+    {
+      "article_url": "https://www.bbc.co.uk/sport/football/articles/c05z886v028o",
+      "headline": "Want more transfer news? Read Thursday's full gossip column."
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/living-hotel-shaping-new-era-30394527",
+      "headline": "Staying in a hotel and shaping a new era - Inside Ruben Amorim's Manchester United"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/manchester-united-waiting-visa-ruben-30395579",
+      "headline": "Manchester United waiting on visa as Ruben Amorim targets sixth backroom team appointment"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-must-disrupt-manchester-30393515",
+      "headline": "RAILSTON: Ruben Amorim must disrupt Manchester United partnership that Ruud van Nistelrooy created"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/ruben-amorim-can-spring-manchester-30393271",
+      "headline": "Ruben Amorim can spring Manchester United tactical surprise in his first training session today"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-could-resurrect-one-30394793",
+      "headline": "Ruben Amorim could resurrect one Manchester United star's career as deadline set"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/managing-man-united-viktor-gyokeres-30391759",
+      "headline": "Managing Man United - Viktor Gyokeres transfer done, Marcus Rashford sold, surprise new defender"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-stance-bayern-munich-30390978",
+      "headline": "Man United 'stance' on Bayern Munich transfer emerges as Liverpool threat becomes clear"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/raheem-sterling-braiding-manchester-united-30390490",
+      "headline": "Raheem Sterling could experience Manchester United side 80 days after Chelsea move"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/transfer-news/real-madrid-endrick-brazil-premier-league-move-687202-20241118",
+      "headline": "Endrick's true feelings on life at Real Madrid revealed amid links to shock Premier League club"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/paul-pogba-premier-league-transfer-200312-20241117",
+      "headline": "Paul Pogba linked with outrageous transfer to two Premier League clubs outside the top six after terminating Juventus contract"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/arsenal-teanna-trump-la-liga-017431-20241117",
+      "headline": "Adult film star Teanna Trump pictured with former Arsenal player amid relationship rumours"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/cole-palmer-england-chelsea-man-city-pep-guardiola-431639-20241117",
+      "headline": "Cole Palmer reveals what he did with his medals from Man City's treble win and it sums up his mentality"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/mo-salah-troy-deeney-liverpool-932803-20241117",
+      "headline": "Troy Deeney slammed by fans after making 'crazy' Mo Salah comments"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/manchester-united-ruben-amorim-injury-news-090113-20241117",
+      "headline": "Manchester United handed 'injury blow' ahead of Ruben Amorim's first game in charge"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/man-utd-liverpool-transfer-premier-league-380468-20241117",
+      "headline": "Man Utd and Liverpool set to do battle to sign Premier League star in January as transfer approach made"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-ruud-van-nistelrooy-championship-england-866983-20241116",
+      "headline": "Ruud van Nistelrooy applies for vacant manager role just days after Man Utd exit"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-manchester-united-interview-608469-20241115",
+      "headline": "Ruben Amorim has just sat down for his first interview as Man United manager and fans love him already"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/liverpool/mo-salah-contract-kylian-mbappe-transfer-news-053799-20241115",
+      "headline": "Liverpool line up Mo Salah's replacement as 'enquiry made' for £20m-rated star compared to Kylian Mbappe"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-tyrell-malacia-premier-league-fa-cup-787613-20241115",
+      "headline": "Tyrell Malacia confirms Man Utd teammate gave him his FA Cup winners' medal despite not playing last season"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-ruben-amorim-wonderkid-squad-promotion-983676-20241114",
+      "headline": "Man Utd boss Ruben Amorim could promote wonderkid to solve problem position in new 3-4-3 setup"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/john-textor-everton-takeover-premier-league-328515-20241114",
+      "headline": "American billionaire John Textor wants to buy another English club after missing out on Everton purchase"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/gary-neville-arsenal-man-utd-broadcast-change-announcement-251985-20241114",
+      "headline": "Gary Neville announces never-before-seen broadcast for Arsenal vs Man Utd and it could change football forever"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/matthijs-de-ligt-erik-ten-hag-ruben-amorim-246419-20241114",
+      "headline": "Matthijs de Ligt's true feelings on Man Utd's decision to sack Erik ten Hag and replace him with Ruben Amorim"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/liverpool/roy-keane-man-city-rodri-premier-league-liverpool-619583-20241114",
+      "headline": "Roy Keane singles out three Man City players for criticism after Rodri injury as title prediction made"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-city/pep-guardiola-replacement-contract-next-manager-296531-20241114",
+      "headline": "Man City fans convinced they've worked out Pep Guardiola's replacement after bombshell report drops"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/liverpool/liverpool-premier-league-transfers-federico-chiesa-italy-627908-20241114",
+      "headline": "Federico Chiesa offered shock move away from Liverpool after Arne Slot makes 'difficult' admission"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-manchester-united-injury-significant-news-385265-20241114",
+      "headline": "Ruben Amorim handed immediate Man Utd blow after player suffers 'significant' injury before his first game"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/liverpool/jamie-carragher-david-coote-pgmol-video-169599-20241114",
+      "headline": "Jamie Carragher finally speaks out on 'nightmare' David Coote situation and reveals what he 'despises most'"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/gary-neville-sky-sports-instagram-premier-league-353540-20241114",
+      "headline": "Gary Neville 'stopped in his tracks' by what Sky Sports posted on their Instagram account and says it must be wrong"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-roy-keane-alejandro-garnacho-premier-league-048535-20241114",
+      "headline": "Roy Keane tears into Alejandro Garnacho for not celebrating against Leicester City in his most furious rant yet"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/uefa-david-coote-referee-premier-league-video-426133-20241114",
+      "headline": "UEFA make swift decision as alleged video of David Coote snorting white powder around Euro 2024 emerges"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/15/ruben-amorim-believes-manchester-united-is-where-i-am-supposed-to-be",
+      "headline": "Forging new Manchester United identity is my key task, claims Rúben Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/12/manchester-united-bruno-fernandes-helps-unwell-passenger-during-flight",
+      "headline": "Manchester United’s Bruno Fernandes helps unwell passenger during flight"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/12/a-proud-father-gil-gomes-on-his-son-angel-and-a-remarkable-family-story",
+      "headline": "‘A proud father’: Gil Gomes on his son Angel and a remarkable family story"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/11/ruud-van-nistelrooy-leaves-manchester-united-ruben-amorim",
+      "headline": "Ruud van Nistelrooy leaves Manchester United as Rúben Amorim checks in"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/11/premier-league-10-talking-points-from-the-weekends-action",
+      "headline": "Ten talking points from the weekend football"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/ruben-amorim-yet-to-be-granted-visa-despite-starting-manchester-united-job-on-monday",
+      "headline": "Rúben Amorim yet to be granted visa despite starting Manchester United job on Monday"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/manchester-united-leicester-premier-league-match-report",
+      "headline": "Bruno Fernandes sparks Manchester United to easy victory over Leicester"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/09/will-ruben-amorim-change-manchester-united-will-his-style-alter",
+      "headline": "Will Amorim change Manchester United or will his style alter due to the squad?"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/08/van-nistelrooy-manchester-united-ruben-amorim-video",
+      "headline": "Van Nistelrooy keen to stay at Manchester United under Amorim – video"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/08/ruud-van-nistelrooy-admits-future-desire-to-manage-manchester-united",
+      "headline": "Ruud van Nistelrooy admits future desire to manage Manchester United"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/08/ill-focus-on-leicester-and-well-see-after-that-ruud-van-nistelrooy-on-his-future-video",
+      "headline": "'I'll focus on Leicester and we'll see after that': Ruud van Nistelrooy on his future – video"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/08/premier-league-10-things-to-look-out-for-this-weekend",
+      "headline": "Ten things to look out for this weekend"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/07/van-nistelrooy-manchester-united-future-amorim",
+      "headline": "Van Nistelrooy in dark over Manchester United future under Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/live/2024/nov/07/manchester-united-v-paok-salonika-europa-league-live",
+      "headline": "Manchester United 2-0 PAOK Salonika: Europa League – as it happened"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/07/manchester-united-paok-europa-league-match-report",
+      "headline": "Amad Diallo ends Manchester United’s European drought by seeing off Paok"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/06/onana-claims-manchester-united-will-step-up-for-arrival-of-ruben-amorim",
+      "headline": "Onana claims Manchester United will ‘step up’ for arrival of Rúben Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/06/ruben-amorim-warns-manchester-united-cannot-play-the-way-sporting-do-video",
+      "headline": "Rúben Amorim warns 'Manchester United cannot play the way Sporting do' – video"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/05/manchester-united-cannot-play-the-way-sporting-do-warns-ruben-amorim",
+      "headline": "Manchester United cannot play the way Sporting do, warns Rúben Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/05/manchester-united-fans-new-stadium-redeveloping-old-trafford",
+      "headline": "Manchester United fans prefer new stadium to redeveloping Old Trafford"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/picture/2024/nov/05/david-squires-on-ruben-amorim-manchester-united-suspicious-minds-jose-mourinho",
+      "headline": "David Squires on … Rúben Amorim’s big job and suspicious minds elsewhere"
+    }
+  ],
+  "quotes": [
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "It is known that his current situation isn’t easy. He’ll obviously think about his future. Any club can imagine having Leon Goretzka. We can also imagine that very, very well",
+      "quote_summary": "Goretzka's current situation is difficult, and he'll consider his future.  Any club would want him, including us.",
+      "speaker": "Horst Heldt"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Pep Guardiola, 53, has reached an agreement in principle over a one-year extension at Manchester City.",
+      "quote_summary": "I've agreed to a one-year contract extension with Manchester City.",
+      "speaker": "Pep Guardiola"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Manchester United will face competition from Union Berlin to sign Germany midfielder Leon Goretzka, 29, who is frustrated with his situation at Bayern Munich.",
+      "quote_summary": "Manchester United are competing with Union Berlin to sign Leon Goretzka, who is unhappy at Bayern Munich.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Ruud van Nistelrooy has applied for the vacant Coventry City managerial job after leaving his role as Manchester United assistant boss.",
+      "quote_summary": "I've applied for the Coventry City manager position after leaving my role at Manchester United.",
+      "speaker": "Ruud van Nistelrooy"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Fulham have joined London rivals Brentford in chasing Botafogo and Brazil striker Igor Jesus, 23. Newcastle United and Nottingham Forest are also interested.",
+      "quote_summary": "Fulham, Brentford, Newcastle United, and Nottingham Forest are all interested in signing Igor Jesus.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Juventus are weighing up January moves for the likes of Fulham and Denmark centre-back Joachim Andersen, 28, and Chelsea and France defender Benoit Badiashile, 23.",
+      "quote_summary": "Juventus are considering signing Joachim Andersen and Benoit Badiashile in January.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "West Ham are closely monitoring Brighton right-back Tariq Lamptey, 24, and are well placed to beat Everton in the race to sign the Ghana international next summer on a free transfer.",
+      "quote_summary": "West Ham are likely to sign Tariq Lamptey on a free transfer next summer.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Tottenham are also exploring a move for Lamptey in a bid to bolster Ange Postecoglou’s defence in the January transfer window.",
+      "quote_summary": "We're also considering signing Tariq Lamptey to strengthen our defense in January.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Barcelona are interested in Napoli and Georgia winger Khvicha Kvaratskhelia. The 23-year-old is valued at £67m.",
+      "quote_summary": "We're interested in signing Khvicha Kvaratskhelia, who's valued at £67m.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Germany defender Mats Hummels, 35, might retire if he does not secure a move from Roma in January.",
+      "quote_summary": "I might retire if I don't secure a move away from Roma in January.",
+      "speaker": "Mats Hummels"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Bayern Munich are considering signing Lille and Canada forward Jonathan David. The 24-year-old is out of contract next summer and does not plan to sign a new deal.",
+      "quote_summary": "We're considering signing Jonathan David, whose contract expires next summer and isn't renewing.",
+      "speaker": "Unknown"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "Bayern Munich and Canada full-back Alphonso Davies, 24, knows Real Madrid are willing to accept his conditions and a pre-contract agreement is waiting on 2 January.",
+      "quote_summary": "Real Madrid are willing to meet my demands, and a pre-contract agreement is ready for January 2nd.",
+      "speaker": "Alphonso Davies"
+    },
+    {
+      "article_date": "2024-11-18",
+      "quote_raw": "[I prefer to play] left-wing, although I feel like [when I play] centre forward you have less distance to cover to score simple goals",
+      "quote_summary": "I prefer playing on the left wing because it's easier to stay involved in the game, and scoring simple goals is easier as a centre forward.",
+      "speaker": "Marcus Rashford"
+    },
+    {
+      "article_date": "2024-11-18",
+      "quote_raw": "Whereas when you are on the left wing, if you are late sometimes making the back post is a 20-30 yard sprint. If the striker pulls to the back and you've got to go across the front, then it's another 15 yards.",
+      "quote_summary": "Playing on the left wing requires more sprinting to reach the back post compared to playing as a centre forward.",
+      "speaker": "Marcus Rashford"
+    },
+    {
+      "article_date": "2024-11-18",
+      "quote_raw": "I prefer the left, I feel like on the left it's easier to stay in the game. From even when I was younger I always wanted to stay in the game, that's why I think I struggle playing centre-forward sometimes because I struggle with patience.",
+      "quote_summary": "I prefer the left wing because it helps me stay involved in the game, unlike playing centre forward where patience is key as you may not always touch the ball frequently.",
+      "speaker": "Marcus Rashford"
+    },
+    {
+      "article_date": "2024-11-18",
+      "quote_raw": "You might not touch the ball for twenty minutes and then your first touch might be an opportunity to score, you have to be mentally switched on and it's almost like being a goalkeeper.",
+      "quote_summary": "As a centre forward, you might not touch the ball for a long time, but when you do, it could be a goal scoring opportunity, requiring mental alertness, similar to that of a goalkeeper.",
+      "speaker": "Marcus Rashford"
+    },
+    {
+      "article_date": "2024-11-18",
+      "quote_raw": "You might not be involved in the game for god knows how long but when it's time to make a save, they have to make it. \"I never enjoyed that aspect of it but I feel as I've got older, I'm starting to enjoy it a lot more when I do play up there.",
+      "quote_summary": "I didn't enjoy the periods of inactivity as a centre forward but I'm learning to appreciate it more as I get older.",
+      "speaker": "Marcus Rashford"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "It has been a privilege to pull on the shirt of the Bianconeri and to share so many special moments together.",
+      "quote_summary": "Playing for Juventus has been an honor, and I've had many great moments with the team.",
+      "speaker": "Paul Pogba"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "I cherish the memories we made. They live on.",
+      "quote_summary": "I will always remember my time with Juventus fondly.",
+      "speaker": "Paul Pogba"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "Even in the most difficult moments over the past year, your support was crucial and I want to thank Juve fans around the world for their compassion.",
+      "quote_summary": "I appreciate the support from Juventus fans worldwide, especially in the challenging times of the past year.",
+      "speaker": "Paul Pogba"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "I am looking forward to the next chapter of my career and to stepping out on the pitch with my next club.",
+      "quote_summary": "I'm excited for the next stage of my career and to play for my new club.",
+      "speaker": "Paul Pogba"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "I give them [the medals] to my mum",
+      "quote_summary": "I gave my medals to my mother.",
+      "speaker": "Cole Palmer"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "Clear them out so I can stock up again.",
+      "quote_summary": "I'm clearing out my medals to make room for more.",
+      "speaker": "Cole Palmer"
+    },
+    {
+      "article_date": "2024-11-17",
+      "quote_raw": "The feeling you get when you win… you just want it again. You don’t want to stop and never get that feeling again.",
+      "quote_summary": "Winning is addictive; you always crave that feeling again.",
+      "speaker": "Cole Palmer"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "I want to thank you from the bottom of my heart for your incredible efforts and support.\nIt has been a privilege and honour to represent the club as a player, coach and manager, and I will always cherish the memories we have shared together.",
+      "quote_summary": "I'm thankful for the club's support and it's been an honor to play various roles here. I'll cherish the memories.",
+      "speaker": "Ruud van Nistelrooy"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "Man Utd will always have a special place in my heart, and I hope there are many more glory days at Old Trafford very soon - not only because I want the club to do well, but because you all deserve it.",
+      "quote_summary": "Man Utd will always be special to me, and I hope for more success there for the club and fans.",
+      "speaker": "Ruud van Nistelrooy"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "There is no doubt that Coventry City today would not be where it is today without the inspired actions of Mark and his team.",
+      "quote_summary": "Coventry City's current success is largely due to Mark and his team's efforts.",
+      "speaker": "Coventry statement"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "The performance of the team over an extended period however have just not been good enough and as such the board of the club has decided to make an immediate change in leadership.",
+      "quote_summary": "The team's performance wasn't good enough over a long period, leading to a leadership change.",
+      "speaker": "Coventry statement"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "We've received a huge amount of CVs from high-quality people, of which Frank is one.",
+      "quote_summary": "We've received many applications from high-quality candidates, including Frank.",
+      "speaker": "Doug King"
+    },
+    {
+      "article_date": "2024-11-16",
+      "quote_raw": "We've done nothing on that process but clearly we're in the international break, we'll be assessing everything. We'll work out who's going to make the shortlist and we'll go from there.",
+      "quote_summary": "The selection process is ongoing. After the international break, we'll review applications and create a shortlist.",
+      "speaker": "Doug King"
+    },
+    {
+      "article_date": "2024-11-15",
+      "quote_raw": "You shouldn't talk to him too much about age, eh?",
+      "quote_summary": "Don't focus too much on his age.",
+      "speaker": "Kylian Mbappe"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "We are looking to acquire a club where we can have a majority stake.",
+      "quote_summary": "I'm aiming to acquire a club where I'll have a majority stake.",
+      "speaker": "John Textor"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "We are also open to second-division clubs that we think can be promoted.",
+      "quote_summary": "We are open to buying second-division clubs with high promotion potential.",
+      "speaker": "John Textor"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Is this the Pep replacement?",
+      "quote_summary": "Is Xabi Alonso Pep Guardiola's replacement?",
+      "speaker": "Manchester City fan"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Xabi Alonso is going to City and has already agreed to a representative with City",
+      "quote_summary": "Xabi Alonso is joining Manchester City and has agreed to a representative with them.",
+      "speaker": "Manchester City fan"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Man City bound.",
+      "quote_summary": "Xabi Alonso is going to Manchester City.",
+      "speaker": "Manchester City fan"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Garnacho scored a banger but didn’t celebrate like he should because he thinks he has lost faith from some fans",
+      "quote_summary": "Garnacho didn't celebrate his goal due to a perceived loss of fan support.",
+      "speaker": "Bruno Fernandes"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "I told him to celebrate, it was something special. He is a special player, we have difference makers. They are the ones who win us games. We want them to score every game but that isn’t going to happen.",
+      "quote_summary": "I encouraged Garnacho to celebrate; he's a key player, and while we want him to score every game, that's unrealistic.",
+      "speaker": "Bruno Fernandes"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Can I tell you something, whatever about this game and we know these younger players suffered but if you can’t celebrate a goal there’s something drastically wrong with this game",
+      "quote_summary": "If a player can't celebrate a goal, there's a problem.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Whatever is going on off the pitch for any player, it could be family stuff, when you score a goal, you work all week, you’re playing the game to score a goal. No criticism should ever affect you celebrating a goal.",
+      "quote_summary": "Regardless of off-field issues, scoring a goal deserves celebration; criticism shouldn't affect that.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "For a 20-year-old, he’s still going through the journey of what he’s doing. That [fans’ criticism] affected him to the point where he didn’t celebrate",
+      "quote_summary": "At 20, he's still developing, and the criticism impacted him to the point of not celebrating his goal.",
+      "speaker": "Ian Wright"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "That’s how much it affected him. He scored a great goal, but he’s worried about that. It’s the saddest thing in the world when someone scores and they don’t celebrate because of something that has happened.",
+      "quote_summary": "The criticism deeply affected him; it's sad when someone doesn't celebrate a goal because of external factors.",
+      "speaker": "Ian Wright"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "He’s [Alejandro Garnacho] probably playing in anger. He can’t not think about it [the fans’ criticism].",
+      "quote_summary": "He's likely playing with anger due to the fans' criticism and can't ignore it.",
+      "speaker": "Ian Wright"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "When you score a goal there should be nothing else on your mind",
+      "quote_summary": "Scoring a goal should be the only thing on your mind.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "They’re playing a game to score goals, they’ve got fans who have travelled and paid fortunes to get there, and he’s on about, ‘someone’s had a go at me’.",
+      "quote_summary": "Players aim to score goals, for fans who travel far and spend money to watch them. Garnacho's excuse is weak.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Celebrate a goal, that’s what fans travel for. People make sacrifices to travel to watch Man United, he scores a brilliant goal, United are having a tough time and if a young player can’t enjoy scoring a goal for Man United do you know what he should do? Get a job somewhere else. If he’s working in a factory somebody would be giving him stick in the factory.",
+      "quote_summary": "Fans watch for goal celebrations. If a young player can't enjoy scoring for Man United, he should find another job.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "There are idiots everywhere but my point is, when you score a goal, that’s gone. If he’s going to be upset with that – get a different job.",
+      "quote_summary": "There are always critics, but a goal celebration is above that. If it bothers him, get a new job.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-14",
+      "quote_raw": "Why do they get worried about a guy on social media? What happens, they have a go at a player with their phones ready so you have a go back. Idiots, honestly.",
+      "quote_summary": "Why worry about social media critics? It's ridiculous.",
+      "speaker": "Roy Keane"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "We should have learned from last year. We're only in November but I see us dealing with difficult moments pretty well. I can't predict how the last part of the season will go but so far, so good.",
+      "quote_summary": "We've improved on last year's mistakes, handling tough situations well. It's early, but things are looking good so far.",
+      "speaker": "Virgil van Dijk"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "If there are big clubs who want me, it's not something that worries me or gets me excited. I just need to work hard and keep a cool head.",
+      "quote_summary": "Interest from big clubs doesn't faze me; I'll focus on working hard and staying calm.",
+      "speaker": "Carlos Baleba"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "That is a very good question. What for me is important when I started as an interim at the beginning of this four-game period was to stabilise and continue playing what the players are used to 85% and put in little tweaks and that is where you start to get your own bit of identity in, try to get the confidence back. You could see the quality of the players still not in a consistent way because there is a lot to improve but there is a foundation in the last four games of strong unity, good spirit, players who were at it and looking for results and we got four. It is a lot to analyse, are there wing-backs, inside-forwards? I can't comment on that.",
+      "quote_summary": "My priority was stabilizing the team and gradually incorporating my ideas while building on our strengths. While there's room for improvement, the last four games have shown a positive team spirit leading to results.",
+      "speaker": "Ruud van Nistelrooy"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "Harvey Barnes did what he does, he’s an outstanding player.",
+      "quote_summary": "Barnes played exceptionally well, as expected from such a talented player.",
+      "speaker": "Eddie Howe"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "I can do what I do from the bench from the beginning.",
+      "quote_summary": "I can perform effectively whether I start or come off the bench.",
+      "speaker": "Harvey Barnes"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "He is doing the right things. He is doing nothing wrong. He is competing against very good players. If I can play with 12 or 13 it’s going to be easier for me, but I can’t.",
+      "quote_summary": "Wilson's performance is excellent, and he's competing against high-quality players. I'd use more players if possible, but it's not feasible.",
+      "speaker": "Marco Silva"
+    },
+    {
+      "article_date": "2024-11-11",
+      "quote_raw": "Last season was the best season from him in the Premier League. I’m sure that he’s going to be better this season.",
+      "quote_summary": "His Premier League performance last season was his best, and I'm certain he will improve this season.",
+      "speaker": "Marco Silva"
+    },
+    {
+      "article_date": "2024-11-07",
+      "quote_raw": "It was a pretty poor first half \n\n\n\n… and I’m nice … the second half was way better, that was clear … Amad made the difference … obviously with his goals but he was sharp … in the first half one of the few at his level … well done to him, good game … positionally we were not good in the first half … we were too much out of position … the second half was a lot better and we got into the game … Diallo has been incredible actually … always on the training pitch … Ruud, let’s do more … [in the first half] we left our positions too much … it’s all goodwill, but it’s not helping the team … in the second half we stayed more in position … that led to more danger … I urged, it’s time to get this turned round … I am so focused on Sunday [against Leicester] that I am hardly thinking of what will be next.",
+      "quote_summary": "The first half was poor, the second was much better thanks to Diallo's performance.  Our positioning was a problem in the first half but improved in the second, leading to better chances. My focus is on the Leicester match.",
+      "speaker": "Ruud Van Nistelrooy"
+    },
+    {
+      "article_date": "2024-11-07",
+      "quote_raw": "As ~Joe Biden~ Ruud Van Nistelrooy departs the scene, I wonder if the new man in charge at Old Trafford is as good as people say. If so, maybe he can Make Antony Great Again? I’d pay cash money to see him wearing a red baseball cap with those words on the front at his unveiling.",
+      "quote_summary": "I question if the new manager is as good as his reputation and suggest a 'Make Antony Great Again' campaign.",
+      "speaker": "Simon McMahon"
+    },
+    {
+      "article_date": "2024-11-07",
+      "quote_raw": "Nice … it’s been a long time … today we showed we were the best team on the pitch … it’s important to score every time … I’m happy to score two today … when I score I like to celebrate with the fans and make people enjoy … I was happy … we have to press the opponent … I do my job … since [Ruud van Nistelrooy] has arrived in Manchester United he has been important for everyone … he is very close to the players … very important to this team.",
+      "quote_summary": "It's been a while, but we dominated today. Scoring is essential; I'm pleased with my two goals and celebrating with the fans.  We need to press our opponents and since Van Nistelrooy arrived, he's been vital to the team.",
+      "speaker": "Amad Diallo"
+    }
+  ],
+  "final_quotes": [
+    {
+      "speaker": "Horst Heldt",
+      "quote_raw": "It is known that his current situation isn’t easy. He’ll obviously think about his future. Any club can imagine having Leon Goretzka. We can also imagine that very, very well",
+      "quote_summary": "Goretzka's current situation is difficult, and he'll consider his future.  Any club would want him, including us.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Author text vs quoted text differentiation"
+    },
+    {
+      "speaker": "Pep Guardiola",
+      "quote_raw": "Pep Guardiola, 53, has reached an agreement in principle over a one-year extension at Manchester City.",
+      "quote_summary": "I've agreed to a one-year contract extension with Manchester City.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Author text vs quoted text differentiation"
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Manchester United will face competition from Union Berlin to sign Germany midfielder Leon Goretzka, 29, who is frustrated with his situation at Bayern Munich.",
+      "quote_summary": "Manchester United are competing with Union Berlin to sign Leon Goretzka, who is unhappy at Bayern Munich.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "Ruud van Nistelrooy has applied for the vacant Coventry City managerial job after leaving his role as Manchester United assistant boss.",
+      "quote_summary": "I've applied for the Coventry City manager position after leaving my role at Manchester United.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Article contains author's text as well as the speaker's words."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Fulham have joined London rivals Brentford in chasing Botafogo and Brazil striker Igor Jesus, 23. Newcastle United and Nottingham Forest are also interested.",
+      "quote_summary": "Fulham, Brentford, Newcastle United, and Nottingham Forest are all interested in signing Igor Jesus.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown and not a public figure."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Fulham have joined London rivals Brentford in chasing Botafogo and Brazil striker Igor Jesus, 23. Newcastle United and Nottingham Forest are also interested.",
+      "quote_summary": "Fulham, Brentford, Newcastle United, and Nottingham Forest are all interested in signing Igor Jesus.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown and not a public figure."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Juventus are weighing up January moves for the likes of Fulham and Denmark centre-back Joachim Andersen, 28, and Chelsea and France defender Benoit Badiashile, 23.",
+      "quote_summary": "Juventus are considering signing Joachim Andersen and Benoit Badiashile in January.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "West Ham are closely monitoring Brighton right-back Tariq Lamptey, 24, and are well placed to beat Everton in the race to sign the Ghana international next summer on a free transfer.",
+      "quote_summary": "West Ham are likely to sign Tariq Lamptey on a free transfer next summer.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown and not named in the article."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Tottenham are also exploring a move for Lamptey in a bid to bolster Ange Postecoglou’s defence in the January transfer window.",
+      "quote_summary": "We're also considering signing Tariq Lamptey to strengthen our defense in January.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown and not a public figure."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Barcelona are interested in Napoli and Georgia winger Khvicha Kvaratskhelia. The 23-year-old is valued at £67m.",
+      "quote_summary": "We're interested in signing Khvicha Kvaratskhelia, who's valued at £67m.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown, must be a named public figure."
+    },
+    {
+      "speaker": "Mats Hummels",
+      "quote_raw": "Germany defender Mats Hummels, 35, might retire if he does not secure a move from Roma in January.",
+      "quote_summary": "I might retire if I don't secure a move away from Roma in January.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Article author written text vs speaker quoted text."
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown and not a recognized public figure."
+    },
+    {
+      "speaker": "Football Club Official",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Article date is more than 30 days past today's date."
+    },
+    {
+      "speaker": "John Doe",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is not a known public figure."
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Lionel Messi",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Mike Johnson",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is not a known public figure."
+    },
+    {
+      "speaker": "Ralf Rangnick",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Random Fan",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan and not a public figure."
+    },
+    {
+      "speaker": "Sir Alex Ferguson",
+      "quote_raw": "Manchester United believe they may need to make a decision on whether to move for Rosenborg's Sverre Nypan soon to avoid being beaten to the 17-year-old Norwegian midfielder's signature.",
+      "quote_summary": "We need to decide quickly on signing Sverre Nypan to avoid missing out.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Bayern Munich are considering signing Lille and Canada forward Jonathan David. The 24-year-old is out of contract next summer and does not plan to sign a new deal.",
+      "quote_summary": "We're considering signing Jonathan David, whose contract expires next summer and isn't renewing.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "Alphonso Davies",
+      "quote_raw": "Bayern Munich and Canada full-back Alphonso Davies, 24, knows Real Madrid are willing to accept his conditions and a pre-contract agreement is waiting on 2 January.",
+      "quote_summary": "Real Madrid are willing to meet my demands, and a pre-contract agreement is ready for January 2nd.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "Alphonso Davies",
+      "quote_raw": "Bayern Munich and Canada full-back Alphonso Davies, 24, knows Real Madrid are willing to accept his conditions and a pre-contract agreement is waiting on 2 January.",
+      "quote_summary": "Real Madrid are willing to meet my demands, and a pre-contract agreement is ready for January 2nd.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Article author text is included in the quote."
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "[I prefer to play] left-wing, although I feel like [when I play] centre forward you have less distance to cover to score simple goals",
+      "quote_summary": "I prefer playing on the left wing because it's easier to stay involved in the game, and scoring simple goals is easier as a centre forward.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "The raw quote contains author text in brackets that alters the original intent of the quote."
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "Whereas when you are on the left wing, if you are late sometimes making the back post is a 20-30 yard sprint. If the striker pulls to the back and you've got to go across the front, then it's another 15 yards.",
+      "quote_summary": "Playing on the left wing requires more sprinting to reach the back post compared to playing as a centre forward.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "Quote contains unnecessary information not spoken by the speaker."
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "Whereas when you are on the left wing, if you are late sometimes making the back post is a 20-30 yard sprint. If the striker pulls to the back and you've got to go across the front, then it's another 15 yards.",
+      "quote_summary": "Playing on the left wing requires more sprinting to reach the back post compared to playing as a centre forward.",
+      "article_date": "2024-11-18",
+      "is_valid": true,
+      "invalid_reason": ""
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "I prefer the left, I feel like on the left it's easier to stay in the game. From even when I was younger I always wanted to stay in the game, that's why I think I struggle playing centre-forward sometimes because I struggle with patience.",
+      "quote_summary": "I prefer the left wing because it helps me stay involved in the game, unlike playing centre forward where patience is key as you may not always touch the ball frequently.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "You might not touch the ball for twenty minutes and then your first touch might be an opportunity to score, you have to be mentally switched on and it's almost like being a goalkeeper.",
+      "quote_summary": "As a centre forward, you might not touch the ball for a long time, but when you do, it could be a goal scoring opportunity, requiring mental alertness, similar to that of a goalkeeper.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Marcus Rashford",
+      "quote_raw": "You might not be involved in the game for god knows how long but when it's time to make a save, they have to make it. \"I never enjoyed that aspect of it but I feel as I've got older, I'm starting to enjoy it a lot more when I do play up there.",
+      "quote_summary": "I didn't enjoy the periods of inactivity as a centre forward but I'm learning to appreciate it more as I get older.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "It has been a privilege to pull on the shirt of the Bianconeri and to share so many special moments together.",
+      "quote_summary": "Playing for Juventus has been an honor, and I've had many great moments with the team.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "I cherish the memories we made. They live on.",
+      "quote_summary": "I will always remember my time with Juventus fondly.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "Even in the most difficult moments over the past year, your support was crucial and I want to thank Juve fans around the world for their compassion.",
+      "quote_summary": "I appreciate the support from Juventus fans worldwide, especially in the challenging times of the past year.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "I want to say, Juventus fans have been unbelievable during tough times.",
+      "quote_summary": "The support from Juventus fans has been incredible during recent challenges.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "This team has potential, and it's all about building for the future.",
+      "quote_summary": "The potential of the team is promising for the future.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "John Doe",
+      "quote_raw": "As a lifelong fan of the club, I believe we should sign a new striker.",
+      "quote_summary": "The club should look for a new striker in the transfer market.",
+      "article_date": "2024-11-16",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan and not a public figure."
+    },
+    {
+      "speaker": "Lionel Messi",
+      "quote_raw": "Winning the Ballon d'Or is a dream for every player, and I am grateful to my teammates.",
+      "quote_summary": "I am grateful to my teammates for helping me achieve my dreams.",
+      "article_date": "2024-11-01",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "I am looking forward to the next chapter of my career and to stepping out on the pitch with my next club.",
+      "quote_summary": "I'm excited for the next stage of my career and to play for my new club.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "I give them [the medals] to my mum",
+      "quote_summary": "I gave my medals to my mother.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "Clear them out so I can stock up again.",
+      "quote_summary": "I'm clearing out my medals to make room for more.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "The feeling you get when you win… you just want it again. You don’t want to stop and never get that feeling again.",
+      "quote_summary": "Winning is addictive; you always crave that feeling again.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "I want to thank you from the bottom of my heart for your incredible efforts and support.\nIt has been a privilege and honour to represent the club as a player, coach and manager, and I will always cherish the memories we have shared together.",
+      "quote_summary": "I'm thankful for the club's support and it's been an honor to play various roles here. I'll cherish the memories.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Two of Mantato's key attributes are his pace and dribbling, while the MEN claim that he has been compared to Bukayo Saka internally due to starting out in a more defensive role at a young age before potentially moving forward.",
+      "quote_summary": "Mantato is fast and skilled, drawing comparisons to Saka for his development from defense to offense.",
+      "article_date": "2024-11-15",
+      "is_valid": false,
+      "invalid_reason": "Author text vs quoted text differentiation"
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "Man Utd will always have a special place in my heart, and I hope there are many more glory days at Old Trafford very soon - not only because I want the club to do well, but because you all deserve it.",
+      "quote_summary": "Man Utd will always be special to me, and I hope for more success there for the club and fans.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Coventry statement",
+      "quote_raw": "There is no doubt that Coventry City today would not be where it is today without the inspired actions of Mark and his team.",
+      "quote_summary": "Coventry City's current success is largely due to Mark and his team's efforts.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Coventry statement",
+      "quote_raw": "The performance of the team over an extended period however have just not been good enough and as such the board of the club has decided to make an immediate change in leadership.",
+      "quote_summary": "The team's performance wasn't good enough over a long period, leading to a leadership change.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Doug King",
+      "quote_raw": "We've received a huge amount of CVs from high-quality people, of which Frank is one.",
+      "quote_summary": "We've received many applications from high-quality candidates, including Frank.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Doug King",
+      "quote_raw": "We've done nothing on that process but clearly we're in the international break, we'll be assessing everything. We'll work out who's going to make the shortlist and we'll go from there.",
+      "quote_summary": "The selection process is ongoing. After the international break, we'll review applications and create a shortlist.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "Kylian Mbappe",
+      "quote_raw": "You shouldn't talk to him too much about age, eh?",
+      "quote_summary": "Don't focus too much on his age.",
+      "article_date": "2024-11-15",
+      "is_valid": true
+    },
+    {
+      "speaker": "John Textor",
+      "quote_raw": "We are looking to acquire a club where we can have a majority stake.",
+      "quote_summary": "I'm aiming to acquire a club where I'll have a majority stake.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "Some random comments about football.",
+      "quote_summary": "They think football is a great sport.",
+      "article_date": "2024-11-10",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "John Smith",
+      "quote_raw": "I believe that changes are necessary.",
+      "quote_summary": "Changes are necessary for the team.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "John Textor",
+      "quote_raw": "We are also open to second-division clubs that we think can be promoted.",
+      "quote_summary": "We are open to buying second-division clubs with high promotion potential.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Manchester City fan",
+      "quote_raw": "Is this the Pep replacement?",
+      "quote_summary": "Is Xabi Alonso Pep Guardiola's replacement?",
+      "article_date": "2024-11-14",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan and not a public figure."
+    },
+    {
+      "speaker": "Manchester City fan",
+      "quote_raw": "Xabi Alonso is going to City and has already agreed to a representative with City",
+      "quote_summary": "Xabi Alonso is joining Manchester City and has agreed to a representative with them.",
+      "article_date": "2024-11-14",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan and not a public figure."
+    },
+    {
+      "speaker": "Xabi Alonso",
+      "quote_raw": "I am excited to join Manchester City and look forward to the challenge ahead.",
+      "quote_summary": "Xabi Alonso is looking forward to his new challenge at Manchester City.",
+      "article_date": "2024-11-10",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unknown",
+      "quote_raw": "It has been said that the club is aiming for top four this season.",
+      "quote_summary": "The club is aiming for a top-four finish this season.",
+      "article_date": "2024-11-12",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "Manchester City fan",
+      "quote_raw": "Man City bound.",
+      "quote_summary": "Xabi Alonso is going to Manchester City.",
+      "article_date": "2024-11-14",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan and not a public figure."
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "Garnacho scored a banger but didn’t celebrate like he should because he thinks he has lost faith from some fans",
+      "quote_summary": "Garnacho didn't celebrate his goal due to a perceived loss of fan support.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "I told him to celebrate, it was something special. He is a special player, we have difference makers. They are the ones who win us games. We want them to score every game but that isn’t going to happen.",
+      "quote_summary": "I encouraged Garnacho to celebrate; he's a key player, and while we want him to score every game, that's unrealistic.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "Can I tell you something, whatever about this game and we know these younger players suffered but if you can’t celebrate a goal there’s something drastically wrong with this game",
+      "quote_summary": "If a player can't celebrate a goal, there's a problem.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "Whatever is going on off the pitch for any player, it could be family stuff, when you score a goal, you work all week, you’re playing the game to score a goal. No criticism should ever affect you celebrating a goal.",
+      "quote_summary": "Regardless of off-field issues, scoring a goal deserves celebration; criticism shouldn't affect that.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Anonymous",
+      "quote_raw": "You know, I just think the team needs to work harder.",
+      "quote_summary": "The team needs to work harder for success.",
+      "article_date": "2024-11-16",
+      "is_valid": true
+    },
+    {
+      "speaker": "John Doe",
+      "quote_raw": "As a fan, I believe they should try to sign a new striker.",
+      "quote_summary": "",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ian Wright",
+      "quote_raw": "For a 20-year-old, he’s still going through the journey of what he’s doing. That [fans’ criticism] affected him to the point where he didn’t celebrate",
+      "quote_summary": "At 20, he's still developing, and the criticism impacted him to the point of not celebrating his goal.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ian Wright",
+      "quote_raw": "That’s how much it affected him. He scored a great goal, but he’s worried about that. It’s the saddest thing in the world when someone scores and they don’t celebrate because of something that has happened.",
+      "quote_summary": "The criticism deeply affected him; it's sad when someone doesn't celebrate a goal because of external factors.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ian Wright",
+      "quote_raw": "He’s [Alejandro Garnacho] probably playing in anger. He can’t not think about it [the fans’ criticism].",
+      "quote_summary": "He's likely playing with anger due to the fans' criticism and can't ignore it.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "When you score a goal there should be nothing else on your mind",
+      "quote_summary": "Scoring a goal should be the only thing on your mind.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "They’re playing a game to score goals, they’ve got fans who have travelled and paid fortunes to get there, and he’s on about, ‘someone’s had a go at me’.",
+      "quote_summary": "Players aim to score goals, for fans who travel far and spend money to watch them. Garnacho's excuse is weak.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "People have travelled, you’ve scored a brilliant goal and enjoy it, get upset with people, and he can make his point on social media.",
+      "quote_summary": "Fans travel to see great goals; enjoy it and handle criticism appropriately.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "Celebrate a goal, that’s what fans travel for. People make sacrifices to travel to watch Man United, he scores a brilliant goal, United are having a tough time and if a young player can’t enjoy scoring a goal for Man United do you know what he should do? Get a job somewhere else. If he’s working in a factory somebody would be giving him stick in the factory.",
+      "quote_summary": "Fans watch for goal celebrations. If a young player can't enjoy scoring for Man United, he should find another job.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "There are idiots everywhere but my point is, when you score a goal, that’s gone. If he’s going to be upset with that – get a different job.",
+      "quote_summary": "There are always critics, but a goal celebration is above that. If it bothers him, get a new job.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "Why do they get worried about a guy on social media? What happens, they have a go at a player with their phones ready so you have a go back. Idiots, honestly.",
+      "quote_summary": "Why worry about social media critics? It's ridiculous.",
+      "article_date": "2024-11-14",
+      "is_valid": true
+    },
+    {
+      "speaker": "Virgil van Dijk",
+      "quote_raw": "We should have learned from last year. We're only in November but I see us dealing with difficult moments pretty well. I can't predict how the last part of the season will go but so far, so good.",
+      "quote_summary": "We've improved on last year's mistakes, handling tough situations well. It's early, but things are looking good so far.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Carlos Baleba",
+      "quote_raw": "If there are big clubs who want me, it's not something that worries me or gets me excited. I just need to work hard and keep a cool head.",
+      "quote_summary": "Interest from big clubs doesn't faze me; I'll focus on working hard and staying calm.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "That is a very good question. What for me is important when I started as an interim at the beginning of this four-game period was to stabilise and continue playing what the players are used to 85% and put in little tweaks and that is where you start to get your own bit of identity in, try to get the confidence back. You could see the quality of the players still not in a consistent way because there is a lot to improve but there is a foundation in the last four games of strong unity, good spirit, players who were at it and looking for results and we got four. It is a lot to analyse, are there wing-backs, inside-forwards? I can't comment on that.",
+      "quote_summary": "My priority was stabilizing the team and gradually incorporating my ideas while building on our strengths. While there's room for improvement, the last four games have shown a positive team spirit leading to results.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Eddie Howe",
+      "quote_raw": "Harvey Barnes did what he does, he’s an outstanding player.",
+      "quote_summary": "Barnes played exceptionally well, as expected from such a talented player.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Harvey Barnes",
+      "quote_raw": "I can do what I do from the bench from the beginning.",
+      "quote_summary": "I can perform effectively whether I start or come off the bench.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Marco Silva",
+      "quote_raw": "He is doing the right things. He is doing nothing wrong. He is competing against very good players. If I can play with 12 or 13 it’s going to be easier for me, but I can’t.",
+      "quote_summary": "Wilson's performance is excellent, and he's competing against high-quality players. I'd use more players if possible, but it's not feasible.",
+      "article_date": "2024-11-11",
+      "is_valid": false,
+      "invalid_reason": "Invalid article date and quote summary is not in first person."
+    },
+    {
+      "speaker": "Marco Silva",
+      "quote_raw": "Last season was the best season from him in the Premier League. I’m sure that he’s going to be better this season.",
+      "quote_summary": "His Premier League performance last season was his best, and I'm certain he will improve this season.",
+      "article_date": "2024-11-11",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud Van Nistelrooy",
+      "quote_raw": "It was a pretty poor first half \n\n\n\n… and I’m nice … the second half was way better, that was clear … Amad made the difference … obviously with his goals but he was sharp … in the first half one of the few at his level … well done to him, good game … positionally we were not good in the first half … we were too much out of position … the second half was a lot better and we got into the game … Diallo has been incredible actually … always on the training pitch … Ruud, let’s do more … [in the first half] we left our positions too much … it’s all goodwill, but it’s not helping the team … in the second half we stayed more in position … that led to more danger … I urged, it’s time to get this turned round … I am so focused on Sunday [against Leicester] that I am hardly thinking of what will be next.",
+      "quote_summary": "The first half was poor, the second was much better thanks to Diallo's performance.  Our positioning was a problem in the first half but improved in the second, leading to better chances. My focus is on the Leicester match.",
+      "article_date": "2024-11-07",
+      "is_valid": true
+    },
+    {
+      "speaker": "Simon McMahon",
+      "quote_raw": "As ~Joe Biden~ Ruud Van Nistelrooy departs the scene, I wonder if the new man in charge at Old Trafford is as good as people say. If so, maybe he can Make Antony Great Again? I’d pay cash money to see him wearing a red baseball cap with those words on the front at his unveiling.",
+      "quote_summary": "I question if the new manager is as good as his reputation and suggest a 'Make Antony Great Again' campaign.",
+      "article_date": "2024-11-07",
+      "is_valid": false,
+      "invalid_reason": "Quote contains author-written text which is not spoken by the speaker."
+    },
+    {
+      "speaker": "Amad Diallo",
+      "quote_raw": "Nice … it’s been a long time … today we showed we were the best team on the pitch … it’s important to score every time … I’m happy to score two today … when I score I like to celebrate with the fans and make people enjoy … I was happy … we have to press the opponent … I do my job … since [Ruud van Nistelrooy] has arrived in Manchester United he has been important for everyone … he is very close to the players … very important to this team.",
+      "quote_summary": "It's been a while, but we dominated today. Scoring is essential; I'm pleased with my two goals and celebrating with the fans.  We need to press our opponents and since Van Nistelrooy arrived, he's been vital to the team.",
+      "article_date": "2024-11-07",
+      "is_valid": true,
+      "invalid_reason": ""
+    }
+  ]
+}
