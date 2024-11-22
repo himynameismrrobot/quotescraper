@@ -1,0 +1,1258 @@
+{
+  "model": "gemini",
+  "timestamp": "2024-11-20T07:04:12.766Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "headlines": [
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-uniteds-young-winger-impossible-30408332",
+      "headline": "Manchester United's young winger is impossible to ignore after scoring hat-trick for academy"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/he-vision-knew-extraordinary-fan-30385111",
+      "headline": "'He had vision' - I knew the extraordinary fan who saved Manchester United from going bankrupt"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/erik-ten-hag-spotted-back-30402319",
+      "headline": "Erik ten Hag spotted back in England as ex-Manchester United boss weighs up next move"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-promote-another-exciting-30401092",
+      "headline": "Manchester United promote another exciting 16-year-old to first-team training"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-might-change-bruno-30398097",
+      "headline": "Ruben Amorim might be about to change Bruno Fernandes' Manchester United plan"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/top-training-caught-camera-ruben-30400850",
+      "headline": "'Top training' - caught on camera Ruben Amorim moment points at exciting Manchester United future"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-could-soon-unleash-30404735",
+      "headline": "Ruben Amorim could soon unleash a new long-term Manchester United partnership"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/made-man-united-premier-league-30409008",
+      "headline": "I made my Man United Premier League debut with Marcus Rashford - but now I've already retired"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-plan-quick-agreement-30397910",
+      "headline": "Man United 'plan quick agreement' for Ruben Amorim favourite as scouting mission emerges"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/couldnt-believe-what-man-united-30408490",
+      "headline": "I couldn't believe what Man United demanded after I joined - two stars showed how it's done"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/altrincham-vs-manchester-united-u21-30393137",
+      "headline": "Altrincham vs Manchester United U21 live National League Cup updates and early team news"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/ruben-amorim-guarantee-could-give-30396913",
+      "headline": "Ruben Amorim guarantee could give Manchester United fans what they have been crying out for"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/viktor-gyokeres-man-united-latest-30404060",
+      "headline": "Viktor Gyokeres to Man United latest: Transfer release clause, Sporting CP stance, Amorim role"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/rejected-move-manchester-united-would-30406135",
+      "headline": "I rejected a move to Manchester United - it would not have made me happy"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/shock-ruben-amorim-transfer-claim-30404663",
+      "headline": "Shock Ruben Amorim transfer claim made as key Manchester United figures slammed"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/roy-keane-proven-right-jose-30403265",
+      "headline": "Roy Keane proven right about Jose Mourinho point as Ruben Amorim Man United reality unravels"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-antony-liverpool-transfer-30405829",
+      "headline": "Man United star Antony got told 'behaving like an idiot' ruined Liverpool transfer hopes"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/casemiro-gives-two-word-verdict-30405067",
+      "headline": "Casemiro gives two-word verdict after Ruben Amorim's first Man United training session"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/man-united-players-futures-becoming-29009553",
+      "headline": "Some Man United players' futures are becoming more certain as valuation changes - Samuel Luckhurst"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/jason-wilcox-encounter-familiar-manchester-29122231",
+      "headline": "Jason Wilcox will encounter familiar Manchester United transfer problem with no obvious solution"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/erik-ten-hag-more-secure-28332064",
+      "headline": "Why Erik ten Hag is in a more secure position than previous Manchester United managers"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-outcast-jadon-sancho-28324143",
+      "headline": "Manchester United outcast Jadon Sancho should listen to Raphael Varane's honest advice"
+    },
+    {
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/sir-dave-brailsford-meeting-former-28459398",
+      "headline": "Exclusive: Sir Dave Brailsford meeting former United staff as 'brutal' changes planned"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/manchester-united-ruben-amorim-team-news-249622-20241119",
+      "headline": "Source reveals Man Utd player who Ruben Amorim has ‘taken a liking to’ after just one training session"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/im-a-celeb-coleen-rooney-rebekah-vardy-jamie-vardy-795243-20241119",
+      "headline": "How Jamie Vardy feels about wife Rebekah feuding with Coleen Rooney revealed after her 'cringy' dig at I'm A Celeb star"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/transfer-news/liverpool-mo-salah-bundesliga-080815-20241119",
+      "headline": "Bundesliga expert tips one of 'world's best players' to sign for Liverpool and tells fans to bet on it happening"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/transfer-news/liverpool-arne-slot-premier-league-la-liga-club-922421-20241119",
+      "headline": "Liverpool have 'agreed' deal for first January signing who had contract terminated by Premier League club"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-first-major-decision-transfer-news-468647-20241119",
+      "headline": "Ruben Amorim tipped to bring former Man Utd star back to club in shock first major decision as manager"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/liverpool-trent-alexanderarnold-england-630725-20241119",
+      "headline": "Trent Alexander-Arnold named 'untouchable' player as his toughest-ever opponent in England training"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/arsenal-mikel-arteta-tactic-170818-20241119",
+      "headline": "Arsenal fringe player breaks ranks to reveal Mikel Arteta's secret tactic for tricking rival managers before big games"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/gerard-pique-barcelona-cristiano-ronaldo-260494-20241119",
+      "headline": "Gerard Pique named two Premier League legends in his dream seven-a-side team as Cristiano Ronaldo snubbed"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/manchester-united-ruben-amorim-richard-keys-265420-20241119",
+      "headline": "Richard Keys claims Man Utd have made 'cataclysmic mistake' that could cost Ruben Amorim dearly"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-training-session-luke-shaw-kobbie-mainoo-283978-20241119",
+      "headline": "Six things we noticed from Ruben Amorim's first Man Utd training session including shock position change"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/pgmol-premier-league-david-coote-838861-20241119",
+      "headline": "PGMOL issue David Coote update as Premier League decision made over referee"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/chelsea/liverpool-transfer-news-arne-slot-158007-20241119",
+      "headline": "Chelsea plotting stunning raid for Liverpool player who 'wanted to quit' when Arne Slot first arrived"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-premier-league-youth-player-425263-20241119",
+      "headline": "Ruben Amorim decides to 'fast-track' Man Utd youngster after receiving 'rave reviews' in his first week"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-ruben-amorim-premier-league-transfers-060822-20241118",
+      "headline": "Five Man Utd players Ruben Amorim could offload in much-needed squad overhaul"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-ruben-amorim-training-premier-league-105159-20241118",
+      "headline": "Fans react as footage from Ruben Amorim's first training session at Man Utd emerges"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-ruben-amorim-premier-league-transfers-795828-20241118",
+      "headline": "Man Utd tell Ruben Amorim the two players they 'hope can thrive' under his management as transfer budget revealed"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/the-chase-premier-league-quiz-379583-20241118",
+      "headline": "The Chase star creates ‘impossible’ Premier League quiz and supporters are getting caught out by one question"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/transfer-news/real-madrid-endrick-brazil-premier-league-move-687202-20241118",
+      "headline": "Endrick's true feelings on life at Real Madrid revealed amid links to shock Premier League club"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/paul-pogba-premier-league-transfer-200312-20241117",
+      "headline": "Paul Pogba linked with outrageous transfer to two Premier League clubs outside the top six after terminating Juventus contract"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/arsenal-teanna-trump-la-liga-017431-20241117",
+      "headline": "Adult film star Teanna Trump pictured with former Arsenal player amid relationship rumours"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/cole-palmer-england-chelsea-man-city-pep-guardiola-431639-20241117",
+      "headline": "Cole Palmer reveals what he did with his medals from Man City's treble win and it sums up his mentality"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/mo-salah-troy-deeney-liverpool-932803-20241117",
+      "headline": "Troy Deeney slammed by fans after making 'crazy' Mo Salah comments"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/football-news/man-utd/manchester-united-ruben-amorim-injury-news-090113-20241117",
+      "headline": "Manchester United handed 'injury blow' ahead of Ruben Amorim's first game in charge"
+    },
+    {
+      "article_url": "https://www.sportbible.com/football/premier-league/man-utd-liverpool-transfer-premier-league-380468-20241117",
+      "headline": "Man Utd and Liverpool set to do battle to sign Premier League star in January as transfer approach made"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/08/van-nistelrooy-manchester-united-ruben-amorim-video",
+      "headline": "Van Nistelrooy keen to stay at Manchester United under Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/bruno-fernandes-sparks-manchester-united-to-easy-victory-over-leicester",
+      "headline": "Bruno Fernandes sparks Manchester United to easy victory over Leicester"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/12/manchester-united-2-0-paok-salonika-europa-league-as-it-happened",
+      "headline": "Manchester United 2-0 PAOK Salonika: Europa League – as it happened"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/amand-diallo-manchester-united-european-drought",
+      "headline": "Amad Diallo ends Manchester United’s European drought by seeing off Paok"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/11/ruben-amorim-warns-manchester-united-cannot-play-the-way-sporting-do-video",
+      "headline": "Rúben Amorim warns 'Manchester United cannot play the way Sporting do' – video"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/15/forging-new-manchester-united-identity-is-my-key-task-claims-ruben-amorim",
+      "headline": "Forging new Manchester United identity is my key task, claims Rúben Amorim"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/12/ill-focus-on-leicester-and-well-see-after-that-ruud-van-nistelrooy-on-his-future",
+      "headline": "'I'll focus on Leicester and we'll see after that': Ruud van Nistelrooy on his future – video"
+    },
+    {
+      "article_url": "https://www.theguardian.com/football/2024/nov/11/rud-van-nistelrooy-leaves-manchester-united-as-ruben-amorim-checks-in",
+      "headline": "Ruud van Nistelrooy leaves Manchester United as Rúben Amorim checks in"
+    }
+  ],
+  "quotes": [],
+  "final_quotes": [
+    {
+      "speaker": "Moorhouse",
+      "quote_raw": "He comes Ennis again. He's been excellent again, hasn't he? He's really lively",
+      "quote_summary": "Ennis has been very lively and excellent in the game.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Alan Embling",
+      "quote_raw": "\"Let's be honest, if it wasn't for John Henry Davies, the brewer, and James Gibson there would be no Manchester United now,\" he began. \"He rebuilt the club not once but twice. People forget that Old Trafford was a bomb site after the war and it all started when he attended a dinner. \"He was approached by a journalist who told him United were in a terrible state and nobody wanted to help them, so he said he would look at it and looked at the books. \"The finances were a total disaster, all the good players had been sold off and the supporters were leaving in droves, but he gave a cheque of £2,000 and it was a gift, no strings attached. \"They hadn't being paying the players' salaries for a long time and there was a huge backlog. It was just before Christmas and he covered the salaries up to January with the promise that he would see if he could help further, and he thought there was enough room in Manchester for two football clubs. \"He decided to help and he did. He became the chairman and part of the £2,000 was so the players could buy the biggest Turkeys they could get their hands on for Christmas. \"However, they were losing games and supporters were disappearing, so he held a meeting with fans and started to turn the club around. He rebuilt the club and it was incredible.",
+      "quote_summary": "Without the help of John Henry Davies and James Gibson, Manchester United wouldn't exist today. Gibson rebuilt the club twice after it was nearly lost, pushing to support players and rejuvenate support.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Alan Embling",
+      "quote_raw": "\"James Gibson always considered supporters, who were the most important thing to him. However, he was paying transfer fees from his own pocket the whole time, so what he did with Walter Crickmer was create MUJAC, which stood for Manchester United Junior Athletic Club. \"That was the foundation and the start of the youth policy, which was the first in the country, and the only thing he said was he wanted as much local youth as possible. He wanted to support them, he was very community minded and he wanted to do it for the local people. \"Gibson was a man of vision, he was ahead of his time. He'd been very lucky, he'd made a lot of money and was a hard working businessman, and the benefit of that was he was able to save Manchester United from extinction because the bank had closed on them. \"People had very little in their lives at that time and mostly going to the football after they worked hard all week was their only form of enjoyment. He gave that pleasure back to the people.\"",
+      "quote_summary": "James Gibson prioritized supporters and funded youth development through MUJAC, emphasizing local talent and community support. He was a visionary who saved the club during tough financial times, restoring joy in people's lives through football.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Alan Embling",
+      "quote_raw": "\"I'm the only living person now who knew James Gibson,\" Embling said. \"I can remember him before he had a stroke, but mainly, of course, my memories are from after the stroke. \"He didn't go to the '48 FA Cup final because of that stroke and was presented with the cup in his home. That was incredible and he told Matt Busby that he'd made his dreams come true.\"",
+      "quote_summary": "I am the last person alive who knew James Gibson, who was significantly impacted by a stroke and could not attend the 1948 FA Cup final, but he expressed that his dreams were fulfilled through Matt Busby.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Alan Embling",
+      "quote_raw": "\"United should play more acknowledgment to two of the greatest men in the club history, James Gibson and John Davies, the brewer, because those two men were incredible,\" Embling said. \"Without them, there wouldn't be all those people enjoying football at Old Trafford now and I hope if they have to build a new stadium, something is done to keep the memorial.\"",
+      "quote_summary": "Manchester United needs to better recognize the legacies of James Gibson and John Davies, as their contributions are essential to the enjoyment of football at Old Trafford today; maintaining a memorial is important.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Jim Thwaites",
+      "quote_raw": "Thwaites is considered as one of the academy's leading prospects in his age group and won the club's Goal of the Season award for both Under-16 and Under-18 level last term. The youngster's great form has continued into this campaign and he recently scored a stunning free-kick.",
+      "quote_summary": "As one of the top prospects, I've won the Goal of the Season award at two different levels and my form continues to improve this season.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Casemiro",
+      "quote_raw": "After Ruben Amorim's first training session, he shared a two-word verdict on social media: 'Top training'.",
+      "quote_summary": "Following the first training, I called it 'Top training'.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "I have played, however, especially last season with coach Ten Hag, deeper. In fact, against Everton, I played No.6 and I still think it was one of the most complete games I've played, at all levels.",
+      "quote_summary": "I've played deeper under Ten Hag and had my best performance in that position against Everton.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "In terms of passing, game organisation, defence, tactics. I have a little thought in my head that I'm going to end my career further back, because everyone who started there and went to No.10 ended up retreating on the field at the end.",
+      "quote_summary": "I see myself transitioning to a deeper role as I age, as many players do when they start at No.10.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "It's a position I like, playing deeper, facing the game more. With the ball, it makes my game a lot easier because I have a broader view of the game and it is ideal for what we've talked about with the last pass, which can sometimes come from deeper on the pitch.",
+      "quote_summary": "I enjoy playing deeper; it enhances my game and allows me to have a better overview, especially for making key passes.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Bruno Fernandes",
+      "quote_raw": "The game with Everton was the one in which I created the most scoring opportunities, even though I was playing deeper and not playing as a No.10.",
+      "quote_summary": "I created the most chances while playing a deeper role against Everton, despite not being in the No.10 position.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Ruben Amorim could soon unleash a new long-term Manchester United partnership",
+      "quote_summary": "I'm ready to establish a new long-term partnership at Manchester United.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "The prospect of Ruben Amorim deploying a 3-4-3 system at Man United could mark the beginning of a new on-field partnership.",
+      "quote_summary": "Introducing a 3-4-3 formation could start a new partnership on the field.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "I could be asked to an issue an update on the defender's progress when I meet the media for the first time later this week.",
+      "quote_summary": "I will provide an update on the defender's recovery during my first media appearance.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "I was on the bench for about 10 games. It was a bit of a whirlwind – it feels like a lifetime ago. My debut was an out‐of-body experience but they were the best moments of my career. Being in the squad and exposed to a club that size was incredible. I wouldn't change that minute for anything.",
+      "quote_summary": "Being on the bench for 10 games felt surreal, and my debut was out-of-body and among my career's highlights. Being with a club like Manchester United was incredible.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "You had to wait until he told you to warm up, which meant he was then likely to send you on. After about 75 or 80 minutes he told me to warm up and then someone shouted down the touchline to me to come back to the technical area. I was thinking, 'Bloody hell, I am going to come on here'.",
+      "quote_summary": "With Van Gaal, you'd wait for his signal to warm up; when he finally told me to, I was stunned to think I was going on.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "At the time you're thinking 'don't mess up', it was 3-2, I was just thinking 'run around and do what you can' and then it was over. I came on for Herrera and he came up to me and said 'fight!' It was typical of him. I remember that clearly. In terms of the coaches, I think it was more just 'don't mess up'.",
+      "quote_summary": "During my debut, I only thought about not messing up. When I came on for Herrera, he told me to 'fight'—that's how he was.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "It was a crazy day, Van Gaal did that impression of Alexis Sanchez on the touchline \\[when he fell to the ground\\]. I was warming up at the time, I thought a fight was going on or something, I only saw it afterwards.",
+      "quote_summary": "Van Gaal's antics, including an impression of Sanchez's fall, were wild; I was warming up and thought it was a fight at the time.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "For Marcus to score twice was surreal really. It made the day even more special. I was a bit older than him, but we were in the same digs together for a couple of years. We used to play FIFA together and go out for food, but I didn't play with him too much as I was a bit older than him.",
+      "quote_summary": "Marcus scoring twice on debut was surreal and made it special. Although older, we shared digs and played FIFA together occasionally.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "James Weir",
+      "quote_raw": "I can still play football at some level but playing at a professional level day in and day out, my body didn't have that. It was not worth the sacrifice of living away anymore. I thought I needed to cut the cord early and move on to something else.",
+      "quote_summary": "While I can still play at a lower level, the demands of professional football were too much. I decided it was time to move on to a different path.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "United want to swiftly reach an agreement with Sporting to sign Quenda. United will reportedly submit an offer in excess of €40million (£33.5million), although it remains to be seen if Sporting will stand firm with a fee closer to the player's release clause of €100million (£83million).",
+      "quote_summary": "United aims for a quick agreement with Sporting for Quenda, willing to offer over €40million but unsure if Sporting will accept given the release clause.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "When I signed for Manchester United, I discovered that in England, during away games, family members don’t have a reserved section; they sit among the fans.",
+      "quote_summary": "Darmian was surprised that in England, family members of players sit with fans during away games.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "The first match was the derby against Liverpool. I told my girlfriend: ‘Look, it’s a very intense match. Do you still want to come?’ And she said: ‘Yes, of course, I really care.’ So, she got in the car with the steering wheel on the right and went into the away section.",
+      "quote_summary": "Darmian's girlfriend was keen to attend the intense Liverpool derby despite his concerns.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "For a footballer, the English football culture brings less pressure. During the week, there’s less talk about football; the weekend and the experience of going to the stadium are more important.",
+      "quote_summary": "He feels English football culture is less pressuring, focusing more on match day experiences than weekly discussions.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "As soon as I arrived in Manchester, I discovered a completely new world.",
+      "quote_summary": "Darmian found Manchester to be a completely new experience upon his arrival.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "In Italy, very few players had social media profiles. In England, on my first day, they immediately told me to open an Instagram account and that I would need to participate in commercial initiatives.",
+      "quote_summary": "Darmian noted that while few Italian players used social media, he was immediately told to set up an Instagram account in England.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "What now seems normal wasn’t back then. There were so many commercial activities; it was a completely different world from what I was used to.",
+      "quote_summary": "Darmian observed that the commercial side of football in England was vastly different from what he experienced in Italy.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Matteo Darmian",
+      "quote_raw": "In the following years, Pogba and Zlatan also arrived, and they were media superstars.",
+      "quote_summary": "He noted that Pogba and Ibrahimovic became media icons after joining Manchester United, enhancing the commercial culture.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Steven Railston",
+      "quote_raw": "Fantastic performance from the U21s, who were dominant from the first whistle. Ennis scored a hat-trick and was the man of the match.",
+      "quote_summary": "The U21s had an impressive game, with Ennis scoring a hat-trick and being named man of the match.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Steven Railston",
+      "quote_raw": "What a performance from Ennis, who has now scored his hat-trick.",
+      "quote_summary": "Ennis delivered an outstanding performance with a hat-trick.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Steven Railston",
+      "quote_raw": "Moorhouse was great tonight. He drove forward with the ball at pace - somehow shrugging off two challenges - for Ennis' first goal and his quick feet were superb. He can be delighted with his display.",
+      "quote_summary": "Moorhouse excelled, especially in setting up Ennis' first goal.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Steven Railston",
+      "quote_raw": "Ennis has been great and he's got a brace.",
+      "quote_summary": "Ennis performed excellently and scored two goals in the game.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "I think you will see an idea. You could like it or not, I don't know, but you will see an idea. You will see a positioning. You will see something.",
+      "quote_summary": "You will see our football philosophy and positioning quickly.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Something that we want to reach that kind of level. You will feel that. But we have to know that it's like two training [sessions] before the first match. This is the best league in the world. But if I have to say something to you, you will see an idea. This I can guarantee.",
+      "quote_summary": "Although we have limited time to train, my guarantee is that you will see our idea quickly.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Viktor Gyokeres",
+      "quote_raw": "we'll see",
+      "quote_summary": "Gyokeres responded with 'we'll see' regarding transfer speculations.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Jose Fonte",
+      "quote_raw": "Portuguese clubs have got no option but to sell for the right price. We need to sell. Portuguese clubs have to sell one or two players every season. We don't have the same TV rights as the Premier League so we don't have the capacity to hold on to players. It would be lovely to see Portugal with a little bit more capacity to hold on to their talent, of course.",
+      "quote_summary": "Fonte commented on the necessity for Portuguese clubs to sell players due to financial constraints.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Jose Fonte",
+      "quote_raw": "That's what people in the various federations are trying to do. Sporting will listen and they will probably have to sell Viktor Gyokeres because Portuguese clubs have to raise big money every year.",
+      "quote_summary": "Fonte noted that federations are working to retain talent, but Sporting may need to sell Gyokeres to meet financial demands.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Hasan Cetinkaya",
+      "quote_raw": "Everyone paid more to Viktor, everyone paid a higher commission to the agent. What happened? I brought him to Sporting because of Ruben Amorim, because I know his work and his work with the players. I chose Ruben because he is a coach of another level.",
+      "quote_summary": "Cetinkaya discussed how he secured Gyokeres' transfer to Sporting due to Amorim's reputation and support.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Hasan Cetinkaya",
+      "quote_raw": "And, yes, it will be more difficult for Viktor to stay if Ruben Amorim leaves Sporting because Viktor came precisely because of Ruben. The day we met, we told Ruben: 'here's my boy, he came to Sporting because of you.'",
+      "quote_summary": "Cetinkaya expressed that Gyokeres' retention would be harder if Amorim left, as Gyokeres was attracted to Sporting by Amorim.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Viktor Gyokeres",
+      "quote_raw": "It's not something I'm thinking about. I want to finish the season at Sporting, I'm enjoying playing there. I'm in no rush to make a change in the future. We'll see when the time comes for that.",
+      "quote_summary": "Gyokeres emphasized his desire to finish the season with Sporting and his lack of urgency to change clubs.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Viktor Gyokeres",
+      "quote_raw": "The most important thing is to have an important role in the team and be able to play. There are other factors that may play a role, but I will look at that when the time comes.",
+      "quote_summary": "Gyokeres highlighted the importance of having a key role at a future club, though he will consider other factors later.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Adan",
+      "quote_raw": "Real Madrid or Atletico? I think maybe he has more of an Atletico de Madrid profile. Physically, he's a beast. Potentially, he's an animal, and in front of goal, he's a killer. It seemed like there was no way he could repeat what he did last year, and there's this amount of goals. Plus, this year, with the protagonism of doing so in the Champions League.",
+      "quote_summary": "Adan compared Gyokeres to Atletico's profile, praising his physicality and goal-scoring ability while noting his impressive performance ahead of the Champions League.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Adan",
+      "quote_raw": "Well, I think he has that profile. It's true that he's a little shorter, but in terms of strength, determination in the box, he has that killer instinct of scoring a lot of goals. He shows spectacular competitiveness every day in training.",
+      "quote_summary": "Adan affirmed Gyokeres' competitive nature and his exceptional scoring instincts despite his height.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Yvon Mvogo",
+      "quote_raw": "Correct [top clubs wanted me as a No.2], Manchester United, for example. But that wasn't an option for me. I'm not happy if I can't be on the pitch. I want to enjoy my time on the pitch right now, together with fans and teammates. I want to play for titles and ideally win them too.",
+      "quote_summary": "I declined Manchester United's interest because I prefer to play regularly instead of being a backup and I want to compete for titles.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Yvon Mvogo",
+      "quote_raw": "Getting promoted again with Lorient next spring is definitely my goal. We will see what happens after that and I don't want to predict anything. I have now noticed how quickly things can happen in the football business.",
+      "quote_summary": "My aim is to help Lorient get promoted this spring, but I'm aware that circumstances can change rapidly in football.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Richard Keys",
+      "quote_raw": "Every briefing coming out of OT underlines what a cataclysmic mistake it was keeping ten Toast last summer. They let him spend another £200m+ on rubbish & now there’s nothing for Amorim. Somebody in the brains trust should be fired. There’s nothing for Amorim to work with.",
+      "quote_summary": "It was a catastrophic mistake to keep Ten Hag last summer, now Amorim has nothing to work with.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "I do think the players, obviously, get away with murder.",
+      "quote_summary": "Players seem to have too much leeway to misbehave.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "Just the way they hide behind the manager, Mourinho. Whatever you say about the players, they have thrown him under the bus. People have said Mourinho has been falling out with players, well you would fall out with players.",
+      "quote_summary": "Players are avoiding accountability by blaming Mourinho.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "That's the name of the game, players turn up overweight or players are not training properly and not producing. And then for some of them to down tools, you know, shame on some of them players.",
+      "quote_summary": "Players are failing to maintain fitness and commitment, which is shameful.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Roy Keane",
+      "quote_raw": "I'm not Mourinho's biggest fan, don't get me wrong, but I just can't tolerate footballers who hide behind agents, their pals in the media. A bit of a joke, really.",
+      "quote_summary": "I criticize players for not owning up and instead relying on agents and media.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Rene van der Gijp",
+      "quote_raw": "\"Suppose we are in the stands together as a scout for Manchester City or Liverpool... and we are looking at Antony, what do you think we would say when we come back on Monday? We will not take that. You don’t see a Serge Gnabry, Leroy Sane or Mohamed Salah doing this. Then you can say, 'He is young'. But it can also get crazier.",
+      "quote_summary": "As scouts, we wouldn't consider Antony after his actions; unlike top players who don’t behave like that.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Wim Kieft",
+      "quote_raw": "\"He is not that young anymore, because he has been doing this for two years. Such a boy cannot be calmed by a coach, in the end. Ten Hag will of course never say that Antony behaves like an idiot, but he thinks so. In general, this behaviour is addressed in the locker room. Then someone says, 'Hey, what are you doing?'\"",
+      "quote_summary": "Antony isn't as young as he seems; his behavior has been consistent for two years, and Ten Hag likely thinks it's unacceptable.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Casemiro",
+      "quote_raw": "Top training.",
+      "quote_summary": "Great session in training.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Erik ten Hag",
+      "quote_raw": "\"Harry Maguire had an issue in the first half and, luckily for us, he overcame and recovered from it,\" Ten Hag said with relief. \"You can see the second half he was up there and then he can express his leadership, he can express his defensive qualities and rest on the ball, we especially needed that in this back four.\"",
+      "quote_summary": "Maguire overcame an issue in the first half, showing leadership and defensive qualities in the second half when we needed it.",
+      "article_date": "2024-04-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Unnamed recruitment figure",
+      "quote_raw": "When United call they get quoted £40million for a player available for £10million.",
+      "quote_summary": "United receives inflated price quotes for players due to their status.",
+      "article_date": "2024-05-08",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unnamed."
+    },
+    {
+      "speaker": "John Murtough",
+      "quote_raw": "That will be £28million please. You're Manchester United, you've got loads of money.",
+      "quote_summary": "Murtough was quoted a significantly higher price for a player, emphasizing United's spending reputation.",
+      "article_date": "2024-05-08",
+      "is_valid": true
+    },
+    {
+      "speaker": "Samuel Luckhurst",
+      "quote_raw": "Only one of United's nine wins has been by more than a one-goal margin and the 3-0 defeat of Everton looks an anomaly. United were uncharacteristically clinical that day with three goals from four attempts on target: a wonder goal, a penalty and a counter-attack.",
+      "quote_summary": "United's nine wins have mostly been narrow, with a single clear victory against Everton being unusual.",
+      "article_date": "2023-12-22",
+      "is_valid": true
+    },
+    {
+      "speaker": "Samuel Luckhurst",
+      "quote_raw": "The tight turnaround post-Christmas of a game on Boxing Day at Stoke and against Chelsea on December 28 essentially reprieved Van Gaal. United were spirited and enterprising in a goalless draw with champions Chelsea, hitting the woodwork twice...",
+      "quote_summary": "The busy Christmas schedule gave Van Gaal a temporary reprieve, with United showing spirit in a draw against Chelsea.",
+      "article_date": "2023-12-22",
+      "is_valid": true
+    },
+    {
+      "speaker": "Samuel Luckhurst",
+      "quote_raw": "Ten Hag does not face a similar threat. The Ineos Group's minority stake has still not been ratified at the time of writing and the sole kingmaker at a club with an interim chief executive and a football director on borrowed time is the absentee landlord Joel Glazer.",
+      "quote_summary": "Ten Hag lacks immediate threats to his position, unlike Van Gaal, as the club's ownership structure remains uncertain.",
+      "article_date": "2023-12-22",
+      "is_valid": true
+    },
+    {
+      "speaker": "Samuel Luckhurst",
+      "quote_raw": "The majority of United supporters would rather have Ten Hag over Graham Potter, a fine coach who oversaw magnificent progress with Brighton, but is more suited to succeeding Gareth Southgate as England manager after the European Championship.",
+      "quote_summary": "Most United fans prefer Ten Hag over Potter, who is seen as a better fit for the England job.",
+      "article_date": "2023-12-22",
+      "is_valid": true
+    },
+    {
+      "speaker": "Samuel Luckhurst",
+      "quote_raw": "Removing him would empower the minority of players looking to wait it out. The specific booing of a gaggle of players against Bournemouth was significant. United bowed to player power by sacking Mourinho a week before Christmas in 2018.",
+      "quote_summary": "If Ten Hag were removed, it would validate the few players who want to wait out their contracts, recalling past player power experiences that led to Mourinho's sacking.",
+      "article_date": "2023-12-22",
+      "is_valid": true
+    },
+    {
+      "speaker": "Erik ten Hag",
+      "quote_raw": "\"It is about a culture and every player has to match certain standards,\" said Ten Hag two weeks ago. \"What will happen there, he knows what he has to do if he wants to return and it is up to him. We will see what will happen.\"",
+      "quote_summary": "A team culture requires matching certain standards, and Sancho knows what he must do to return.",
+      "article_date": "2023-12-21",
+      "is_valid": true
+    },
+    {
+      "speaker": "Raphael Varane",
+      "quote_raw": "He wrote: \"As someone who has played international and Champions League football, I feel extremely lucky to have done so. I also know what is required to get here. A critical element of reaching the top level is making the right decisions for yourself. \"Many of these decisions stem from ego, something that for me is one of the most important things to keep control of, and can give you a better mentality when used correctly. In football and in life, I have found that, as long as you have a strong mindset and continue to act on it, you can reach new heights. \"The accolades and recognition you get are a consequence of the decisions you make. If you focus on the process and enjoy the small improvements rather than only focusing on the result, you can always achieve great things.\"",
+      "quote_summary": "To reach the top, one must make wise decisions, manage ego, and focus on continual improvement rather than just results.",
+      "article_date": "2023-12-21",
+      "is_valid": true
+    },
+    {
+      "speaker": "Sir Dave Brailsford",
+      "quote_raw": "a source has suggested the changes at United could be \"brutal\".",
+      "quote_summary": "Changes at United may be severe.",
+      "article_date": "2024-01-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "A club source",
+      "quote_raw": "it was \"in the balance\" as to whether Murtough stays at United or ends his decade-long association with the club.",
+      "quote_summary": "John Murtough's future with the club is uncertain.",
+      "article_date": "2024-01-17",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unknown."
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "So, from day one, we will start with our identity.",
+      "quote_summary": "We will begin establishing our identity from the very first day.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "The most important thing for me at this moment is to create the principles, the identity and the character that we had in the past.",
+      "quote_summary": "It's crucial to develop principles, identity, and character similar to our past.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "If you work as a team, then the talent individually is going to shine.",
+      "quote_summary": "Teamwork allows individual talent to stand out.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Rebekah Vardy",
+      "quote_raw": "That feeling when you are living rent free in people's heads [laughing emojis].",
+      "quote_summary": "I'm enjoying the fact that I'm in their thoughts constantly.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Rebekah Vardy",
+      "quote_raw": "Everyone thinks Jamie is mad at me for speaking out, but that couldn’t be further from the truth. He’s encouraging me, saying, ‘Give it to her, get the truth out there’. He loves it that she’s back getting headlines. The more stick he gets from the stands in football, the better he plays.",
+      "quote_summary": "Contrary to belief, Jamie supports me speaking out; he thrives on the attention it brings him.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Marcel Reif",
+      "quote_raw": "It’s no secret that he will probably move to Liverpool next summer.",
+      "quote_summary": "It's likely he will move to Liverpool next summer.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Marcel Reif",
+      "quote_raw": "I would put a few euros on it. As the successor to his great idol Mo Salah. Things couldn’t get any better for him.",
+      "quote_summary": "I would bet on it; being Salah's successor would be ideal for him.",
+      "article_date": "2024-11-19",
+      "is_valid": false,
+      "invalid_reason": "Speaker is a random fan."
+    },
+    {
+      "speaker": "Markus Krosche",
+      "quote_raw": "That [amount] won't be enough.",
+      "quote_summary": "The mentioned price is inadequate.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Markus Krosche",
+      "quote_raw": "It's often the case with many players who join us that we provide them with an environment where they can continue to develop—fully aware that we would let them go if they develop faster than the club itself. That's an agreement we make with the players.",
+      "quote_summary": "We help players develop, but we will let them go if they progress faster than the club can accommodate.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Arne Slot",
+      "quote_raw": "Liverpool are close to ‘agreeing’ a transfer for a La Liga star as Arne Slot looks to bolster his squad in the January window.",
+      "quote_summary": "Liverpool is negotiating a transfer for a La Liga player to strengthen the squad in January.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Arne Slot",
+      "quote_raw": "Liverpool are ‘close’ to making Loic Bade their first signing during the window in the new year.",
+      "quote_summary": "Liverpool is on the verge of signing Loic Bade as their first acquisition in January.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Wes Brown",
+      "quote_raw": "Manchester United have a new manager, Paul Pogba needs a new club and anything can happen in football.",
+      "quote_summary": "Pogba needs a fresh start at a new club since United has a new manager.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Wes Brown",
+      "quote_raw": "Paul is desperate to get back playing and if there was a transfer fee you couldn't see it, but as a free agent it's a different ball game completely.",
+      "quote_summary": "Pogba is eager to return to football, especially as a free agent.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Wes Brown",
+      "quote_raw": "There will be money involved but it could be relatively risk-free and he'll be desperate to impress.",
+      "quote_summary": "While there may be costs, signing Pogba could be a low-risk, high-reward move.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "My time at Juventus has come to an end. It has been a privilege to pull on the shirt of the bianconeri and to share so many special moments together. I cherish the moments we made. They live on.",
+      "quote_summary": "I officially end my time at Juventus, cherishing the moments spent there.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Trent Alexander-Arnold",
+      "quote_raw": "I would say Dele (Alli). My first few camps, when I was younger, and he was at the top of his game at that time.",
+      "quote_summary": "Dele Alli was my toughest opponent when he was at his best early in my career.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Trent Alexander-Arnold",
+      "quote_raw": "He was untouchable.",
+      "quote_summary": "He was unbeatable.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Dele Alli",
+      "quote_raw": "I spoke about it in my interview and don't want to go over it too much again – but I know my level as a player and what I can get to.",
+      "quote_summary": "I understand my abilities and potential as a player.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Dele Alli",
+      "quote_raw": "It's hard for me to even watch football. It's been tough for me, I'd say, this past eight months has been hard to watch.",
+      "quote_summary": "Watching football has been difficult for me in the last eight months.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Dele Alli",
+      "quote_raw": "You know you can set reminders on your phone, I have a reminder at 11 o'clock every day that says, 'World Cup 2026'. That's my aim for now. I think that people will be like, 'he hasn't played in a year,' but I don't care, I know my level.",
+      "quote_summary": "I'm focused on the World Cup 2026 despite my lack of play; I know my capabilities.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Oleksandr Zinchenko",
+      "quote_raw": "\"[He] likes to play games with the opposition,” Zinchenko told The Athletic. “I’ve seen him tell injured players to come on the team bus and walk into the dressing room with their wash bag to put the other manager off the scent.\"",
+      "quote_summary": "Arteta enjoys deceiving opponents, even having injured players act as if they are fit.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Mikel Arteta",
+      "quote_raw": "‘He’s not fit’ if this was the case.",
+      "quote_summary": "If Saka were unfit, I would openly say so.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Mikel Arteta",
+      "quote_raw": "opponents should \"do their homework\" ahead of facing the Gunners.",
+      "quote_summary": "Rival teams need to prepare thoroughly before playing against us.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "My formation would be 3-2-1 because it's the one that I think works better for the King's league format.",
+      "quote_summary": "I believe a 3-2-1 formation works best for the King's League.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "I would choose Iker Casillas in goal. The three in the back I would say [Carlos] Puyol, Rio Ferdinand and myself. Then in the midfield I would say [Andres] Iniesta and Cesc Fabregas. Up front, Leo Messi.",
+      "quote_summary": "My dream team includes Casillas, Puyol, Ferdinand, myself, Iniesta, Fabregas, and Messi.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "I have to choose one striker Leo and Cristiano, I decide for Leo.",
+      "quote_summary": "I chose Messi over Ronaldo as my striker.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "Ferdinand and Puyol been important for me in a personal way. I was really young when I joined Manchester United, and Rio helped me with that. Also when I joined Barcelona, I was 21, and Puyol was captain, and he also helped me a lot to start my career. Those two have been two incredible centre-backs.",
+      "quote_summary": "Ferdinand and Puyol significantly aided my development at United and Barcelona.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "I'll say Cesc Fabregas because he's like a brother, and, I think, in the Premier League, he's been one of the greatest; his first year at Arsenal was incredible.",
+      "quote_summary": "Fabregas is like a brother to me and was phenomenal in his debut year at Arsenal.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Gerard Pique",
+      "quote_raw": "I would also say Iniesta because he won us the World Cup, and the goal is more than enough, but the quality he had is just amazing.",
+      "quote_summary": "Iniesta's quality is outstanding; he helped us win the World Cup.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Richard Keys",
+      "quote_raw": "Every briefing coming out of OT [Old Trafford] underlines what a cataclysmic mistake it was keeping [Erik] ten Toast [Hag] last summer. They let him spend another £200m+ on rubbish & now there’s nothing for Amorim. Somebody in the brains trust should be fired. There’s nothing for Amorim to work with.",
+      "quote_summary": "The continued support for Ten Hag was a huge error leading to wasted funds and leaving Amorim with no resources.",
+      "article_date": "2024-11-19",
+      "is_valid": false,
+      "invalid_reason": "Speaker is not a random fan but a public figure."
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Amorim seems to have taken a page out of Mikel Arteta and Pep Guardiola's books as he was in the centre of all parts of the training session on Monday. The 39-year-old stood on the sidelines shouting instructions at his players as they played a match against each other and spoke to several of them individually during breaks of play.",
+      "quote_summary": "I took inspiration from Arteta and Guardiola, actively instructing players during training.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "David Coote",
+      "quote_raw": "Liverpool were s***.",
+      "quote_summary": "Coote criticized Liverpool.",
+      "article_date": "2024-11-19",
+      "is_valid": false,
+      "invalid_reason": "Contains offensive language."
+    },
+    {
+      "speaker": "David Coote",
+      "quote_raw": "A c***. Absolute c***.\nAside from having a right pop at me when I refereed them against Burnley in lockdown, then he accused me of lying and then just had a right f***ing pop at me. I've got no interest in speaking to somebody who's f***ing arrogant.",
+      "quote_summary": "Coote insulted Klopp and expressed disinterest in speaking to him due to past conflicts.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Jamie Carragher",
+      "quote_raw": "He’s done something stupid, you can imagine what the fella’s going through.\nI don’t want that, talking about cancel culture, but my point being is how could he then – he could never referee a Liverpool game, but how could he then do a rival?",
+      "quote_summary": "Carragher commented on Coote's actions and their impact on his ability to officiate Liverpool matches.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Jamie Carragher",
+      "quote_raw": "The thing I despise most about social media is not people giving me stick, it’s when a referee makes a decision and that whole fan base is like ‘the world’s against us’. My own fan base are like that, but whoever it is, I can’t get into my head that a referee’s like that because you’d never sleep.\nI just think because of what he said about Liverpool, I think it’s make it difficult. I don’t want to see anyone cancelled.",
+      "quote_summary": "Carragher lamented the negative impact of social media on refereeing and stated that Coote's comments about Liverpool complicate his career.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Caoimhin Kelleher",
+      "quote_raw": "I made it clear in the last few years that I want to go somewhere and be a number one. The club has made that decision to get a goalkeeper (Mamardashvili) which makes it look like they’ve made a decision to go another direction.",
+      "quote_summary": "I want to be a number one goalkeeper and the club's choice suggests I'm not in their plans anymore.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Caoimhin Kelleher",
+      "quote_raw": "Liverpool have rejected a few bids as well. It’s not always in my hands to fully make the decision. My ambition is clear. I’m good enough & I want to go and play week in, week out.",
+      "quote_summary": "My ambition is clear: I want to play regularly. Decisions about my future aren't solely in my hands.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Since his arrival, the Portuguese manager has spoken out about the importance of working as a team and rebuilding an identity for United, something that many fans have suggested has been missing for several years.",
+      "quote_summary": "Emphasizing teamwork and rebuilding United's identity is crucial for a successful future.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Ámorim was reportedly handed several rave reviews of the 16-year-old striker by Manchester United youth coaches.",
+      "quote_summary": "The youth coaches gave high praise for the 16-year-old striker.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "The new manager has decided to introduce the teenager into some Under-21 games and bring him into some first-team training sessions to allow him to join the senior team in the near future.",
+      "quote_summary": "Plans are in place to integrate the teenager into Under-21 and first team training soon.",
+      "article_date": "2024-11-19",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "...Amorim prepares to place his trust in youth – like he has done previously at Braga and Sporting.",
+      "quote_summary": "Amorim intends to trust young players as he did at Braga and Sporting.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Amorim is 'unconvinced' by Joshua Zirkzee following a poor start to life at Old Trafford.",
+      "quote_summary": "Amorim has doubts about Zirkzee after a disappointing beginning at the club.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Rubén Amorim",
+      "quote_raw": "Amorim wants to sign highly-rated Sporting winger Geovany Quenda, who is the so-called 'number one choice' to replace Antony.",
+      "quote_summary": "Amorim aims to replace Antony with Geovany Quenda, a top target from Sporting.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Amorim is ready to sell four players who ‘don’t interest him’ – and the experienced Eriksen was included in that list alongside Victor Lindelof, Casemiro and Antony.",
+      "quote_summary": "Amorim plans to offload Eriksen and three others he finds uninteresting.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Amorim has 'no desire' to offer a contract extension to the 32-year-old midfielder.",
+      "quote_summary": "Amorim does not intend to extend Eriksen's contract.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "The Portuguese coach will likely give Casemiro and Eriksen 'less of a role' from now on as he gets ready to reunite with former Sporting midfielder Manuel Ugarte.",
+      "quote_summary": "Amorim plans to reduce the roles of Casemiro and Eriksen as he prepares to bring in Ugarte.",
+      "article_date": "2024-11-20",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "You could like it or not, I don’t know, but you will see an idea [against Ipswich]. You will see a positioning. You will see something that we want to reach... that kind of level. You will feel that.",
+      "quote_summary": "You'll see our vision and positioning against Ipswich, and you'll feel it.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "We have to know that it’s like two trainings before the first match. This is the best league in the world. But if I have to say something to you, [it’s that] you will see an idea. This I can guarantee.",
+      "quote_summary": "We have limited time before our first match, but I guarantee you'll see our concept.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "We know that we need time, but we have to win time. To win time is to win games. But the most important thing for me is identity. So since day one we will start with our identity. Of course we are going to prepare the games, but we will focus a lot in our game model. How to play, how to press, these small things, small details. You cannot go 100% on every detail because it will be confusing for the players.",
+      "quote_summary": "We must win games quickly to build our identity, focusing on our style and tactics from the start, but not overwhelming the players with details.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "If I have to say one thing, my main goal, my first goal, is identity.",
+      "quote_summary": "My primary focus is establishing our football identity from day one.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "Amorim has been tasked with 'maximising the untapped potential in the squad'.",
+      "quote_summary": "My role is to maximize the squad's untapped potential.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "United hierarchy",
+      "quote_raw": "United are hoping that the pair can 'thrive in a new environment under the charismatic Portuguese'.",
+      "quote_summary": "We expect the players to thrive in a new setup under Amorim.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "Speaker is not a known public figure; it is a fictional entity."
+    },
+    {
+      "speaker": "Report",
+      "quote_raw": "United are 'unlikely to be particularly active' in the January transfer window unless an opportunity presents itself.",
+      "quote_summary": "There's a possibility we won't be active in January unless a good opportunity arises.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unnamed and the quote reflects author text, not a public figure."
+    },
+    {
+      "speaker": "The report",
+      "quote_raw": "As a result, there is only 'modest finance' for the new manager in January as they prepare to adhere with profitability and sustainability rules and potentially balance the books with player sales.",
+      "quote_summary": "Only modest funds are available for January due to financial regulations and the need for balance from player sales.",
+      "article_date": "2024-11-18",
+      "is_valid": false,
+      "invalid_reason": "Speaker is unnamed."
+    },
+    {
+      "speaker": "Darragh Ennis",
+      "quote_raw": "Can you beat a quiz by The Menace? This time it's a football quiz and it's on the Premier League in the 2020s. I bet you won't get all five!",
+      "quote_summary": "Challenge yourself with this Premier League quiz; I doubt you'll answer all five correctly!",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Darragh Ennis",
+      "quote_raw": "So, how did that go? Are you like Rodri or more of a plonker like Rodney Trotter?",
+      "quote_summary": "How did you fare? Are you sharp like Rodri or a bit foolish like Rodney Trotter?",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Darragh Ennis",
+      "quote_raw": "They might well soon. I think big offers will come in for a few of their players in the summer.",
+      "quote_summary": "Brentford may soon see big transfer offers for their players.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Carlo Ancelotti",
+      "quote_raw": "I was worried before and during the match. I’m not worried anymore now. Endrick had courage in that last ball of the match. The best solution was to take advantage of the three against one, but he was convinced. He did it very well. It was the most complicated solution, but it worked out very well for him. He is capable of doing things that no one can think of. At least, I didn't think of that. He has the gift of being very effective. You can see that he has something special. And a very strong and very fast shot.",
+      "quote_summary": "I was initially worried about Endrick, but now I see his courage and effectiveness. He has a unique talent and strong abilities.",
+      "article_date": "2024-11-18",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "It has been a privilege to pull on the shirt of the Bianconeri and to share so many special moments together. I cherish the memories we made. They live on.",
+      "quote_summary": "Playing for Juventus was a privilege and I cherish the memories.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "Even in the most difficult moments over the past year, your support was crucial and I want to thank Juve fans around the world for their compassion.",
+      "quote_summary": "I appreciate the support from Juve fans during tough times.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Paul Pogba",
+      "quote_raw": "I am looking forward to the next chapter of my career and to stepping out on the pitch with my next club.",
+      "quote_summary": "I'm excited for the next phase of my career and playing for a new club.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Nicolas Pepe",
+      "quote_raw": "Playing for Arsenal is still a huge part of my career. Playing with The Gunners, it’s unforgettable.",
+      "quote_summary": "Arsenal is a significant chapter in my career, and my experience was unforgettable.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Nicolas Pepe",
+      "quote_raw": "I won titles [the FA Cup and the Community Shield] with this great club, so it was far from a bad experience. I still remember the good things.",
+      "quote_summary": "Winning the FA Cup and Community Shield made my time at Arsenal positive, and I cherish those memories.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Nicolas Pepe",
+      "quote_raw": "The Arsenal chapter, I won’t say it’s behind me. It’s, above all, something I’ll carry with me until the end of my career.",
+      "quote_summary": "The Arsenal chapter is not behind me; it's a part of my journey that I will always carry.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Nicolas Pepe",
+      "quote_raw": "At the time, I had a discussion with Unai Emery that lasted almost an hour. He explained to me how he wanted me to fit into the team, and obviously, it convinced me.",
+      "quote_summary": "A long discussion with Unai Emery about my role in the team convinced me to join Arsenal.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Nicolas Pepe",
+      "quote_raw": "Honestly, I’ve turned the page. I have no rancour. Frankly, I wish Mikel Arteta the best.",
+      "quote_summary": "I've moved on without any bitterness, and I truly wish Mikel Arteta well.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "I give them [the medals] to my mum.",
+      "quote_summary": "I give my medals to my mum.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "I wanted to restock.",
+      "quote_summary": "I wanted to refill my collection.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "Clear them out so I can stock up again.",
+      "quote_summary": "I clear out my old medals to make space for new ones.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "The feeling you get when you win… you just want it again.",
+      "quote_summary": "Winning creates a desire to win more.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Cole Palmer",
+      "quote_raw": "You don’t want to stop and never get that feeling again.",
+      "quote_summary": "You always want to experience the joy of winning again.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "I think Mohamed Salah is excellent; he’s a pivotal part of Liverpool, and they should never have let it [his expiring contract] get to this situation.",
+      "quote_summary": "Salah is crucial for Liverpool, and they mishandled his contract situation.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "But I understand that there’s a financial structure around what they want to try and keep to.",
+      "quote_summary": "I acknowledge Liverpool's financial constraints.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "My argument has always been that I just don’t think he’s world-class.",
+      "quote_summary": "I believe Salah is not world-class.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "But world-class is just a different opinion, what I think of world-class is, would I want my kids to play like that player? That's what I think is world-class.",
+      "quote_summary": "World-class differs by perspective; I would prefer my kids to emulate different players.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "If I was asking my kids who want to be forwards, I would be saying I would like them to look at what Vinicius Jr does as opposed to Mohamed Salah.",
+      "quote_summary": "I would advise my kids to emulate Vinicius Jr over Salah.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Troy Deeney",
+      "quote_raw": "But his goals that he [Salah] scores, he scores an unbelievable amount of goals, he's highly effective, but that’s just my opinion.",
+      "quote_summary": "Salah is highly effective and scores many goals, but that's my view.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruben Amorim",
+      "quote_raw": "a lot of hard work will need to be done to improve the club’s current fortunes, insisting they will need “time” to succeed.",
+      "quote_summary": "We need time and hard work to improve the club's situation.",
+      "article_date": "2024-11-17",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "It was a special period, it is still ... I think we've done very well so far.",
+      "quote_summary": "Reflecting on his time in charge, he feels it was special and successful.",
+      "article_date": "2024-11-08",
+      "is_valid": true
+    },
+    {
+      "speaker": "Ruud van Nistelrooy",
+      "quote_raw": "I made a deliberate decision to step into this role for two seasons and take it from there. Four games haven't changed that sentiment.",
+      "quote_summary": "He intends to remain involved at the club despite the transition to a new manager.",
+      "article_date": "2024-11-08",
+      "is_valid": true
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import { zodResponseFormat } from "openai/helpers/zod";
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
+import { logger } from './logger';
 
 // Optional, add tracing in LangSmith
 // process.env.LANGCHAIN_API_KEY = "ls__..."
@@ -30,16 +31,11 @@ const supabase = createClient(
 // Add Gemini
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Rate limiting configuration
-const RATE_LIMIT_CONFIG = {
-    chunkSize: 8,
-    delayBetweenChunksMs: 60000, // 1 minute
-};
-
 // OpenAI Model Initialization
  
-const headlineModel = new ChatOpenAI({
+const gpt4omodel = new ChatOpenAI({
     model: "gpt-4o-mini",
+    maxConcurrency: 10
 });
 
 const quoteValidationModel = new ChatOpenAI({
@@ -48,6 +44,36 @@ const quoteValidationModel = new ChatOpenAI({
 
 const openai = new OpenAI();
 
+// Helper for tracking OpenAI calls
+let activeRequests = new Set<string>();
+
+// Add counters for tracking progress
+let totalArticleCount = 0;
+let extractedArticleCount = 0;
+let processedArticleCount = 0;
+let validatedQuoteCount = 0;
+let totalQuotesToValidate = 0;
+let totalArticlesToProcess = 0;
+
+const logOpenAICall = (action: 'start' | 'end', functionName: string, modelName: string, url: string) => {
+    const requestId = `${functionName}-${url}`;
+    if (action === 'start') {
+        activeRequests.add(requestId);
+        if (functionName === 'extractArticleText') {
+            extractedArticleCount++;
+            console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${activeRequests.size}`);
+        } else if (functionName === 'extractQuotes') {
+            processedArticleCount++;
+            console.log(`Quote Extraction: Processing article ${processedArticleCount} out of ${totalArticleCount}. Current Concurrent Count = ${activeRequests.size}`);
+        } else if (functionName === 'validateQuotes') {
+            validatedQuoteCount++;
+            console.log(`Quote Validation: Processing batch ${validatedQuoteCount} out of ${totalQuotesToValidate}. Current Concurrent Count = ${activeRequests.size}`);
+        }
+    } else {
+        activeRequests.delete(requestId);
+    }
+    
+};
 
 // Gemini Schema for getting structured output from the LLM
 const quoteExtractionSchema = {
@@ -58,6 +84,10 @@ const quoteExtractionSchema = {
             items: {
                 type: SchemaType.OBJECT,
                 properties: {
+                    article_date: {
+                        type: SchemaType.STRING,
+                        description: "The article date in YYYY-MM-DD format"
+                    },
                     speaker: {
                         type: SchemaType.STRING,
                         description: "Name of the person who the quote is attributed to"
@@ -69,10 +99,6 @@ const quoteExtractionSchema = {
                     quote_summary: {
                         type: SchemaType.STRING,
                         description: "A concise version of the quote"
-                    },
-                    article_date: {
-                        type: SchemaType.STRING,
-                        description: "The article date in YYYY-MM-DD format"
                     }
                 },
                 required: ["speaker", "quote_raw", "quote_summary", "article_date"]
@@ -102,8 +128,10 @@ async function getJinaMarkdown(url: string): Promise<string> {
             headers: {
                 "Authorization": `Bearer ${process.env.JINA_API_KEY}`,
                 "Accept": "text/event-stream",
-                "X-Retain-Images": "none",
-                "X-Remove-Selector": "header, footer, nav, .ad, .advertisement, .social-share, .comments"
+                "X-Remove-Selector": "header, footer, nav, .ad, .advertisement, .social-share, .comments-section, .related-articles, aside, .subscription-prompt, .newsletter-signup, .cookie-notice, .breaking-news-banner",
+                "X-Wait-For-Selector": "article, .article-body, .article-content, .story-body, main, .main-content",
+                "X-With-Links-Summary": "true",
+                "X-Return-Format": "markdown"
             }
         });
 
@@ -120,29 +148,63 @@ async function getJinaMarkdown(url: string): Promise<string> {
     }
 }
 
-//Helper Function for retrying if rate limited
-async function withRetry<T>(
+// Helper Function for retrying if rate limited
+const withRetry = async <T>(
     operation: () => Promise<T>,
-    maxRetries: number = 3
-): Promise<T> {
-    let retryCount = 0;
+    maxRetries: number = 10,
+    initialDelayMs: number = 5000  // Start with 5 seconds
+): Promise<T> => {
+    let lastError;
     
-    while (true) {
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
             return await operation();
         } catch (error) {
-            if (error?.status === 429 && retryCount < maxRetries) {
-                // Get retry delay from header, or use exponential backoff
-                const retryAfterMs = parseInt(error?.headers?.['retry-after-ms']) || Math.pow(2, retryCount) * 1000;
-                console.log(`Rate limited. Retrying in ${retryAfterMs}ms...`);
-                await new Promise(resolve => setTimeout(resolve, retryAfterMs));
-                retryCount++;
-            } else {
+            lastError = error;
+            
+            // More comprehensive rate limit detection
+            const isRateLimit = 
+                error.message?.toLowerCase().includes('rate limit') ||
+                error.message?.toLowerCase().includes('429') ||
+                error.message?.toLowerCase().includes('too many requests') ||
+                error.message?.toLowerCase().includes('quota exceeded') ||
+                error.status === 429 ||
+                error.code === 'rate_limit_exceeded';
+
+            // Check for other retryable errors
+            const isRetryableError = 
+                error.message?.toLowerCase().includes('timeout') ||
+                error.message?.toLowerCase().includes('network') ||
+                error.message?.toLowerCase().includes('connection') ||
+                error.message?.toLowerCase().includes('econnreset') ||
+                error.code === 'ECONNRESET' ||
+                error.code === 'ETIMEDOUT';
+
+            const shouldRetry = isRateLimit || isRetryableError;
+
+            if (!shouldRetry && attempt === maxRetries - 1) {
+                console.error('Non-retryable error encountered:', error);
                 throw error;
             }
+
+            // More aggressive backoff with additional random delay
+            const baseDelay = initialDelayMs * Math.pow(2, attempt); // Use power of 2
+            const jitter = baseDelay * (Math.random() * 0.5); // Up to 50% jitter
+            const delayMs = baseDelay + jitter;
+            
+            // Better logging
+            console.log(`\nRetry attempt ${attempt + 1}/${maxRetries}`);
+            console.log(`Error type: ${isRateLimit ? 'Rate limit' : isRetryableError ? 'Network error' : 'Unknown error'}`);
+            console.log(`Error message: ${error.message}`);
+            console.log(`Waiting ${Math.round(delayMs/1000)} seconds before next attempt...`);
+            
+            await new Promise(resolve => setTimeout(resolve, delayMs));
         }
     }
-}
+    
+    console.error('Max retries reached. Last error:', lastError);
+    throw lastError;
+};
 
 async function saveGraphResults(
     modelType: 'openai' | 'gemini',
@@ -162,8 +224,8 @@ async function saveGraphResults(
         timestamp: new Date().toISOString(),
         parent_urls: state.parent_urls,
         headlines: state.headlines,
+        articles: state.articles,
         quotes: state.quotes,
-        final_quotes: state.final_quotes
     };
 
     writeFileSync(
@@ -177,10 +239,17 @@ async function saveGraphResults(
 // Define prompts we will use
 const headlineExtractionPrompt = `
     #Instructions
-    Analyze the following Markdown and return a JSON array of objects with 'article_url' and 'headline' properties for all news article headlines that you can find. 
+    Analyze the following Markdown and only extract the news article headlines. Don't extract any random links. 
+    Return a JSON array of objects with 'parent_url','article_url', and 'headline' properties for all news article headlines that you find. 
     Respond ONLY with the JSON array, no other text or formatting.
-    If no headlines are found, return an empty array.
+    Only include headlines and URLs for articles from the main body of the webpage's markdown.
+    Make sure you do not manipulate the article URL or headline in any way.
 
+    Important: Look for article URLs in markdown-style link formats like:
+    [Headline Text](https://www.example.com/article-url)
+    The URL should be extracted from inside the parentheses ().
+
+    Preserve parent_url exactly as provided here: {parent_url}
 
     #Parent URL Markdown
     {parent_url_markdown}
@@ -189,141 +258,189 @@ const headlineExtractionPrompt = `
     #EXPECTED OUTPUT
     [
         {
-            "article_url": "https://www.theguardian.com/football/2024/nov/15/ruben-amorim-believes-manchester-united-is-where-i-am-supposed-to-be",
-            "headline": "Forging new Manchester United identity is my key task, claims Rúben Amorim",
-        },
-        {
-            "article_url": "https://www.theguardian.com/football/video/2024/nov/08/van-nistelrooy-manchester-united-ruben-amorim-video",
-            "headline": "Van Nistelrooy keen to stay at Manchester United under Amorim",
+            "parent_url": "<parent_url>",
+            "article_url": "<article_url>",
+            "headline": "<headline>",
+        }
     `;
 
+const articleExtractionPrompt = `Below is a markdown version of a news article from a website. It contains a lot of text that is not the article content.
+Extract just the article text and return it as a string within the data model shown below. Make sure to preserve the parent_url, article_url, and headline exactly as provided.
+
+    # Article Metadata
+    parent_url: {parent_url}
+    article_url: {article_url}
+    headline: {headline}
+    
+    # Expected Output Format
+    {
+        "parent_url": "{parent_url}",
+        "article_url": "{article_url}",
+        "headline": "{headline}",
+        "article_text": "The main article text, excluding headers, footers, and other non-article content",
+        "article_date": "YYYY-MM-DD",
+        "publishedTime": "YYYY-MM-DDTHH:MM:SSZ" // Optional ISO 8601 timestamp if found
+    }
+
+    #Instructions
+    1. Extract and clean the main article text, removing:
+        • Headers, footers, navigation
+        • Advertisements
+        • Social media buttons
+        • Comments sections
+        • Related articles
+        • Any other non-article content
+    
+    2. For the article date:
+        • Extract the article date in YYYY-MM-DD format
+        • Use the date provided within the article text, if available.
+        • If not found, check the article URL for a potential date.
+        • If no date is available in the text or URL, use the current date: {today_date}.
+        • If you find a full timestamp, include it in publishedTime field.
+
+    #Article Markdown
+    {article_url_markdown}`;
+
 const quoteExtractionPrompt = `Extract all quotes from the provided article. Take your time to do this.
-    Return the output as a JSON array of objects, where each object contains the following properties:
-	•	speaker: Name of the person who the quote is attributed to.
-        •	Don't extract a quote if the speaker is not known
-	•	quote_raw: The raw quote text from the article. 
-        •	Identify text enclosed within quotation marks (" "), as these represent the quotes to extract. Ensure all quotes, from every quoted speaker, are included.
-        •	Ignore header and footer content - only search for quotes that are directly from the article content.
-        •	If a quote lacks context to be fully understood, provide a brief contextual note in brackets at the start of the quote, but keep this note concise.
-        •	Extract only the spoken content of the quotes, excluding any narrative or commentary from the article’s author.
-        •	If a single quote is split across the article, combine the segments into one cohesive quote, but only if they pertain to the same topic. Do not merge quotes that discuss different topics.
-	•	quote_summary: A concise version of the quote.
-        •	For each quote, generate a more concise version as if the speaker had summarized it themselves. Store this in the quote_summary field.
-	•	article_date: The determined article date.
-        •	Extract the article date in YYYY-MM-DD format
-        •	Use the date provided within the article text, if available.
-        •	If not found, check the article URL for a potential date.
-        •	If no date is available in the text or URL, use the current date: {today_date}.
-
-
-	If no quotes are found, double check to make sure you didn't miss anything. If you're certain there are no quotes, return an empty JSON array.
-    Return only the JSON array, with no additional text or formatting.
-
-The article URL is: {article_url}.
     
-    === START OF ARTICLE TEXT ===
-    {article_url_markdown}
-    === END OF ARTICLE TEXT ===
+    #Instructions
+    ## RAW QUOTE SELECTION:
+    - Only extract quotes from named individuals who are central to the story
+    - Never extract quotes from the article author, news publication, or other unnamed speakers
+    - If a quote lacks context to be fully understood, provide a brief contextual note in brackets at the start of the quote, but keep this note concise and don't write "Context:"
+    - If no quotes are found, double check to make sure you didn't miss anything. If you're certain there are no quotes, return an empty JSON array.
 
-    Here's an example of how to extract and format quotes from an article:
-    ###EXAMPLE ARTICLE TEXT###
-    José Mourinho sarcastically described Clément Turpin as "one of the best referees in the world" after the Fenerbahce manager was sent off in his side's 1-1 draw with former club Manchester United.
-    Mourinho was shown a red card after protesting when he thought his side should have had a ­penalty ­during the second half after Youssef ­En-Nesyri had cancelled out ­Christian Eriksen's opening goal. He watched the rest of the match from the stands but revealed afterwards that he had been to see Turpin to ask about his dismissal.
-    "The referee told me something incredible," said Mourinho. "He said at the same time he could see the action in the box and my behaviour on the touchline.
-    "I congratulate him because he is absolutely incredible. During the game, 100 miles per hour, he had one eye on the penalty situation and one eye on my behaviour on the bench. That's the explanation he gave me and that is why he is one of the best referees in the world."
-    He added: "I think the best thing I have to do when I leave Fenerbahce I go to a club that doesn't play in Uefa competitions. So if any club in ­England at the bottom of the table needs a manager in the next two years, I'm ready to go. I don't want to say anything else – we played ­absolutely fantastic against a team that is far more superior."
-    United have now gone exactly a year since their last victory in Europe having picked up three straight draws to start their Europa League campaign.
-    Erik ten Hag was pleased with his side's performance but admitted that he was disappointed not to have claimed all three points.
-    "Of course when you are ­taking the lead, it [drawing] shouldn't ­happen," the Dutchman said. "We had chances to make a second goal. Disappointed not to win. At Old ­Trafford we have to win games."
-    Asked whether he would like to face Fenerbahce again in the final, he added: "It would be a very good final. We should keep the ball ­better in the first half. We should score more goals but to be honest they also ­created good chances. They gave us some problems. They are a good team with a good manager. It is not a bad point. But we want to win. We want to win every game."
+    ## RAW QUOTE COMPOSITION:
+    - If a quote is split across the article, combine the segments into one cohesive quote, but only if they pertain to the same topic.
+    - Exclude any non quote text (e.g.,  "speaking after the match", "in a 2020 interview", "told Sky Sports")
+
+    ## SUMMARY QUOTE COMPOSITION:
+    - For each quote, generate a more concise version written in the first person from the speaker's perspective.
     
-    ###EXPECTED OUTPUT###
-    [
-        {
-            "speaker": "José Mourinho",
-            "quote_raw": "The referee told me something incredible. He said at the same time he could see the action in the box and my behaviour on the touchline. I congratulate him because he is absolutely incredible. During the game, 100 miles per hour, he had one eye on the penalty situation and one eye on my behaviour on the bench. That's the explanation he gave me and that is why he is one of the best referees in the world.",
-            "quote_summary": "The referee claimed he could watch both the match and my behavior simultaneously, praising him for his skills.",
-            "article_date": "2024-10-24"
+    ## ARTICLE DATE EXTRACTION:
+    - Extract the article date in YYYY-MM-DD format
+    - Use the date provided within the article text, if available.
+    - If not found, check the article URL for a potential date.
+    - If no date is available in the text or URL, use the current date: {today_date}.
+
+    ## QUOTE VALIDATION:
+    - Review your work, make sure you have not extracted any quotes from the article author, news publication, or other unnamed speakers
+
+	## Article Metadat to include in output
+    Make sure to preserve the article metadata exactly as provided below.
+
+    ## Article Metadata
+    parent_url: {parent_url}
+    article_url: {article_url}
+    headline: {headline}
+    
+    ## Expected Output Format
+    {
+        "article_metadata": {
+            "parent_url": "{parent_url}",
+            "article_url": "{article_url}",
+            "headline": "{headline}",
+            "article_text": "{article_text}",
+            "article_date": "YYYY-MM-DD"
         },
-        {
-            "speaker": "José Mourinho",
-            "quote_raw": "I think the best thing I have to do when I leave Fenerbahce I go to a club that doesn't play in Uefa competitions. So if any club in ­England at the bottom of the table needs a manager in the next two years, I'm ready to go. I don't want to say anything else – we played ­absolutely fantastic against a team that is far more superior.",
-            "quote_summary": "My plan after leaving Fenerbahce is to join a club not in Uefa competitions. I'd be available for any struggling club in England. Despite facing a superior team, we played extremely well.",
-            "article_date": "2024-10-24"
-        },
-        {
-            "speaker": "Erik ten Hag",
-            "quote_raw": "Of course when you are ­taking the lead, it [drawing] shouldn't ­happen. We had chances to make a second goal. Disappointed not to win. At Old ­Trafford we have to win games.",
-            "quote_summary": "We shouldn't draw when leading. We missed opportunities to score a second goal and it's disappointing. At Old Trafford, we have an expectation to win.",
-            "article_date": "2024-10-24"
-        },
-        {
-            "speaker": "Erik ten Hag",
-            "quote_raw": "It would be a very good final. We should keep the ball ­better in the first half. We should score more goals but to be honest they also ­created good chances. They gave us some problems. They are a good team with a good manager. It is not a bad point. But we want to win. We want to win every game.",
-            "quote_summary": "A final against Fenerbahce would be interesting. Despite some errors on our side, they were challenging, they're a good team with a competent manager. It's not bad to draw, but our goal is always to win.",
-            "article_date": "2024-10-24"
-        }
-    ]`;
+        "quotes": [
+            {
+                "speaker": "Name of person quoted",
+                "quote_raw": "The exact quote from the text",
+                "quote_summary": "A concise version of the quote"
+            }
+        ]
+    }
+    
+# START OF ARTICLE TEXT
+
+{article_text}
+
+# END OF ARTICLE TEXT`;
 
 
-const quoteValidationPrompt = `Assess the quote in the quote object below and determine if it is valid. If it is invalid, return the JSON object below but with an additional field called is_valid, and a field called invalid_reason. Populate these fields if you determine a quote is invalid based on the criteria below.
+const quoteValidationPrompt = `Assess the validity of the quotes in the quote object below.
+    Return a JSON object with the same array of quotes but with two additinoal properties on each quote: is_valid and invalid_reason.
+]   Invalid quotes should have is_valid set to false and an invalid_reason.
+    Valid quotes should have is_valid set to true. invalid_reason should be empty.
+    Use the article text to help you determine whether the quote is valid or not.
+    
+    # Article Text 
+    parent_url: {parent_url}
+    article_url: {article_url}
+    {article_text}
+
+    
     # Raw Quote Text
     {quote_object}
     
-    # Validation Rules
-    - Article author written text vs speaker quoted text: ensure the raw quote text only contains the words spoken by the speaker and not the text written by the author of the article
-    - The speaker must be a person who is named in the article (i.e., speaker cannot be unknown or anonymous)
-    - The speaker must not be a fan or random people on the internet`;
+    # A quote is only valid if...
+    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article. For example, invalid quotes are those attributed to the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.)`;
 
 
 // Zod schemas for getting structured output from the LLM
 const Headlines = z.object({
     headlines: z.array(z.object({
-        article_url: z.string().url(),
+        parent_url: z.string(),
+        article_url: z.string(),
         headline: z.string()
     }))
 });
+
+const Article = z.object({
+    parent_url: z.string(),
+    article_url: z.string(),
+    headline: z.string(),
+    article_text: z.string(),
+    article_date: z.string().optional(), // Make article_date optional
+    publishedTime: z.string().optional() // Allow publishedTime as an alternative
+}).transform(data => ({
+    ...data,
+    // If article_date is missing, try to use publishedTime or fallback to current date
+    article_date: data.article_date || 
+                 (data.publishedTime ? data.publishedTime.split('T')[0] : 
+                 new Date().toISOString().split('T')[0])
+}));
 
 const Quote = z.object({
     speaker: z.string(),
     quote_raw: z.string(),
     quote_summary: z.string(),
-    article_date: z.string(), // assuming YYYY-MM-DD format
     is_valid: z.boolean().optional()
 });
 
 const Quotes = z.object({
-    quotes: z.array(z.object({
-        speaker: z.string(),
-        quote_raw: z.string(),
-        quote_summary: z.string(),
-        article_date: z.string()
-    }))
-});
-
-const QuoteWithMetadata = z.object({
-    parent_url: z.string().url(),
-    article_url: z.string().url(),
-    article_date: z.string(),
-    headline: z.string(),
-    speaker: z.string(),
-    quote_raw: z.string(),
-    quote_summary: z.string()
+    article_metadata: z.object({
+        parent_url: z.string(),
+        article_url: z.string(),
+        headline: z.string(),
+        article_text: z.string(),
+        article_date: z.string() // Added article_date at metadata level
+    }),
+    quotes: z.array(Quote)
 });
 
 const FinalQuotes = z.object({
     final_quotes: z.array(z.object({
-        speaker: z.string(),
-        quote_raw: z.string(),
-        quote_summary: z.string(),
-        article_date: z.string(),
-        is_valid: z.boolean(),
-        invalid_reason: z.string().optional()
+        article_metadata: z.object({
+            parent_url: z.string(),
+            article_url: z.string(),
+            headline: z.string(),
+            article_text: z.string(),
+            article_date: z.string() // Added article_date at metadata level
+        }),
+        quotes: z.array(z.object({
+            speaker: z.string(),
+            quote_raw: z.string(),
+            quote_summary: z.string(),
+            is_valid: z.boolean(),
+            invalid_reason: z.string().optional()
+        }))
     }))
 });
 
 const MonitoredURLStats = z.object({
-    parent_url: z.string().url(),
+    parent_url: z.string(), // assuming YYYY-MM-DD format like article_date
     last_crawl_date: z.string(), // assuming YYYY-MM-DD format like article_date
     no_of_articles: z.number().int(),
     no_of_quotes: z.number().int()
@@ -345,10 +462,10 @@ const OverallState = Annotation.Root({
             return uniqueHeadlines;
         }
     }),
-    quotes: Annotation<z.infer<typeof Quotes>>({
+    articles: Annotation<z.infer<typeof Article>>({
         reducer: (state, update) => state.concat(update),
     }),
-    final_quotes: Annotation<z.infer<typeof FinalQuotes>>({
+    quotes: Annotation<z.infer<typeof Quotes>>({
         reducer: (state, update) => state.concat(update),
     }),
     monitored_url_stats: Annotation<z.infer<typeof MonitoredURLStats>>({
@@ -356,15 +473,23 @@ const OverallState = Annotation.Root({
     })
 });
 
-// Interface for mapping over parent URLs to extract headlines
+// Interface for mapping over parent URLs to extract headlines / article URLs
 interface ParentURLState {
     parent_url: string;
 }
 
-// Interface for mapping over headlines to extract quotes
+//Interface mapping over article URLs to extract article text
+interface ArticleMarkdownState {
+    parent_url: string;
+    article_url: string;
+    headline: string;
+}
+
+// Interface for mapping over article text to extract quotes
 interface ArticleState {
     parent_url: string;
     article_url: string;
+    article_text: string;
     headline: string;
     today_date: string;
 }
@@ -401,84 +526,274 @@ const fetchParentURLs = async (
     };
 };
 
+// Hardcoded list of additional URLs to process
+const additionalUrls = [
+    {
+        parent_url: "https://www.bbc.com/sport/football/teams/manchester-united",
+        article_url: "https://www.bbc.com/sport/football/teams/manchester-united",
+        headline: "BBC Manchester United Homepage"
+    }
+    // Add more URLs here as needed
+];
+
 // Function to extract headlines as second node
 const extractHeadlines = async (
     state: ParentURLState
 ): Promise<Partial<typeof OverallState.State>> => {
     console.log("\nProcessing headlines for parent URL:", state.parent_url);
     
-    // Get markdown from jina.ai
-    const markdown = await getJinaMarkdown(state.parent_url);
-    if (!markdown) {
-        console.log(`No markdown content found for ${state.parent_url}`);
-        return { headlines: [] };
-    }
-    
-    const prompt = headlineExtractionPrompt.replace("{parent_url_markdown}", markdown);
-    const response = await headlineModel
-        .withStructuredOutput(Headlines)
-        .invoke(prompt);
-    
-    console.log(`Found ${response.headlines.length} headlines for ${state.parent_url}`);
-    
-    return { 
-        headlines: response.headlines
-    };
+    return new Promise((resolve) => {
+        const operation = async () => {
+            // Get markdown from jina.ai
+            const markdown = await getJinaMarkdown(state.parent_url);
+            if (!markdown) {
+                console.log(`No markdown content found for ${state.parent_url}`);
+                resolve({ headlines: [] });
+                return;
+            }
+
+            const prompt = headlineExtractionPrompt
+                .replace("{parent_url_markdown}", markdown)
+                .replace("{parent_url}", state.parent_url);
+
+            try {
+                const completion = await openai.beta.chat.completions.parse({
+                    model: "gpt-4o-mini",
+                    messages: [{ role: "user", content: prompt }],
+                    response_format: zodResponseFormat(Headlines, "headlines")
+                });
+
+                const response = completion.choices[0].message.parsed;
+                
+                // Extract domain from parent URL
+                const parentDomain = new URL(state.parent_url).hostname.replace('www.', '');
+                
+                // Filter headlines to only include those from the same domain
+                const validHeadlines = response.headlines.filter(headline => {
+                    try {
+                        const articleDomain = new URL(headline.article_url).hostname.replace('www.', '');
+                        return articleDomain === parentDomain;
+                    } catch {
+                        return false;
+                    }
+                });
+
+                console.log(`Found ${validHeadlines.length} valid headlines (from same domain) out of ${response.headlines.length} total for ${state.parent_url}`);
+                totalArticleCount += validHeadlines.length;
+                
+                // Combine extracted headlines with hardcoded URLs
+                const combinedHeadlines = [...validHeadlines];
+                
+                // Only add additional URLs if we're processing the main parent URL
+                // This prevents duplicate entries when processing other parent URLs
+                if (state.parent_url === additionalUrls[0]?.parent_url) {
+                    combinedHeadlines.push(...additionalUrls);
+                }
+                
+                console.log(`Added ${additionalUrls.length} hardcoded URLs to the headlines list`);
+                resolve({ headlines: combinedHeadlines });
+            } catch (error) {
+                console.error("Failed to extract headlines:", error);
+                resolve({ headlines: [] });
+            }
+        };
+
+        requestQueue.push(operation);
+        processQueue();
+    });
 };
 
+// Add semaphore for concurrency control
+const maxConcurrentRequests = 10;
+let currentActiveRequests = 0;
+let extractedQuoteCount = 0;
+let totalQuoteCount = 0;
+const requestQueue: (() => Promise<void>)[] = [];
+
+const processQueue = async () => {
+    while (requestQueue.length > 0 && currentActiveRequests < maxConcurrentRequests) {
+        const nextRequest = requestQueue.shift();
+        if (nextRequest) {
+            currentActiveRequests++;
+            try {
+                await nextRequest();
+            } finally {
+                currentActiveRequests--;
+                processQueue();
+            }
+        }
+    }
+};
+
+// Function to extract article text
+const extractArticleText = async (
+    state: ArticleMarkdownState
+): Promise<Partial<typeof OverallState.State>> => {
+    const executeRequest = async () => {
+        const markdown = await getJinaMarkdown(state.article_url);
+        if (!markdown) {
+            console.log(`No markdown content found for ${state.article_url}`);
+            return { articles: [] };
+        }
+        
+        const today_date = new Date().toISOString().split('T')[0];
+        
+        // Format the prompt with the actual values
+        const prompt = articleExtractionPrompt
+            .replace("{article_url_markdown}", markdown)
+            .replace("{parent_url}", state.parent_url)
+            .replace("{article_url}", state.article_url)
+            .replace("{headline}", state.headline)
+            .replace("{today_date}", today_date);
+
+        try {
+            const completion = await openai.beta.chat.completions.parse({
+                model: "gpt-4o-mini",
+                messages: [{ role: "user", content: prompt }],
+                response_format: zodResponseFormat(Article, "article")
+            });
+
+            const response = completion.choices[0].message.parsed;
+            extractedArticleCount++;
+            console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${currentActiveRequests}`);
+
+            return { 
+                articles: [response]
+            };
+        } catch (error) {
+            console.error("Failed to extract article text:", error);
+            
+            // If we can parse the output but just missing date, try to salvage it
+            if (error.llmOutput) {
+                try {
+                    const parsedOutput = JSON.parse(error.llmOutput);
+                    if (parsedOutput.parent_url && parsedOutput.article_text) {
+                        extractedArticleCount++;
+                        console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${currentActiveRequests}`);
+                        return {
+                            articles: [{
+                                ...parsedOutput,
+                                article_date: today_date // Use today's date as fallback
+                            }]
+                        };
+                    }
+                } catch (parseError) {
+                    // If we can't parse the output, just return empty
+                }
+            }
+            return { articles: [] };
+        }
+    };
+
+    return new Promise((resolve) => {
+        requestQueue.push(async () => {
+            const result = await executeRequest();
+            resolve(result);
+        });
+        processQueue();
+    });
+};
+
+// Function to extract quotes
 const extractQuotes = async (
     state: ArticleState
 ): Promise<Partial<typeof OverallState.State>> => {
+    // Initialize total articles count if this is the first article
+    if (processedArticleCount === 0) {
+        totalArticlesToProcess = totalArticleCount;
+    }
+
     console.log("\nExtracting quotes from article:", state.headline);
     
-    const markdown = await getJinaMarkdown(state.article_url);
-    if (!markdown) {
-        console.log(`No markdown content found for ${state.article_url}`);
-        return { quotes: [] };
-    }
-    
-    const prompt = quoteExtractionPrompt
-        .replace("{article_url}", state.article_url)
-        .replace("{article_url_markdown}", markdown)
-        .replace("{today_date}", state.today_date);
-        
-    const completion = await withRetry(() => openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-            { role: "system", content: "You are an expert at extracting quotes from news articles." },
-            { role: "user", content: prompt }
-        ],
-        response_format: zodResponseFormat(Quotes, "initial_quotes")
-    }));
-    
-    const parsedResponse = JSON.parse(completion.choices[0].message.content);
-    console.log(`Found ${parsedResponse.quotes.length} quotes in article: ${state.headline}`);
-    
-    return { 
-        quotes: parsedResponse.quotes
-    };
+    return new Promise((resolve) => {
+        const operation = async () => {
+            const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
+            
+            // Use the already extracted article text instead of fetching markdown
+            const prompt = quoteExtractionPrompt
+                .replace("{article_text}", state.article_text)
+                .replace("{parent_url}", state.parent_url)
+                .replace("{article_url}", state.article_url)
+                .replace("{headline}", state.headline)
+                .replace("{today_date}", today_date);
+
+            logOpenAICall('start', 'extractQuotes', 'gpt-4o-mini', state.article_url);
+            try {
+                // Log the request
+                logger.logOpenAICall({
+                    function_name: 'extractQuotes',
+                    model: 'gpt-4o-mini',
+                    url: state.article_url,
+                    prompt: prompt
+                });
+
+                const completion = await openai.beta.chat.completions.parse({
+                    model: "gpt-4o-mini",
+                    messages: [{ role: "user", content: prompt }],
+                    response_format: zodResponseFormat(Quotes, "quotes")
+                });
+
+                const response = completion.choices[0].message.parsed;
+                
+                // Log the successful response
+                logger.logOpenAICall({
+                    function_name: 'extractQuotes',
+                    model: 'gpt-4o-mini',
+                    url: state.article_url,
+                    prompt: prompt,
+                    response: response
+                });
+
+                logOpenAICall('end', 'extractQuotes', 'gpt-4o-mini', state.article_url);
+
+                processedArticleCount++;
+                console.log(`Found ${response.quotes.length} quotes in article ${processedArticleCount} of ${totalArticlesToProcess}: ${state.headline}`);
+
+                resolve({ 
+                    quotes: [response]  // Wrap in array since the state expects an array
+                });
+            } catch (error) {
+                // Log the error
+                logger.logOpenAICall({
+                    function_name: 'extractQuotes',
+                    model: 'gpt-4o-mini',
+                    url: state.article_url,
+                    prompt: prompt,
+                    error: error
+                });
+
+                logOpenAICall('end', 'extractQuotes', 'gpt-4o-mini', state.article_url);
+                console.error("Error in extractQuotes for article:", state.headline);
+                console.error(error);
+                
+                processedArticleCount++;
+                // Return empty quotes array on error to allow processing to continue
+                resolve({ 
+                    quotes: []
+                });
+            }
+        };
+
+        requestQueue.push(operation);
+        processQueue();
+    });
 };
 
-// Add the Gemini extraction function
+// Gemini quote extraction function
 const extractQuotesWithGemini = async (
     state: ArticleState
 ): Promise<Partial<typeof OverallState.State>> => {
     console.log("\nExtracting quotes with Gemini from article:", state.headline);
     
-    const markdown = await getJinaMarkdown(state.article_url);
-    if (!markdown) {
-        console.log(`No markdown content found for ${state.article_url}`);
-        return { quotes: [] };
-    }
-    
     const prompt = quoteExtractionPrompt
         .replace("{article_url}", state.article_url)
-        .replace("{article_url_markdown}", markdown)
+        .replace("{article_text}", state.article_text)
         .replace("{today_date}", state.today_date);
         
-    const result = await withRetry(() => geminiModel.generateContent(prompt));
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const result = await withRetry(() => model.generateContent(prompt));
     const response = JSON.parse(result.response.text());
-    
+        
     console.log(`Found ${response.quotes.length} quotes in article: ${state.headline}`);
     
     return { 
@@ -486,53 +801,97 @@ const extractQuotesWithGemini = async (
     };
 };
 
+// Function to validate quotes
 const validateQuotes = async (
     state: QuoteValidationState
 ): Promise<Partial<typeof OverallState.State>> => {
-    console.log("\nValidating quote:", state.quote_object);
+    // Parse the quotes object to get the count
+    const quotesObject = JSON.parse(state.quote_object);
     
-    const prompt = quoteValidationPrompt
-        .replace("{quote_object}", state.quote_object)
-        .replace(/{today_date}/g, state.today_date);
-        
-    const response = await quoteValidationModel
-        .withStructuredOutput(FinalQuotes)
-        .invoke(prompt);
-    
-    console.log(`Validation complete. Valid: ${response.final_quotes[0].is_valid}`);
-    
-    return { 
-        final_quotes: response.final_quotes
-    };
-};
-
-// Helper function to process articles in chunks with rate limiting
-const processArticlesInChunks = async (
-    articles: ArticleState[],
-    processor: (article: ArticleState) => Promise<Partial<typeof OverallState.State>>
-): Promise<Partial<typeof OverallState.State>[]> => {
-    const results: Partial<typeof OverallState.State>[] = [];
-    
-    // Process articles in chunks
-    for (let i = 0; i < articles.length; i += RATE_LIMIT_CONFIG.chunkSize) {
-        const chunk = articles.slice(i, i + RATE_LIMIT_CONFIG.chunkSize);
-        console.log(`\nProcessing chunk ${(i/RATE_LIMIT_CONFIG.chunkSize) + 1} of ${Math.ceil(articles.length/RATE_LIMIT_CONFIG.chunkSize)} (${chunk.length} articles)`);
-        
-        // Process all articles in current chunk
-        const chunkResults = await Promise.all(chunk.map(article => processor(article)));
-        results.push(...chunkResults);
-        
-        // If this isn't the last chunk, wait before processing next chunk
-        const isLastChunk = i + RATE_LIMIT_CONFIG.chunkSize >= articles.length;
-        if (!isLastChunk) {
-            console.log(`Waiting ${RATE_LIMIT_CONFIG.delayBetweenChunksMs/1000} seconds before processing next chunk...`);
-            await new Promise(resolve => setTimeout(resolve, RATE_LIMIT_CONFIG.delayBetweenChunksMs));
-        }
+    // Update total quotes to validate if this is the first batch
+    if (validatedQuoteCount === 0) {
+        totalQuotesToValidate = quotesObject.quotes.length;
     }
-    
-    return results;
-};
 
+    console.log("\nValidating quotes...");
+
+    // Split quotes into smaller chunks to avoid length limits
+    const CHUNK_SIZE = 5;
+    const quotes = quotesObject.quotes;
+    const chunks = [];
+    for (let i = 0; i < quotes.length; i += CHUNK_SIZE) {
+        chunks.push(quotes.slice(i, i + CHUNK_SIZE));
+    }
+
+    const validatedQuotes = [];
+
+    return new Promise((resolve) => {
+        const operation = async () => {
+            try {
+                for (const chunk of chunks) {
+                    const prompt = quoteValidationPrompt
+                        .replace("{quote_object}", JSON.stringify(chunk))
+                        .replace("{article_text}", quotesObject.article_metadata.article_text)
+                        .replace("{parent_url}", quotesObject.article_metadata.parent_url)
+                        .replace("{article_url}", quotesObject.article_metadata.article_url);
+
+                    // Log the validation request
+                    logger.logOpenAICall({
+                        function_name: 'validateQuotes',
+                        model: 'gpt-4o-mini',
+                        url: quotesObject.article_metadata.article_url,
+                        prompt: prompt
+                    });
+
+                    logOpenAICall('start', 'validateQuotes', 'gpt-4o-mini', quotesObject.article_metadata.article_url);
+                    
+                    const completion = await openai.beta.chat.completions.parse({
+                        model: "ft:gpt-4o-mini-2024-07-18:personal::AVXTE2Zu",
+                        messages: [{ role: "user", content: prompt }],
+                        response_format: zodResponseFormat(z.array(Quote), "quotes")
+                    });
+
+                    const response = completion.choices[0].message.parsed;
+
+                    // Log the successful validation response
+                    logger.logOpenAICall({
+                        function_name: 'validateQuotes',
+                        model: 'gpt-4o-mini',
+                        url: quotesObject.article_metadata.article_url,
+                        prompt: prompt,
+                        response: response
+                    });
+
+                    logOpenAICall('end', 'validateQuotes', 'gpt-4o-mini', quotesObject.article_metadata.article_url);
+                    validatedQuotes.push(...response);
+                    validatedQuoteCount += response.length;
+                }
+
+                console.log(`Validated ${validatedQuoteCount} of ${totalQuotesToValidate} quotes`);
+                resolve({
+                    quotes: [{ ...quotesObject, quotes: validatedQuotes }]
+                });
+            } catch (error) {
+                // Log any validation errors
+                logger.logOpenAICall({
+                    function_name: 'validateQuotes',
+                    model: 'gpt-4o-mini',
+                    url: quotesObject.article_metadata.article_url,
+                    prompt: 'Error occurred during validation',
+                    error: error
+                });
+
+                console.error("Error in validateQuotes:", error);
+                resolve({
+                    quotes: [{ ...quotesObject, quotes: [] }]
+                });
+            }
+        };
+
+        requestQueue.push(operation);
+        processQueue();
+    });
+};
 // Here we define the logic to map out over the parent URLs
 // We will use this as an edge in the graph
 const continueToHeadlines = (state: typeof OverallState.State) => {
@@ -541,41 +900,42 @@ const continueToHeadlines = (state: typeof OverallState.State) => {
     return state.parent_urls.map((parent_url) => new Send("extractHeadlines", { parent_url }));
   };
 
+// Here we define the logic to map out over the headlines / article URLs
+const continueToArticles = (state: typeof OverallState.State) => {
+    // We will return a list of `Send` objects
+    // Each `Send` object consists of the name of a node in the graph as well as the state to send to that node
+    return state.headlines.map((headline) => new Send("extractArticleText", { 
+        parent_url: headline.parent_url, // Use the parent_url from the headline object
+        article_url: headline.article_url,
+        headline: headline.headline
+    }));
+};
+
 
 // Here we define the logic to map out over the articles
-const continueToQuotes = async (state: typeof OverallState.State) => {
-    if (!state.headlines?.length) {
-        return [];
-    }
+const continueToQuotes = (state: typeof OverallState.State) => {
+    // Reset quote extraction counters
+    extractedQuoteCount = 0;
+    totalQuoteCount = state.articles.length;
 
-    // Convert headlines to ArticleState objects
-    const articles: ArticleState[] = state.headlines.map(headline => ({
-        parent_url: headline.parent_url,
-        article_url: headline.article_url,
-        headline: headline.headline,
-        today_date: new Date().toISOString().split('T')[0]
+    // Map over the articles array which contains our extracted article text
+    return state.articles.map((article) => new Send("extractQuotes", { 
+        parent_url: article.parent_url,
+        article_url: article.article_url,
+        headline: article.headline,
+        article_text: article.article_text,
+        today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
     }));
-
-    // Process articles in chunks with rate limiting
-    const results = await processArticlesInChunks(articles, extractQuotes);
-
-    // Combine all quotes from all chunks
-    const allQuotes = results.reduce((acc, result) => {
-        if (result.quotes) {
-            acc.push(...result.quotes);
-        }
-        return acc;
-    }, [] as typeof state.quotes);
-
-    // Return a single Send object with all quotes
-    return [new Send("validateQuotes", { quotes: allQuotes })];
 };
 
 const continueToQuoteValidation = (state: typeof OverallState.State) => {
-    // Map over each quote and create a validation task
-    return state.quotes.map((quote) => new Send("validateQuotes", {
-        quote_object: JSON.stringify(quote),
-        today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
+    validatedQuoteCount = 0;
+    totalQuotesToValidate = state.quotes.length;
+
+    // Each item in state.quotes is already a response containing all quotes from one article
+    return state.quotes.map((articleQuotes) => new Send("validateQuotes", {
+        quote_object: JSON.stringify(articleQuotes),
+        today_date: new Date().toISOString().split('T')[0]
     }));
 };
 
@@ -583,11 +943,13 @@ const continueToQuoteValidation = (state: typeof OverallState.State) => {
 const graph = new StateGraph(OverallState)
     .addNode("fetchParentURLs", fetchParentURLs)
     .addNode("extractHeadlines", extractHeadlines)
+    .addNode("extractArticleText", extractArticleText)
     .addNode("extractQuotes", extractQuotes)
     .addNode("validateQuotes", validateQuotes)
     .addEdge(START, "fetchParentURLs")
     .addConditionalEdges("fetchParentURLs", continueToHeadlines)
-    .addConditionalEdges("extractHeadlines", continueToQuotes)
+    .addConditionalEdges("extractHeadlines", continueToArticles)
+    .addConditionalEdges("extractArticleText", continueToQuotes)
     .addConditionalEdges("extractQuotes", continueToQuoteValidation)
     .addEdge("validateQuotes", END);
 
@@ -602,13 +964,12 @@ async function main() {
         console.log("Current State Update:");
         if (chunk.parent_urls) console.log("Parent URLs:", chunk.parent_urls);
         if (chunk.headlines) console.log("Headlines:", chunk.headlines);
+        if(chunk.articles) console.log("Articles:", chunk.articles);
         if (chunk.quotes) console.log("Quotes:", chunk.quotes);
-        if (chunk.final_quotes) console.log("Final Quotes:", chunk.final_quotes);
-        // if (chunk.monitored_url_stats) console.log("Stats:", chunk.monitored_url_stats);       
         console.log("\n====\n");
 
-        // Save results when we have final_quotes (meaning the graph has completed)
-        if (chunk.final_quotes) {
+        // Save results when we have quotes (meaning the graph has completed)
+        if (chunk.quotes) {
             await saveGraphResults(
                 'gemini', // or 'openai' depending on which model is being used
                 chunk
