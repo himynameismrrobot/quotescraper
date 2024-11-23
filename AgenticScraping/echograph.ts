@@ -536,6 +536,36 @@ const additionalUrls = [
     // Add more URLs here as needed
 ];
 
+// Function to check if article URL already exists in quotes or staged_quotes tables
+const checkExistingArticleUrl = async (article_url: string): Promise<boolean> => {
+    // Check quotes table
+    const { data: quotesData, error: quotesError } = await supabase
+        .from('quotes')
+        .select('article_url')
+        .eq('article_url', article_url)
+        .limit(1);
+    
+    if (quotesError) {
+        console.error('Error checking quotes table:', quotesError);
+        return false;
+    }
+
+    // Check staged_quotes table
+    const { data: stagedData, error: stagedError } = await supabase
+        .from('staged_quotes')
+        .select('article_url')
+        .eq('article_url', article_url)
+        .limit(1);
+    
+    if (stagedError) {
+        console.error('Error checking staged_quotes table:', stagedError);
+        return false;
+    }
+    
+    // Return true if URL exists in either table
+    return (quotesData && quotesData.length > 0) || (stagedData && stagedData.length > 0);
+};
+
 // Function to extract headlines as second node
 const extractHeadlines = async (
     state: ParentURLState
@@ -578,19 +608,29 @@ const extractHeadlines = async (
                     }
                 });
 
-                console.log(`Found ${validHeadlines.length} valid headlines (from same domain) out of ${response.headlines.length} total for ${state.parent_url}`);
-                totalArticleCount += validHeadlines.length;
+                // Filter out headlines that already exist in quotes table
+                const newHeadlines = [];
+                for (const headline of validHeadlines) {
+                    const exists = await checkExistingArticleUrl(headline.article_url);
+                    if (!exists) {
+                        newHeadlines.push(headline);
+                    }
+                }
+
+                console.log(`Found ${validHeadlines.length} valid headlines, ${validHeadlines.length - newHeadlines.length} already processed from ${state.parent_url}`);
+                totalArticleCount += newHeadlines.length;
                 
                 // Combine extracted headlines with hardcoded URLs
-                const combinedHeadlines = [...validHeadlines];
+                const combinedHeadlines = [...newHeadlines];
                 
                 // Only add additional URLs if we're processing the main parent URL
                 // This prevents duplicate entries when processing other parent URLs
                 if (state.parent_url === additionalUrls[0]?.parent_url) {
+                    // Always include all hardcoded URLs without filtering
                     combinedHeadlines.push(...additionalUrls);
+                    console.log(`Added ${additionalUrls.length} hardcoded URLs`);
                 }
                 
-                console.log(`Added ${additionalUrls.length} hardcoded URLs to the headlines list`);
                 resolve({ headlines: combinedHeadlines });
             } catch (error) {
                 console.error("Failed to extract headlines:", error);
