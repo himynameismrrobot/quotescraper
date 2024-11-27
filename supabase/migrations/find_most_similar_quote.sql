@@ -13,6 +13,7 @@ RETURNS TABLE (
     speaker_name text,
     article_headline text,
     article_url text,
+    similar_to_quote_id uuid,
     similarity float
 )
 LANGUAGE plpgsql
@@ -25,6 +26,7 @@ BEGIN
         s.name as speaker_name,
         q.article_headline,
         q.article_url,
+        q.id as similar_to_quote_id,
         -(q.content_vector <#> query_embedding) as similarity
     FROM quotes q
     JOIN speakers s ON q.speaker_id = s.id

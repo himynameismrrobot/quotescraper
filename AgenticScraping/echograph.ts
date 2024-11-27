@@ -52,7 +52,7 @@ const embeddingModel = new OpenAI({
 // Configuration object
 const CONFIG = {
     SIMILARITY: {
-        THRESHOLD: parseFloat(process.env.QUOTE_SIMILARITY_THRESHOLD || '0.78'),
+        THRESHOLD: parseFloat(process.env.QUOTE_SIMILARITY_THRESHOLD || '-0.90'),
         MODEL: process.env.QUOTE_EMBEDDING_MODEL || 'text-embedding-3-small',
         DIMENSIONS: parseInt(process.env.QUOTE_EMBEDDING_DIMENSIONS || '1536')
     }
