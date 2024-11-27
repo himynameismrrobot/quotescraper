@@ -44,35 +44,49 @@ const quoteValidationModel = new ChatOpenAI({
 
 const openai = new OpenAI();
 
+// Add OpenAI embedding model
+const embeddingModel = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+// Configuration object
+const CONFIG = {
+    SIMILARITY: {
+        THRESHOLD: parseFloat(process.env.QUOTE_SIMILARITY_THRESHOLD || '0.78'),
+        MODEL: process.env.QUOTE_EMBEDDING_MODEL || 'text-embedding-3-small',
+        DIMENSIONS: parseInt(process.env.QUOTE_EMBEDDING_DIMENSIONS || '1536')
+    }
+} as const;
+
+// Function to get embedding for a quote
+const getQuoteEmbedding = async (quote: string): Promise<number[]> => {
+    const response = await embeddingModel.embeddings.create({
+        model: CONFIG.SIMILARITY.MODEL,
+        input: quote,
+        dimensions: CONFIG.SIMILARITY.DIMENSIONS
+    });
+    return response.data[0].embedding;
+};
+
 // Helper for tracking OpenAI calls
 let activeRequests = new Set<string>();
 
-// Add counters for tracking progress
-let totalArticleCount = 0;
-let extractedArticleCount = 0;
-let processedArticleCount = 0;
-let validatedQuoteCount = 0;
-let totalQuotesToValidate = 0;
+// Add semaphore for concurrency control
+const maxConcurrentRequests = 5;
+let currentActiveRequests = 0;
 let totalArticlesToProcess = 0;
+const requestQueue: (() => Promise<void>)[] = [];
 
-const logOpenAICall = (action: 'start' | 'end', functionName: string, modelName: string, url: string) => {
+const logOpenAICall = (action: 'start' | 'end', functionName: string, modelName: string, url: string, details?: any) => {
     const requestId = `${functionName}-${url}`;
     if (action === 'start') {
         activeRequests.add(requestId);
-        if (functionName === 'extractArticleText') {
-            extractedArticleCount++;
-            console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${activeRequests.size}`);
-        } else if (functionName === 'extractQuotes') {
-            processedArticleCount++;
-            console.log(`Quote Extraction: Processing article ${processedArticleCount} out of ${totalArticleCount}. Current Concurrent Count = ${activeRequests.size}`);
-        } else if (functionName === 'validateQuotes') {
-            validatedQuoteCount++;
-            console.log(`Quote Validation: Processing batch ${validatedQuoteCount} out of ${totalQuotesToValidate}. Current Concurrent Count = ${activeRequests.size}`);
-        }
     } else {
         activeRequests.delete(requestId);
+        if (details?.error) {
+            logger.error(`Error in ${functionName}: ${details.error}`);
+        }
     }
-    
 };
 
 // Gemini Schema for getting structured output from the LLM
@@ -130,8 +144,8 @@ async function getJinaMarkdown(url: string): Promise<string> {
                 "Accept": "text/event-stream",
                 "X-Remove-Selector": "header, footer, nav, .ad, .advertisement, .social-share, .comments-section, .related-articles, aside, .subscription-prompt, .newsletter-signup, .cookie-notice, .breaking-news-banner",
                 "X-Wait-For-Selector": "article, .article-body, .article-content, .story-body, main, .main-content",
-                "X-With-Links-Summary": "true",
-                "X-Return-Format": "markdown"
+                "X-Return-Format": "markdown",
+                "X-Timeout": "20"
             }
         });
 
@@ -217,14 +231,12 @@ async function saveGraphResults(
     }
 
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `${modelType}_run_${timestamp}.json`;
+    const filename = `${timestamp}.json`;
     
     const output = {
         model: modelType,
         timestamp: new Date().toISOString(),
-        parent_urls: state.parent_urls,
-        headlines: state.headlines,
-        articles: state.articles,
+        parent_urls: state.parent_monitored_urls,
         quotes: state.quotes,
     };
 
@@ -258,38 +270,45 @@ const headlineExtractionPrompt = `
     #EXPECTED OUTPUT
     [
         {
-            "parent_url": "<parent_url>",
+            "parent_monitored_url": "<parent_monitored_url>",
             "article_url": "<article_url>",
-            "headline": "<headline>",
+            "article_headline": "<article_headline>",
         }
     `;
 
-const articleExtractionPrompt = `Below is a markdown version of a news article from a website. It contains a lot of text that is not the article content.
-Extract just the article text and return it as a string within the data model shown below. Make sure to preserve the parent_url, article_url, and headline exactly as provided.
+const articleExtractionPrompt = `Below is a markdown version of a news article from a website. 
+
+    Isolate the article text and article date from the rest of the markdown. 
+    Structure this data per the data model shown below in your response.
+    Make sure to preserve the parent_monitored_url, article_url, and article_headline exactly as provided.
 
     # Article Metadata
-    parent_url: {parent_url}
+    parent_monitored_url: {parent_monitored_url}
     article_url: {article_url}
-    headline: {headline}
+    article_headline: {article_headline}
     
     # Expected Output Format
     {
-        "parent_url": "{parent_url}",
+        "parent_monitored_url": "{parent_monitored_url}",
         "article_url": "{article_url}",
-        "headline": "{headline}",
-        "article_text": "The main article text, excluding headers, footers, and other non-article content",
+        "article_headline": "{article_headline}",
+        "article_text": "The complete article text including all paragraphs, subheadings, and quotes. Keep all relevant content that could contain quotes.",
         "article_date": "YYYY-MM-DD",
         "publishedTime": "YYYY-MM-DDTHH:MM:SSZ" // Optional ISO 8601 timestamp if found
     }
 
     #Instructions
-    1. Extract and clean the main article text, removing:
-        • Headers, footers, navigation
-        • Advertisements
-        • Social media buttons
-        • Comments sections
-        • Related articles
-        • Any other non-article content
+    1. Extract and clean the main article text:
+        • KEEP all article paragraphs, subheadings, and quotes
+        • KEEP any text that could contain relevant quotes from people
+        • ONLY remove:
+          - Navigation menus
+          - Advertisements
+          - Social media buttons
+          - Comments sections
+          - Related articles links
+          - Copyright notices
+          - Cookie/privacy notices
     
     2. For the article date:
         • Extract the article date in YYYY-MM-DD format
@@ -330,24 +349,24 @@ const quoteExtractionPrompt = `Extract all quotes from the provided article. Tak
     Make sure to preserve the article metadata exactly as provided below.
 
     ## Article Metadata
-    parent_url: {parent_url}
+    parent_monitored_url: {parent_monitored_url}
     article_url: {article_url}
-    headline: {headline}
+    article_headline: {article_headline}
     
     ## Expected Output Format
     {
         "article_metadata": {
-            "parent_url": "{parent_url}",
-            "article_url": "{article_url}",
-            "headline": "{headline}",
-            "article_text": "{article_text}",
-            "article_date": "YYYY-MM-DD"
+            "parent_monitored_url": The parent_monitored_url provided above,
+            "article_url": The article_url provided above,
+            "headline": The article headline provided above,
+            "article_text": The article text, provided below,
+            "article_date": You will extract this using the instructions above
         },
         "quotes": [
             {
-                "speaker": "Name of person quoted",
-                "quote_raw": "The exact quote from the text",
-                "quote_summary": "A concise version of the quote"
+                "speaker_name": "Name of person quoted",
+                "raw_quote_text": "The exact quote from the text",
+                "summary": "A concise version of the quote"
             }
         ]
     }
@@ -365,146 +384,151 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     Valid quotes should have is_valid set to true. invalid_reason should be empty.
     Use the article text to help you determine whether the quote is valid or not.
     
-    # Article Text 
-    parent_url: {parent_url}
+    # Article Metadata & Text 
+    parent_monitoredurl: {parent_monitored_url}
     article_url: {article_url}
+    article_headline: {article_headline}
     {article_text}
 
     
-    # Raw Quote Text
-    {quote_object}
+    # Quotes from article
+    {quotes_to_validate}
     
     # A quote is only valid if...
-    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article. For example, invalid quotes are those attributed to the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.)`;
+    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article.
+    - The summary is written in the first person
+    - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))`;
+
+
+// Zod schemas for the graph state
+const Quote = z.object({
+    speaker_name: z.string(),
+    raw_quote_text: z.string(),
+    summary: z.string(),
+    is_valid: z.boolean().optional(),
+    similar_to_quote_id: z.string().optional(),
+    similarity_score: z.number().optional()
+});
+
+const Quotes = z.array(z.object({  // Define Quotes as an array of objects
+    article_metadata: z.object({
+        parent_monitored_url: z.string(),
+        article_url: z.string(),
+        article_date: z.string(),
+        article_headline: z.string(),
+        article_text: z.string()
+    }),
+    quotes: z.array(Quote)
+}));
 
 
 // Zod schemas for getting structured output from the LLM
 const Headlines = z.object({
     headlines: z.array(z.object({
-        parent_url: z.string(),
+        parent_monitored_url: z.string(),
         article_url: z.string(),
-        headline: z.string()
+        article_headline: z.string()
     }))
 });
 
 const Article = z.object({
-    parent_url: z.string(),
+    parent_monitored_url: z.string(),
     article_url: z.string(),
-    headline: z.string(),
+    article_headline: z.string(),
     article_text: z.string(),
     article_date: z.string().optional(), // Make article_date optional
     publishedTime: z.string().optional() // Allow publishedTime as an alternative
-}).transform(data => ({
-    ...data,
-    // If article_date is missing, try to use publishedTime or fallback to current date
-    article_date: data.article_date || 
-                 (data.publishedTime ? data.publishedTime.split('T')[0] : 
-                 new Date().toISOString().split('T')[0])
-}));
-
-const Quote = z.object({
-    speaker: z.string(),
-    quote_raw: z.string(),
-    quote_summary: z.string(),
-    is_valid: z.boolean().optional()
 });
 
-const Quotes = z.object({
+const ExtractedQuotes = z.object({
     article_metadata: z.object({
-        parent_url: z.string(),
+        parent_monitored_url: z.string(),
         article_url: z.string(),
-        headline: z.string(),
+        article_headline: z.string(),
         article_text: z.string(),
-        article_date: z.string() // Added article_date at metadata level
+        article_date: z.string()
     }),
-    quotes: z.array(Quote)
-});
-
-const FinalQuotes = z.object({
-    final_quotes: z.array(z.object({
-        article_metadata: z.object({
-            parent_url: z.string(),
-            article_url: z.string(),
-            headline: z.string(),
-            article_text: z.string(),
-            article_date: z.string() // Added article_date at metadata level
-        }),
-        quotes: z.array(z.object({
-            speaker: z.string(),
-            quote_raw: z.string(),
-            quote_summary: z.string(),
-            is_valid: z.boolean(),
-            invalid_reason: z.string().optional()
-        }))
+    quotes: z.array(z.object({
+        speaker_name: z.string(),
+        raw_quote_text: z.string(),
+        summary: z.string()
     }))
 });
 
-const MonitoredURLStats = z.object({
-    parent_url: z.string(), // assuming YYYY-MM-DD format like article_date
-    last_crawl_date: z.string(), // assuming YYYY-MM-DD format like article_date
-    no_of_articles: z.number().int(),
-    no_of_quotes: z.number().int()
+const QuoteValidation = z.object({
+    speaker_name: z.string(),
+    raw_quote_text: z.string(),
+    summary: z.string(),
+    is_valid: z.boolean(),
+    invalid_reason: z.string().optional()
 });
 
 
 /* Graph components: define the components that will make up the graph */
 
 const OverallState = Annotation.Root({
-    parent_urls: Annotation<string[]>,  // Changed from single string to array
-    headlines: Annotation<z.infer<typeof Headlines>>({
-        reducer: (state, update) => {
-            // Convert arrays to Set to remove duplicates based on article_url
-            const uniqueHeadlines = Array.from(
-                new Map(
-                    [...state, ...update].map(item => [item.article_url, item])
-                ).values()
-            );
-            return uniqueHeadlines;
-        }
-    }),
-    articles: Annotation<z.infer<typeof Article>>({
-        reducer: (state, update) => state.concat(update),
-    }),
+    parent_monitored_urls: Annotation<string[]>,
     quotes: Annotation<z.infer<typeof Quotes>>({
-        reducer: (state, update) => state.concat(update),
-    }),
-    monitored_url_stats: Annotation<z.infer<typeof MonitoredURLStats>>({
-        reducer: (state, update) => state.concat(update),  // Added reducer since we'll have stats for each parent_url
+        reducer: (state, update) => {
+            const updatedQuotes = update.map(newArticle => {
+                const existingArticleIndex = state.findIndex(
+                    article => article.article_metadata.article_url === newArticle.article_metadata.article_url
+                );
+                if (existingArticleIndex !== -1) {
+                    // If the article exists, merge both metadata and quotes
+                    return {
+                        article_metadata: {
+                            ...state[existingArticleIndex].article_metadata,
+                            ...newArticle.article_metadata  // This ensures article_text gets updated
+                        },
+                        quotes: [...state[existingArticleIndex].quotes, ...newArticle.quotes]
+                    };
+                } else {
+                    return newArticle;
+                }
+            });
+            return [...state.filter(article => !update.some(newArticle => 
+                newArticle.article_metadata.article_url === article.article_metadata.article_url)), 
+                ...updatedQuotes];
+        }
     })
 });
 
 // Interface for mapping over parent URLs to extract headlines / article URLs
 interface ParentURLState {
-    parent_url: string;
+    parent_monitored_url: string;
 }
 
 //Interface mapping over article URLs to extract article text
 interface ArticleMarkdownState {
-    parent_url: string;
+    parent_monitored_url: string;
     article_url: string;
-    headline: string;
+    article_headline: string;
 }
 
 // Interface for mapping over article text to extract quotes
 interface ArticleState {
-    parent_url: string;
-    article_url: string;
-    article_text: string;
-    headline: string;
+    article_metadata: {
+        parent_monitored_url: string;
+        article_url: string;
+        article_text: string;
+        article_headline: string;
+        article_date: string;
+    }
     today_date: string;
 }
 
 // Interface for mapping over quotes to validate them
 interface QuoteState {
-    parent_url: string;
+    parent_monitored_url: string;
     article_url: string;
-    headline: string;
+    article_headline: string;
     quote: z.infer<typeof Quote>;
 }
 
 // Interface for mapping over initially extracted quotes to validate them
 interface QuoteValidationState {
-    quote_object: string;
+    quote_object: z.infer<typeof Quotes>[number];  // Use a single item from the Quotes array
     today_date: string;
 }
 
@@ -513,7 +537,7 @@ interface QuoteValidationState {
 const fetchParentURLs = async (
     state: typeof OverallState.State
 ): Promise<Partial<typeof OverallState.State>> => {
-    const { data: parentUrls, error } = await supabase
+    const { data: parent_monitored_urls, error } = await supabase
         .from('monitored_urls')
         .select('url');
 
@@ -522,21 +546,21 @@ const fetchParentURLs = async (
     }
 
     return {
-        parent_urls: parentUrls.map(row => row.url)
+        parent_monitored_urls: parent_monitored_urls.map(row => row.url)
     };
 };
 
 // Hardcoded list of additional URLs to process
 const additionalUrls = [
     {
-        parent_url: "https://www.bbc.com/sport/football/teams/manchester-united",
+        parent_monitored_url: "https://www.bbc.com/sport/football/teams/manchester-united",
         article_url: "https://www.bbc.com/sport/football/teams/manchester-united",
-        headline: "BBC Manchester United Homepage"
+        article_headline: "BBC Manchester United Homepage"
     }
     // Add more URLs here as needed
 ];
 
-// Function to check if article URL already exists in quotes or staged_quotes tables
+// Function to check if article URL has already been processed
 const checkExistingArticleUrl = async (article_url: string): Promise<boolean> => {
     // Check quotes table
     const { data: quotesData, error: quotesError } = await supabase
@@ -550,41 +574,55 @@ const checkExistingArticleUrl = async (article_url: string): Promise<boolean> =>
         return false;
     }
 
-    // Check staged_quotes table
+    // Check quote_staging table
     const { data: stagedData, error: stagedError } = await supabase
-        .from('staged_quotes')
+        .from('quote_staging')
         .select('article_url')
         .eq('article_url', article_url)
         .limit(1);
     
     if (stagedError) {
-        console.error('Error checking staged_quotes table:', stagedError);
+        console.error('Error checking quote_staging table:', stagedError);
+        return false;
+    }
+
+    // Check articles table
+    const { data: articlesData, error: articlesError } = await supabase
+        .from('articles')
+        .select('article_url')
+        .eq('article_url', article_url)
+        .limit(1);
+    
+    if (articlesError) {
+        console.error('Error checking articles table:', articlesError);
         return false;
     }
     
-    // Return true if URL exists in either table
-    return (quotesData && quotesData.length > 0) || (stagedData && stagedData.length > 0);
+    // Return true if URL exists in any table
+    return (quotesData && quotesData.length > 0) || 
+           (stagedData && stagedData.length > 0) || 
+           (articlesData && articlesData.length > 0);
 };
 
 // Function to extract headlines as second node
 const extractHeadlines = async (
     state: ParentURLState
 ): Promise<Partial<typeof OverallState.State>> => {
-    console.log("\nProcessing headlines for parent URL:", state.parent_url);
+    console.log("\nProcessing headlines for:", state.parent_monitored_url);
     
     return new Promise((resolve) => {
         const operation = async () => {
             // Get markdown from jina.ai
-            const markdown = await getJinaMarkdown(state.parent_url);
+            const markdown = await getJinaMarkdown(state.parent_monitored_url);
             if (!markdown) {
-                console.log(`No markdown content found for ${state.parent_url}`);
-                resolve({ headlines: [] });
+                console.log(`No markdown content found for ${state.parent_monitored_url}`);
+                resolve({ quotes: [] });
                 return;
             }
 
             const prompt = headlineExtractionPrompt
                 .replace("{parent_url_markdown}", markdown)
-                .replace("{parent_url}", state.parent_url);
+                .replace("{parent_monitored_url}", state.parent_monitored_url);
 
             try {
                 const completion = await openai.beta.chat.completions.parse({
@@ -595,8 +633,8 @@ const extractHeadlines = async (
 
                 const response = completion.choices[0].message.parsed;
                 
-                // Extract domain from parent URL
-                const parentDomain = new URL(state.parent_url).hostname.replace('www.', '');
+                // Extract domain from parent monitored URL
+                const parentDomain = new URL(state.parent_monitored_url).hostname.replace('www.', '');
                 
                 // Filter headlines to only include those from the same domain
                 const validHeadlines = response.headlines.filter(headline => {
@@ -617,24 +655,37 @@ const extractHeadlines = async (
                     }
                 }
 
-                console.log(`Found ${validHeadlines.length} valid headlines, ${validHeadlines.length - newHeadlines.length} already processed from ${state.parent_url}`);
-                totalArticleCount += newHeadlines.length;
+                console.log(`Found ${validHeadlines.length} valid headlines, ${validHeadlines.length - newHeadlines.length} already processed from ${state.parent_monitored_url}`);
                 
                 // Combine extracted headlines with hardcoded URLs
                 const combinedHeadlines = [...newHeadlines];
                 
                 // Only add additional URLs if we're processing the main parent URL
-                // This prevents duplicate entries when processing other parent URLs
-                if (state.parent_url === additionalUrls[0]?.parent_url) {
+                if (state.parent_monitored_url === additionalUrls[0]?.parent_monitored_url) {
                     // Always include all hardcoded URLs without filtering
                     combinedHeadlines.push(...additionalUrls);
                     console.log(`Added ${additionalUrls.length} hardcoded URLs`);
                 }
                 
-                resolve({ headlines: combinedHeadlines });
+                // Add this log here
+                console.log(`Total new articles to process: ${combinedHeadlines.length} from ${state.parent_monitored_url}`);
+                
+                // Transform headlines into quotes structure
+                const quotes = combinedHeadlines.map(headline => ({
+                    article_metadata: {
+                        parent_monitored_url: state.parent_monitored_url,
+                        article_url: headline.article_url,
+                        article_headline: headline.article_headline,
+                        article_text: "", // Will be populated later
+                        article_date: "", // Will be populated later
+                    },
+                    quotes: [], // Empty array to be populated later
+                }));
+                
+                resolve({ quotes });
             } catch (error) {
                 console.error("Failed to extract headlines:", error);
-                resolve({ headlines: [] });
+                resolve({ quotes: [] });
             }
         };
 
@@ -642,13 +693,6 @@ const extractHeadlines = async (
         processQueue();
     });
 };
-
-// Add semaphore for concurrency control
-const maxConcurrentRequests = 10;
-let currentActiveRequests = 0;
-let extractedQuoteCount = 0;
-let totalQuoteCount = 0;
-const requestQueue: (() => Promise<void>)[] = [];
 
 const processQueue = async () => {
     while (requestQueue.length > 0 && currentActiveRequests < maxConcurrentRequests) {
@@ -673,20 +717,43 @@ const extractArticleText = async (
         const markdown = await getJinaMarkdown(state.article_url);
         if (!markdown) {
             console.log(`No markdown content found for ${state.article_url}`);
-            return { articles: [] };
+            return { quotes: [] };
+        }
+
+        // Log markdown content length for debugging
+        console.log(`Retrieved markdown content for ${state.article_headline}, length: ${markdown.length} characters`);
+        if (markdown.length < 100) {
+            console.warn("Markdown content seems too short, might be missing content");
+            console.log("Markdown content:", markdown);
+            return { quotes: [] };
         }
         
-        const today_date = new Date().toISOString().split('T')[0];
+        const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
         
         // Format the prompt with the actual values
         const prompt = articleExtractionPrompt
             .replace("{article_url_markdown}", markdown)
-            .replace("{parent_url}", state.parent_url)
+            .replace("{parent_monitored_url}", state.parent_monitored_url)
             .replace("{article_url}", state.article_url)
-            .replace("{headline}", state.headline)
+            .replace("{article_headline}", state.article_headline)
             .replace("{today_date}", today_date);
 
+        logOpenAICall('start', 'extractArticleText', 'gpt-4o-mini', state.article_url, {
+            function_name: 'extractArticleText',
+            model: 'gpt-4o-mini',
+            url: state.article_url,
+            prompt: prompt
+        });
+
         try {
+            // Log the request
+            logger.logOpenAICall({
+                function_name: 'extractArticleText',
+                model: 'gpt-4o-mini',
+                url: state.article_url,
+                prompt: prompt
+            });
+
             const completion = await openai.beta.chat.completions.parse({
                 model: "gpt-4o-mini",
                 messages: [{ role: "user", content: prompt }],
@@ -694,34 +761,88 @@ const extractArticleText = async (
             });
 
             const response = completion.choices[0].message.parsed;
-            extractedArticleCount++;
-            console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${currentActiveRequests}`);
 
-            return { 
-                articles: [response]
+            // Validate article text
+            if (!response.article_text || response.article_text.length < 100) {
+                console.warn("Extracted article text is missing or too short");
+                console.log("Response:", response);
+                return { quotes: [] };
+            }
+
+            // Log successful extraction
+            console.log(`Successfully extracted article text for ${state.article_headline}, length: ${response.article_text.length} characters`);
+
+            // Save article data to the database
+            try {
+                const { error } = await supabase
+                    .from('articles')
+                    .upsert({
+                        parent_monitored_url: state.parent_monitored_url,
+                        article_url: state.article_url,
+                        article_date: new Date(response.article_date || response.publishedTime || today_date),
+                        headline: state.article_headline,
+                        article_text: response.article_text,
+                        total_quotes: 0, // Will be updated later in extractQuotes
+                        created_at: new Date().toISOString(),
+                        updated_at: new Date().toISOString()
+                    }, {
+                        onConflict: 'article_url'
+                    });
+
+                if (error) {
+                    console.error("Error saving article data:", error);
+                    logger.logError({
+                        function_name: 'extractArticleText',
+                        error: error,
+                        article_metadata: {
+                            parent_monitored_url: state.parent_monitored_url,
+                            article_url: state.article_url,
+                            article_headline: state.article_headline
+                        }
+                    });
+                } else {
+                    console.log(`Successfully saved article data to database for: ${state.article_headline}`);
+                }
+            } catch (error) {
+                console.error("Error saving article data:", error);
+                logger.logError({
+                    function_name: 'extractArticleText',
+                    error: error,
+                    article_metadata: {
+                        parent_monitored_url: state.parent_monitored_url,
+                        article_url: state.article_url,
+                        article_headline: state.article_headline
+                    }
+                });
+            }
+
+            // Return with proper state structure including empty quotes array
+            return {
+                quotes: [{
+                    article_metadata: {
+                        parent_monitored_url: state.parent_monitored_url,
+                        article_url: state.article_url,
+                        article_headline: state.article_headline,
+                        article_text: response.article_text,
+                        article_date: response.article_date || response.publishedTime || today_date
+                    },
+                    quotes: []  // Add empty quotes array to maintain structure
+                }]
             };
         } catch (error) {
-            console.error("Failed to extract article text:", error);
-            
-            // If we can parse the output but just missing date, try to salvage it
-            if (error.llmOutput) {
-                try {
-                    const parsedOutput = JSON.parse(error.llmOutput);
-                    if (parsedOutput.parent_url && parsedOutput.article_text) {
-                        extractedArticleCount++;
-                        console.log(`Article Text Extraction: ${extractedArticleCount} out of ${totalArticleCount} articles. Current Concurrent Count = ${currentActiveRequests}`);
-                        return {
-                            articles: [{
-                                ...parsedOutput,
-                                article_date: today_date // Use today's date as fallback
-                            }]
-                        };
-                    }
-                } catch (parseError) {
-                    // If we can't parse the output, just return empty
-                }
-            }
-            return { articles: [] };
+            // Also maintain structure in error case
+            return { 
+                quotes: [{
+                    article_metadata: {
+                        parent_monitored_url: state.parent_monitored_url,
+                        article_url: state.article_url,
+                        article_headline: state.article_headline,
+                        article_text: "",
+                        article_date: today_date
+                    },
+                    quotes: []  // Add empty quotes array
+                }]
+            };
         }
     };
 
@@ -734,196 +855,127 @@ const extractArticleText = async (
     });
 };
 
-// Function to extract quotes
-const extractQuotes = async (
-    state: ArticleState
-): Promise<Partial<typeof OverallState.State>> => {
-    // Initialize total articles count if this is the first article
-    if (processedArticleCount === 0) {
-        totalArticlesToProcess = totalArticleCount;
-    }
-
-    console.log("\nExtracting quotes from article:", state.headline);
-    
-    return new Promise((resolve) => {
-        const operation = async () => {
-            const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
-            
-            // Use the already extracted article text instead of fetching markdown
-            const prompt = quoteExtractionPrompt
-                .replace("{article_text}", state.article_text)
-                .replace("{parent_url}", state.parent_url)
-                .replace("{article_url}", state.article_url)
-                .replace("{headline}", state.headline)
-                .replace("{today_date}", today_date);
-
-            logOpenAICall('start', 'extractQuotes', 'gpt-4o-mini', state.article_url);
-            try {
-                // Log the request
-                logger.logOpenAICall({
-                    function_name: 'extractQuotes',
-                    model: 'gpt-4o-mini',
-                    url: state.article_url,
-                    prompt: prompt
-                });
-
-                const completion = await openai.beta.chat.completions.parse({
-                    model: "gpt-4o-mini",
-                    messages: [{ role: "user", content: prompt }],
-                    response_format: zodResponseFormat(Quotes, "quotes")
-                });
-
-                const response = completion.choices[0].message.parsed;
-                
-                // Log the successful response
-                logger.logOpenAICall({
-                    function_name: 'extractQuotes',
-                    model: 'gpt-4o-mini',
-                    url: state.article_url,
-                    prompt: prompt,
-                    response: response
-                });
-
-                logOpenAICall('end', 'extractQuotes', 'gpt-4o-mini', state.article_url);
-
-                processedArticleCount++;
-                console.log(`Found ${response.quotes.length} quotes in article ${processedArticleCount} of ${totalArticlesToProcess}: ${state.headline}`);
-
-                resolve({ 
-                    quotes: [response]  // Wrap in array since the state expects an array
-                });
-            } catch (error) {
-                // Log the error
-                logger.logOpenAICall({
-                    function_name: 'extractQuotes',
-                    model: 'gpt-4o-mini',
-                    url: state.article_url,
-                    prompt: prompt,
-                    error: error
-                });
-
-                logOpenAICall('end', 'extractQuotes', 'gpt-4o-mini', state.article_url);
-                console.error("Error in extractQuotes for article:", state.headline);
-                console.error(error);
-                
-                processedArticleCount++;
-                // Return empty quotes array on error to allow processing to continue
-                resolve({ 
-                    quotes: []
-                });
-            }
-        };
-
-        requestQueue.push(operation);
-        processQueue();
-    });
-};
-
 // Gemini quote extraction function
 const extractQuotesWithGemini = async (
     state: ArticleState
 ): Promise<Partial<typeof OverallState.State>> => {
-    console.log("\nExtracting quotes with Gemini from article:", state.headline);
+    console.log("\nExtracting quotes with Gemini from article:", state.article_metadata.article_headline);
     
     const prompt = quoteExtractionPrompt
-        .replace("{article_url}", state.article_url)
-        .replace("{article_text}", state.article_text)
+        .replace("{parent_monitored_url}", state.article_metadata.parent_monitored_url)
+        .replace("{article_url}", state.article_metadata.article_url)
+        .replace("{article_headline}", state.article_metadata.article_headline)
+        .replace("{article_text}", state.article_metadata.article_text)
         .replace("{today_date}", state.today_date);
         
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const result = await withRetry(() => model.generateContent(prompt));
     const response = JSON.parse(result.response.text());
         
-    console.log(`Found ${response.quotes.length} quotes in article: ${state.headline}`);
+    console.log(`Found ${response.quotes.length} quotes in article: ${state.article_metadata.article_headline}`);
     
     return { 
-        quotes: response.quotes
+        quotes: [{
+            article_metadata: {
+                parent_monitored_url: state.article_metadata.parent_monitored_url,
+                article_url: state.article_metadata.article_url,
+                article_headline: state.article_metadata.article_headline,
+                article_text: state.article_metadata.article_text,
+                article_date: state.today_date
+            },
+            quotes: response.quotes
+        }]
     };
 };
 
-// Function to validate quotes
-const validateQuotes = async (
-    state: QuoteValidationState
+// Function to extract quotes
+const extractQuotes = async (
+    state: ArticleState
 ): Promise<Partial<typeof OverallState.State>> => {
-    // Parse the quotes object to get the count
-    const quotesObject = JSON.parse(state.quote_object);
-    
-    // Update total quotes to validate if this is the first batch
-    if (validatedQuoteCount === 0) {
-        totalQuotesToValidate = quotesObject.quotes.length;
-    }
-
-    console.log("\nValidating quotes...");
-
-    // Split quotes into smaller chunks to avoid length limits
-    const CHUNK_SIZE = 5;
-    const quotes = quotesObject.quotes;
-    const chunks = [];
-    for (let i = 0; i < quotes.length; i += CHUNK_SIZE) {
-        chunks.push(quotes.slice(i, i + CHUNK_SIZE));
-    }
-
-    const validatedQuotes = [];
-
     return new Promise((resolve) => {
         const operation = async () => {
             try {
-                for (const chunk of chunks) {
-                    const prompt = quoteValidationPrompt
-                        .replace("{quote_object}", JSON.stringify(chunk))
-                        .replace("{article_text}", quotesObject.article_metadata.article_text)
-                        .replace("{parent_url}", quotesObject.article_metadata.parent_url)
-                        .replace("{article_url}", quotesObject.article_metadata.article_url);
+                // Define prompt first using the template
+                const prompt = quoteExtractionPrompt
+                    .replace("{parent_monitored_url}", state.article_metadata.parent_monitored_url)
+                    .replace("{article_url}", state.article_metadata.article_url)
+                    .replace("{article_headline}", state.article_metadata.article_headline)
+                    .replace("{article_text}", state.article_metadata.article_text)
+                    .replace("{today_date}", state.today_date);
 
-                    // Log the validation request
-                    logger.logOpenAICall({
-                        function_name: 'validateQuotes',
-                        model: 'gpt-4o-mini',
-                        url: quotesObject.article_metadata.article_url,
-                        prompt: prompt
-                    });
+                const completion = await openai.beta.chat.completions.parse({
+                    model: "gpt-4o-mini",
+                    messages: [{ role: "user", content: prompt }],
+                    response_format: zodResponseFormat(ExtractedQuotes, "quotes")
+                });
 
-                    logOpenAICall('start', 'validateQuotes', 'gpt-4o-mini', quotesObject.article_metadata.article_url);
+                const response = completion.choices[0].message.parsed;
+
+                console.log(`Extracted ${response.quotes.length} quotes from article: ${state.article_metadata.article_headline}`);
+
+                // Wait for all database operations to complete
+                await Promise.all([
+                    // Update article quote count
+                    updateArticleQuoteCount(state.article_metadata.article_url, response.quotes.length),
                     
-                    const completion = await openai.beta.chat.completions.parse({
-                        model: "ft:gpt-4o-mini-2024-07-18:personal::AVXTE2Zu",
-                        messages: [{ role: "user", content: prompt }],
-                        response_format: zodResponseFormat(z.array(Quote), "quotes")
-                    });
+                    // Save all quotes to staging
+                    Promise.all(response.quotes.map(quote => 
+                        supabase
+                            .from('quote_staging')
+                            .insert({
+                                parent_monitored_url: state.article_metadata.parent_monitored_url,
+                                article_url: state.article_metadata.article_url,
+                                article_headline: state.article_metadata.article_headline,
+                                article_date: state.today_date,
+                                raw_quote_text: quote.raw_quote_text,
+                                speaker_name: quote.speaker_name,
+                                summary: quote.summary,
+                                similar_to_quote_id: null,
+                                similarity_score: null,
+                                created_at: new Date().toISOString(),
+                                updated_at: new Date().toISOString()
+                            })
+                    ))
+                ]);
 
-                    const response = completion.choices[0].message.parsed;
-
-                    // Log the successful validation response
-                    logger.logOpenAICall({
-                        function_name: 'validateQuotes',
-                        model: 'gpt-4o-mini',
-                        url: quotesObject.article_metadata.article_url,
-                        prompt: prompt,
-                        response: response
-                    });
-
-                    logOpenAICall('end', 'validateQuotes', 'gpt-4o-mini', quotesObject.article_metadata.article_url);
-                    validatedQuotes.push(...response);
-                    validatedQuoteCount += response.length;
-                }
-
-                console.log(`Validated ${validatedQuoteCount} of ${totalQuotesToValidate} quotes`);
-                resolve({
-                    quotes: [{ ...quotesObject, quotes: validatedQuotes }]
+                // Only after database operations complete, update state
+                resolve({ 
+                    quotes: [{
+                        article_metadata: {
+                            parent_monitored_url: state.article_metadata.parent_monitored_url,
+                            article_url: state.article_metadata.article_url,
+                            article_headline: state.article_metadata.article_headline,
+                            article_text: state.article_metadata.article_text,
+                            article_date: state.today_date
+                        },
+                        quotes: response.quotes
+                    }]
                 });
             } catch (error) {
                 // Log any validation errors
                 logger.logOpenAICall({
-                    function_name: 'validateQuotes',
+                    function_name: 'extractQuotes',
                     model: 'gpt-4o-mini',
-                    url: quotesObject.article_metadata.article_url,
-                    prompt: 'Error occurred during validation',
+                    url: state.article_metadata.article_url,
+                    prompt: prompt,
                     error: error
                 });
 
-                console.error("Error in validateQuotes:", error);
-                resolve({
-                    quotes: [{ ...quotesObject, quotes: [] }]
+                console.error("Error in extractQuotes for article:", state.article_metadata.article_headline);
+                console.error(error);
+                
+                // Return empty quotes array on error to allow processing to continue
+                resolve({ 
+                    quotes: [{  // Return array with one object
+                        article_metadata: {
+                            parent_monitored_url: state.article_metadata.parent_monitored_url,
+                            article_url: state.article_metadata.article_url,
+                            article_headline: state.article_metadata.article_headline,
+                            article_text: state.article_metadata.article_text,
+                            article_date: state.today_date
+                        },
+                        quotes: []
+                    }]
                 });
             }
         };
@@ -932,49 +984,392 @@ const validateQuotes = async (
         processQueue();
     });
 };
+
+// Function to update just the quote count for an article
+async function updateArticleQuoteCount(articleUrl: string, quoteCount: number) {
+    try {
+        const { error } = await supabase
+            .from('articles')
+            .update({ total_quotes: quoteCount })
+            .eq('article_url', articleUrl);
+
+        if (error) {
+            logger.error(`Error updating quote count: ${error.message}`);
+            throw error;
+        }
+    } catch (error) {
+        logger.error(`Error in updateArticleQuoteCount: ${error}`);
+        throw error;
+    }
+}
+
+// Function to check quote similarity
+const checkQuoteSimilarity = async (
+    state: QuoteValidationState
+): Promise<Partial<typeof OverallState.State>> => {
+    const { quotes, article_metadata } = state.quote_object;
+
+    if (!quotes || quotes.length === 0) {
+        return { quotes: [] };
+    }
+
+    console.log(`Checking similarity for ${quotes.length} quotes from article: ${article_metadata.article_headline}`);
+
+    try {
+        // Process all quotes and wait for all operations to complete
+        const processedQuotes = await Promise.all(quotes.map(async (quote) => {
+            try {
+                // Generate embedding for the current quote
+                const embedding = await getQuoteEmbedding(quote.raw_quote_text);
+                console.log(`Generated embedding for quote: "${quote.raw_quote_text.substring(0, 50)}..."`);
+
+                // Find most similar quote using Supabase's vector similarity search
+                const { data: similarQuotes, error } = await supabase.rpc('find_most_similar_quote', {
+                    query_embedding: embedding,
+                    match_threshold: CONFIG.SIMILARITY.THRESHOLD,
+                    match_count: 1
+                });
+
+                if (error) {
+                    console.error("RPC Error:", error);
+                    throw error;
+                }
+
+                console.log("RPC Response:", {
+                    similarQuotes,
+                    threshold: CONFIG.SIMILARITY.THRESHOLD,
+                    embedding: embedding.slice(0, 5) // Just show first 5 values
+                });
+
+                const mostSimilarQuote = similarQuotes?.[0];
+
+                // Update database with similarity info
+                const { error: updateError } = await supabase
+                    .from('quote_staging')
+                    .update({
+                        content_vector: embedding,
+                        similar_to_quote_id: mostSimilarQuote?.id || null,
+                        similarity_score: mostSimilarQuote?.similarity || null,
+                        updated_at: new Date().toISOString()
+                    })
+                    .eq('raw_quote_text', quote.raw_quote_text)
+                    .eq('speaker_name', quote.speaker_name)
+                    .eq('article_url', article_metadata.article_url);
+
+                if (updateError) {
+                    throw updateError;
+                }
+
+                // Return processed quote with similarity info
+                return {
+                    ...quote,
+                    similar_to_quote_id: mostSimilarQuote?.id || null,
+                    similarity_score: mostSimilarQuote?.similarity || null
+                };
+            } catch (error) {
+                console.error("Error processing quote:", error);
+                return quote;
+            }
+        }));
+
+        console.log(`Completed processing similarity check for ${processedQuotes.length} quotes from: ${article_metadata.article_headline}`);
+
+        // Only after all database operations complete, update state
+        return {
+            quotes: [{
+                article_metadata,
+                quotes: processedQuotes
+            }]
+        };
+    } catch (error) {
+        console.error("Error in checkQuoteSimilarity:", error);
+        return {
+            quotes: [{
+                article_metadata,
+                quotes: quotes.map(quote => ({
+                    ...quote,
+                    similar_to_quote_id: null,
+                    similarity_score: null
+                }))
+            }]
+        };
+    }
+};
+
+// Function to validate quotes
+const validateQuotes = async (
+    state: QuoteValidationState
+): Promise<Partial<typeof OverallState.State>> => {
+    const { quotes, article_metadata } = state.quote_object;
+
+    return new Promise((resolve) => {
+        const operation = async () => {
+            try {
+                const prompt = quoteValidationPrompt
+                    .replace("{quotes_to_validate}", JSON.stringify(quotes))
+                    .replace("{article_text}", article_metadata.article_text)
+                    .replace("{parent_monitored_url}", article_metadata.parent_monitored_url)
+                    .replace("{article_url}", article_metadata.article_url)
+                    .replace("{article_headline}", article_metadata.article_headline);
+
+                // Log the validation request
+                logger.logOpenAICall({
+                    function_name: 'validateQuotes',
+                    model: 'gpt-4o-mini',
+                    url: article_metadata.article_url,
+                    prompt: prompt
+                });
+
+                logOpenAICall('start', 'validateQuotes', 'gpt-4o-mini', article_metadata.article_url);
+                
+                const completion = await openai.beta.chat.completions.parse({
+                    model: "gpt-4o-mini",
+                    messages: [{ role: "user", content: prompt }],
+                    response_format: zodResponseFormat(z.object({
+                        quotes: z.array(QuoteValidation)
+                    }), "quotes")
+                });
+
+                const validatedQuotes = completion.choices[0].message.parsed.quotes;
+
+                // Wait for all database updates to complete
+                await Promise.all(validatedQuotes.map(quote => 
+                    supabase
+                        .from('quote_staging')
+                        .update({
+                            is_valid: quote.is_valid,
+                            invalid_reason: quote.invalid_reason || null,
+                            updated_at: new Date().toISOString()
+                        })
+                        .eq('raw_quote_text', quote.raw_quote_text)
+                        .eq('speaker_name', quote.speaker_name)
+                        .eq('article_url', article_metadata.article_url)
+                ));
+
+                // Log the successful response
+                logger.logOpenAICall({
+                    function_name: 'validateQuotes',
+                    model: 'gpt-4o-mini',
+                    url: article_metadata.article_url,
+                    prompt: prompt,
+                    response: validatedQuotes
+                });
+
+                logOpenAICall('end', 'validateQuotes', 'gpt-4o-mini', article_metadata.article_url);
+
+                console.log(`Validated ${validatedQuotes.length} quotes from: ${article_metadata.article_headline}`);
+                
+                // Only after database operations complete, update state
+                resolve({
+                    quotes: [{
+                        article_metadata,
+                        quotes: validatedQuotes
+                    }]
+                });
+            } catch (error) {
+                // Log any validation errors
+                logger.logOpenAICall({
+                    function_name: 'validateQuotes',
+                    model: 'gpt-4o-mini',
+                    url: article_metadata.article_url,
+                    prompt: prompt,
+                    error: error
+                });
+
+                console.error("Error in validateQuotes:", error);
+                resolve({
+                    quotes: [{
+                        article_metadata,
+                        quotes: [] // Return empty quotes array on error
+                    }]
+                });
+            }
+        };
+
+        requestQueue.push(operation);
+        processQueue();
+    });
+};
+
+
+// Function to check if speaker exists in speakers table
+const checkSpeakerExists = async (speaker: string): Promise<{exists: boolean, id?: string}> => {
+    const { data, error } = await supabase
+        .from('speakers')
+        .select('id')
+        .ilike('name', speaker)
+        .limit(1);
+    
+    if (error) {
+        console.error('Error checking speaker:', error);
+        return {exists: false};
+    }
+    
+    return {
+        exists: data && data.length > 0,
+        id: data && data.length > 0 ? data[0].id : undefined
+    };
+};
+
+// Function to move quote from staged to saved
+const moveQuoteToSaved = async (quote: any, articleMetadata: any, speakerId: string) => {
+    const { error: insertError } = await supabase
+        .from('quotes')
+        .insert({
+            speaker_id: speakerId,
+            raw_quote_text: quote.raw_quote_text,
+            summary: quote.summary,
+            article_url: articleMetadata.article_url,
+            article_date: articleMetadata.article_date,
+            parent_monitored_url: articleMetadata.parent_monitored_url,
+            article_headline: articleMetadata.article_headline,
+            content_vector: quote.content_vector,
+            similar_to_quote_id: quote.similar_to_quote_id,
+            similarity_score: quote.similarity_score,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        });
+
+    if (insertError) {
+        console.error('Error inserting quote:', insertError);
+        return false;
+    }
+
+    // Delete from quote_staging
+    const { error: deleteError } = await supabase
+        .from('quote_staging')
+        .delete()
+        .eq('raw_quote_text', quote.raw_quote_text)
+        .eq('speaker_name', quote.speaker_name);
+
+    if (deleteError) {
+        console.error('Error deleting staged quote:', deleteError);
+        return false;
+    }
+
+    return true;
+};
+
+// Function to process validated quotes
+const processValidatedQuotes = async (
+    state: QuoteValidationState
+): Promise<Partial<typeof OverallState.State>> => {
+    const quotesObject = state.quote_object;
+    const quotes = quotesObject.quotes;
+    const article_metadata = quotesObject.article_metadata;
+
+    try {
+        // Process all quotes and wait for all operations to complete
+        const processedQuotes = await Promise.all(quotes.map(async (quote) => {
+            try {
+                // Only check speakers for valid quotes
+                if (quote.is_valid) {
+                    const {exists, id} = await checkSpeakerExists(quote.speaker_name);
+                    
+                    if (exists && id) {
+                        // Wait for move operation to complete
+                        const moved = await moveQuoteToSaved(quote, article_metadata, id);
+                        if (moved) {
+                            console.log(`Quote from ${quote.speaker_name} moved to saved quotes`);
+                        }
+                    } else {
+                        console.log(`Valid quote from ${quote.speaker_name} remains in staged (speaker not in database)`);
+                    }
+                } else {
+                    console.log(`Invalid quote from ${quote.speaker_name} remains in staged for review`);
+                }
+
+                return quote;
+            } catch (error) {
+                console.error("Error processing quote:", error);
+                return quote;
+            }
+        }));
+
+        // Only after all database operations complete, update state
+        return {
+            quotes: [{
+                article_metadata,
+                quotes: processedQuotes
+            }]
+        };
+    } catch (error) {
+        console.error("Error in processValidatedQuotes:", error);
+        return {
+            quotes: [{
+                article_metadata,
+                quotes: quotes  // Return original quotes on error
+            }]
+        };
+    }
+};
+
+
 // Here we define the logic to map out over the parent URLs
-// We will use this as an edge in the graph
 const continueToHeadlines = (state: typeof OverallState.State) => {
-    // We will return a list of `Send` objects
-    // Each `Send` object consists of the name of a node in the graph as well as the state to send to that node
-    return state.parent_urls.map((parent_url) => new Send("extractHeadlines", { parent_url }));
-  };
+    // For each parent URL, we will create a send object that triggers the extractHeadlines function 
+    return state.parent_monitored_urls.map((parent_monitored_url) => new Send("extractHeadlines", { 
+        parent_monitored_url: parent_monitored_url 
+    }));
+};
 
 // Here we define the logic to map out over the headlines / article URLs
 const continueToArticles = (state: typeof OverallState.State) => {
-    // We will return a list of `Send` objects
-    // Each `Send` object consists of the name of a node in the graph as well as the state to send to that node
-    return state.headlines.map((headline) => new Send("extractArticleText", { 
-        parent_url: headline.parent_url, // Use the parent_url from the headline object
-        article_url: headline.article_url,
-        headline: headline.headline
+    return state.quotes.map((quote) => new Send("extractArticleText", { 
+        parent_monitored_url: quote.article_metadata.parent_monitored_url,
+        article_url : quote.article_metadata.article_url,
+        article_headline: quote.article_metadata.article_headline
     }));
 };
-
 
 // Here we define the logic to map out over the articles
 const continueToQuotes = (state: typeof OverallState.State) => {
-    // Reset quote extraction counters
-    extractedQuoteCount = 0;
-    totalQuoteCount = state.articles.length;
-
-    // Map over the articles array which contains our extracted article text
-    return state.articles.map((article) => new Send("extractQuotes", { 
-        parent_url: article.parent_url,
-        article_url: article.article_url,
-        headline: article.headline,
-        article_text: article.article_text,
-        today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
+    // Map over the quotes array which contains our article metadata
+    return state.quotes.map((article) => new Send("extractQuotes", { 
+            article_metadata: {
+                parent_monitored_url: article.article_metadata.parent_monitored_url,
+                article_url: article.article_metadata.article_url,
+                article_headline: article.article_metadata.article_headline,
+                article_text: article.article_metadata.article_text,
+                article_date: article.article_metadata.article_date
+            },
+            today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
     }));
 };
 
-const continueToQuoteValidation = (state: typeof OverallState.State) => {
-    validatedQuoteCount = 0;
-    totalQuotesToValidate = state.quotes.length;
+const continueToQuoteSimilarity = (state: typeof OverallState.State) => {    
+    console.log("State in continueToQuoteSimilarity:", JSON.stringify(state.quotes, null, 2));
+    
+    return state.quotes.flatMap((quoteObj) => {  // Use flatMap to handle the nested array
+        return new Send("checkQuoteSimilarity", {
+            quote_object: quoteObj,
+            today_date: new Date().toISOString().split('T')[0]
+        });
+    });
+};
 
-    // Each item in state.quotes is already a response containing all quotes from one article
-    return state.quotes.map((articleQuotes) => new Send("validateQuotes", {
-        quote_object: JSON.stringify(articleQuotes),
+const continueToQuoteValidation = (state: typeof OverallState.State) => {
+    return state.quotes
+        .map(articleQuotes => {
+            const uniqueQuotes = {
+                ...articleQuotes,
+                quotes: articleQuotes.quotes.filter(quote => 
+                    quote.similarity_score && quote.similarity_score < -CONFIG.SIMILARITY.THRESHOLD
+                )
+            };
+
+            console.log(`Found ${articleQuotes.quotes.length} total quotes, proceeding with ${uniqueQuotes.quotes.length} unique quotes for validation (filtered out ${articleQuotes.quotes.length - uniqueQuotes.quotes.length} similar quotes)`);
+            
+            return new Send("validateQuotes", {
+                quote_object: uniqueQuotes,
+                today_date: new Date().toISOString().split('T')[0]
+            });
+        });
+};
+
+const continueToProcessValidated = (state: typeof OverallState.State) => {
+    return state.quotes.map((articleQuotes) => new Send("processValidatedQuotes", {
+        quote_object: articleQuotes,
         today_date: new Date().toISOString().split('T')[0]
     }));
 };
@@ -985,39 +1380,68 @@ const graph = new StateGraph(OverallState)
     .addNode("extractHeadlines", extractHeadlines)
     .addNode("extractArticleText", extractArticleText)
     .addNode("extractQuotes", extractQuotes)
+    .addNode("checkQuoteSimilarity", checkQuoteSimilarity)
     .addNode("validateQuotes", validateQuotes)
+    .addNode("processValidatedQuotes", processValidatedQuotes)
     .addEdge(START, "fetchParentURLs")
     .addConditionalEdges("fetchParentURLs", continueToHeadlines)
     .addConditionalEdges("extractHeadlines", continueToArticles)
     .addConditionalEdges("extractArticleText", continueToQuotes)
-    .addConditionalEdges("extractQuotes", continueToQuoteValidation)
-    .addEdge("validateQuotes", END);
+    .addConditionalEdges("extractQuotes", continueToQuoteSimilarity)
+    .addConditionalEdges("checkQuoteSimilarity", continueToQuoteValidation)
+    .addConditionalEdges("validateQuotes", continueToProcessValidated)
+    .addEdge("processValidatedQuotes", END);
 
 const app = graph.compile();
 
 async function main() {
+    let finalState = null;
+    
     // Stream the processing
     for await (const chunk of await app.stream({}, {
         streamMode: "values",
     })) {
-        // Log each state update
-        console.log("Current State Update:");
-        if (chunk.parent_urls) console.log("Parent URLs:", chunk.parent_urls);
-        if (chunk.headlines) console.log("Headlines:", chunk.headlines);
-        if(chunk.articles) console.log("Articles:", chunk.articles);
-        if (chunk.quotes) console.log("Quotes:", chunk.quotes);
-        console.log("\n====\n");
+        // Log each state update with more detail
+        console.log("\n==== State Update ====");
+        console.log("Timestamp:", new Date().toISOString());
+        
+        // Log all possible state fields
+        const stateFields = [
+            'parent_urls',
+            'articles',
+            'article_text',
+            'quotes',
+            'validated_quotes',
+            'processed_quotes'
+        ];
 
-        // Save results when we have quotes (meaning the graph has completed)
-        if (chunk.quotes) {
-            await saveGraphResults(
-                'gemini', // or 'openai' depending on which model is being used
-                chunk
-            );
-        }
+        stateFields.forEach(field => {
+            if (chunk[field]) {
+                console.log(`\n${field.toUpperCase()}:`);
+                if (Array.isArray(chunk[field])) {
+                    chunk[field].forEach((item, index) => {
+                        console.log(`\n[${index + 1}]`, JSON.stringify(item, null, 2));
+                    });
+                } else {
+                    console.log(JSON.stringify(chunk[field], null, 2));
+                }
+            }
+        });
+
+        console.log("\n==================\n");
+
+        // Keep track of the latest state
+        finalState = chunk;
+    }
+
+    // Only save results once at the end
+    if (finalState && finalState.quotes) {
+        await saveGraphResults(
+            'openai', // geminior 'openai' depending on which model is being used
+            finalState
+        );
     }
 }
-
 
 // Run the main function
 main().catch(console.error);

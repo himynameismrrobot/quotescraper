@@ -1,0 +1,496 @@
+{
+  "model": "gemini",
+  "timestamp": "2024-11-24T02:55:01.057Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "headlines": [
+    {
+      "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "headline": "BBC Manchester United Homepage"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-ready-unleash-very-30437211",
+      "headline": "Ruben Amorim ready to unleash his very own Ryan Gravenberch at Manchester United"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-guaranteed-without-seven-30436992",
+      "headline": "Man United guaranteed to be without seven stars vs Ipswich as Ruben Amorim blow confirmed"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-holds-transfer-talks-30425038",
+      "headline": "Ruben Amorim holds transfer talks as defender 'leaning towards' Man United transfer"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-criticises-manchester-united-30430494",
+      "headline": "Ruben Amorim criticises Manchester United players over three things"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-player-ratings-season-30417767",
+      "headline": "Manchester United player ratings this season so far as six get 7/10 and one gets 2"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-icon-wayne-rooneys-30435710",
+      "headline": "Man United icon Wayne Rooney's six-word response to Plymouth star's 'Robin van Persie goal'"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/this-place-what-man-united-30425589",
+      "headline": "'This is my place' - What Man United boss Ruben Amorim told Gary Neville in first meeting"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/omar-berrada-shows-true-man-30427757",
+      "headline": "Omar Berrada shows true Man United colours as key Man City APT vote intervention emerges"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/ruben-amorims-carrington-reaction-could-30421960",
+      "headline": "Ruben Amorim's Carrington reaction could offer Manchester United's forgotten man a new start"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/how-manchester-united-should-line-30419888",
+      "headline": "How Manchester United should line up for Ruben Amorim's first game in charge vs Ipswich"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/bruno-fernandes-repeats-viktor-gyokeres-30434363",
+      "headline": "Bruno Fernandes repeats Viktor Gyokeres move amid Man United 'gentleman's agreement' over transfer"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/22/ruben-amorim-manchester-united-appointment-mourinhovideo",
+      "headline": "'The right guy at the right time': Ruben Amorim on Manchester United appointment – video"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/22/premier-league-10-things-to-look-out-for-this-weekend",
+      "headline": "Ten things to look out for this weekend"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/audio/2024/nov/21/ruben-amorim-manchester-united-city-pep-guardiola-football-weekly-extra-podcast",
+      "headline": "Football Weekly"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/19/golden-goal-brian-mcclair-for-manchester-united-v-sheffield-wednesday-1991",
+      "headline": "Golden Goal: Brian McClair for Manchester United v Sheffield Wednesday (1991)"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/ruben-amorim-yet-to-be-granted-visa-despite-starting-manchester-united-job-on-monday",
+      "headline": "Ruben Amorim yet to be granted visa despite starting Manchester United job on Monday"
+    }
+  ],
+  "articles": [
+    {
+      "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "headline": "BBC Manchester United Homepage",
+      "article_text": "Ruben Amorim has often been compared to Jose Mourinho given his nationality and success in Portugal, but the new Manchester United boss was keen to play down comparisons when he met the British media on Friday.\n    Mourinho spent two-and-a-half-years at Old Trafford, winning the League Cup and Europa League following his appointment in 2016. He also sent compatriot Amorim a message to congratulate him on his appointment as successor to Erik ten Hag at United.\n    \"I remember that time,\" said Amorim, referring to when Mourinho joined Chelsea in 2004 after winning the Champions League with Porto. \"You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.\n    \"Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.\n    \\n    \"Their young guys were [Frank] Lampard and these kind of players. Nowadays it's so much different. I think I'm the right person for now.\"\n    Amorim's arrival as Manchester United head coach is expected to see tactical changes, including a switch to three at the back. But which players are set to benefit most? United fan Adam McKola tells The Football News Show why he feels Amorim sticking to his style of football can bring the best out of the likes of Leny Yoro, Kobbie Mainoo and Casemiro.\n    Manchester United coach Darren Fletcher has been successful in reducing his touchline ban to two matches after being found guilty of misconduct against Brentford on Saturday 19 October.\n    Fletcher is alleged to have acted in an \"improper and/or confrontational manner\" and used \"abusive and/or insulting words\" towards the match officials during the Premier League victory at Old Trafford.\n    The former midfielder admitted to this misconduct, but argued that it was only towards the fourth official and the referee and that he was not abusive.\n    New Manchester United head coach Ruben Amorim says that while journalists and pundits may not think it is possible for the Red Devils to win the Premier League title under him in the future, he has full belief in himself, his staff and his players to make that dream a reality.\n    The 39-year-old said: \"I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things.\n    \"You guys don’t think it’s possible, I do.\"\n    The former Sporting Lisbon manager arrived in Manchester on 11 November, following the sacking of Erik ten Hag.\n    Asked where he thought he might need to \"repair\" the United squad, Amorim dismissed the suggestion his players needed fixing.\n    \"I don’t know about repair.\" he replied. \"We have space to grow as a team. We have to improve in a lot of areas. I know it’s a different way of playing and we are changing the way we play.\n    \"We have to change the physical aspect of the team. I don’t know how long it will take. I know at Manchester United we have to win games. We need a lot of time because it’s a tough league, we have to improve a lot to try and win the title.\"\n    \"It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.\"\n    Amorim takes charge of United for the first time on Sunday, at Ipswich Town (16:30 GMT).",
+      "article_date": "2024-11-23",
+      "publishedTime": "2024-11-23T00:00:00Z"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-ready-unleash-very-30437211",
+      "headline": "Ruben Amorim ready to unleash his very own Ryan Gravenberch at Manchester United",
+      "article_text": "Mason Mount has yet to properly ignite in Manchester United colours, but the former Chelsea star may just have been given the biggest signal yet that his time is coming. \n\nThe fit-again midfielder was signed by Erik ten Hag last summer and, initially, it was hoped that he could step into their engine room alongside Casemiro and strike-up a winning combination. However, the plan never really caught fire and Ten Hag abandoned Mount as a double pivot option amid form and fitness concerns.\n\nIt was hardly surprising, either. Mount, now 25, enjoyed his best days at Chelsea further forward in their No.10 role or while operating on the flanks. He was road-blocked by Bruno Fernandes in his main position under Ten Hag, and the Dutchman's penchant for inverted forwards made it difficult for him out wide, too.\n\nUnited, for all their issues within the squad, are blessed with right-footed left wingers, so much so that they were able to cast off Jadon Sancho - to Chelsea, incidentally - leaving Marcus Rashford and Alejandro Garnacho to 'fight' it out for the left-hand side with the other one regularly 'sacrificed' and made to settle for a spot on the right.\n\nMount would have taken that opportunity, no questions asked, but in any case it always felt as though he would be a fill-in player under Ten Hag and in his preferred system. Now that Ruben Amorim has stepped in, though, with that comes added incentive for Mount to really become part of the jigsaw.\n\n\"Mason Mount... I have to tell you I love that kid,\" Amorim said to club media before his first match. \n\nA good start, then, and it's clear to see Mount has made a positive first impression with the new head coach. \"You can look in his eyes that he wants this so bad,\" added Amorim. \"And this is the most important thing for me.  \n\n\"I know he was suffering from injuries, he was not on the pitch, but now he's trying to stay fit, and we hope he can continue to be fit to show all the talent that he's shown, for example, in Chelsea.\"\n\nIn a glowing reference for his No.7, the now-former Sporting CP head coach - who is expected to deploy a fresh 3-4-3 formation at Old Trafford and beyond - concluded: \"He played in this system before, so it's perfect for him.\n\n\"I have two positions for Mason Mount. So he should be very happy!\"\n\nHe should be very happy, indeed. By the end of the Ten Hag reign, he didn't even have one - even though United's ex-manager did believe in Mount enough to insist he wore the club's iconic No.7 shirt.",
+      "article_date": "2024-11-23",
+      "publishedTime": "2024-11-23T18:30:00Z"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-guaranteed-without-seven-30436992",
+      "headline": "Man United guaranteed to be without seven stars vs Ipswich as Ruben Amorim blow confirmed",
+      "article_text": "Manchester United have a series of injury issues to deal with against Ipswich Town. Ruben Amorim has a task ahead of him to turn things around at Manchester United but despite the lowly league table position he inherits, there is a sense of optimism at Old Trafford. After two weeks of settling in during the international break, it is now time for business. Not only does Amorim have the challenge of reinvigorating a squad which has underperformed for some time, he is expected to do it via a significant tactical switch to a back three. It is something which will pose new questions of the United players, who have seen their suitability for a formation change analysed aplently since Amorim's arrival was confirmed.\n\nTo complicate things further ahead of the trip to Ipswich Town on Sunday, Kieran McKenna's side are sure to be not only fired up with the chance to cause a shock, but also full of confidence after beating Tottenham just over 14 days ago. Matters are made even tougher when considering that Amorim won't have a full quota of options available.\n\nAs has been the case for much of the past 18 months, United continue to be plagued by injury. It is not an ideal scenario for Amorim to walk into. For starters, at least four players are expected to be absent for the game. Although there is a chance that Kobbie Mainoo returns - he trained ahead of the trip to Portman Road having been out for over a month with a thigh injury - Luke Shaw is still likely to be out. He hasn't played since February for United but is another who has found himself on the grass at Carrington as well.\n\nShaw is a natural fit for the left wing-back spot in Amorim's preferred 3-4-3/3-4-2-1 system but hasn't been fit for regular football in over two years. The same is true of Tyrell Malacia, who did play against Huddersfield Town for the Under-21 side and featured in training under Amorim this week. It may well still be too soon for him to be making senior matches just yet, though. Leny Yoro is in a similar camp. He is taking steps to make a United debut sooner rather than later but may well also go to the academy sides first as well. It is the curse of the backline, too, with Harry Maguire and Lisandro Martinez both doubts.\n\nMaguire has been working on his rehabilitation for almost six weeks now without much indication of being back in the fold. Meanwhile, Martinez surprised Argentina boss Lionel after withdrawing from the squad with a back problem.\n\nFellow centre-back Victor Lindelof is another struggling. He was dealt a blow during the break whilst playing for Sweden and appears unlikely to be able to return. Dan Gore is back in training, fortunately, but is not yet ready to be selected, it is understood. He is first expected to play for the Under-21s in the Premier League 2 next week. Tom Collyer is also out on the grass having been out since the start of the month.\n\nThe good news for United is that Malacia, Mainoo, and Yoro are all making progress at a vital stage early on under Amorim but there are doubts over if they are ready to try and help the team beat Ipswich on Sunday. In total it could be as many as nine players out. An optimist could suggest that Mainoo, Shaw, and perhaps Yoro are closing in on at least being able to make the bench.",
+      "article_date": "2024-11-23",
+      "publishedTime": "2024-11-23T17:00:00Z"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-holds-transfer-talks-30425038",
+      "headline": "Ruben Amorim holds transfer talks as defender 'leaning towards' Man United transfer",
+      "article_text": "Sporting Clube de Portugal star Ousmane Diomande has reportedly spoken to Ruben Amorim about the possibility of joining Manchester United.\n\nThat's according to Sky in Switzerland who claim the 20-year-old is 'growing increasingly keen' on the potential prospect of reuniting with Amorim at Old Trafford. Diomande has quickly earned the reputation as one of the most promising young defenders in Portugal since joining Sporting in 2023.\n\nThe report also mentions he is set to be 'one of the attractions' for the next two transfer windows as United, Manchester City and Arsenal are claimed to be 'battling' for his signature. City, however, are thought to have had Diomande 'firmly' on their radar since his days at former club Midtjylland.\n\nMeanwhile, City's incoming director of football Hugo Viana is thought to have 'already prepared' a plan to convince Sporting president Frederico Varandas over parting ways with the Ivory Coast international. That's where Amorim comes in, with the report stating the Portuguese boss has already spoken to the centre-back.\n\nIt's claimed the player is aware that continuing his development under Amorim 'would be beneficial' and is reportedly 'leaning towards' a move to United. Diomande is reported to have a £66million (€80m) release clause in his contract which expires in the summer of 2027.\n\nElsewhere, Real Madrid remain confident they will beat United to the signature of Alphonso Davies. The Canada international is coming to the end of his contract in the summer and will, therefore, be able to negotiate a pre-contract with clubs abroad from the new year.",
+      "article_date": "2024-11-22",
+      "publishedTime": "2024-11-22T04:30:00Z"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/video/2024/nov/22/ruben-amorim-manchester-united-appointment-mourinhovideo",
+      "headline": "'The right guy at the right time': Ruben Amorim on Manchester United appointment – video",
+      "article_text": "Ruben Amorim said he is a 'dreamer' in his first press conference as Manchester United head coach after joining the club from Sporting.\n\nThe 39-year-old signed a two-and-a-half-year deal to replace Erik ten Hag who was sacked in October.\n\nHe has been compared to José Mourinho because of his nationality and success and said: 'He [José Mourinho] sent me a message and told me that this is a lovely club, a big club, with lovely people, and that is correct.'\n\nHe added: 'I am different from Mourinho. I am a different person.'",
+      "article_date": "2024-11-22",
+      "publishedTime": "2024-11-22T17:02:38.000Z"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/22/premier-league-10-things-to-look-out-for-this-weekend",
+      "headline": "Ten things to look out for this weekend",
+      "article_text": "Højlund has chance to impress Amorim, Villa look to end miserable month and will Forest trouble Arsenal?\n\n1\nDewsbury-Hall back on familiar ground\nAfter masterminding Leicester’s return to the Premier League, Enzo Maresca jumped ship to Chelsea. The Italian had given little confidence he would stay at the King Power, despite his success amid problems in the background and the lure of London. Maresca did, however, ensure he took one thing with him in the form of the central midfielder Kiernan Dewsbury-Hall, a leading light in the Foxes’ promotion charge. While Maresca has impressed at Stamford Bridge, Dewsbury-Hall is yet to find his feet and has been limited to a cup-player role. Of his 10 appearances for Chelsea, only three have been in the league and none from the start. It might be time to show some faith in him and there is no better place to do so than his old home. Dewsbury-Hall rose through the ranks at Leicester and his £30m transfer fee this summer was highly beneficial to their accounts after financial problems. Leicester fans will welcome back Maresca and Dewsbury-Hall with open arms, the embrace the latter might need to kickstart his Chelsea career.\n\n2\nO’Riley can be pivotal to Brighton\nMatt O’Riley endured a tough start to his Brighton career when he suffered an ankle injury caused by a poor challenge nine minutes into his debut in the Carabao Cup against Crawley. The midfielder missed the following three months but showed his worth on his return to help transform the game against Manchester City and score the winner. Fabian Hürzeler and Brighton earmarked O’Riley as the man required in midfield to sit alongside Carlos Baleba, who has been struggling with a knee problem, and they could be paired from the start at Bournemouth. Brighton have not missed O’Riley much, starting the weekend in sixth. Baleba is 20 and O’Riley 24, meaning they could be a long-term partnership. That is not often the way at Brighton but if they perform as hoped the pair could provide the foundation for another push for European football while increasing their value.\n\n3\nCan Forest repeat Anfield heist?\nArsenal have picked up two points from 12 available over the past four games and are in a tricky spot. The prospect of facing the side immediately below them, who are yet to lose away all season, is a daunting one. Nottingham Forest are the only team to have defeated Liverpool this season, proving they have the cunning and quality to topple title contenders. At Anfield, Forest’s success came about by packing the midfield and stopping Liverpool from playing with fluidity. It would seem Nuno might do similar to prevent Martin Ødegaard from pulling the strings. Forest’s manager has proven his intelligence when it comes to stifling opponents, while possessing a potent attacking threat. After losing to Newcastle, Nuno will want a reaction from his players. If he can get it to resemble the performance at Anfield he could be managing a top-four team by Saturday evening.\n\n4\nWill Villa’s miserable month continue?\nA winless month and four consecutive defeats across all competitions have taken the wind out of Aston Villa’s sails. Such patterns are not unknown for Unai Emery; his teams can blow hot and cold. That grim run has betrayed the fatigue of coming so far so fast and suggested that opposition managers may be cracking the Villa code. Emery’s high-risk football, when it falters, can often look one-dimensional as Villa did in successive chastening defeats to Tottenham and Liverpool. With Ollie Watkins making an international breakthrough, and Morgan Rogers getting his first cap, Emery will hope for a lift in morale. Oliver Glasner, with fewer resources at Crystal Palace than Emery, has hit on similar problems, having initially been so successful last season. It still comes as a surprise to see Palace in the bottom three. Eberechi Eze and Adam Wharton recovering fitness and form could be key for the Austrian manager.\n\n5\nEverton need to freshen up their game\nThis could be the final home game of the dreadful Farhad Moshiri era for Everton, with the Friedkin Group hoping that Premier League approval on their proposed takeover is close. A fresh start awaits – hopefully, as the club is in desperate need of one – and the same applies to Sean Dyche’s approach. He has made the team hard to beat but increasingly hard to watch; Everton are without a goal in their last two games. Dominic Calvert-Lewin has not scored in his last seven starts yet continues to keep Beto on the bench despite the Guinea-Bissau international offering the team a rare goal threat as a substitute. Calvert-Lewin could, in fairness, point to a desperate lack of quality service. Change is required, either at centre-forward or in the supply line, and while Brentford have lost all five league away games this season it must be noted those defeats have come at Liverpool, Manchester City, Tottenham, Manchester United and to two goals in stoppage time at Fulham.\n\n6\nBerge helps fill Fulham’s Palhinha void\nIt would not have been a surprise if Fulham had dropped off after selling João Palhinha to Bayern Munich. To their credit, though, they have managed to absorb the loss of the tough-tackling Portugal midfielder. Sasa Lukic, the Serbia international, caught the eye at the start of the season and Sander Berge has done well since breaking into the starting lineup last month. Berge was a canny buy. The Norwegian joined Sheffield United for £22m in 2020 and was relegated 18 months later. He was influential in the Championship, won promotion, joined Burnley and was relegated again last season. Fulham could give the 26-year-old stability. Berge will hope to make his sixth consecutive start when Marco Silva’s high-flying side host Wolves.\n\n7\nPep stays on but City must improve\nWhen does a feelgood vibe remain at a club despite a dismal four-game losing streak? Answer: when Manchester City and their all-time great manager, Pep Guardiola, have just agreed a new one-year deal. City look to arrest their slide against Tottenham and Ange Postecoglou’s off-the-cuff attacking unit will suit City. A side mocked as “Doctor Tottenham” – the joke being they provide the cure for a needy side’s ills – have the pace to get in behind the champions’ high line and damage them, too. A fifth consecutive reverse would cast the champions in crisis and have some (misguided) fans questioning the prudency of the Guardiola extension.\n\n8\nBottom meets top on south coast\nThere is already a 24-point gap between bottom and top as Southampton prepare to face Liverpool. Trying to find hope for Russell Martin’s side going into this fixture is tricky. At Wolves they failed to have a shot on target despite having 72% possession and they will not dominate the ball in the same manner on Sunday. Southampton’s style is about passing and patient buildup and it is unlikely Martin will ever change, even if the club’s Premier League status and his employment are at risk. All teams need an element of surprise, whether they are first or last, in order to keep opponents guessing, but Southampton’s predictability is their downfall and explains why they are bottom. Reacting when something is not working is a sign of a good coach. If Martin can bring himself to be more direct with the speed of his wingers and strikers, they could spring a much-needed upset.\n\n9\nHøjlund to fill Gyökeres role for Amorim?\nAmid all the fanfare surrounding Rúben Amorim, the key question is whether he will implement his favoured 3-4-3 formation and what personnel he could use to do so. At Sporting, Amorim was highly reliant on the quality of Viktor Gyökeres as his lone striker and will almost certainly give that role to Rasmus Højlund on Sunday as the only suitable player in the squad. The Danish international has shown his potential in flashes at United but needs to become more consistent. Højlund needs help in achieving this but he has some similar characteristics to Gyökeres. The Swede was not the finished article when he left Coventry for Sporting but is now one of the most sought-after strikers in Europe, partly thanks to Amorim’s support. Quick and strong, Højlund has a similar profile but two goals in 12 appearances this season is not good enough to keep him in the starting lineup in the long term. Amorim might be just the man to help him.\n\n10\nLopetegui is on the brink\nMight this be Julen Lopetegui’s last stand? West Ham’s beleaguered manager could probably do without facing an improving Newcastle team fresh from a warm weather training camp in Saudi Arabia. England’s Jarrod Bowen will hope to impress in the north-east and ranks high on Eddie Howe’s January shopping list. The number of future visits West Ham might make to St James’ Park is currently a sensitive issue; while most Newcastle fans have indicated a preference for the club remaining at the stadium, the club’s Saudi ownership are currently exploring the idea of building a brand new ground, possibly four miles outside the city centre near the Gosforth Park racecourse. A decision is expected to be announced early in the New Year. Who knows where Lopetegui, or West Ham, will be by then.",
+      "article_date": "2024-11-22",
+      "publishedTime": "2024-11-22T00:01:08.000Z"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/audio/2024/nov/21/ruben-amorim-manchester-united-city-pep-guardiola-football-weekly-extra-podcast",
+      "headline": "Football Weekly",
+      "article_text": "Max Rushden is joined by Barry Glendenning, Jonathan Wilson and Jonathan Liew to preview the Premier League action this weekend.  On the podcast today; Pep Guardiola will stay at Manchester City beyond this season. The panel debate whether it is good for the Premier League and how it will affect the players before their game against Spurs on Saturday.\n\nElsewhere, Rúben Amorim’s opening game in charge of Manchester United sees the Reds travel to Ipswich Town. Fans have been analysing a seven-minute video from a recent training session, what can we expect from Amorim’s side?\n\nPlus: a whip through the other games and your questions answered.",
+      "article_date": "2024-11-21",
+      "publishedTime": "2024-11-21T12:50:25.000Z"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/ruben-amorim-yet-to-be-granted-visa-despite-starting-manchester-united-job-on-monday",
+      "headline": "Ruben Amorim yet to be granted visa despite starting Manchester United job on Monday",
+      "article_text": "Ruben Amorim is yet to be granted a visa despite starting his first official day as Manchester United’s head coach on Monday and will not be able to take an opening training session.\n\nThe 39-year-old Portuguese will travel to the club on Monday to begin his tenure but, while United expect the visa to be granted soon, it is unclear what duties Amorim can undertake until this occurs.\n\nWith many United players away on international duty the wait for a visa should not materially affect Amorim’s plans, as his ability to work with the full squad was always limited to starting on Thursday week, when all are expected back from matches with their respective international teams. Amorim signed off from Sporting on Sunday evening with a 4-2 win away at Braga, coming back from 2-0 down at half-time. He departs the Portuguese champions with a perfect record of 11 wins from 11 games in the Primeira Liga this season.\n\nSpeaking after the win, Amorim turned his attentions to his new job. “It’s going to be difficult, I’m not under any illusions,” he said. “I feel ready for the new challenge. I’m not naive, I know it’s going to be very different, very difficult. I’m at peace now, I can focus on my new job and I’m looking forward to starting tomorrow.”\n\nAmorim is the sixth permanent successor to Sir Alex Ferguson, who retired in May 2013, and takes over a team unbeaten in the last four under the caretaker manager, Ruud van Nistelrooy, after Erik ten Hag’s dismissal. Van Nistelrooy ended his tenure unbeaten, with three victories, the last of which was Sunday’s 3-0 win over Leicester at Old Trafford.\n\nWhether Van Nistelrooy has a future under Amorim is yet to be determined. “We will learn what the further plan is now,” he said. “I am here to support the club and I want to continue that. I was told after this block of four matches, there will be communication towards you and your colleagues about the future, so I expect to hear today or tomorrow.”\n\nBruno Fernandes, who scored United’s opener against Leicester, said: “Ruud van Nistelrooy feels the club, he loves the club, he wants to bring joy to the players. He brought everyone with a smile to the games, he just wanted us to enjoy it. We wanted to say goodbye as a manager for him properly because he did good things for us.”\n\nOf Amorim, Fernandes said: “It’s a new era, a new manager means everything changes but what hasn’t changed is that this club has to get back to where it belongs.”",
+      "article_date": "2024-11-10",
+      "publishedTime": "2024-11-10T21:05:52.000Z"
+    }
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "headline": "BBC Manchester United Homepage",
+        "article_text": "Ruben Amorim has often been compared to Jose Mourinho given his nationality and success in Portugal, but the new Manchester United boss was keen to play down comparisons when he met the British media on Friday.\n    Mourinho spent two-and-a-half-years at Old Trafford, winning the League Cup and Europa League following his appointment in 2016. He also sent compatriot Amorim a message to congratulate him on his appointment as successor to Erik ten Hag at United.\n    \"I remember that time,\" said Amorim, referring to when Mourinho joined Chelsea in 2004 after winning the Champions League with Porto. \"You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.\n    \"Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.\n    \\n    \"Their young guys were [Frank] Lampard and these kind of players. Nowadays it's so much different. I think I'm the right person for now.\"\n    Amorim's arrival as Manchester United head coach is expected to see tactical changes, including a switch to three at the back. But which players are set to benefit most? United fan Adam McKola tells The Football News Show why he feels Amorim sticking to his style of football can bring the best out of the likes of Leny Yoro, Kobbie Mainoo and Casemiro.\n    Manchester United coach Darren Fletcher has been successful in reducing his touchline ban to two matches after being found guilty of misconduct against Brentford on Saturday 19 October.\n    Fletcher is alleged to have acted in an \"improper and/or confrontational manner\" and used \"abusive and/or insulting words\" towards the match officials during the Premier League victory at Old Trafford.\n    The former midfielder admitted to this misconduct, but argued that it was only towards the fourth official and the referee and that he was not abusive.\n    New Manchester United head coach Ruben Amorim says that while journalists and pundits may not think it is possible for the Red Devils to win the Premier League title under him in the future, he has full belief in himself, his staff and his players to make that dream a reality.\n    The 39-year-old said: \"I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things.\n    \"You guys don’t think it’s possible, I do.\"\n    The former Sporting Lisbon manager arrived in Manchester on 11 November, following the sacking of Erik ten Hag.\n    Asked where he thought he might need to \"repair\" the United squad, Amorim dismissed the suggestion his players needed fixing.\n    \"I don’t know about repair.\" he replied. \"We have space to grow as a team. We have to improve in a lot of areas. I know it’s a different way of playing and we are changing the way we play.\n    \"We have to change the physical aspect of the team. I don’t know how long it will take. I know at Manchester United we have to win games. We need a lot of time because it’s a tough league, we have to improve a lot to try and win the title.\"\n    \"It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.\"\n    Amorim takes charge of United for the first time on Sunday, at Ipswich Town (16:30 GMT).",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "[Referring to when Mourinho joined Chelsea in 2004] I remember that time... You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.",
+          "summary": "I remember when Mourinho joined, and how he seemed like a winner everywhere. But I am different from him.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.",
+          "summary": "Football has changed, and I believe I am the right coach for this time.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things. You guys don’t think it’s possible, I do.",
+          "summary": "I’m a dreamer and strongly believe in myself, the club, and the players, even if others doubt our potential.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I don’t know about repair. We have space to grow as a team. We have to improve in a lot of areas. I know it’s a different way of playing and we are changing the way we play.",
+          "summary": "We have the potential to grow and improve as a team without needing repairs.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.",
+          "summary": "We're making changes in our playing style, not starting a revolution.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-ready-unleash-very-30437211",
+        "headline": "Ruben Amorim ready to unleash his very own Ryan Gravenberch at Manchester United",
+        "article_text": "Mason Mount has yet to properly ignite in Manchester United colours, but the former Chelsea star may just have been given the biggest signal yet that his time is coming. \n\nThe fit-again midfielder was signed by Erik ten Hag last summer and, initially, it was hoped that he could step into their engine room alongside Casemiro and strike-up a winning combination. However, the plan never really caught fire and Ten Hag abandoned Mount as a double pivot option amid form and fitness concerns.\n\nIt was hardly surprising, either. Mount, now 25, enjoyed his best days at Chelsea further forward in their No.10 role or while operating on the flanks. He was road-blocked by Bruno Fernandes in his main position under Ten Hag, and the Dutchman's penchant for inverted forwards made it difficult for him out wide, too.\n\nUnited, for all their issues within the squad, are blessed with right-footed left wingers, so much so that they were able to cast off Jadon Sancho - to Chelsea, incidentally - leaving Marcus Rashford and Alejandro Garnacho to 'fight' it out for the left-hand side with the other one regularly 'sacrificed' and made to settle for a spot on the right.\n\nMount would have taken that opportunity, no questions asked, but in any case it always felt as though he would be a fill-in player under Ten Hag and in his preferred system. Now that Ruben Amorim has stepped in, though, with that comes added incentive for Mount to really become part of the jigsaw.\n\n\"Mason Mount... I have to tell you I love that kid,\" Amorim said to club media before his first match. \n\nA good start, then, and it's clear to see Mount has made a positive first impression with the new head coach. \"You can look in his eyes that he wants this so bad,\" added Amorim. \"And this is the most important thing for me.  \n\n\"I know he was suffering from injuries, he was not on the pitch, but now he's trying to stay fit, and we hope he can continue to be fit to show all the talent that he's shown, for example, in Chelsea.\"\n\nIn a glowing reference for his No.7, the now-former Sporting CP head coach - who is expected to deploy a fresh 3-4-3 formation at Old Trafford and beyond - concluded: \"He played in this system before, so it's perfect for him.\n\n\"I have two positions for Mason Mount. So he should be very happy!\"\n\nHe should be very happy, indeed. By the end of the Ten Hag reign, he didn't even have one - even though United's ex-manager did believe in Mount enough to insist he wore the club's iconic No.7 shirt.",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "Mason Mount... I have to tell you I love that kid.",
+          "summary": "I love Mason Mount.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "You can look in his eyes that he wants this so bad.",
+          "summary": "He really wants this.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I know he was suffering from injuries, he was not on the pitch, but now he's trying to stay fit, and we hope he can continue to be fit to show all the talent that he's shown, for example, in Chelsea.",
+          "summary": "He wants to stay fit to showcase his talent.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "He played in this system before, so it's perfect for him.",
+          "summary": "This system is perfect for him.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I have two positions for Mason Mount. So he should be very happy!",
+          "summary": "I have two roles for him; he should be happy.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-guaranteed-without-seven-30436992",
+        "headline": "Man United guaranteed to be without seven stars vs Ipswich as Ruben Amorim blow confirmed",
+        "article_text": "Manchester United have a series of injury issues to deal with against Ipswich Town. Ruben Amorim has a task ahead of him to turn things around at Manchester United but despite the lowly league table position he inherits, there is a sense of optimism at Old Trafford. After two weeks of settling in during the international break, it is now time for business. Not only does Amorim have the challenge of reinvigorating a squad which has underperformed for some time, he is expected to do it via a significant tactical switch to a back three. It is something which will pose new questions of the United players, who have seen their suitability for a formation change analysed aplently since Amorim's arrival was confirmed.\n\nTo complicate things further ahead of the trip to Ipswich Town on Sunday, Kieran McKenna's side are sure to be not only fired up with the chance to cause a shock, but also full of confidence after beating Tottenham just over 14 days ago. Matters are made even tougher when considering that Amorim won't have a full quota of options available.\n\nAs has been the case for much of the past 18 months, United continue to be plagued by injury. It is not an ideal scenario for Amorim to walk into. For starters, at least four players are expected to be absent for the game. Although there is a chance that Kobbie Mainoo returns - he trained ahead of the trip to Portman Road having been out for over a month with a thigh injury - Luke Shaw is still likely to be out. He hasn't played since February for United but is another who has found himself on the grass at Carrington as well.\n\nShaw is a natural fit for the left wing-back spot in Amorim's preferred 3-4-3/3-4-2-1 system but hasn't been fit for regular football in over two years. The same is true of Tyrell Malacia, who did play against Huddersfield Town for the Under-21 side and featured in training under Amorim this week. It may well still be too soon for him to be making senior matches just yet, though. Leny Yoro is in a similar camp. He is taking steps to make a United debut sooner rather than later but may well also go to the academy sides first as well. It is the curse of the backline, too, with Harry Maguire and Lisandro Martinez both doubts.\n\nMaguire has been working on his rehabilitation for almost six weeks now without much indication of being back in the fold. Meanwhile, Martinez surprised Argentina boss Lionel after withdrawing from the squad with a back problem.\n\nFellow centre-back Victor Lindelof is another struggling. He was dealt a blow during the break whilst playing for Sweden and appears unlikely to be able to return. Dan Gore is back in training, fortunately, but is not yet ready to be selected, it is understood. He is first expected to play for the Under-21s in the Premier League 2 next week. Tom Collyer is also out on the grass having been out since the start of the month.\n\nThe good news for United is that Malacia, Mainoo, and Yoro are all making progress at a vital stage early on under Amorim but there are doubts over if they are ready to try and help the team beat Ipswich on Sunday. In total it could be as many as nine players out. An optimist could suggest that Mainoo, Shaw, and perhaps Yoro are closing in on at least being able to make the bench.",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "[Speaking about the challenges ahead] it is not an ideal scenario for me to walk into.",
+          "summary": "It's a challenging situation for me.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "quote1",
+          "similarity_score": 0.9
+        },
+        {
+          "speaker": "Harry Maguire",
+          "raw_quote_text": "[On his rehabilitation] I have been working on my rehabilitation for almost six weeks now without much indication of being back in the fold.",
+          "summary": "I've been rehabbing for six weeks with no clear return date.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "quote2",
+          "similarity_score": 0.85
+        },
+        {
+          "speaker": "Lisandro Martinez",
+          "raw_quote_text": "[After withdrawing from national squad] I had to pull out because of a back problem.",
+          "summary": "I withdrew due to a back issue.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "quote3",
+          "similarity_score": 0.8
+        },
+        {
+          "speaker": "Victor Lindelof",
+          "raw_quote_text": "[On injury] I was dealt a blow during the break whilst playing for Sweden.",
+          "summary": "I encountered an injury while playing for Sweden.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "quote4",
+          "similarity_score": 0.75
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-holds-transfer-talks-30425038",
+        "headline": "Ruben Amorim holds transfer talks as defender 'leaning towards' Man United transfer",
+        "article_text": "Sporting Clube de Portugal star Ousmane Diomande has reportedly spoken to Ruben Amorim about the possibility of joining Manchester United.\n\nThat's according to Sky in Switzerland who claim the 20-year-old is 'growing increasingly keen' on the potential prospect of reuniting with Amorim at Old Trafford. Diomande has quickly earned the reputation as one of the most promising young defenders in Portugal since joining Sporting in 2023.\n\nThe report also mentions he is set to be 'one of the attractions' for the next two transfer windows as United, Manchester City and Arsenal are claimed to be 'battling' for his signature. City, however, are thought to have had Diomande 'firmly' on their radar since his days at former club Midtjylland.\n\nMeanwhile, City's incoming director of football Hugo Viana is thought to have 'already prepared' a plan to convince Sporting president Frederico Varandas over parting ways with the Ivory Coast international. That's where Amorim comes in, with the report stating the Portuguese boss has already spoken to the centre-back.\n\nIt's claimed the player is aware that continuing his development under Amorim 'would be beneficial' and is reportedly 'leaning towards' a move to United. Diomande is reported to have a £66million (€80m) release clause in his contract which expires in the summer of 2027.\n\nElsewhere, Real Madrid remain confident they will beat United to the signature of Alphonso Davies. The Canada international is coming to the end of his contract in the summer and will, therefore, be able to negotiate a pre-contract with clubs abroad from the new year.",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Unnamed report source",
+          "raw_quote_text": "The player is aware that continuing his development under Amorim 'would be beneficial' and is reportedly 'leaning towards' a move to United.",
+          "summary": "I'm aware that developing under Amorim would be beneficial, and I'm leaning towards moving to United.",
+          "is_valid": false,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/video/2024/nov/22/ruben-amorim-manchester-united-appointment-mourinhovideo",
+        "headline": "'The right guy at the right time': Ruben Amorim on Manchester United appointment – video",
+        "article_text": "Ruben Amorim said he is a 'dreamer' in his first press conference as Manchester United head coach after joining the club from Sporting.\n\nThe 39-year-old signed a two-and-a-half-year deal to replace Erik ten Hag who was sacked in October.\n\nHe has been compared to José Mourinho because of his nationality and success and said: 'He [José Mourinho] sent me a message and told me that this is a lovely club, a big club, with lovely people, and that is correct.'\n\nHe added: 'I am different from Mourinho. I am a different person.'",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "[Discussing his new role] He [José Mourinho] sent me a message and told me that this is a lovely club, a big club, with lovely people, and that is correct.",
+          "summary": "Mourinho described Manchester United as a lovely club with great people.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I am different from Mourinho. I am a different person.",
+          "summary": "I emphasize that I am not like Mourinho; I am my own person.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/22/premier-league-10-things-to-look-out-for-this-weekend",
+        "headline": "Ten things to look out for this weekend",
+        "article_text": "Højlund has chance to impress Amorim, Villa look to end miserable month and will Forest trouble Arsenal?\n\n1\nDewsbury-Hall back on familiar ground\nAfter masterminding Leicester’s return to the Premier League, Enzo Maresca jumped ship to Chelsea. The Italian had given little confidence he would stay at the King Power, despite his success amid problems in the background and the lure of London. Maresca did, however, ensure he took one thing with him in the form of the central midfielder Kiernan Dewsbury-Hall, a leading light in the Foxes’ promotion charge. While Maresca has impressed at Stamford Bridge, Dewsbury-Hall is yet to find his feet and has been limited to a cup-player role. Of his 10 appearances for Chelsea, only three have been in the league and none from the start. It might be time to show some faith in him and there is no better place to do so than his old home. Dewsbury-Hall rose through the ranks at Leicester and his £30m transfer fee this summer was highly beneficial to their accounts after financial problems. Leicester fans will welcome back Maresca and Dewsbury-Hall with open arms, the embrace the latter might need to kickstart his Chelsea career.\n\n2\nO’Riley can be pivotal to Brighton\nMatt O’Riley endured a tough start to his Brighton career when he suffered an ankle injury caused by a poor challenge nine minutes into his debut in the Carabao Cup against Crawley. The midfielder missed the following three months but showed his worth on his return to help transform the game against Manchester City and score the winner. Fabian Hürzeler and Brighton earmarked O’Riley as the man required in midfield to sit alongside Carlos Baleba, who has been struggling with a knee problem, and they could be paired from the start at Bournemouth. Brighton have not missed O’Riley much, starting the weekend in sixth. Baleba is 20 and O’Riley 24, meaning they could be a long-term partnership. That is not often the way at Brighton but if they perform as hoped the pair could provide the foundation for another push for European football while increasing their value.\n\n3\nCan Forest repeat Anfield heist?\nArsenal have picked up two points from 12 available over the past four games and are in a tricky spot. The prospect of facing the side immediately below them, who are yet to lose away all season, is a daunting one. Nottingham Forest are the only team to have defeated Liverpool this season, proving they have the cunning and quality to topple title contenders. At Anfield, Forest’s success came about by packing the midfield and stopping Liverpool from playing with fluidity. It would seem Nuno might do similar to prevent Martin Ødegaard from pulling the strings. Forest’s manager has proven his intelligence when it comes to stifling opponents, while possessing a potent attacking threat. After losing to Newcastle, Nuno will want a reaction from his players. If he can get it to resemble the performance at Anfield he could be managing a top-four team by Saturday evening.\n\n4\nWill Villa’s miserable month continue?\nA winless month and four consecutive defeats across all competitions have taken the wind out of Aston Villa’s sails. Such patterns are not unknown for Unai Emery; his teams can blow hot and cold. That grim run has betrayed the fatigue of coming so far so fast and suggested that opposition managers may be cracking the Villa code. Emery’s high-risk football, when it falters, can often look one-dimensional as Villa did in successive chastening defeats to Tottenham and Liverpool. With Ollie Watkins making an international breakthrough, and Morgan Rogers getting his first cap, Emery will hope for a lift in morale. Oliver Glasner, with fewer resources at Crystal Palace than Emery, has hit on similar problems, having initially been so successful last season. It still comes as a surprise to see Palace in the bottom three. Eberechi Eze and Adam Wharton recovering fitness and form could be key for the Austrian manager.\n\n5\nEverton need to freshen up their game\nThis could be the final home game of the dreadful Farhad Moshiri era for Everton, with the Friedkin Group hoping that Premier League approval on their proposed takeover is close. A fresh start awaits – hopefully, as the club is in desperate need of one – and the same applies to Sean Dyche’s approach. He has made the team hard to beat but increasingly hard to watch; Everton are without a goal in their last two games. Dominic Calvert-Lewin has not scored in his last seven starts yet continues to keep Beto on the bench despite the Guinea-Bissau international offering the team a rare goal threat as a substitute. Calvert-Lewin could, in fairness, point to a desperate lack of quality service. Change is required, either at centre-forward or in the supply line, and while Brentford have lost all five league away games this season it must be noted those defeats have come at Liverpool, Manchester City, Tottenham, Manchester United and to two goals in stoppage time at Fulham.\n\n6\nBerge helps fill Fulham’s Palhinha void\nIt would not have been a surprise if Fulham had dropped off after selling João Palhinha to Bayern Munich. To their credit, though, they have managed to absorb the loss of the tough-tackling Portugal midfielder. Sasa Lukic, the Serbia international, caught the eye at the start of the season and Sander Berge has done well since breaking into the starting lineup last month. Berge was a canny buy. The Norwegian joined Sheffield United for £22m in 2020 and was relegated 18 months later. He was influential in the Championship, won promotion, joined Burnley and was relegated again last season. Fulham could give the 26-year-old stability. Berge will hope to make his sixth consecutive start when Marco Silva’s high-flying side host Wolves.\n\n7\nPep stays on but City must improve\nWhen does a feelgood vibe remain at a club despite a dismal four-game losing streak? Answer: when Manchester City and their all-time great manager, Pep Guardiola, have just agreed a new one-year deal. City look to arrest their slide against Tottenham and Ange Postecoglou’s off-the-cuff attacking unit will suit City. A side mocked as “Doctor Tottenham” – the joke being they provide the cure for a needy side’s ills – have the pace to get in behind the champions’ high line and damage them, too. A fifth consecutive reverse would cast the champions in crisis and have some (misguided) fans questioning the prudency of the Guardiola extension.\n\n8\nBottom meets top on south coast\nThere is already a 24-point gap between bottom and top as Southampton prepare to face Liverpool. Trying to find hope for Russell Martin’s side going into this fixture is tricky. At Wolves they failed to have a shot on target despite having 72% possession and they will not dominate the ball in the same manner on Sunday. Southampton’s style is about passing and patient buildup and it is unlikely Martin will ever change, even if the club’s Premier League status and his employment are at risk. All teams need an element of surprise, whether they are first or last, in order to keep opponents guessing, but Southampton’s predictability is their downfall and explains why they are bottom. Reacting when something is not working is a sign of a good coach. If Martin can bring himself to be more direct with the speed of his wingers and strikers, they could spring a much-needed upset.\n\n9\nHøjlund to fill Gyökeres role for Amorim?\nAmid all the fanfare surrounding Rúben Amorim, the key question is whether he will implement his favoured 3-4-3 formation and what personnel he could use to do so. At Sporting, Amorim was highly reliant on the quality of Viktor Gyökeres as his lone striker and will almost certainly give that role to Rasmus Højlund on Sunday as the only suitable player in the squad. The Danish international has shown his potential in flashes at United but needs to become more consistent. Højlund needs help in achieving this but he has some similar characteristics to Gyökeres. The Swede was not the finished article when he left Coventry for Sporting but is now one of the most sought-after strikers in Europe, partly thanks to Amorim’s support. Quick and strong, Højlund has a similar profile but two goals in 12 appearances this season is not good enough to keep him in the starting lineup in the long term. Amorim might be just the man to help him.\n\n10\nLopetegui is on the brink\nMight this be Julen Lopetegui’s last stand? West Ham’s beleaguered manager could probably do without facing an improving Newcastle team fresh from a warm weather training camp in Saudi Arabia. England’s Jarrod Bowen will hope to impress in the north-east and ranks high on Eddie Howe’s January shopping list. The number of future visits West Ham might make to St James’ Park is currently a sensitive issue; while most Newcastle fans have indicated a preference for the club remaining at the stadium, the club’s Saudi ownership are currently exploring the idea of building a brand new ground, possibly four miles outside the city centre near the Gosforth Park racecourse. A decision is expected to be announced early in the New Year. Who knows where Lopetegui, or West Ham, will be by then.",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Enzo Maresca",
+          "raw_quote_text": "I ensured I took one thing with me in the form of the central midfielder Kiernan Dewsbury-Hall, a leading light in the Foxes’ promotion charge.",
+          "summary": "I took Kiernan Dewsbury-Hall from Leicester because he was key in their promotion.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Nuno",
+          "raw_quote_text": "If I can get it to resemble the performance at Anfield I could be managing a top-four team by Saturday evening.",
+          "summary": "If I can replicate our Anfield performance, we could reach the top four.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Unai Emery",
+          "raw_quote_text": "My teams can blow hot and cold.",
+          "summary": "My teams can be inconsistent.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Rúben Amorim",
+          "raw_quote_text": "Højlund needs help in achieving this but he has some similar characteristics to Gyökeres.",
+          "summary": "Højlund has similar qualities to Gyökeres and needs support.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Julen Lopetegui",
+          "raw_quote_text": "I could probably do without facing an improving Newcastle team fresh from a warm weather training camp.",
+          "summary": "Facing Newcastle after their training camp is not ideal for me.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/audio/2024/nov/21/ruben-amorim-manchester-united-city-pep-guardiola-football-weekly-extra-podcast",
+        "headline": "Football Weekly",
+        "article_text": "Max Rushden is joined by Barry Glendenning, Jonathan Wilson and Jonathan Liew to preview the Premier League action this weekend.  On the podcast today; Pep Guardiola will stay at Manchester City beyond this season. The panel debate whether it is good for the Premier League and how it will affect the players before their game against Spurs on Saturday.\n\nElsewhere, Rúben Amorim’s opening game in charge of Manchester United sees the Reds travel to Ipswich Town. Fans have been analysing a seven-minute video from a recent training session, what can we expect from Amorim’s side?\n\nPlus: a whip through the other games and your questions answered.",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Rúben Amorim",
+          "raw_quote_text": "(Talking about his team): “They are ready to make history, not only defend the club’s past.”",
+          "summary": "We're prepared to create a new legacy for the club.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/10/ruben-amorim-yet-to-be-granted-visa-despite-starting-manchester-united-job-on-monday",
+        "headline": "Ruben Amorim yet to be granted visa despite starting Manchester United job on Monday",
+        "article_text": "Ruben Amorim is yet to be granted a visa despite starting his first official day as Manchester United’s head coach on Monday and will not be able to take an opening training session.\n\nThe 39-year-old Portuguese will travel to the club on Monday to begin his tenure but, while United expect the visa to be granted soon, it is unclear what duties Amorim can undertake until this occurs.\n\nWith many United players away on international duty the wait for a visa should not materially affect Amorim’s plans, as his ability to work with the full squad was always limited to starting on Thursday week, when all are expected back from matches with their respective international teams. Amorim signed off from Sporting on Sunday evening with a 4-2 win away at Braga, coming back from 2-0 down at half-time. He departs the Portuguese champions with a perfect record of 11 wins from 11 games in the Primeira Liga this season.\n\nSpeaking after the win, Amorim turned his attentions to his new job. “It’s going to be difficult, I’m not under any illusions,” he said. “I feel ready for the new challenge. I’m not naive, I know it’s going to be very different, very difficult. I’m at peace now, I can focus on my new job and I’m looking forward to starting tomorrow.”\n\nAmorim is the sixth permanent successor to Sir Alex Ferguson, who retired in May 2013, and takes over a team unbeaten in the last four under the caretaker manager, Ruud van Nistelrooy, after Erik ten Hag’s dismissal. Van Nistelrooy ended his tenure unbeaten, with three victories, the last of which was Sunday’s 3-0 win over Leicester at Old Trafford.\n\nWhether Van Nistelrooy has a future under Amorim is yet to be determined. “We will learn what the further plan is now,” he said. “I am here to support the club and I want to continue that. I was told after this block of four matches, there will be communication towards you and your colleagues about the future, so I expect to hear today or tomorrow.”\n\nBruno Fernandes, who scored United’s opener against Leicester, said: “Ruud van Nistelrooy feels the club, he loves the club, he wants to bring joy to the players. He brought everyone with a smile to the games, he just wanted us to enjoy it. We wanted to say goodbye as a manager for him properly because he did good things for us.”\n\nOf Amorim, Fernandes said: “It’s a new era, a new manager means everything changes but what hasn’t changed is that this club has to get back to where it belongs.”",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "It’s going to be difficult, I’m not under any illusions. I feel ready for the new challenge. I’m not naive, I know it’s going to be very different, very difficult. I’m at peace now, I can focus on my new job and I’m looking forward to starting tomorrow.",
+          "summary": "I know it will be difficult, but I'm ready for this new challenge and look forward to starting.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "We will learn what the further plan is now. I am here to support the club and I want to continue that. I was told after this block of four matches, there will be communication towards you and your colleagues about the future, so I expect to hear today or tomorrow.",
+          "summary": "I'm here to support the club and expect to learn about future plans soon.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Bruno Fernandes",
+          "raw_quote_text": "Ruud van Nistelrooy feels the club, he loves the club, he wants to bring joy to the players. He brought everyone with a smile to the games, he just wanted us to enjoy it. We wanted to say goodbye as a manager for him properly because he did good things for us.",
+          "summary": "Ruud cared about the club and brought joy; we wanted to honor his time as manager.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        },
+        {
+          "speaker": "Bruno Fernandes",
+          "raw_quote_text": "It’s a new era, a new manager means everything changes but what hasn’t changed is that this club has to get back to where it belongs.",
+          "summary": "With a new manager, everything changes, but our club must return to its rightful place.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "",
+          "similarity_score": 0
+        }
+      ]
+    }
+  ]
+}

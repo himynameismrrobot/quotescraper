@@ -1,0 +1,137 @@
+{
+  "model": "gemini",
+  "timestamp": "2024-11-24T03:20:47.184Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "headlines": [
+    {
+      "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "headline": "BBC Manchester United Homepage"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/manchester-united-make-sekou-kone-30417617",
+      "headline": "Manchester United make Sekou Kone plan after midfielder's injury scare"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-already-dropped-man-30435005",
+      "headline": "Ruben Amorim has already dropped Man United team news hint for Ipswich - and early transfer wish"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/it-should-ruben-amorim-confirms-30430198",
+      "headline": "'It should' - Ruben Amorim confirms stance on Manchester United transfer strategy"
+    },
+    {
+      "parent_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+      "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/sporting-expect-manchester-united-transfer-30417595",
+      "headline": "Sporting braced for Manchester United transfer raid on 17-year-old star"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/bruno-fernandes-sparks-manchester-united-to-easy-victory-over-leicester",
+      "headline": "Bruno Fernandes sparks Manchester United to easy victory over Leicester"
+    }
+  ],
+  "articles": [
+    {
+      "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+      "headline": "BBC Manchester United Homepage",
+      "article_text": "Ruben Amorim has often been compared to Jose Mourinho given his nationality and success in Portugal, but the new Manchester United boss was keen to play down comparisons when he met the British media on Friday.\n\nMourinho spent two-and-a-half-years at Old Trafford, winning the League Cup and Europa League following his appointment in 2016. He also sent compatriot Amorim a message to congratulate him on his appointment as successor to Erik ten Hag at United.\n\n\"I remember that time,\" said Amorim, referring to when Mourinho joined Chelsea in 2004 after winning the Champions League with Porto. \"You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.\n\n\"Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.\n\n\"Their young guys were [Frank] Lampard and these kind of players. Nowadays it's so much different. I think I'm the right person for now.\"\n\nRuben Amorim's arrival as Manchester United head coach is expected to see tactical changes, including a switch to three at the back. But which players are set to benefit most? United fan Adam McKola tells The Football News Show why he feels Amorim sticking to his style of football can bring the best out of the likes of Leny Yoro, Kobbie Mainoo and Casemiro.\n\nThis was a highly accomplished and assured first media conference by Ruben Amorim, whose confidence was immediately apparent as he strode purposefully into a packed room at Carrington with a smile and \"hi guys\" to the assembled journalists, before fielding a host of questions from both English and Portuguese reporters.\n\nThis felt very different to the strained and adversarial media conferences that became a weekly feature of the final months of Erik ten Hag's tenure at Old Trafford.\n\nSpeaking in fluent English, Amorim seemed to relish the opportunity to articulate how he is feeling. Smiling throughout, he made clear his belief both in himself and in his players, claiming he is \"the right guy at the right moment\".\n\nBut he also acknowledged the scale of the task he faces here after years of decline, and the need for his team to improve. However, he also firmly rejected the suggestion that this was \"the impossible job\". \"Of course not,\" he said.\n\nHe has acknowledged that Manchester United need time and has said that they need to improve. He has also given a reality check about the plans to put in place and the improvement that is required.\n\nAs the first managerial hire since Ineos took over the football operations at Old Trafford, a lot is resting on his shoulders. It was noticeable that Tom Crotty, a senior director at the petrochemicals company and a trusted advisor to billionaire Sir Jim Ratcliffe, was in attendance. However, if the coach was feeling the pressure that comes with that, and from being in one of the most scrutinised coaching roles in world football, he did not show it.\n\nAt the end, Amorim embraced several Portuguese reporters who had travelled here to cover his first media appearance. Whether he forges such close bonds with their British counterparts remains to be seen. But based on this first performance, communication will not be a problem for the coach.\n\nManchester United coach Darren Fletcher has been successful in reducing his touchline ban to two matches after being found guilty of misconduct against Brentford on Saturday 19 October.\n\nFletcher is alleged to have acted in an \"improper and/or confrontational manner\" and used \"abusive and/or insulting words\" towards the match officials during the Premier League victory at Old Trafford.\n\nFormer midfielder Fletcher admitted to this misconduct, but argued that it was only towards the fourth official and the referee and that he was not abusive.\n\nHaving been sanctioned with a three-match touchline ban and £7,500 fine, the independent Appeal Board has subsequently reduced the ban by one game and the fine down to £6,000.\n\nNew Manchester United head coach Ruben Amorim says that while journalists and pundits may not think it is possible for the Red Devils to win the Premier League title under him in the future, he has full belief in himself, his staff and his players to make that dream a reality.\n\nSpeaking at his first news conference as United boss, on Friday, the 39-year-old said: \"I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things.\n\n\"You guys don’t think it’s possible, I do.\"\n\nThe former Sporting Lisbon manager arrived in Manchester on 11 November, following the sacking of Erik ten Hag.\n\nAsked where he thought he might need to \"repair\" the United squad, Amorim dismissed the suggestion his players needed fixing. \"I don’t know about repair.\" he replied. \"We have space to grow as a team. We have to improve in a lot of areas. I know it’s a different way of playing and we are changing the way we play.\n\n\"We have to change the physical aspect of the team. I don’t know how long it will take. I know at Manchester United we have to win games. We need a lot of time because it’s a tough league, we have to improve a lot to try and win the title.\n\n\"It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.\"\n\nAmorim takes charge of United for the first time on Sunday, at Ipswich Town (16:30 GMT).",
+      "article_date": "2024-11-24",
+      "publishedTime": "2024-11-24T00:00:00Z"
+    },
+    {
+      "parent_url": "https://www.theguardian.com/football/manchester-united",
+      "article_url": "https://www.theguardian.com/football/2024/nov/10/bruno-fernandes-sparks-manchester-united-to-easy-victory-over-leicester",
+      "headline": "Bruno Fernandes sparks Manchester United to easy victory over Leicester",
+      "article_text": "Page Not Found | The Guardian\n\nSorry – we haven’t been able to serve the page you asked for.\n\nYou may have followed an outdated link, or have mistyped a URL. If you believe this to be an error please report it.\n\nThe Guardian homepage",
+      "article_date": "2024-11-10",
+      "publishedTime": "2024-11-10T00:00:00Z"
+    }
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "headline": "BBC Manchester United Homepage",
+        "article_text": "Ruben Amorim has often been compared to Jose Mourinho given his nationality and success in Portugal, but the new Manchester United boss was keen to play down comparisons when he met the British media on Friday.\n\nMourinho spent two-and-a-half-years at Old Trafford, winning the League Cup and Europa League following his appointment in 2016. He also sent compatriot Amorim a message to congratulate him on his appointment as successor to Erik ten Hag at United.\n\n\"I remember that time,\" said Amorim, referring to when Mourinho joined Chelsea in 2004 after winning the Champions League with Porto. \"You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.\n\n\"Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.\n\n\"Their young guys were [Frank] Lampard and these kind of players. Nowadays it's so much different. I think I'm the right person for now.\"\n\nRuben Amorim's arrival as Manchester United head coach is expected to see tactical changes, including a switch to three at the back. But which players are set to benefit most? United fan Adam McKola tells The Football News Show why he feels Amorim sticking to his style of football can bring the best out of the likes of Leny Yoro, Kobbie Mainoo and Casemiro.\n\nThis was a highly accomplished and assured first media conference by Ruben Amorim, whose confidence was immediately apparent as he strode purposefully into a packed room at Carrington with a smile and \"hi guys\" to the assembled journalists, before fielding a host of questions from both English and Portuguese reporters.\n\nThis felt very different to the strained and adversarial media conferences that became a weekly feature of the final months of Erik ten Hag's tenure at Old Trafford.\n\nSpeaking in fluent English, Amorim seemed to relish the opportunity to articulate how he is feeling. Smiling throughout, he made clear his belief both in himself and in his players, claiming he is \"the right guy at the right moment\".\n\nBut he also acknowledged the scale of the task he faces here after years of decline, and the need for his team to improve. However, he also firmly rejected the suggestion that this was \"the impossible job\". \"Of course not,\" he said.\n\nHe has acknowledged that Manchester United need time and has said that they need to improve. He has also given a reality check about the plans to put in place and the improvement that is required.\n\nAs the first managerial hire since Ineos took over the football operations at Old Trafford, a lot is resting on his shoulders. It was noticeable that Tom Crotty, a senior director at the petrochemicals company and a trusted advisor to billionaire Sir Jim Ratcliffe, was in attendance. However, if the coach was feeling the pressure that comes with that, and from being in one of the most scrutinised coaching roles in world football, he did not show it.\n\nAt the end, Amorim embraced several Portuguese reporters who had travelled here to cover his first media appearance. Whether he forges such close bonds with their British counterparts remains to be seen. But based on this first performance, communication will not be a problem for the coach.\n\nManchester United coach Darren Fletcher has been successful in reducing his touchline ban to two matches after being found guilty of misconduct against Brentford on Saturday 19 October.\n\nFletcher is alleged to have acted in an \"improper and/or confrontational manner\" and used \"abusive and/or insulting words\" towards the match officials during the Premier League victory at Old Trafford.\n\nFormer midfielder Fletcher admitted to this misconduct, but argued that it was only towards the fourth official and the referee and that he was not abusive.\n\nHaving been sanctioned with a three-match touchline ban and £7,500 fine, the independent Appeal Board has subsequently reduced the ban by one game and the fine down to £6,000.\n\nNew Manchester United head coach Ruben Amorim says that while journalists and pundits may not think it is possible for the Red Devils to win the Premier League title under him in the future, he has full belief in himself, his staff and his players to make that dream a reality.\n\nSpeaking at his first news conference as United boss, on Friday, the 39-year-old said: \"I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things.\n\n\"You guys don’t think it’s possible, I do.\"\n\nThe former Sporting Lisbon manager arrived in Manchester on 11 November, following the sacking of Erik ten Hag.\n\nAsked where he thought he might need to \"repair\" the United squad, Amorim dismissed the suggestion his players needed fixing. \"I don’t know about repair.\" he replied. \"We have space to grow as a team. We have to improve in a lot of areas. I know it’s a different way of playing and we are changing the way we play.\n\n\"We have to change the physical aspect of the team. I don’t know how long it will take. I know at Manchester United we have to win games. We need a lot of time because it’s a tough league, we have to improve a lot to try and win the title.\n\n\"It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.\"\n\nAmorim takes charge of United for the first time on Sunday, at Ipswich Town (16:30 GMT).",
+        "article_date": "2024-11-24"
+      },
+      "quotes": [
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "[Referring to José Mourinho's success] I remember that time. You looked at Mourinho and felt he could win everywhere. It's not the same thing. I'm different to Mourinho. He was European champion, I am not.",
+          "summary": "I acknowledge Mourinho's success, but I'm my own person and not a champion yet.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "1",
+          "similarity_score": 0.85
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "Football is different nowadays, I think I am the right person for this moment. I am a young guy and I try to use this to help my players.",
+          "summary": "I believe I'm the right fit for this moment in football, leveraging my youth to aid my players.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "2",
+          "similarity_score": 0.88
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "Of course not. [Rejecting the suggestion that this is 'the impossible job']",
+          "summary": "I don't see this as an impossible job.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "3",
+          "similarity_score": 0.9
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I’m a little bit of a dreamer. I believe in myself. I believe in the club - we have the same mindset. I truly believe in the players. I know you don’t believe a lot but I do. I want to try new things.",
+          "summary": "I consider myself a dreamer who has faith in myself, the club, and the players despite skepticism.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "4",
+          "similarity_score": 0.92
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "I don’t know about repair. We have space to grow as a team. We have to improve in a lot of areas.",
+          "summary": "Instead of repairs, we need to grow and improve as a team.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "5",
+          "similarity_score": 0.87
+        },
+        {
+          "speaker": "Ruben Amorim",
+          "raw_quote_text": "It's not revolution. The football is not so different with five at the back, four at the back, three at the back. It’s not evolution or revolution, it’s a change in the way we play football.",
+          "summary": "We're not undergoing a revolution; it's simply a shift in our playing style.",
+          "is_valid": true,
+          "content_vector": [],
+          "similar_to_quote_id": "6",
+          "similarity_score": 0.89
+        }
+      ]
+    },
+    {
+      "article_metadata": {
+        "parent_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/10/bruno-fernandes-sparks-manchester-united-to-easy-victory-over-leicester",
+        "headline": "Bruno Fernandes sparks Manchester United to easy victory over Leicester",
+        "article_text": "Page Not Found | The Guardian\n\nSorry – we haven’t been able to serve the page you asked for.\n\nYou may have followed an outdated link, or have mistyped a URL. If you believe this to be an error please report it.\n\nThe Guardian homepage",
+        "article_date": "2024-11-24"
+      },
+      "quotes": []
+    }
+  ]
+}
