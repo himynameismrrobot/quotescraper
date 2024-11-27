@@ -1,0 +1,251 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-27T15:59:27.502Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/articles/cjx1r9n9ld1o",
+        "article_headline": "United must evolve into something else under Amorim",
+        "article_text": "500 **Internal Server Error**\n\nSorry, this page is temporarily unavailable.\n\nPlease try again later.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Man Utd - Transfer news, results, fixtures, video and audio\n===============\n\nManchester United\n=================\n\nScores & Fixtures\n-----------------\n\n*   Premier League Full time FT Ipswich Ipswich Town 1 Man Utd Manchester United 1\n*   UEFA Europa League Man Utd Manchester United plays Bodø/Glimt Bodø / Glimt at 20:00 on Thu the 28 of Nov\n*   Premier League Man Utd Manchester United plays Everton at 13:30 on Sun the 1 of Dec\n*   Premier League Arsenal plays Man Utd Manchester United at 20:15 on Wed the 4 of Dec\n*   Premier League Man Utd Manchester United plays Nottingham Forest at 17:30 on Sat the 7 of Dec\n*   UEFA Europa League Plzeň plays Man Utd Manchester United at 17:45 on Thu the 12 of Dec\n*   Premier League Man City plays Man Utd Manchester United at 16:30 on Sun the 15 of Dec\n*   Premier League Man Utd Manchester United plays Bournemouth at 14:00 on Sun the 22 of Dec\n*   Premier League Wolves plays Man Utd Manchester United at 17:30 on Thu the 26 of Dec\n\nLatest updates\n--------------\n\n1.  **Simon Stone**  Chief football news reporter\n\nNew Manchester United coach Ruben Amorim has an unusual way of singling out players when he is making generic points.\n\nHe did it on Sunday when he spoke about his players having difficulties adapting to his new system, pointing to an instance when Jonny Evans found himself in the wrong place.\n\nToday in his news conference, Amorim explained he was using Evans to emphasise the point he was making rather than being critical.\n\nA couple of answers later, he was talking about players needing to score goals and said Amad Diallo needs to be better at it.\n\nThis is good, but it is also a bit dangerous because at some point the subtlety might be lost and it will come across as a direct criticism, which it isn't.\n\nThen, it will turn into a storm he then has to deal with when he next speaks to the media.\n\n2.  Manchester United captain Bruno Fernandes says he is confident of fitting in to Ruben Amorim's new system at Old Trafford.\n\nHis fellow countryman is the third permanent manager Fernandes has played under since signing for the Red Devils in 2020, plus nine months under interim Ralf Rangnick.\n\n\"You always have to adapt to different ideas and positions, even sometimes playing in the same system you have to adapt to different ideas of playing,\" said Fernandes before Thursday's Europa League game against Norwegian champions Bodo/Glimt.\n\n\"It is not difficult for me to adapt in any position. I am really well aware of that.\n\n\"During training I try to absorb everything, from every position. I try to have an understanding of the game because being the captain, the manager cannot always give the message from the bench to the pitch. As captain, you have to try to resolve the situation together with your team-mates. Having knowledge of every position is my role.\"\n\n3.  **Josh Lobley**  BBC Sport Journalist\n\nManchester United boss Ruben Amorim has been speaking to the media before Thursday's Europa League game against Bodo/Glimt.\n\nHere are the key lines from his news conference:\n\n*   He was asked if Harry Maguire and Lisandro Martinez will be available for Thursday's match: \"Not Harry. Lisandro is ready. I felt he's had enough time so he is ready.\"\n*   On his first match at Old Trafford: \"Everybody has said it will be a special time. Before the match it will be like a new sensation, but after the whistle it will be one more game and we want to win that match.\"\n*   Amorim confirmed that there will be squad rotation for Thursday's match: \"We have to do it, especially in this moment because we have a lot of games. We are in the beginning of something. They have to feel that they are part of the team.\"\n*   On Thursday's opponents: \"I'm expecting a very good team, they can win the [Norwegian] league this week. They run a lot and that is a very good thing for us because we need to improve that. They have some special players on the wings and they can play in the pockets very well.\"\n*   On the lack of goalscorers in recent years: \"Of course there is a concern, but we have to improve as a team. But we have quality players who can score lots of goals. Rasmus [Hojlund] Joshua [Zirkzee] and Rashford will score more goals.\"\n*   On helping Rashford find his best form: \"I will try to help him. It wasn't the best position for him [against Ipswich], we will try to find the right solution for him. He has to be the first one to really want it.\"\n\n4.  **Phil McNulty** BBC Sport's chief football writer has been answering your questions.\n\nRuben Amorim made a lot of comments after the draw at Ipswich Town, when he pointed out that Manchester United will have to \"suffer\" while he implements his tactical tweaks, saying it was worth risking things tactically now to feel the benefit next season.\n\nSo yes, patience will be needed and, in my experience, Manchester United fans are remarkably patient with their managers.\n\nWhat we have seen from Amorim already is a clear identity in terms of how he wants to play and a clear idea of his strategy. I don't think we ever really saw that from Erik ten Hag.\n\nI think United will improve – and I wouldn't write off fourth place either, because I really believe that slot is wide open – but it will take time and patience, and there will be bumps along the way.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Bruno Fernandes",
+          "raw_quote_text": "You always have to adapt to different ideas and positions, even sometimes playing in the same system you have to adapt to different ideas of playing. It is not difficult for me to adapt in any position. I am really well aware of that. During training I try to absorb everything, from every position. I try to have an understanding of the game because being the captain, the manager cannot always give the message from the bench to the pitch. As captain, you have to try to resolve the situation together with your team-mates. Having knowledge of every position is my role.",
+          "summary": "I adapt easily to different playing styles and positions; it's my role as captain to understand and support my teammates.",
+          "similar_to_quote_id": "5a2f77a0-c3e0-49c6-b5e8-0ec691f6fe00",
+          "similarity_score": 0.541648268699646
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Not Harry. Lisandro is ready. I felt he's had enough time so he is ready.",
+          "summary": "Lisandro is ready for the match, but Harry is not.",
+          "similar_to_quote_id": "4784e935-467e-4ba9-a97d-e244cf834f05",
+          "similarity_score": 0.383798480033875
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Everybody has said it will be a special time. Before the match it will be like a new sensation, but after the whistle it will be one more game and we want to win that match.",
+          "summary": "I'm excited for my first match at Old Trafford, but it's just another game we want to win.",
+          "similar_to_quote_id": "5b5c6686-f303-49df-b0ae-06be1be4cb3b",
+          "similarity_score": 0.5167475938797
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "We have to do it, especially in this moment because we have a lot of games. We are in the beginning of something. They have to feel that they are part of the team.",
+          "summary": "Squad rotation is necessary now; it's important for players to feel part of the team.",
+          "similar_to_quote_id": "71f267c1-d2da-45b8-81c8-f983fb16e69b",
+          "similarity_score": 0.530815005302429
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I'm expecting a very good team, they can win the [Norwegian] league this week. They run a lot and that is a very good thing for us because we need to improve that. They have some special players on the wings and they can play in the pockets very well.",
+          "summary": "Bodo/Glimt is a strong team with special players that we need to prepare for.",
+          "similar_to_quote_id": "0d70a32f-fe79-47de-b1a7-b255eba4f3af",
+          "similarity_score": 0.528499186038971
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Of course there is a concern, but we have to improve as a team. But we have quality players who can score lots of goals. Rasmus [Hojlund] Joshua [Zirkzee] and Rashford will score more goals.",
+          "summary": "We need to improve as a team, but I believe our players can score more goals.",
+          "similar_to_quote_id": "13cf681f-9e6e-4dc2-bf90-e0c29dbcb350",
+          "similarity_score": 0.628503024578094
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I will try to help him. It wasn't the best position for him [against Ipswich], we will try to find the right solution for him. He has to be the first one to really want it.",
+          "summary": "I want to help Rashford find his best form, but he needs to be the one eager for improvement.",
+          "similar_to_quote_id": "5a2f77a0-c3e0-49c6-b5e8-0ec691f6fe00",
+          "similarity_score": 0.507079839706421
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/ruben-amorims-ineos-demand-after-30460112",
+        "article_headline": "Ruben Amorim's 'Ineos demand' after Man United draw vs Ipswich Town",
+        "article_text": "Manchester United were held to a 1-1 draw by Ipswich Town on Sunday as Ruben Amorim's side were pegged back in the Premier League.\n\nBy Jack Flintham Sport Central Audience Writer\n\n12:00, 27 NOV 2024\n\nManchester United head coach Ruben Amorim reportedly continued to push for a left-back in the January transfer window following the draw with Ipswich Town on Sunday.\n\nThe Reds got off to the best possible start in Suffolk with Marcus Rashford scoring inside 90 seconds at Portman Road. However, United struggled to regain a hold of the fixture after that with the Tractor Boys coming close on a number of occasions before Omari Hutchinson's deflected strike finally beat Andre Onana.\n\nIn the end, the Reds had to settle for a point with expectations high that the forthcoming clashes at Old Trafford against Bodo/Glimt and Everton will see Amorim bag his first victory. From Amorim's perspective, it appears he believes there is plenty of work to be done in the transfer market to return better results for United.\n\nSpeaking to GiveMeSport, journalist Fabrizio Romano understands that Amorim insisted upon a new left-back in January to strengthen his squad. \"Now I am in the position to confirm, once again, that Manchester United will sign a new left-back, left wing-back, let's call him as you prefer, now Ruben Amorim is playing with the back three,\" he explained.\n\n\"From what I'm hearing, even after the Ipswich game, the message from Ruben Amorim to Manchester United management is, we need a player in that position in 2025. Could be January, could be summer, based on opportunities, based on price, based on several factors, but Man United want to go for a player in that position.\"\n\nCurrently, United have two recognised left-backs on their books. Luke Shaw and Tyrell Malacia have both struggled with long-term injuries in recent years and there are question marks as to whether they can remain fit to play long-term under Amorim.\n\nNoussair Mazraoui and Diogo Dalot have both been used on the left in their absence but they would prefer to play on the right of defence. On Sunday, Dalot was used on the left while Amad was utilised on the right.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Fabrizio Romano",
+          "raw_quote_text": "[Speaking about Ruben Amorim's request] \"Now I am in the position to confirm, once again, that Manchester United will sign a new left-back, left wing-back, let's call him as you prefer, now Ruben Amorim is playing with the back three.\"",
+          "summary": "I confirm Manchester United will sign a new left-back as Amorim is utilizing a back three.",
+          "similar_to_quote_id": "945f6c9a-f8b5-4f6f-8227-5bd5565fe28d",
+          "similarity_score": 0.532631278038025
+        },
+        {
+          "speaker_name": "Fabrizio Romano",
+          "raw_quote_text": "[Regarding Amorim's message after the Ipswich game] \"From what I'm hearing, even after the Ipswich game, the message from Ruben Amorim to Manchester United management is, we need a player in that position in 2025. Could be January, could be summer, based on opportunities, based on price, based on several factors, but Man United want to go for a player in that position.\"",
+          "summary": "Amorim emphasizes the need for a left-back in 2025, whether in January or summer.",
+          "similar_to_quote_id": "13cf681f-9e6e-4dc2-bf90-e0c29dbcb350",
+          "similarity_score": 0.499868184328079
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/it-reminds-me-manchester-united-30453372",
+        "article_headline": "'It reminds me' - Manchester United transfer target compared with Arsenal star Bukayo Saka",
+        "article_text": "Geovany Quenda has quickly made his mark at Sporting Lisbon. (Image: Gualter Fatia/Getty Images.)\n\nFormer Sporting Lisbon academy coach Fabio Roque has compared Manchester United transfer target Geovany Quenda with Arsenal ace Bukayo Saka.\n\nAs reported by the _Manchester Evening News_ earlier this month, United have been tracking the 17-year-old since the beginning of the season. It is understood Sporting are already anticipating receiving a bid from the Reds for his signature.\n\nQuenda was promoted to the Sporting first-team at the start of this season by now-United head coach Ruben Amorim. The teenager quickly established himself as a regular starter, occupying the right-sided wing-back role.\n\nQuenda, who is left-footed, is perfect for the role, meaning he would be comfortable with stepping into it at Old Trafford should United swoop for his signature in the coming months. And for Roque, Quenda has the potential to put a stamp on football unlike anyone else has done previously.\n\n\"He is so committed in defensive moments and defensive duels,\" Roque told Sky Sports. \"He plays so well there because the space that he covers on the field is huge.\n\n\"Geo is so demanding with himself in the defensive moments. To close, to recover fast, to win the defensive duels for his teammates. It reminds me of Bukayo Saka in the beginning of his career when he played as a full-back.\"\n\nQuenda, who was named in the senior Portugal squad for the very first time during the international break earlier this month, is considered as one of the best players of his generation by Roque.\n\nRoque continued: \"There is only one Geovany Quenda. He is different from any other player I trained. He can create a mark on football that is totally different.\n\n\"We are talking about, with Lamine Yamal and Estevao Willian, probably the best players in that generation born in 2007.\"\n\nRoque has also said that Quenda's character and mentality has been key in his sharp rise, adding: \"His personality is one of the biggest reasons he is doing what he is doing now.\n\n\"The talent has to be there, but having the capacity to understand where you are and to seek out those challenges all the time is what makes the difference for Quenda.\"",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Fabio Roque",
+          "raw_quote_text": "He is so committed in defensive moments and defensive duels. He plays so well there because the space that he covers on the field is huge.",
+          "summary": "I'm impressed by his commitment and the vast space he covers on the field.",
+          "similar_to_quote_id": "699a6b07-7bd2-41e9-8b50-86e4de4c4e4e",
+          "similarity_score": 0.433606415987015
+        },
+        {
+          "speaker_name": "Fabio Roque",
+          "raw_quote_text": "(About Quenda's drive) Geo is so demanding with himself in the defensive moments. To close, to recover fast, to win the defensive duels for his teammates. It reminds me of Bukayo Saka in the beginning of his career when he played as a full-back.",
+          "summary": "Geo's self-demand resembles Saka's early career as a full-back.",
+          "similar_to_quote_id": "9fab5188-abb4-4cbb-aa35-2d2870e89b80",
+          "similarity_score": 0.458876192569733
+        },
+        {
+          "speaker_name": "Fabio Roque",
+          "raw_quote_text": "There is only one Geovany Quenda. He is different from any other player I trained. He can create a mark on football that is totally different.",
+          "summary": "There's no one like Geovany Quenda; he can make a unique impact on football.",
+          "similar_to_quote_id": "699a6b07-7bd2-41e9-8b50-86e4de4c4e4e",
+          "similarity_score": 0.411930590867996
+        },
+        {
+          "speaker_name": "Fabio Roque",
+          "raw_quote_text": "His personality is one of the biggest reasons he is doing what he is doing now. The talent has to be there, but having the capacity to understand where you are and to seek out those challenges all the time is what makes the difference for Quenda.",
+          "summary": "His personality and talent are key to his success, driving him to embrace challenges.",
+          "similar_to_quote_id": "75cbeab5-834d-43ed-9480-6fbec6bca1d7",
+          "similarity_score": 0.460631787776947
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-become-first-premier-30451587",
+        "article_headline": "Manchester United become first Premier League club to introduce key change at Old Trafford",
+        "article_text": "Manchester United have signed up to become the first Premier League club to offer male sanitary facilities.\n\nManchester United have taken a pioneering step in the Premier League by becoming the first club to introduce male sanitary facilities at Old Trafford.\nThe club is rolling out bins and free products like pads, tackling an issue highlighted by a recent study from Prostate Cancer UK and phs Group released on Tuesday which indicates that half of the men suffering from bladder weakness are attending fewer games due to inadequate amenities and worry over leaks.\nOne in seven (14 per cent) of those surveyed admitted they have stopped attending matches entirely because of this problem.\n\n**READ MORE:** [**Manchester United can start their Ruben Amorim rebuild by releasing three players**](https://www.manchestereveningnews.co.uk/sport/football/manchester-united-can-start-ruben-30445109)\n\nThe Red Devils have now become the first top-flight team to commit to Gold BOG STANDARD accreditation, signifying adherence to the benchmark for facilities set by Prostate Cancer UK and phs Group to aid men with incontinence.\nProstate cancer affects one in eight men, and urinary incontinence (UI) can be a distressing consequence of treatments necessary to combat this condition, with numerous sufferers dealing with this issue for varying lengths of time post-treatment.\nNick Ridgman, head of support services at Prostate Cancer UK, praised Manchester United for their initiative. He said: \"Manchester United's commitment to supporting men with incontinence is a fantastic step forward and we hope their action will inspire change across the whole football community, from the top of the Premier League to local non-league games.\n\n“By giving men access to the basic facilities they need, we hope more men will feel confident to get back in the game and back to watching live football matches unhampered by their incontinence.”\nFormer BBC sports presenter Steve Rider, who has personally battled prostate cancer, added: \"Incontinence can become a real social barrier. Imagine going to watch your local football team, you're halfway through the second half and suddenly you feel the need to get rid of something a bit more substantial than your season ticket.\"\n\"The ability to do that hygienically, with security and dignity, is so important. And that's why I'm a strong supporter of the Back in the Game initiative to get clubs up to the BOG STANDARD, to enable men to live a better life.\n",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Nick Ridgman",
+          "raw_quote_text": "Manchester United's commitment to supporting men with incontinence is a fantastic step forward and we hope their action will inspire change across the whole football community, from the top of the Premier League to local non-league games. By giving men access to the basic facilities they need, we hope more men will feel confident to get back in the game and back to watching live football matches unhampered by their incontinence.",
+          "summary": "I'm thrilled that Manchester United is leading the way in supporting men with incontinence, encouraging others to follow suit.",
+          "similar_to_quote_id": "d008cfdd-b837-4a7b-afcf-9422afa7157d",
+          "similarity_score": 0.410203546285629
+        },
+        {
+          "speaker_name": "Steve Rider",
+          "raw_quote_text": "Incontinence can become a real social barrier. Imagine going to watch your local football team, you're halfway through the second half and suddenly you feel the need to get rid of something a bit more substantial than your season ticket. The ability to do that hygienically, with security and dignity, is so important. And that's why I'm a strong supporter of the Back in the Game initiative to get clubs up to the BOG STANDARD, to enable men to live a better life.",
+          "summary": "Incontinence is a significant social issue, and it's crucial to have facilities that ensure men can enjoy live matches with dignity.",
+          "similar_to_quote_id": "75cbeab5-834d-43ed-9480-6fbec6bca1d7",
+          "similarity_score": 0.395620793104172
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-city/man-city-115-charges-update-decision-premier-league-689026-20241127",
+        "article_headline": "Major development in Man City's 115 charges hearing emerges and rival Premier League clubs won't be happy",
+        "article_text": "**A significant update in the case surrounding Manchester City's alleged 115 breaches of financial rules has been released.**\n\nCity, who strenuously deny any wrongdoing, were charged by the Premier League with the breaches - a minority of which also relate to UEFA rules - back in February 2023.\n\nA private hearing into the case began in September after lengthy delays, and was expected to take around 10 weeks.\n\nAs a result, there have been few updates on the case in recent weeks as both sides argue their positions out of the public eye.\n\nPenalties for City if found guilty include significant fines, points deductions or even relegation, with a verdict not expected before the end of the season.\n\nBut a fresh update on the timescale for the final decision has been released.\n\nAccording to [The Lawyer](https://www.thelawyer.com/the-hearing-the-end-is-in-sight-for-manchester-city-case/), there are said to have been private admissions that a verdict may not be reached by the end of the 2024/25 season, with the case potentially dragging on into the beginning of the 2025/26 campaign.\n\nIt is claimed that a judgment and possible appeal relating to the hearing, which is scheduled to be completed in mid-December, could now '[take months](https://www.thetimes.com/sport/football/article/manchester-city-115-financial-charges-beyond-end-season-8qds5d0nk)'.\n\nThat is because the hearing, which is taking place at a centre in London, has been paused while both City and the Premier League prepare closing arguments.\n\nIt is added that once those arguments start in early to mid-December, it could take three months or more before the three-man commission reaches a verdict. Time would then be allotted for the preparation of appeals.\n\n**More to follow...**",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/lionel-messi-barcelona-premier-league-real-madrid-988966-20241127",
+        "article_headline": "Lionel Messi admits Barcelona 'hated' Premier League club even more than Real Madrid",
+        "article_text": "Lionel Messi admits Barcelona 'hated' one Premier League club even more than Real Madrid - Premier League - SPORTbible\n===============\n\n**Lionel Messi has previously admitted that Barcelona players \"hated\" a Premier League club more than bitter rivals Real Madrid – and it was something he \"never thought\" he would say.**\n\nThe Argentine was only a teenager when he decided to go public with the comments during an interview with the News of the World in 2005.\n\nAt the time, there was bad blood between [Barcelona](https://www.sportbible.com/barcelona) and [Chelsea](https://www.sportbible.com/chelsea) after the Blues produced a memorable comeback at Stamford Bridge in what was a dramatic Champions League last-16 clash.\n\nA week earlier, [Jose Mourinho](https://www.sportbible.com/jose-mourinho) made some not-so-subtle comments about referee Anders Frisk after Didier Drogba was controversially sent off in the first leg.\n\nThe two-legged clash left a bitter taste in the mouth of Barcelona players. In fact, ahead of their last-16 clash in 2006, an 18-year-old [Messi](https://www.sportbible.com/lionel-messi) was vocal about Chelsea.\n\n\"There are \\[Barcelona\\] players here who hate Chelsea more than [Real Madrid](https://www.sportbible.com/real-madrid),\" he said.\n\n\"I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.\n\n\"We would rather play Arsenal, [Manchester United](https://www.sportbible.com/man-utd) or anyone else than be on the pitch with Chelsea.\"\n\nMessi would go on to produce a superb display for the Catalan side, despite being hacked down by Chelsea defender Asier Del Horno, who was sent off for a shocking challenge on the Argentine.\n\nAn own goal from John Terry and a late strike from Samuel Eto'o sealed a first leg advantage before they knocked Jose Mourinho's side out following a 1-1 draw at the Camp Nou.\n\nBarca would lift the [Champions League](https://www.sportbible.com/champions-league) that year after Juliano Belletti scored a late winner at the Stade de France against Arsenal.\n\nMessi later recalled a 2012 Champions League defeat to Chelsea as being one of his biggest regrets in a Barcelona shirt.\n\n“I would have liked to have tried to win another Champions League,\" he said in 2021, when he announced his decision to leave Barca.\n\n“We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep \\[Guardiola\\], they prevented us from getting to another final.\n\n“And I think there could have been another time where we could have won another Champions League.”",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Speaking about Chelsea players] There are [Barcelona] players here who hate Chelsea more than [Real Madrid].",
+          "summary": "Some Barcelona players dislike Chelsea more than Real Madrid.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.419298380613327
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.",
+          "summary": "I didn't expect to feel this way about Chelsea.",
+          "similar_to_quote_id": "0ea4076e-21ae-4a34-9729-010c580ed545",
+          "similarity_score": 0.360184133052826
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "We would rather play Arsenal, [Manchester United] or anyone else than be on the pitch with Chelsea.",
+          "summary": "We prefer playing other teams over facing Chelsea.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.464853405952454
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "I would have liked to have tried to win another Champions League.",
+          "summary": "I wish I had a chance to win another Champions League.",
+          "similar_to_quote_id": "f533153a-fe3d-4dfa-9b0c-b71419396fe6",
+          "similarity_score": 0.452586650848389
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep [Guardiola], they prevented us from getting to another final.",
+          "summary": "Losing to Liverpool and Chelsea in the semis held us back from more finals.",
+          "similar_to_quote_id": "902c1f6c-89eb-4182-84a1-a4cf4f812462",
+          "similarity_score": 0.440196692943573
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "And I think there could have been another time where we could have won another Champions League.",
+          "summary": "I believe there were missed opportunities for us to win more Champions Leagues.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.522398710250854
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news-man-utd/man-utd-premier-league-mark-goldbridge-united-stand-370460-20241126",
+        "article_headline": "Mark Goldbridge reveals he reached out to Man Utd player after they made 'malicious rumours' claim",
+        "article_text": "",
+        "article_date": ""
+      },
+      "quotes": []
+    }
+  ]
+}

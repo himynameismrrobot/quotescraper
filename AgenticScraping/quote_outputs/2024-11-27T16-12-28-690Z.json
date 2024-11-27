@@ -1,0 +1,170 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-27T16:12:28.690Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/articles/clydl5y8ww1o",
+        "article_headline": "Angel Gomes set for return after Ruben Amorim green light",
+        "article_text": "**Chelsea and Arsenal will have to pay £115m to sign Newcastle United's Alexander Isak, Hamburg consider appointing Ruud van Nistelrooy as their new manager, Jose Mourinho dismisses Fenerbahce links to Cristiano Ronaldo.**\n\n**Chelsea** have joined **Arsenal** in the race for Alexander Isak - but **Newcastle United** will demand at least £115m for their 25-year-old Swedish striker.\n\n**Aston Villa, AC Milan** and **Juventus** will battle it out with **Arsenal** for **Real Madrid** forward Arda Guler, 19, with the Spanish club now understood to be open to letting the Turkey international leave on loan.\n\nGerman club **Hamburg** are considering appointing former Manchester United interim boss Ruud van Nistelrooy as their new manager after they parted company with Steffen Baumgart.\n\n**Fenerbahce** boss Jose Mourinho has dismissed speculation about the Turkish club making a move for 39-year-old **Al-Nassr** and Portugal forward Cristiano Ronaldo.\n\n**Lille** and England midfielder Angel Gomes, 24, is set for a return to **Manchester United** after new manager Ruben Amorim gave the club the green light to re-sign him.\n\n**Nottingham Forest** are in advanced discussions with full-back Ola Aina over a new contract. The 28-year-old Nigeria international's current deal runs out in the summer, meaning he will be free to negotiate with overseas clubs from January.\n\n**Crystal Palace** manager Oliver Glasner will be backed heavily in the January transfer market as the Austrian bids to bolster his relegation-threatened squad.\n\n**Real Sociedad** feel powerless to stop Spain international Martin Zubimendi, 25, from leaving the club, with **Arsenal** and **Liverpool** both eager to sign the holding midfielder, who is rated at 60m euros (£49.9m).\n\nWayne Rooney is planning to make a move for **Liverpool's** English striker Jayden Danns, 18, to bolster his attacking options at **Plymouth.**\n\n**Newcastle** boss Eddie Howe and sporting director Paul Mitchell have held initial talks with the club's Saudi Arabian owners to discuss their plans for the January transfer market when Slovakia keeper Martin Dubravka, 35, could leave.\n\n**Manchester City** are interested in **Bournemouth** centre-back Illia Zabarnyi and the Cherries could sell the 22-year-old Ukraine international in the summer to raise funds.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nScores & Fixtures\n-----------------\n\nScroll LeftScroll Right\n\n*   Premier League Full time FT Ipswich Ipswich Town 1 Man Utd Manchester United 1\n*   UEFA Europa League Man Utd Manchester United plays Bodø/Glimt Bodø / Glimt at 20:00 on Thu the 28 of Nov\n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Everton\n    \n    Everton\n    \n    at 13:30 on Sun the 1 of Dec\n    \n*   Premier League\n    \n    Arsenal\n    \n    Arsenal\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 20:15 on Wed the 4 of Dec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Nottm Forest\n    \n    Nottingham Forest\n    \n    at 17:30 on Sat the 7 of Dec\n    \n*   UEFA Europa League\n    \n    Plzeň\n    \n    Viktoria Plzeň\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 17:45 on Thu the 12 of Dec\n    \n*   Premier League\n    \n    Man City\n    \n    Manchester City\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 16:30 on Sun the 15 of Dec\n    \n*   League Cup\n    \n    Tottenham\n    \n    Tottenham Hotspur\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 20:00 on Thu the 19 of Dec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Bournemouth\n    \n    AFC Bournemouth\n    \n    at 14:00 on Sun the 22 of Dec\n    \n*   Premier League\n    \n    Wolves\n    \n    Wolverhampton Wanderers\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 17:30 on Thu the 26 of Dec\n    \nLatest updates\n--------------\n\n1.  **Simon Stone**  \n    Chief football news reporter\n    \n    New Manchester United coach Ruben Amorim has an unusual way of singling out players when he is making generic points.\n    \n    He did it on Sunday when he spoke about his players having difficulties adapting to his new system, pointing to an instance when Jonny Evans found himself in the wrong place.\n    \n    Today in his news conference, Amorim explained he was using Evans to emphasise the point he was making rather than being critical.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[In explaining his coaching method] I was using Evans to emphasise the point I was making rather than being critical.",
+          "summary": "I was using Evans to make a point, not to criticize.",
+          "similar_to_quote_id": "40f39efc-0e09-40ae-b039-873762e0a06a",
+          "similarity_score": 0.466919988393784,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text includes introductory text not attributed to Ruben Amorim, violating the validity requirement."
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-prepare-fresh-chido-30454448",
+        "article_headline": "Manchester United prepare fresh Chido Obi-Martin 'move' after Arsenal exit",
+        "article_text": "Manchester United prepare fresh Chido Obi-Martin 'move' after Arsenal exit - Manchester Evening News\n\nChido Obi-Martin joined Manchester United from Arsenal in September\n\nBy\nKeifer MacDonald\n\nManchester United U18s forward Chido Obi-Martin is reportedly set to sign a professional contract with the club at the end of the week.\n\nThe 16-year-old Denmark youth international, who moved to Old Trafford after rejecting fresh terms at Arsenal, has scored four goals in as many outings in the Premier League North since debuting in September. According to reports in Denmark, Obi-Martin is set to be rewarded for his impressive start to life at United by signing a first professional contract with the club when he turns 17 on Friday (November 29).\n\nObi-Martin penned scholarship terms with United upon signing for the club, with rules in England prohibiting players from signing professional contracts before they turn 17. Prior to signing for United, Obi-Martin was the subject of big praise from Denmark U17s boss Jesper Mikkelsen, who said: \"When you look at Chido, he doesn't look like someone who hasn't turned 16 yet.\n\nAfter signing his first deal with United in September, Obi-Martin said: \"Very happy to sign with this amazing club, time to focus and achieve all my dreams. Thanks to everyone who has helped me get this far.\"\n\nUnited are currently top of the U18s Premier League North with nine wins from as many games.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Jesper Mikkelsen",
+          "raw_quote_text": "When you look at Chido, he doesn't look like someone who hasn't turned 16 yet.",
+          "summary": "Chido appears mature for his age.",
+          "similar_to_quote_id": "f633a780-0ac4-41d1-8841-cfa6f6903e07",
+          "similarity_score": 0.271349847316742,
+          "is_valid": false,
+          "invalid_reason": "Summary is not in first person."
+        },
+        {
+          "speaker_name": "Chido Obi-Martin",
+          "raw_quote_text": "Very happy to sign with this amazing club, time to focus and achieve all my dreams. Thanks to everyone who has helped me get this far.",
+          "summary": "I'm excited to sign and pursue my dreams with this club.",
+          "similar_to_quote_id": "1a3245f0-b06f-4b24-ab7a-52493c0fc436",
+          "similarity_score": 0.497825562953949,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/lionel-messi-barcelona-premier-league-real-madrid-988966-20241127",
+        "article_headline": "Lionel Messi admits Barcelona 'hated' Premier League club even more than Real Madrid",
+        "article_text": "**Lionel Messi has previously admitted that Barcelona players \"hated\" a Premier League club more than bitter rivals Real Madrid – and it was something he \"never thought\" he would say.**\n\nThe Argentine was only a teenager when he decided to go public with the comments during an interview with the News of the World in 2005.\n\nAt the time, there was bad blood between [Barcelona](https://www.sportbible.com/barcelona) and [Chelsea](https://www.sportbible.com/chelsea) after the Blues produced a memorable comeback at Stamford Bridge in what was a dramatic Champions League last-16 clash.\n\nA week earlier, [Jose Mourinho](https://www.sportbible.com/jose-mourinho) made some not-so-subtle comments about referee Anders Frisk after Didier Drogba was controversially sent off in the first leg.\n\nThe two-legged clash left a bitter taste in the mouth of Barcelona players. In fact, ahead of their last-16 clash in 2006, an 18-year-old [Messi](https://www.sportbible.com/lionel-messi) was vocal about Chelsea.\n\n\"There are \\[Barcelona\\] players here who hate Chelsea more than [Real Madrid](https://www.sportbible.com/real-madrid),\" he said.\n\n\"I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.\n\n\"We would rather play Arsenal, [Manchester United](https://www.sportbible.com/man-utd) or anyone else than be on the pitch with Chelsea.\"\n\nMessi would go on to produce a superb display for the Catalan side, despite being hacked down by Chelsea defender Asier Del Horno, who was sent off for a shocking challenge on the Argentine.\n\nAn own goal from John Terry and a late strike from Samuel Eto'o sealed a first leg advantage before they knocked Jose Mourinho's side out following a 1-1 draw at the Camp Nou.\n\nBarca would lift the [Champions League](https://www.sportbible.com/champions-league) that year after Juliano Belletti scored a late winner at the Stade de France against Arsenal.\n\nMessi later recalled a 2012 Champions League defeat to Chelsea as being one of his biggest regrets in a Barcelona shirt.\n\n“I would have liked to have tried to win another Champions League,\" he said in 2021, when he announced his decision to leave Barca.\n\n“We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep \\[Guardiola\\], they prevented us from getting to another final.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Speaking about Chelsea] There are [Barcelona] players here who hate Chelsea more than [Real Madrid].",
+          "summary": "Some Barcelona players hated Chelsea more than Real Madrid.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.422935992479324,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text contains extra words from the article author's context."
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.",
+          "summary": "I never expected to say such a thing; it's worse than the Boca and River Plate rivalry.",
+          "similar_to_quote_id": "0ea4076e-21ae-4a34-9729-010c580ed545",
+          "similarity_score": 0.360184133052826,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "We would rather play Arsenal, [Manchester United] or anyone else than be on the pitch with Chelsea.",
+          "summary": "We preferred facing any team over playing Chelsea.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.464853405952454,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text contains extra words from the article author's context."
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "I would have liked to have tried to win another Champions League.",
+          "summary": "I wished I could have won another Champions League.",
+          "similar_to_quote_id": "f533153a-fe3d-4dfa-9b0c-b71419396fe6",
+          "similarity_score": 0.452586650848389,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep [Guardiola], they prevented us from getting to another final.",
+          "summary": "We lost to Liverpool and Chelsea in semis, which blocked our path to the final.",
+          "similar_to_quote_id": "902c1f6c-89eb-4182-84a1-a4cf4f812462",
+          "similarity_score": 0.440196692943573,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text contains extra words from the article author's context."
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/video/2024/nov/24/we-will-suffer-for-a-long-period-ruben-amorim-on-manchester-united-debut-video",
+        "article_headline": "‘We will suffer for a long period’: Ruben Amorim on Manchester United debut – video",
+        "article_text": "'We will suffer for a long period': Ruben Amorim on Manchester United debut – video | Ruben Amorim | The Guardian\n\nRuben Amorim said Manchester United are going 'to suffer for a long period' after his managerial debut at the club ended in a 1-1 Premier League draw at Ipswich. He added: 'We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit. They are thinking too much because we are changing too much with two training [sessions] now without space to improve in training'.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[After his managerial debut] We will suffer for a long period.",
+          "summary": "I expect a long period of suffering.",
+          "similar_to_quote_id": "c01ce53c-7200-4243-b76e-d765a2241c64",
+          "similarity_score": 0.442645072937012,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On team improvement] We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit.",
+          "summary": "We're taking risks now for better results next year.",
+          "similar_to_quote_id": "5a2f77a0-c3e0-49c6-b5e8-0ec691f6fe00",
+          "similarity_score": 0.488470554351807,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On training and changes] They are thinking too much because we are changing too much with two training [sessions] now without space to improve in training.",
+          "summary": "There's too much thinking and change with minimal training time.",
+          "similar_to_quote_id": "40f39efc-0e09-40ae-b039-873762e0a06a",
+          "similarity_score": 0.449178546667099,
+          "is_valid": false,
+          "invalid_reason": "The raw quote includes editorial text ('[On training and changes]') which indicates it's not a direct quote from the speaker."
+        }
+      ],
+      "status": "quotesValidated"
+    }
+  ]
+}

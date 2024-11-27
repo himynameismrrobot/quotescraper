@@ -1,0 +1,364 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-27T15:52:16.690Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/articles/c2dl62ezwn1o",
+        "article_headline": "Amorim wants Rashford to show desire to peak again",
+        "article_text": "Manchester United head coach Ruben Amorim said he is ready to nurture Marcus Rashford back to top form as he urged the England international to show his desire.\n\nThe forward scored the first goal of the Amorim era at Ipswich on Sunday. After that he struggled at Portman Road, after being picked in an orthodox number nine role he is not keen on.\n\nIt is now almost 18 months since Rashford showed his best scoring form, when he scored a career-best 30 goals in Erik ten Hag’s first season at United.\n\nAmorim accepts the job he gave Rashford on Sunday was not ideal and has pledged to work with the 27-year-old to get him back to his best form.\n\nHowever, the main factor is Rashford himself, according to United's new boss.\n\n\"We'll try to find the right solution for him but he has to be Marcus, first of all, to try to return to that moment,\" said Amorim.\n\n\"Then he will have all the help of the staff, the club and the fans because he is a Manchester United boy. But he has to be the first one to want it.\"\n\nOnly Everton and the bottom two, Crystal Palace and Southampton, have scored fewer than United's 13 goals in the Premier League this season. Alejandro Garnacho is their top scorer with three.\n\nIt is little wonder that Amorim has been linked with a move for one of his former Sporting players in ex-Coventry forward Viktor Gyokeres, who is riding high in the Champions League top scorers' chart this season with five.\n\nBut Amorim is steering conversations away from those thoughts. He feels there is enough talent in the United squad to find the net more often.\n\n\"Of course there is a concern,\" Amorim said. \"You could feel it in the second half [against Ipswich] when we controlled possession of the ball but we were not dangerous.\n\n\"I know the question is if I need a new striker scoring goals, but I think we have to improve as a team.\n\n\"We have quality players who can score so many goals. Rasmus [Hojlund] and Josh [Zirkzee] and Rashford will score more goals. Even Bruno [Fernandes] has to score more goals. Amad [Diallo] has to be better near the goal. All these guys need to improve.\"\n\nAmorim says he is looking forward to his first home game with United, against Norwegian side Bodo/Glimt in the Europa League on Thursday.\n\nThree days after he complained at Ipswich about the amount of media commitments he had to deal with, Amorim was faced with a packed news conference room on Wednesday at United's Carrington training ground.\n\nAt least this time there were no surprise distractions, after Ipswich shareholder and pop superstar Ed Sheeran interrupted Amorim's post-match chat on Sky Sports at Ipswich.\n\nThe merits of Sheeran's intervention have been widely debated, and the singer has apologised.\n\nHowever, for Amorim, the matter was not an issue.\n\n\"It was nothing,\" Amorim said. \"It was a simple question to say hello to one of the commentators.\n\n\"I was with Roy Keane. He's a real star. It was really OK.\"\n\nCaptain Bruno Fernandes has stood by his belief that United's players need to take their share of the blame for Erik ten Hag's dismissal.\n\nFernandes spoke to Ten Hag in the aftermath of his sacking on 28 October.\n\n\"Obviously, if you change a manager in mid-season, it is because things are not going as you want – and everyone has to take the blame,\" Fernandes said.\n\n\"As I said before, it is easier to get rid of a manager than 15 or 20 players.\n\n\"But now our focus is on what the future can bring and as quickly as possible get the new ideas of the manager.\n\n",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Stressing the importance of Rashford's desire] We'll try to find the right solution for him but he has to be Marcus, first of all, to try to return to that moment.",
+          "summary": "I need Marcus to want to return to his best form.",
+          "similar_to_quote_id": "2142653a-3586-4f2d-91a3-fc1e39301a55",
+          "similarity_score": 0.541072070598602
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Commenting on team improvement] Of course there is a concern. You could feel it in the second half [against Ipswich] when we controlled possession of the ball but we were not dangerous.",
+          "summary": "There’s concern about our effectiveness despite controlling the game.",
+          "similar_to_quote_id": "a4eae3fb-2ea8-4216-a023-c585bae351b8",
+          "similarity_score": 0.611798405647278
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the need for improvement among players] We have quality players who can score so many goals. Rasmus [Hojlund] and Josh [Zirkzee] and Rashford will score more goals. Even Bruno [Fernandes] has to score more goals. Amad [Diallo] has to be better near the goal. All these guys need to improve.",
+          "summary": "All our key players, including Rashford and Bruno, need to improve their scoring.",
+          "similar_to_quote_id": "13cf681f-9e6e-4dc2-bf90-e0c29dbcb350",
+          "similarity_score": 0.661394357681274
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Regarding Sheeran's interruption during a press conference] It was nothing. It was a simple question to say hello to one of the commentators.",
+          "summary": "The interruption during the chat was trivial.",
+          "similar_to_quote_id": "6233d35c-bb06-4c8f-b36b-ba5eca54efc9",
+          "similarity_score": 0.376420736312866
+        },
+        {
+          "speaker_name": "Bruno Fernandes",
+          "raw_quote_text": "[On team accountability for the manager's sacking] Obviously, if you change a manager in mid-season, it is because things are not going as you want – and everyone has to take the blame.",
+          "summary": "We all share the responsibility for the manager's dismissal.",
+          "similar_to_quote_id": "1273670b-ab63-40f5-8ad8-d3dfd3c62787",
+          "similarity_score": 0.670557796955109
+        },
+        {
+          "speaker_name": "Bruno Fernandes",
+          "raw_quote_text": "[Expressing the challenge of team change] As I said before, it is easier to get rid of a manager than 15 or 20 players.",
+          "summary": "It's simpler to dismiss a manager than to change a large number of players.",
+          "similar_to_quote_id": "6acf48e2-69c6-490b-8da6-baf02629a780",
+          "similarity_score": 0.475804567337036
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nScores & Fixtures\n-----------------\n\n*   Premier League Full time FT Ipswich Town 1 Man Utd Manchester United 1\n*   UEFA Europa League Man Utd Manchester United plays Bodø/Glimt Bodø / Glimt at 20:00 on Thursday the 28 of Nov\n*   Premier League Man Utd Manchester United plays Everton at 13:30 on Sunday the 1 of Dec\n*   Premier League Arsenal plays Man Utd Manchester United at 20:15 on Wednesday the 4 of Dec\n*   Premier League Man Utd Manchester United plays Nottingham Forest at 17:30 on Saturday the 7 of Dec\n*   UEFA Europa League Plzeň plays Man Utd Manchester United at 17:45 on Thursday the 12 of Dec\n*   Premier League Man City plays Man Utd Manchester United at 16:30 on Sunday the 15 of Dec\n*   League Cup Tottenham plays Man Utd Manchester United at 20:00 on Thursday the 19 of Dec\n*   Premier League Man Utd Manchester United plays Bournemouth at 14:00 on Sunday the 22 of Dec\n*   Premier League Wolves plays Man Utd Manchester United at 17:30 on Thursday the 26 of Dec\n\nLatest updates\n--------------\n\n1.  **Simon Stone**  \n    Chief football news reporter\n\n    New Manchester United coach Ruben Amorim has an unusual way of singling out players when he is making generic points.\n    \n    He did it on Sunday when he spoke about his players having difficulties adapting to his new system, pointing to an instance when Jonny Evans found himself in the wrong place.\n    \n    Today in his news conference, Amorim explained he was using Evans to emphasise the point he was making rather than being critical.\n    \n    A couple of answers later, he was talking about players needing to score goals and said Amad Diallo needs to be better at it.\n\n2.  **Josh Lobley**  \n    BBC Sport Journalist\n    \n    Manchester United boss Ruben Amorim has been speaking to the media before Thursday's Europa League game against Bodo/Glimt.\n    \n    Here are the key lines from his news conference:\n\n    *   He was asked if Harry Maguire and Lisandro Martinez will be available for Thursday's match: \"Not Harry. Lisandro is ready. I felt he's had enough time so he is ready. Harry will be ready soon and on the pitch also.\"\n    *   On fellow defender Lenny Yoro's availability: \"He is available to train but we are working on his fitness, which is important. He is a young guy. We believe in him a lot and we are trying to prepare the best way.\"\n    *   On his first match at Old Trafford: \"Everybody has said it will be a special time. Before the match it will be like a new sensation, but after the whistle it will be one more game and we want to win that match.\"\n    *   Amorim confirmed that there will be squad rotation for Thursday's match: \"We have to do it, especially in this moment because we have a lot of games. We are in the beginning of something. They have to feel that they are part of the team.\"\n\n3.  **Pat Nevin**  \n    Former footballer and presenter\n    \n    After Liverpool's win at Southampton, all eyes shifted to the real story on Sunday. Ruben Amorim’s first decisions as Manchester United coach are as much discussed in the UK as Donald Trump’s White House cabinet selections attract attention over the pond.\n\n    Certainly, United now have a plan, but whether it is a good one that suits the players is less certain. The identity of a harder working, energetic side has already been demanded by the new coach. The suspicion is that he will need a lot of action in the transfer market rather than the training ground to achieve this.\n\n4.  **Glenn Murray**  \n    Former Premier League striker\n    \n    Manchester United's performances under Ruben Amorim \"will only get better\" but believes the new boss will be working on the fitness of his players.\n    \n    Amorim kicked-off his tenure on Sunday with a 1-1 draw against Ipswich Town, leaving United 12th in the Premier League.\n    \n    **Published:** 2024-11-25",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Maguire and Martinez's availability] \"Not Harry. Lisandro is ready. I felt he's had enough time so he is ready. Harry will be ready soon and on the pitch also.\"",
+          "summary": "Lisandro is ready, but Harry will be ready soon.",
+          "similar_to_quote_id": "d008cfdd-b837-4a7b-afcf-9422afa7157d",
+          "similarity_score": 0.493294477462769
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Lenny Yoro's fitness] \"He is available to train but we are working on his fitness, which is important. He is a young guy. We believe in him a lot and we are trying to prepare the best way.\"",
+          "summary": "We're working on Yoro's fitness because we believe in him.",
+          "similar_to_quote_id": "4ede6bbb-1fe4-4115-8c04-e46efa205a9c",
+          "similarity_score": 0.42830228805542
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On his first match at Old Trafford] \"Everybody has said it will be a special time. Before the match it will be like a new sensation, but after the whistle it will be one more game and we want to win that match.\"",
+          "summary": "It will feel special before, but it's just another game to win.",
+          "similar_to_quote_id": "b6e57e7f-1b14-462b-9ead-674bfd6a0004",
+          "similarity_score": 0.526319265365601
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On squad rotation] \"We have to do it, especially in this moment because we have a lot of games. We are in the beginning of something. They have to feel that they are part of the team.\"",
+          "summary": "We need to rotate due to many games and to build team unity.",
+          "similar_to_quote_id": "4ede6bbb-1fe4-4115-8c04-e46efa205a9c",
+          "similarity_score": 0.534753561019897
+        },
+        {
+          "speaker_name": "Glenn Murray",
+          "raw_quote_text": "Manchester United's performances under Ruben Amorim \"will only get better\" but believes the new boss will be working on the fitness of his players.",
+          "summary": "I think performances will improve as the new boss focuses on fitness.",
+          "similar_to_quote_id": "b6e57e7f-1b14-462b-9ead-674bfd6a0004",
+          "similarity_score": 0.566796958446503
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/wash-kits-13-years-ago-30464068",
+        "article_headline": "We had to wash our own kits 13 years ago - to be facing Manchester United now is a dream",
+        "article_text": "Bodo/Glimt are on the brink of securing their fourth Norwegian league championship in five seasons, an achievement especially poignant as they head to Old Trafford for a \"special\" encounter with Manchester United, only 13 years after players were responsible for washing their own kits.\n\nSituated above the Arctic Circle, the club will be backed by 6,500 supporters, equivalent to 12% of Bodo's total population, during Thursday's Europa League group stage clash at the Theatre of Dreams.\n\nThis journey is particularly surreal for those connected to the ever-improving Bodo squad, who will clinch their fourth Eliteserien title inside the last five seasons if they triumph over the already relegated Lillestrom come Sunday.\n\nFor sporting director Havard Sakariassen it is another 'pinch-me' moment. As someone who idolised the United team featuring his fellow countryman Ole Gunnar Solskjaer back in the 90s, this is more than just a match.\n\n\"Personally, the 1990s were the defining years of my life because I was between 15 and 22,\" he remembered fondly. \"Manchester was the coolest place on earth for me because of music and the football team.\"\n\n\"So, for me, drawing United, it's a cool thing. If you ask the 20-year-old Havard, that would be unreal to go to Old Trafford with Bodo/Glimt.\"\n\n\"Of course today I am working with this every day and we have been around the block for some years now, but still to go to Old Trafford is special for me. .\n\n\"We have played many games in Europe but, for the Norwegian football fans, playing against English teams is really special.\n\n\"The game against Arsenal (in 2022) was really a big game for the club but also for the supporters. The Man United game is maybe even more special because of the history of United.\"\n\nSakariassen, who has an intimate knowledge of Bodo's ascent having been part of the youth setup and later retiring there in 2011, has since transitioned from player to sporting director, describing his experience as being \"in the middle of a hurricane every day\" due to the club's rapid progression.\n\nReflecting on tougher times, Sakariassen recounted: \"If you go back to 2009-2011, the club was struggling really hard financially. I had my last season in 2011 as a player. In mid-season that year I quit. I was old and not any good.\"\n\n\"They offered me a job in the club in the middle of the season. I left the changing room and went upstairs.\n\n\"At that time the club was in such bad conditions that we didn't have a kit manager. We washed our training gear at home and came to training already dressed. That was the situation at Bodo/Glimt in 2011.\n\n\"We had one person working for the A team that autumn. That was me. That meant we didn't have a kit man. I was the kit man. When we travelled, home and away, the washing of the jerseys... we didn't have anyone to do it in 2011.\n\n\"To compare that to our resources today, when we have charters and all the staff around the team, it is a totally different world.\"\n\nA focus on astute signings and nurturing talent is augmented by an offensive philosophy under Bodo manager Kjetil Knutsen, with his team consistently outperforming Norway's established football powerhouses.\n\nTheir emphatic 6-1 triumph over Jose Mourinho's Roma in the 2021 Conference League caught the attention of Europe, highlighting a success story that shows no signs of slowing down.\n\n\"We don't before the season, like probably a lot of teams, have 'Our aim for the season is to become number one or two', 'We're going to win 80 per cent of the home games',\" Sakariassen explained.\n\n\"We threw that in the bin six years ago, and we actually just start to work on and focus on trying to get better every day, doing the smart things every day, and just work hard and only have one focus: to actually get the product to get better... to work harder and better every day, to hire the coaching staff and support team that actually could just push the team forward.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(Reflecting on his youth) Personally, the 1990s were the defining years of my life because I was between 15 and 22. Manchester was the coolest place on earth for me because of music and the football team.",
+          "summary": "The 1990s defined my youth; Manchester was my favorite place.",
+          "similar_to_quote_id": "d24fa4ea-9771-4ed0-aff7-171c8e27b3b8",
+          "similarity_score": 0.427264273166656
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On facing Manchester United) So, for me, drawing United, it's a cool thing. If you ask the 20-year-old Havard, that would be unreal to go to Old Trafford with Bodo/Glimt.",
+          "summary": "As a young fan, playing at Old Trafford felt unreal.",
+          "similar_to_quote_id": "b6e57e7f-1b14-462b-9ead-674bfd6a0004",
+          "similarity_score": 0.470786422491074
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On the significance of the match) Of course today I am working with this every day and we have been around the block for some years now, but still to go to Old Trafford is special for me.",
+          "summary": "Even today, going to Old Trafford is very special for me.",
+          "similar_to_quote_id": "f056a7d7-8415-4e99-8e7e-cddb5f3a1f5e",
+          "similarity_score": 0.451718151569366
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On the fan perspective) We have played many games in Europe but, for the Norwegian football fans, playing against English teams is really special. The game against Arsenal (in 2022) was really a big game for the club but also for the supporters. The Man United game is maybe even more special because of the history of United.",
+          "summary": "For fans, facing English teams is special, especially Manchester United.",
+          "similar_to_quote_id": "9b2e9c60-7e58-4c31-a78b-6b506483f77b",
+          "similarity_score": 0.501493811607361
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(Reflecting on tougher times) If you go back to 2009-2011, the club was struggling really hard financially. I had my last season in 2011 as a player. In mid-season that year I quit. I was old and not any good.",
+          "summary": "From 2009-2011, we struggled financially, and I had to quit as a player.",
+          "similar_to_quote_id": "1a3245f0-b06f-4b24-ab7a-52493c0fc436",
+          "similarity_score": 0.471175611019135
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On the lack of resources) At that time the club was in such bad conditions that we didn't have a kit manager. We washed our training gear at home and came to training already dressed. That was the situation at Bodo/Glimt in 2011.",
+          "summary": "In 2011, we had no kit manager and had to wash our own gear.",
+          "similar_to_quote_id": "6acf48e2-69c6-490b-8da6-baf02629a780",
+          "similarity_score": 0.399376064538956
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On being the only staff member) We had one person working for the A team that autumn. That was me. That meant we didn't have a kit man. I was the kit man. When we travelled, home and away, the washing of the jerseys... we didn't have anyone to do it in 2011.",
+          "summary": "In 2011, I was the only staff member and had to handle the kits myself.",
+          "similar_to_quote_id": "d70f270f-16e3-4511-887d-9e70cc3ffeb3",
+          "similarity_score": 0.390118598937988
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On the club's growth) To compare that to our resources today, when we have charters and all the staff around the team, it is a totally different world.",
+          "summary": "Now, our resources have drastically improved compared to 2011.",
+          "similar_to_quote_id": "71f267c1-d2da-45b8-81c8-f983fb16e69b",
+          "similarity_score": 0.439863622188568
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "(On team philosophy) We don't before the season, like probably a lot of teams, have 'Our aim for the season is to become number one or two', 'We're going to win 80 per cent of the home games'. We threw that in the bin six years ago, and we actually just start to work on and focus on trying to get better every day.",
+          "summary": "We don't aim for titles but focus on improving every single day.",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similarity_score": 0.558075308799744
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-boss-ruben-amorim-30464266",
+        "article_headline": "Man United boss Ruben Amorim responds to Ed Sheeran's apology after awkward interruption",
+        "article_text": "Manchester United head coach Ruben Amorim laughed off any suggestion that he was annoyed with Ed Sheeran after he interrupted his post-match interview with Sky Sports following Sunday's clash against Ipswich Town.\n\nAmorim was by the side of the pitch speaking to the Super Sunday panel when Sheeran came down and interrupted the interview to say hello to Jamie Redknapp. This led to a pause in the conversation as Kelly Cates explained to the singer that they were live on Sky Sports.\n\nAs this was taking place, Amorim looked to be annoyed at being interrupted mid-flow which led to Sheeran apologising to the Portuguese on social media the following day. \"Apologies if I offended Amorim yesterday, didn't actually realise he was being interviewed at the time, was popping to say hi and bye to Jamie [Redknapp],\" he wrote on his Instagram story.\n\n\"Obvz feel a bit of a be***d but life goes on. Great game though; congrats to all involved x.\"\n\nAhead of his Old Trafford debut on Thursday night against Bodo/Glimt in the Europa League, Amorim was asked about the incident. Laughing, the head coach said: \"In Portugal [meeting Ed Sheeran during a post-match interview would be weird] but here you are used to seeing that but, in Portugal, it is so different.\n\n\"I think you sometimes overcomplicate things. It was nothing, it was a simple question of saying hello to one of the commentators [Jamie Redknapp] so for me it was nothing, I was just thinking about the game.\n\n\"I was with Roy Keane, Roy Keane is the real star in that panel so for me it was really, really okay - nothing special.\" With that incident firmly water under the bridge, Amorim can go on to focus on the Europa League.\n\nUnited are currently unbeaten in the Europa League but have only won one of their four matches so far. This leaves them 15th in the table, three points off the all-important top eight who qualify for the knockout stages automatically.\n\nIf the Reds were to finish between 9th and 24th, they would advance to a two-legged knockout play-off with their opponent decided by a seeded draw. 25th and below would see them knocked out of Europe entirely this season.\n\nWhile the play-offs are not the worst-case scenario it would mean United finding room for a couple of extra matches in February.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Laughing, discussing the impact of the interruption] In Portugal [meeting Ed Sheeran during a post-match interview would be weird] but here you are used to seeing that but, in Portugal, it is so different.",
+          "summary": "In Portugal, meeting Ed Sheeran during an interview would be unusual.",
+          "similar_to_quote_id": "6233d35c-bb06-4c8f-b36b-ba5eca54efc9",
+          "similarity_score": 0.440218091011047
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[About the interruption] I think you sometimes overcomplicate things. It was nothing, it was a simple question of saying hello to one of the commentators [Jamie Redknapp] so for me it was nothing, I was just thinking about the game.",
+          "summary": "I felt it was just a simple hello, nothing to overthink.",
+          "similar_to_quote_id": "6233d35c-bb06-4c8f-b36b-ba5eca54efc9",
+          "similarity_score": 0.432259142398834
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Roy Keane's presence] I was with Roy Keane, Roy Keane is the real star in that panel so for me it was really, really okay - nothing special.",
+          "summary": "For me, Roy Keane is the real star, so it was no big deal.",
+          "similar_to_quote_id": "f056a7d7-8415-4e99-8e7e-cddb5f3a1f5e",
+          "similarity_score": 0.388443887233734
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/yoro-martinez-maguire-man-united-30462739",
+        "article_headline": "Yoro, Martinez, Maguire - Man United injury news and return dates ahead of Bodo/Glimt fixture",
+        "article_text": "Yoro, Martinez, Maguire - Man United injury news and return dates ahead of Bodo/Glimt fixture - Manchester Evening News\n\nAll the very latest on the Man United injury front ahead of Thursday night's Europa League clash against Bodo/Glimt at Old Trafford.\n\nBy\n[George Smith](https://www.manchestereveningnews.co.uk/authors/george-smith/) Senior Football Writer\n\nLeny Yoro, Lisandro Martinez and Harry Maguire are each on the comeback trail. (Image: Getty Images.)\n\nHead coach Ruben Amorim will be targeting his first win in charge of [Manchester United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc) when Bodo/Glimt visit [Old Trafford](https://www.manchestereveningnews.co.uk/all-about/old-trafford) in the [Europa League](https://www.manchestereveningnews.co.uk/all-about/europa-league) on Thursday evening.\n\nThe 39-year-old, who was installed as Erik ten Hag's successor earlier this month, took charge for the very first time on Sunday, overseeing a 1-1 draw with Ipswich Town at Portman Road.\n\n**READ MORE:** **[Ruben Amorim must include two benched players in his United strongest XI](https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-must-include-two-30455820)**\n\n**READ MORE:** **[United supporters group announce ticket price protest ahead of Everton fixture](https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-supporters-group-announce-30461312)**\n\nUnited have drawn three of their opening four Europa League outings, squandering leads against FC Twente, FC Porto and Fenerbahce, with their 2-0 win over PAOK last time out marking their first European win of the season.\n\nAhead of the visit of Bodo/Glimt, Amorim has issued an update on the injury front, confirming one key man is set to return. With that said, here is all the very latest on the United injury front.\n\n### Leny Yoro\n\n**Injury:** Fractured metatarsal\n\n[Yoro](https://www.manchestereveningnews.co.uk/all-about/leny-yoro), who joined United from French club Lille in the summer transfer window, has been stepping up his recovery in recent weeks after suffering a fractured metatarsal in pre-season. He has regularly been involved in first-team training sessions, working with the rest of his teammates.\n\nHowever, he was left out of the squad for the trip to Ipswich and was not on show for the cameras at Wednesday morning's open training session at Carrington. Wednesday was a designated rest day for the youngster.\n\nYoro has not participated in every training session since returning to the first-team fold, highlighting United's careful approach with his ongoing recovery.\n\nIssuing an update on Yoro at Wednesday lunchtime's press conference, Amorim said: \"He is available to train but we are working on his fitness, which is important. He is a young guy.\n\n**Possible return date:** November 28 (Bodo/Glimt H).\n\n### Lisandro Martinez\n\n**Injury:** Back\n\n[Martinez](https://www.manchestereveningnews.co.uk/all-about/lisandro-martinez) is set to be included in Amorim's plans for Thursday night's game after featuring in Wednesday's open training session. He missed the weekend's trip to Suffolk with a back injury.\n\n**Possible return date:** November 28 (Bodo/Glimt H).\n\n### Harry Maguire\n\n**Injury:** Muscle\n\nFellow defender [Maguire](https://www.manchestereveningnews.co.uk/all-about/harry-maguire) was also back in training at Carrington on Wednesday morning, offering encouragement he could also be available for United's latest Europa League assignment.\n\n**Possible return date:** Unknown.\n\n### Victor Lindelof\n\n**Injury:** Groin\n\n[Lindelof](https://www.manchestereveningnews.co.uk/all-about/victor-lindelof) was forced off injured during Sweden's 2-1 win over Slovakia during the recent international break. \n\n**Possible return date:** Unknown.\n\n### Toby Collyer\n\n**Injury:** Unknown.\n\nFormer United manager Ten Hag confirmed [Collyer](https://www.manchestereveningnews.co.uk/all-about/toby-collyer) had suffered an injury ahead of the Reds' 2-1 win over Brentford last month, but stopped short of revealing any details of it.\n\n**Possible return date:** Unknown.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Issuing an update on Yoro] \"He is available to train but we are working on his fitness, which is important. He is a young guy.\"",
+          "summary": "I said Yoro can train, but we need to focus on his fitness since he's young.",
+          "similar_to_quote_id": "4ede6bbb-1fe4-4115-8c04-e46efa205a9c",
+          "similarity_score": 0.420613467693329
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/ruben-amorims-ineos-demand-after-30460112",
+        "article_headline": "Ruben Amorim's 'Ineos demand' after Man United draw vs Ipswich Town",
+        "article_text": "Manchester United were held to a 1-1 draw by Ipswich Town on Sunday as Ruben Amorim's side were pegged back in the Premier League.\n\nBy Jack Flintham, Sport Central Audience Writer\n\nManchester United head coach Ruben Amorim reportedly continued to push for a left-back in the January transfer window following the draw with Ipswich Town on Sunday.\n\nThe Reds got off to the best possible start in Suffolk with Marcus Rashford scoring inside 90 seconds at Portman Road. However, United struggled to regain a hold of the fixture after that with the Tractor Boys coming close on a number of occasions before Omari Hutchinson's deflected strike finally beat Andre Onana.\n\nIn the end, the Reds had to settle for a point with expectations high that the forthcoming clashes at Old Trafford against Bodo/Glimt and Everton will see Amorim bag his first victory. From Amorim's perspective, it appears he believes there is plenty of work to be done in the transfer market to return better results for United.\n\nSpeaking to GiveMeSport, journalist Fabrizio Romano understands that Amorim insisted upon a new left-back in January to strengthen his squad. \"Now I am in the position to confirm, once again, that Manchester United will sign a new left-back, left wing-back, let's call him as you prefer, now Ruben Amorim is playing with the back three,\" he explained.\n\n\"From what I'm hearing, even after the Ipswich game, the message from Ruben Amorim to Manchester United management is, we need a player in that position in 2025. Could be January, could be summer, based on opportunities, based on price, based on several factors, but Man United want to go for a player in that position.\"\n\nCurrently, United have two recognised left-backs on their books. Luke Shaw and Tyrell Malacia have both struggled with long-term injuries in recent years and there are question marks as to whether they can remain fit to play long-term under Amorim.\n\nNoussair Mazraoui and Diogo Dalot have both been used on the left in their absence but they would prefer to play on the right of defence. On Sunday, Dalot was used on the left while Amad was utilised on the right.",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Regarding reinforcing the team] 'Now I am in the position to confirm, once again, that Manchester United will sign a new left-back, left wing-back, let's call him as you prefer, now Ruben Amorim is playing with the back three.'",
+          "summary": "I confirm we will sign a new left-back.",
+          "similar_to_quote_id": "945f6c9a-f8b5-4f6f-8227-5bd5565fe28d",
+          "similarity_score": 0.525314569473267
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Expressing needs post-Ipswich game] 'From what I'm hearing, even after the Ipswich game, the message from Ruben Amorim to Manchester United management is, we need a player in that position in 2025. Could be January, could be summer, based on opportunities, based on price, based on several factors, but Man United want to go for a player in that position.'",
+          "summary": "We need a left-back, either in January or summer.",
+          "similar_to_quote_id": "699a6b07-7bd2-41e9-8b50-86e4de4c4e4e",
+          "similarity_score": 0.486365288496017
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-city/man-city-115-charges-update-decision-premier-league-689026-20241127",
+        "article_headline": "Major development in Man City's 115 charges hearing emerges and rival Premier League clubs won't be happy",
+        "article_text": "Major development in Man City's 115 charges hearing emerges and rival Premier League clubs won't be happy - Man City - SPORTbible\n===============\n\n**A significant update in the case surrounding Manchester City's alleged 115 breaches of financial rules has been released.**\n\nCity, who strenuously deny any wrongdoing, were charged by the Premier League with the breaches - a minority of which also relate to UEFA rules - back in February 2023.\n\nA private hearing into the case began in September after lengthy delays, and was expected to take around 10 weeks.\n\nAs a result, there have been few updates on the case in recent weeks as both sides argue their positions out of the public eye.\n\nPenalties for City if found guilty include significant fines, points deductions or even relegation, with a verdict not expected before the end of the season.\n\nBut a fresh update on the timescale for the final decision has been released.\n\nAccording to [The Lawyer](https://www.thelawyer.com/the-hearing-the-end-is-in-sight-for-manchester-city-case/), there are said to have been private admissions that a verdict may not be reached by the end of the 2024/25 season, with the case potentially dragging on into the beginning of the 2025/26 campaign.\n\nIt is claimed that a judgment and possible appeal relating to the hearing, which is scheduled to be completed in mid-December, could now '[take months](https://www.thetimes.com/sport/football/article/manchester-city-115-financial-charges-beyond-end-season-8qds5d0nk)'.\n\nThat is because the hearing, which is taking place at a centre in London, has been paused while both City and the Premier League prepare closing arguments.\n\nIt is added that once those arguments start in early to mid-December, it could be three months or more before the three-man commission reaches a verdict. Time would then be allotted for the preparation of appeals.\n\n**More to follow...**",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/lionel-messi-barcelona-premier-league-real-madrid-988966-20241127",
+        "article_headline": "Lionel Messi admits Barcelona 'hated' Premier League club even more than Real Madrid",
+        "article_text": "Lionel Messi admits Barcelona 'hated' one Premier League club even more than Real Madrid - Premier League - SPORTbible\n\n**Lionel Messi has previously admitted that Barcelona players \"hated\" a Premier League club more than bitter rivals Real Madrid – and it was something he \"never thought\" he would say.**\n\nThe Argentine was only a teenager when he decided to go public with the comments during an interview with the News of the World in 2005.\n\nAt the time, there was bad blood between [Barcelona](https://www.sportbible.com/barcelona) and [Chelsea](https://www.sportbible.com/chelsea) after the Blues produced a memorable comeback at Stamford Bridge in what was a dramatic Champions League last-16 clash.\n\nA week earlier, [Jose Mourinho](https://www.sportbible.com/jose-mourinho) made some not-so-subtle comments about referee Anders Frisk after Didier Drogba was controversially sent off in the first leg.\n\nThe two-legged clash left a bitter taste in the mouth of Barcelona players. In fact, ahead of their last-16 clash in 2006, an 18-year-old [Messi](https://www.sportbible.com/lionel-messi) was vocal about Chelsea.\n\n\"There are [Barcelona] players here who hate Chelsea more than [Real Madrid](https://www.sportbible.com/real-madrid),\" he said.\n\n\"I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.\n\n\"We would rather play Arsenal, [Manchester United](https://www.sportbible.com/man-utd) or anyone else than be on the pitch with Chelsea.\"\n\nMessi would go on to produce a superb display for the Catalan side, despite being hacked down by Chelsea defender Asier Del Horno, who was sent off for a shocking challenge on the Argentine.\n\nAn own goal from John Terry and a late strike from Samuel Eto'o sealed a first leg advantage before they knocked Jose Mourinho's side out following a 1-1 draw at the Camp Nou.\n\nBarca would lift the [Champions League](https://www.sportbible.com/champions-league) that year after Juliano Belletti scored a late winner at the Stade de France against Arsenal.\n\nMessi later recalled a 2012 Champions League defeat to Chelsea as being one of his biggest regrets in a Barcelona shirt.\n\n“I would have liked to have tried to win another Champions League,\" he said in 2021, when he announced his decision to leave Barca.\n\n“We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep [Guardiola], they prevented us from getting to another final.\n\n“And I think there could have been another time where we could have won another Champions League.”",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Speaking about Chelsea's rivalry with Barcelona] \"There are [Barcelona] players here who hate Chelsea more than [Real Madrid].\"",
+          "summary": "Some Barcelona players hated Chelsea more than Real Madrid.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.414606541395187
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Expressing disbelief at his own feelings] \"I never thought I would hear myself say that. I also never thought I would see something worse than the Boca and River Plate rivalry or Brazil vs Argentina - but this is.\"",
+          "summary": "I never thought I'd say I hate Chelsea more than Real Madrid.",
+          "similar_to_quote_id": "cb0b8fa9-c885-4d4a-9b21-f9b9dd66952e",
+          "similarity_score": 0.380377411842346
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Discussing preferences for matchups] \"We would rather play Arsenal, [Manchester United] or anyone else than be on the pitch with Chelsea.\"",
+          "summary": "I'd prefer to play any team than Chelsea.",
+          "similar_to_quote_id": "df5854fe-4273-47e1-a76b-9e3fb4c0f020",
+          "similarity_score": 0.475780367851257
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Reflecting on past Champions League experiences] \"I would have liked to have tried to win another Champions League.\"",
+          "summary": "I wish I had the chance to win another Champions League.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.494933396577835
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Regarding past eliminations] \"We got knocked out in the semi-final's by Liverpool which stopped us getting to another final. We got to the semi-final with Chelsea with Pep [Guardiola], they prevented us from getting to another final.\"",
+          "summary": "Chelsea and Liverpool prevented us from reaching more finals.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.457347482442856
+        },
+        {
+          "speaker_name": "Lionel Messi",
+          "raw_quote_text": "[Concluding on possible victories] \"And I think there could have been another time where we could have won another Champions League.\"",
+          "summary": "We had opportunities to win more Champions Leagues.",
+          "similar_to_quote_id": "4d54c2dc-2cc9-4a84-abc7-bf11e0c184e0",
+          "similarity_score": 0.578863263130188
+        }
+      ],
+      "status": "quotesValidated"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/video/2024/nov/24/we-will-suffer-for-a-long-period-ruben-amorim-on-manchester-united-debut-video",
+        "article_headline": "'We will suffer for a long period': Ruben Amorim on Manchester United debut – video",
+        "article_text": "'We will suffer for a long period': Ruben Amorim on Manchester United debut – video | Ruben Amorim | The Guardian\n\n[Ruben Amorim](https://www.theguardian.com/football/ruben-amorim) said Manchester United are going 'to suffer for a long period' after his managerial debut at the club ended in a 1-1 Premier League draw at Ipswich. He added: 'We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit. They are thinking too much because we are changing too much with two training \\[sessions\\] now without space to improve in training'.\n\n*   [**Amorim’s Manchester United pegged back by Ipswich after rapid start**](https://www.theguardian.com/football/2024/nov/24/ipswich-manchester-united-premier-league-match-report)",
+        "article_date": "2024-11-27"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Manchester United are going 'to suffer for a long period'.",
+          "summary": "I believe we will face prolonged suffering.",
+          "similar_to_quote_id": "466ead84-7804-4b01-8bdc-0c3d91ec6a84",
+          "similarity_score": 0.475275814533234
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "'We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit.'",
+          "summary": "We're beginning a risky process that will improve us next year.",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similarity_score": 0.441817402839661
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "'They are thinking too much because we are changing too much with two training [sessions] now without space to improve in training.'",
+          "summary": "We're overthinking while undergoing too many changes with limited training time.",
+          "similar_to_quote_id": "40f39efc-0e09-40ae-b039-873762e0a06a",
+          "similarity_score": 0.468482464551926
+        }
+      ],
+      "status": "quotesValidated"
+    }
+  ]
+}

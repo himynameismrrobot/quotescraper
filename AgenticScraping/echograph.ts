@@ -380,7 +380,7 @@ const quoteExtractionPrompt = `Extract all quotes from the provided article. Tak
 
 const quoteValidationPrompt = `Assess the validity of the quotes in the quote object below.
     Return a JSON object with the same array of quotes but with two additinoal properties on each quote: is_valid and invalid_reason.
-]   Invalid quotes should have is_valid set to false and an invalid_reason.
+    Invalid quotes should have is_valid set to false and an invalid_reason.
     Valid quotes should have is_valid set to true. invalid_reason should be empty.
     Use the article text to help you determine whether the quote is valid or not.
     
@@ -395,9 +395,23 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     {quotes_to_validate}
     
     # A quote is only valid if...
-    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article.
+    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article. (IMPORTANT:Context provided within brackets or parentheses is okay)
     - The summary is written in the first person
-    - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))`;
+    - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))
+    
+    # Expected Output Format
+    {
+    "quotes": [
+        {
+        "speaker_name": "Speaker's Name",
+        "raw_quote_text": "The exact quote text",
+        "summary": "First-person summary",
+        "is_valid": true,
+        "invalid_reason": ""
+        }
+        // ... more quotes
+    ]
+    }`;
 
 
 // Zod schemas for the graph state
@@ -418,7 +432,8 @@ const Quotes = z.array(z.object({  // Define Quotes as an array of objects
         article_headline: z.string(),
         article_text: z.string()
     }),
-    quotes: z.array(Quote)
+    quotes: z.array(Quote),
+    status: z.string().optional()
 }));
 
 
@@ -467,32 +482,75 @@ const QuoteValidation = z.object({
 /* Graph components: define the components that will make up the graph */
 
 const OverallState = Annotation.Root({
-    parent_monitored_urls: Annotation<string[]>,
+    parent_monitored_urls: Annotation<string[]>({
+        initial: []
+    }),
     quotes: Annotation<z.infer<typeof Quotes>>({
+        initial: [],
         reducer: (state, update) => {
-            const updatedQuotes = update.map(newArticle => {
-                const existingArticleIndex = state.findIndex(
+            // Create a shallow copy of the existing state to avoid mutation
+            const updatedState = [...state];
+
+            update.forEach(newArticle => {
+                const existingArticleIndex = updatedState.findIndex(
                     article => article.article_metadata.article_url === newArticle.article_metadata.article_url
                 );
+
                 if (existingArticleIndex !== -1) {
-                    // If the article exists, merge both metadata and quotes
-                    return {
-                        article_metadata: {
-                            ...state[existingArticleIndex].article_metadata,
-                            ...newArticle.article_metadata  // This ensures article_text gets updated
-                        },
-                        quotes: [...state[existingArticleIndex].quotes, ...newArticle.quotes]
+                    const existingArticle = updatedState[existingArticleIndex];
+
+                    // Merge article metadata
+                    const mergedArticleMetadata = {
+                        ...existingArticle.article_metadata,
+                        ...newArticle.article_metadata
+                    };
+
+                    // Merge quotes without duplicates and combine data
+                    const mergedQuotes = mergeQuotes(existingArticle.quotes, newArticle.quotes);
+
+                    // Merge status: prefer new status if provided
+                    const mergedStatus = newArticle.status || existingArticle.status;
+
+                    // Update the existing article entry
+                    updatedState[existingArticleIndex] = {
+                        article_metadata: mergedArticleMetadata,
+                        quotes: mergedQuotes,
+                        status: mergedStatus
                     };
                 } else {
-                    return newArticle;
+                    // Add new article to the state
+                    updatedState.push(newArticle);
                 }
             });
-            return [...state.filter(article => !update.some(newArticle => 
-                newArticle.article_metadata.article_url === article.article_metadata.article_url)), 
-                ...updatedQuotes];
+
+            return updatedState;
         }
     })
 });
+
+// Helper function to merge quotes without duplicates
+function mergeQuotes(existingQuotes, newQuotes) {
+    const quoteMap = new Map();
+    existingQuotes.forEach(quote => {
+        quoteMap.set(quote.raw_quote_text, quote);
+    });
+    newQuotes.forEach(quote => {
+        const existingQuote = quoteMap.get(quote.raw_quote_text);
+        if (existingQuote) {
+            // Merge quote data, prefer defined values
+            const mergedQuote = {
+                ...existingQuote,
+                ...Object.fromEntries(
+                    Object.entries(quote).filter(([_, v]) => v !== undefined)
+                )
+            };
+            quoteMap.set(quote.raw_quote_text, mergedQuote);
+        } else {
+            quoteMap.set(quote.raw_quote_text, quote);
+        }
+    });
+    return Array.from(quoteMap.values());
+}
 
 // Interface for mapping over parent URLs to extract headlines / article URLs
 interface ParentURLState {
@@ -528,7 +586,24 @@ interface QuoteState {
 
 // Interface for mapping over initially extracted quotes to validate them
 interface QuoteValidationState {
-    quote_object: z.infer<typeof Quotes>[number];  // Use a single item from the Quotes array
+    quote_object: {
+        article_metadata: {
+            parent_monitored_url: string;
+            article_url: string;
+            article_date: string;
+            article_headline: string;
+            article_text: string;
+        };
+        quotes: Array<{
+            speaker_name: string;
+            raw_quote_text: string;
+            summary: string;
+            similar_to_quote_id?: string;
+            similarity_score?: number;
+            is_valid?: boolean;
+            invalid_reason?: string;
+        }>;
+    };
     today_date: string;
 }
 
@@ -826,7 +901,8 @@ const extractArticleText = async (
                         article_text: response.article_text,
                         article_date: response.article_date || response.publishedTime || today_date
                     },
-                    quotes: []  // Add empty quotes array to maintain structure
+                    quotes: [],  // Add empty quotes array to maintain structure
+                    status: 'articleTextExtracted'  // Set status here
                 }]
             };
         } catch (error) {
@@ -840,7 +916,8 @@ const extractArticleText = async (
                         article_text: "",
                         article_date: today_date
                     },
-                    quotes: []  // Add empty quotes array
+                    quotes: [],  // Add empty quotes array
+                    status: 'articleTextExtracted'  // Set status here
                 }]
             };
         }
@@ -948,7 +1025,8 @@ const extractQuotes = async (
                             article_text: state.article_metadata.article_text,
                             article_date: state.today_date
                         },
-                        quotes: response.quotes
+                        quotes: response.quotes,
+                        status: 'quotesExtracted'  // Set status here
                     }]
                 });
             } catch (error) {
@@ -1078,7 +1156,8 @@ const checkQuoteSimilarity = async (
         return {
             quotes: [{
                 article_metadata,
-                quotes: processedQuotes
+                quotes: processedQuotes,
+                status: 'quoteSimilarityChecked'  // Set status here
             }]
         };
     } catch (error) {
@@ -1112,6 +1191,12 @@ const validateQuotes = async (
                     .replace("{article_url}", article_metadata.article_url)
                     .replace("{article_headline}", article_metadata.article_headline);
 
+                // Add detailed logging
+                console.log("\nValidation Prompt Details:");
+                console.log("Article:", article_metadata.article_headline);
+                console.log("Number of quotes to validate:", quotes.length);
+                console.log("Prompt:", prompt);
+
                 // Log the validation request
                 logger.logOpenAICall({
                     function_name: 'validateQuotes',
@@ -1130,7 +1215,12 @@ const validateQuotes = async (
                     }), "quotes")
                 });
 
+                console.log("OpenAI Response:", completion.choices[0].message);
+
                 const validatedQuotes = completion.choices[0].message.parsed.quotes;
+
+                // Log the validated quotes
+                console.log('Validated Quotes from LLM:', JSON.stringify(validatedQuotes, null, 2));
 
                 // Wait for all database updates to complete
                 await Promise.all(validatedQuotes.map(quote => 
@@ -1146,41 +1236,27 @@ const validateQuotes = async (
                         .eq('article_url', article_metadata.article_url)
                 ));
 
-                // Log the successful response
-                logger.logOpenAICall({
-                    function_name: 'validateQuotes',
-                    model: 'gpt-4o-mini',
-                    url: article_metadata.article_url,
-                    prompt: prompt,
-                    response: validatedQuotes
-                });
-
-                logOpenAICall('end', 'validateQuotes', 'gpt-4o-mini', article_metadata.article_url);
-
                 console.log(`Validated ${validatedQuotes.length} quotes from: ${article_metadata.article_headline}`);
-                
-                // Only after database operations complete, update state
+
+                // Return validated quotes in state
                 resolve({
                     quotes: [{
                         article_metadata,
-                        quotes: validatedQuotes
+                        quotes: validatedQuotes,
+                        status: 'quotesValidated'
                     }]
                 });
             } catch (error) {
-                // Log any validation errors
-                logger.logOpenAICall({
-                    function_name: 'validateQuotes',
-                    model: 'gpt-4o-mini',
-                    url: article_metadata.article_url,
-                    prompt: prompt,
-                    error: error
-                });
-
                 console.error("Error in validateQuotes:", error);
+                // On error, return original quotes without validation
                 resolve({
                     quotes: [{
                         article_metadata,
-                        quotes: [] // Return empty quotes array on error
+                        quotes: quotes.map(quote => ({
+                            ...quote,
+                            is_valid: false,
+                            invalid_reason: "Validation failed"
+                        }))
                     }]
                 });
             }
@@ -1290,7 +1366,8 @@ const processValidatedQuotes = async (
         return {
             quotes: [{
                 article_metadata,
-                quotes: processedQuotes
+                quotes: processedQuotes,
+                status: 'quotesPublished'  // Add status on success too
             }]
         };
     } catch (error) {
@@ -1298,7 +1375,8 @@ const processValidatedQuotes = async (
         return {
             quotes: [{
                 article_metadata,
-                quotes: quotes  // Return original quotes on error
+                quotes: quotes,  // Return original quotes on error
+                status: 'quotesPublished'  // Set status here
             }]
         };
     }
@@ -1315,63 +1393,75 @@ const continueToHeadlines = (state: typeof OverallState.State) => {
 
 // Here we define the logic to map out over the headlines / article URLs
 const continueToArticles = (state: typeof OverallState.State) => {
-    return state.quotes.map((quote) => new Send("extractArticleText", { 
-        parent_monitored_url: quote.article_metadata.parent_monitored_url,
-        article_url : quote.article_metadata.article_url,
-        article_headline: quote.article_metadata.article_headline
-    }));
+    return state.quotes
+        .filter(article => article.status !== 'articleTextExtracted')
+        .map(article => new Send("extractArticleText", {
+            parent_monitored_url: article.article_metadata.parent_monitored_url,
+            article_url: article.article_metadata.article_url,
+            article_headline: article.article_metadata.article_headline
+        }));
 };
 
 // Here we define the logic to map out over the articles
 const continueToQuotes = (state: typeof OverallState.State) => {
     // Map over the quotes array which contains our article metadata
-    return state.quotes.map((article) => new Send("extractQuotes", { 
-            article_metadata: {
-                parent_monitored_url: article.article_metadata.parent_monitored_url,
-                article_url: article.article_metadata.article_url,
-                article_headline: article.article_metadata.article_headline,
-                article_text: article.article_metadata.article_text,
-                article_date: article.article_metadata.article_date
-            },
-            today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
-    }));
+    return state.quotes
+        .filter(article => article.status === 'articleTextExtracted')
+        .map((article) => new Send("extractQuotes", { 
+                article_metadata: {
+                    parent_monitored_url: article.article_metadata.parent_monitored_url,
+                    article_url: article.article_metadata.article_url,
+                    article_headline: article.article_metadata.article_headline,
+                    article_text: article.article_metadata.article_text,
+                    article_date: article.article_metadata.article_date
+                },
+                today_date: new Date().toISOString().split('T')[0] // YYYY-MM-DD format
+        }));
 };
 
 const continueToQuoteSimilarity = (state: typeof OverallState.State) => {    
     console.log("State in continueToQuoteSimilarity:", JSON.stringify(state.quotes, null, 2));
     
-    return state.quotes.flatMap((quoteObj) => {  // Use flatMap to handle the nested array
-        return new Send("checkQuoteSimilarity", {
-            quote_object: quoteObj,
-            today_date: new Date().toISOString().split('T')[0]
+    return state.quotes
+        .filter(article => article.status === 'quotesExtracted')
+        .flatMap((quoteObj) => {  // Use flatMap to handle the nested array
+            return new Send("checkQuoteSimilarity", {
+                quote_object: quoteObj,
+                today_date: new Date().toISOString().split('T')[0]
+            });
         });
-    });
 };
 
 const continueToQuoteValidation = (state: typeof OverallState.State) => {
     return state.quotes
+        .filter(article => article.status === 'quoteSimilarityChecked')  // Only proceed with articles that have completed similarity check
         .map(articleQuotes => {
-            const uniqueQuotes = {
-                ...articleQuotes,
-                quotes: articleQuotes.quotes.filter(quote => 
-                    quote.similarity_score && quote.similarity_score < -CONFIG.SIMILARITY.THRESHOLD
-                )
-            };
+            // Filter out duplicate quotes based on similarity score
+            const uniqueQuotes = articleQuotes.quotes.filter(quote => 
+                !quote.similarity_score || // Keep quotes with no similarity score (unique)
+                quote.similarity_score < -CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
+            );
 
-            console.log(`Found ${articleQuotes.quotes.length} total quotes, proceeding with ${uniqueQuotes.quotes.length} unique quotes for validation (filtered out ${articleQuotes.quotes.length - uniqueQuotes.quotes.length} similar quotes)`);
+            console.log(`Found ${articleQuotes.quotes.length} total quotes, proceeding with ${uniqueQuotes.length} unique quotes for validation (filtered out ${articleQuotes.quotes.length - uniqueQuotes.length} similar quotes)`);
             
+            // Send the article with its unique quotes to the validateQuotes node
             return new Send("validateQuotes", {
-                quote_object: uniqueQuotes,
+                quote_object: {
+                    article_metadata: articleQuotes.article_metadata,
+                    quotes: uniqueQuotes
+                },
                 today_date: new Date().toISOString().split('T')[0]
             });
         });
 };
 
 const continueToProcessValidated = (state: typeof OverallState.State) => {
-    return state.quotes.map((articleQuotes) => new Send("processValidatedQuotes", {
-        quote_object: articleQuotes,
-        today_date: new Date().toISOString().split('T')[0]
-    }));
+    return state.quotes
+        .filter(article => article.status === 'quotesValidated')
+        .map(article => new Send("processValidatedQuotes", {
+            quote_object: article,
+            today_date: new Date().toISOString().split('T')[0]
+        }));
 };
 
 // Construct the graph: here we put everything together to construct our graph
