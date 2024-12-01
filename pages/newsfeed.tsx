@@ -92,6 +92,7 @@ interface Quote {
 
 const PREFETCH_THRESHOLD = 800;
 const SCROLL_DEBOUNCE = 150;
+const SCROLL_THRESHOLD = 800;
 
 const NewsfeedPage = () => {
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -107,6 +108,9 @@ const NewsfeedPage = () => {
   const isRestoringScroll = useRef(false);
   const isInitialMount = useRef(true);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Create a ref for the observer
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   // Initialize client-side state
   useEffect(() => {
@@ -231,15 +235,30 @@ const NewsfeedPage = () => {
   }, [router, prefetchQuoteDetails, quotes, offset, hasMore, activeTab, showRawQuotes]);
 
   const fetchQuotes = useCallback(async (tab: string, currentOffset: number, append = false) => {
-    if (append && loadingMore) return;
+    if (append && loadingMore) {
+      console.log('🛑 Skipping fetch - already loading more');
+      return;
+    }
     
     try {
       append ? setLoadingMore(true) : setLoading(true);
+      console.log('📊 Fetching quotes:', { 
+        tab, 
+        offset: currentOffset, 
+        append,
+        currentQuotes: quotes.length
+      });
       
       const response = await fetch(`/api/quotes?tab=${tab}&limit=${LIMIT}&offset=${currentOffset}`);
       if (!response.ok) throw new Error('Failed to fetch quotes');
       
       const data = await response.json();
+      console.log('📥 Received quotes:', { 
+        count: data.quotes.length,
+        hasMore: data.hasMore,
+        newOffset: currentOffset + data.quotes.length
+      });
+
       setHasMore(data.hasMore);
       
       // Cache quotes as they come in
@@ -250,12 +269,23 @@ const NewsfeedPage = () => {
       });
 
       setQuotes(prev => {
-        const newQuotes = append ? [...prev, ...data.quotes] : data.quotes;
-        // Remove duplicates based on ID
-        const uniqueQuotes = Array.from(
-          new Map(newQuotes.map((quote: Quote) => [quote.id, quote])).values()
-        ) as Quote[];
-        return uniqueQuotes;
+        if (append) {
+          // When appending, combine old and new quotes
+          const combined = [...prev, ...data.quotes];
+          // Remove duplicates based on ID
+          const uniqueQuotes = Array.from(
+            new Map(combined.map(quote => [quote.id, quote])).values()
+          ) as Quote[];
+          console.log('📝 Updated quotes:', {
+            prevCount: prev.length,
+            newCount: uniqueQuotes.length,
+            added: uniqueQuotes.length - prev.length
+          });
+          return uniqueQuotes;
+        } else {
+          // When replacing, just use new quotes
+          return data.quotes;
+        }
       });
 
       if (data.quotes.length > 0) {
@@ -269,49 +299,58 @@ const NewsfeedPage = () => {
   }, [loadingMore]);
 
   const handleTabChange = useCallback((value: string) => {
-    if (!shouldRestoreScroll.current) {
-      setActiveTab(value);
-      setQuotes([]);
-      setOffset(0);
-      setHasMore(true);
-      setLoading(true);
-      fetchQuotes(value, 0, false);
-    }
+    setActiveTab(value);
+    setQuotes([]);
+    setOffset(0);
+    setHasMore(true);
+    setLoading(true);
+    fetchQuotes(value, 0, false);
   }, [fetchQuotes]);
 
+  // Handle infinite scroll
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    let isScrolling = false;
+    let timeoutId: NodeJS.Timeout | null = null;
     
     const handleScroll = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (isScrolling) return;
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       
-      isScrolling = true;
       timeoutId = setTimeout(() => {
-        if (loading || loadingMore || !hasMore) {
-          isScrolling = false;
-          return;
-        }
-
         const scrollPosition = window.innerHeight + window.scrollY;
         const documentHeight = document.documentElement.scrollHeight;
-        const threshold = documentHeight - PREFETCH_THRESHOLD;
+        const threshold = documentHeight - SCROLL_THRESHOLD;
 
-        if (scrollPosition > threshold) {
+        console.log('📜 Scroll check:', {
+          position: scrollPosition,
+          documentHeight,
+          threshold,
+          shouldLoad: scrollPosition > threshold,
+          loading,
+          loadingMore,
+          hasMore
+        });
+
+        if (scrollPosition > threshold && !loading && !loadingMore && hasMore) {
+          console.log('🔄 Loading more quotes', {
+            currentOffset: offset,
+            currentCount: quotes.length
+          });
           fetchQuotes(activeTab, offset, true);
         }
-        isScrolling = false;
       }, SCROLL_DEBOUNCE);
     };
 
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [loading, loadingMore, hasMore, offset, activeTab, fetchQuotes]);
 
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [loading, loadingMore, hasMore, offset, activeTab, quotes.length, fetchQuotes]);
+
+  // Render quotes with loading states
   const renderQuotes = useMemo(() => (
     <div className="space-y-6 max-w-2xl mx-auto px-4">
       {loading && quotes.length === 0 ? (
@@ -339,10 +378,49 @@ const NewsfeedPage = () => {
               No more quotes to load
             </div>
           )}
+          {/* Intersection Observer sentinel */}
+          <div 
+            ref={(el) => {
+              // Cleanup old observer
+              if (observerRef.current) {
+                observerRef.current.disconnect();
+              }
+
+              // If element is null or we shouldn't observe, cleanup and return
+              if (!el || loading || loadingMore || !hasMore) {
+                observerRef.current = null;
+                return;
+              }
+
+              // Create new observer
+              observerRef.current = new IntersectionObserver(
+                (entries) => {
+                  if (entries[0].isIntersecting) {
+                    console.log('🎯 Sentinel element visible, loading more quotes');
+                    fetchQuotes(activeTab, offset, true);
+                  }
+                },
+                { rootMargin: '200px' }
+              );
+
+              // Start observing
+              observerRef.current.observe(el);
+            }}
+            className="h-10"
+          />
         </>
       )}
     </div>
-  ), [quotes, loading, loadingMore, hasMore, activeTab, showRawQuotes, handleQuoteClick, prefetchQuoteDetails]);
+  ), [quotes, loading, loadingMore, hasMore, activeTab, showRawQuotes, handleQuoteClick, prefetchQuoteDetails, offset, fetchQuotes]);
+
+  // Cleanup observer on unmount
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   return (
     <>
