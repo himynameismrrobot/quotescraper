@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from '@/components/AuthStateProvider';
 import CommentList from './comments/CommentList';
 import { Textarea } from './ui/textarea';
+import { setQuoteInCache, updateQuoteFieldsInCache, getQuoteFromCache } from '@/utils/cache';
 
 interface Quote {
   id: string;
@@ -31,7 +32,7 @@ interface Quote {
     emoji: string;
     users: { id: string }[];
   }[];
-  comments?: number;
+  comment_count: number;
 }
 
 interface Comment {
@@ -75,6 +76,68 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
   const [commentsPage, setCommentsPage] = useState(0);
   const [newComment, setNewComment] = useState('');
   const [isSubmittingComment, setIsSubmittingComment] = useState(false);
+  
+  // Initialize localCommentCount from cache or quote data
+  const [localCommentCount, setLocalCommentCount] = useState<number>(() => {
+    const cached = getQuoteFromCache(quote.id);
+    const count = cached?.comment_count ?? quote.comment_count ?? 0;
+    return typeof count === 'number' ? count : 0;
+  });
+
+  // Update local count when comments array changes
+  useEffect(() => {
+    if (Array.isArray(comments)) {
+      const newCount = comments.length;
+      console.log('💬 QuoteCard - Updating comment count:', {
+        quoteId: quote.id,
+        oldCount: localCommentCount,
+        newCount,
+        commentsArray: comments
+      });
+      setLocalCommentCount(newCount);
+      
+      // Update cache with the new count
+      const updatedQuote = {
+        ...quote,
+        comment_count: newCount
+      };
+      setQuoteInCache(quote.id, updatedQuote);
+      
+      // Update newsfeed state if it exists, preserving quote order
+      const newsfeedState = sessionStorage.getItem('newsfeed_state');
+      if (newsfeedState) {
+        try {
+          const state = JSON.parse(newsfeedState);
+          if (state.quotes) {
+            // Find the quote's current index
+            const quoteIndex = state.quotes.findIndex((q: any) => q.id === quote.id);
+            if (quoteIndex !== -1) {
+              // Create new quotes array with updated quote at same position
+              const updatedQuotes = [...state.quotes];
+              updatedQuotes[quoteIndex] = {
+                ...state.quotes[quoteIndex],
+                comment_count: newCount
+              };
+              
+              // Update state while preserving all other properties
+              sessionStorage.setItem('newsfeed_state', JSON.stringify({
+                ...state,
+                quotes: updatedQuotes
+              }));
+              
+              console.log('✅ QuoteCard - Updated newsfeed state:', {
+                quoteId: quote.id,
+                newCount,
+                position: quoteIndex
+              });
+            }
+          }
+        } catch (error) {
+          console.error('Error updating newsfeed state:', error);
+        }
+      }
+    }
+  }, [comments, quote.id, localCommentCount, quote]);
 
   const fetchComments = useCallback(async (page: number) => {
     if (isLoadingComments) return;
@@ -92,26 +155,38 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
         throw new Error('Invalid comments data structure');
       }
 
-      // Ensure each comment has the required structure
+      // Ensure each comment has the required structure and all fields are strings
       const validatedComments = data.comments.map((comment: any) => ({
-        id: comment.id,
-        text: comment.text,
-        created_at: comment.created_at,
+        id: String(comment.id || ''),
+        text: String(comment.text || ''),
+        created_at: String(comment.created_at || new Date().toISOString()),
         user: {
-          id: comment.user.id,
-          name: comment.user.name || null,
-          image: comment.user.image || null
+          id: String(comment.user?.id || ''),
+          name: String(comment.user?.name || 'Anonymous'),
+          image: comment.user?.image ? String(comment.user.image) : null
         },
-        reactions: Array.isArray(comment.reactions) ? comment.reactions : []
+        reactions: Array.isArray(comment.reactions) 
+          ? comment.reactions.map((reaction: any) => ({
+              emoji: String(reaction.emoji || ''),
+              users: Array.isArray(reaction.users) 
+                ? reaction.users.map((user: any) => ({ id: String(user.id || '') }))
+                : []
+            }))
+          : []
       }));
 
       // If it's the first page, replace all comments
       // If it's a subsequent page, append new comments
-      setComments(prev => page === 0 ? validatedComments : [...prev, ...validatedComments]);
+      setComments(prev => {
+        const newComments = page === 0 ? validatedComments : [...prev, ...validatedComments];
+        // Remove any potential duplicates
+        return Array.from(new Map(newComments.map(comment => [comment.id, comment])).values());
+      });
       setHasMoreComments(!!data.hasMore);
       setCommentsPage(page + 1);
     } catch (error) {
       console.error('Error fetching comments:', error);
+      setComments([]); // Reset comments on error
       toast({
         variant: "destructive",
         description: "Failed to load comments",
@@ -304,6 +379,11 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
 
     setIsSubmittingComment(true);
     try {
+      console.log('�� QuoteCard - Submitting new comment:', {
+        quoteId: quote.id,
+        currentCount: localCommentCount
+      });
+
       const response = await fetch(`/api/quotes/${quote.id}/comments`, {
         method: 'POST',
         headers: {
@@ -313,19 +393,43 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
       });
 
       if (!response.ok) throw new Error('Failed to post comment');
-
-      // Clear the input immediately for better UX
+      
+      const rawComment = await response.json();
+      
+      // Format the comment object properly
+      const formattedComment = {
+        id: String(rawComment.id),
+        text: String(rawComment.text || ''),
+        created_at: String(rawComment.created_at),
+        user: {
+          id: String(rawComment.user?.id || ''),
+          name: String(rawComment.user?.name || ''),
+          image: rawComment.user?.image ? String(rawComment.user.image) : null
+        },
+        reactions: []
+      };
+      
+      // Update comments array and count
+      setComments(prev => {
+        const newComments = [formattedComment, ...prev];
+        const newCount = newComments.length;
+        console.log('✨ QuoteCard - New comment added:', {
+          quoteId: quote.id,
+          oldCount: localCommentCount,
+          newCount,
+          comment: formattedComment
+        });
+        // Update cache with new count
+        updateQuoteFieldsInCache(quote.id, { comment_count: newCount });
+        console.log(' QuoteCard - Cache after comment:', {
+          quoteId: quote.id,
+          cacheValue: getQuoteFromCache(quote.id)
+        });
+        return newComments;
+      });
+      
       setNewComment('');
       
-      // Reset comments and fetch fresh data
-      setComments([]);
-      setCommentsPage(0);
-      await fetchComments(0);
-
-      toast({
-        description: "Comment posted successfully",
-        duration: 2000,
-      });
     } catch (error) {
       console.error('Error posting comment:', error);
       toast({
@@ -403,7 +507,7 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
           >
             <MessageSquare className="h-4 w-4 mr-1" />
             <span className="text-sm">
-              {typeof quote.comments === 'number' ? quote.comments : 0}
+              {quote.comment_count}
             </span>
           </Button>
           <Button 
@@ -446,12 +550,18 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
             </form>
           )}
           <div className="border-t border-white/10">
-            <CommentList 
-              comments={comments} 
-              onLoadMore={loadMoreComments}
-              hasMore={hasMoreComments}
-              onCommentUpdate={fetchComments}
-            />
+            {isLoadingComments && comments.length === 0 ? (
+              <div className="text-center py-4">
+                <p className="text-gray-500">Loading comments...</p>
+              </div>
+            ) : (
+              <CommentList 
+                comments={comments} 
+                onLoadMore={loadMoreComments}
+                hasMore={hasMoreComments}
+                onCommentUpdate={() => fetchComments(0)}
+              />
+            )}
           </div>
         </>
       )}

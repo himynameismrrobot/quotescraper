@@ -30,6 +30,7 @@ export async function GET(request: Request) {
         parent_monitored_url_logo,
         created_at,
         updated_at,
+        comment_count,
         speaker:speakers!inner(
           id,
           name,
@@ -45,89 +46,36 @@ export async function GET(request: Request) {
           users:quote_reactions_users(
             user_id
           )
-        ),
-        comments:comments(count)
-      `)
-      .order('created_at', { ascending: false })
+        )
+      `, { count: 'exact' })
 
-    console.log('Base query constructed');
-
-    // If on following tab and user is logged in, filter by followed speakers
-    if (tab === 'following' && user) {
-      console.log('Fetching followed speakers for user:', user.id);
-      // Get followed speaker IDs
-      const { data: followedSpeakers } = await supabase
-        .from('following')
-        .select('speaker_id')
-        .eq('user_id', user.id)
-
-      const speakerIds = followedSpeakers?.map(f => f.speaker_id) || []
-
-      if (speakerIds.length > 0) {
-        console.log('Found followed speakers:', speakerIds);
-        // Add the speaker filter to the query
-        quotesQuery = quotesQuery.in('speaker_id', speakerIds)
-      } else {
-        console.log('No followed speakers found');
-        // If user hasn't followed anyone, return empty array
-        return NextResponse.json({
-          quotes: [],
-          hasMore: false,
-          total: 0
-        })
-      }
+    // Apply tab filters
+    if (tab === 'following') {
+      // Add following filter
+      quotesQuery = quotesQuery
+        .in('speaker_id', user?.user_metadata?.following || [])
     }
 
-    // Get paginated quotes
-    const { data: quotes, error } = await quotesQuery
+    // Get total count and paginated results
+    const { data: quotes, error, count } = await quotesQuery
+      .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
 
-    if (error) {
-      console.error('Supabase error:', error);
-      throw error;
-    }
+    if (error) throw error
 
-    console.log('Raw quotes data:', quotes);
-
-    // Transform the data to match the expected format
+    // Transform the data
     const transformedQuotes = quotes?.map(quote => ({
-      id: quote.id,
-      summary: quote.summary,
-      raw_quote_text: quote.raw_quote_text,
-      article_date: quote.article_date,
-      article_url: quote.article_url,
-      article_headline: quote.article_headline,
-      created_at: quote.created_at,
-      speaker: {
-        id: quote.speaker.id,
-        name: quote.speaker.name,
-        image_url: quote.speaker.image_url,
-        organization: quote.speaker.organization ? {
-          id: quote.speaker.organization.id,
-          name: quote.speaker.organization.name,
-          logo_url: quote.speaker.organization.logo_url
-        } : null
-      },
+      ...quote,
       reactions: quote.reactions?.map(reaction => ({
         emoji: reaction.emoji,
         users: reaction.users?.map(u => ({ id: u.user_id })) || []
       })) || [],
-      comments: quote.comments?.[0]?.count || 0
-    })) || [];
-
-    console.log('Transformed quotes:', transformedQuotes);
-
-    // Get total count for pagination
-    const { count } = await supabase
-      .from('quotes')
-      .select('*', { count: 'exact', head: true })
-
-    // Add pagination metadata
-    const hasMore = Boolean(count && offset + quotes.length < count);
+      comments: quote.comment_count || 0
+    })) || []
 
     return NextResponse.json({
       quotes: transformedQuotes,
-      hasMore,
+      hasMore: Boolean(count && offset + limit < count),
       total: count
     })
   } catch (error) {

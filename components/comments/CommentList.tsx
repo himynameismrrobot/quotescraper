@@ -40,19 +40,21 @@ const CommentList: React.FC<CommentListProps> = ({
 
   // Update local comments when props change, but preserve local state for reactions
   useEffect(() => {
-    setLocalComments(prevComments => {
-      return comments.map(newComment => {
-        const existingComment = prevComments.find(c => c.id === newComment.id);
-        // If we have local state for this comment, preserve its reactions
-        if (existingComment) {
-          return {
-            ...newComment,
-            reactions: existingComment.reactions
-          };
-        }
-        return newComment;
+    if (Array.isArray(comments)) {
+      setLocalComments(prevComments => {
+        return comments.map(newComment => {
+          const existingComment = prevComments.find(c => c.id === newComment.id);
+          // If we have local state for this comment, preserve its reactions
+          if (existingComment) {
+            return {
+              ...newComment,
+              reactions: existingComment.reactions || []
+            };
+          }
+          return { ...newComment, reactions: newComment.reactions || [] };
+        });
       });
-    });
+    }
   }, [comments]);
 
   const handleReactionSelect = async (commentId: string, emoji: string) => {
@@ -160,22 +162,26 @@ const CommentList: React.FC<CommentListProps> = ({
     }
   };
 
-  if (!localComments.length) {
+  if (!Array.isArray(localComments)) {
+    return <p className="text-gray-500 text-center py-4">Error loading comments</p>;
+  }
+
+  if (localComments.length === 0) {
     return <p className="text-gray-500 text-center py-4">No comments yet</p>;
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 p-4">
       {localComments.map((comment) => (
-        <div key={`comment-${comment.id}`} className="flex space-x-4">
+        <div key={comment.id} className="flex space-x-4">
           <Avatar>
-            <AvatarImage src={comment.user.image || undefined} />
-            <AvatarFallback>{comment.user.name?.[0]}</AvatarFallback>
+            <AvatarImage src={comment.user?.image || undefined} />
+            <AvatarFallback>{comment.user?.name?.[0] || '?'}</AvatarFallback>
           </Avatar>
           <div className="flex-1">
             <div className="bg-white/10 rounded-lg p-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold text-white">{comment.user.name}</span>
+                <span className="font-semibold text-white">{comment.user?.name || 'Anonymous'}</span>
                 <span className="text-sm text-gray-400">
                   {new Date(comment.created_at).toLocaleDateString()}
                 </span>
@@ -205,9 +211,9 @@ const CommentList: React.FC<CommentListProps> = ({
           <Button 
             variant="ghost" 
             onClick={onLoadMore}
-            className="text-gray-300 hover:text-white hover:bg-white/10"
+            className="text-gray-400 hover:text-white"
           >
-            Load More
+            Load more comments
           </Button>
         </div>
       )}

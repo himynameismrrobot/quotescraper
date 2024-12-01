@@ -65,9 +65,9 @@ export async function middleware(request: NextRequest) {
       data: { session },
     } = await supabase.auth.getSession();
 
-    // If no session and not on auth page, redirect to login
+    // If no session and not on auth page, redirect to signin
     if (!session && !request.nextUrl.pathname.startsWith('/auth')) {
-      return NextResponse.redirect(new URL('/auth/login', request.url));
+      return NextResponse.redirect(new URL('/auth/signin', request.url));
     }
 
     // Check for admin routes

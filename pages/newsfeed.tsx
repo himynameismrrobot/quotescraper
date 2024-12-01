@@ -8,7 +8,7 @@ import BottomNav from '../components/BottomNav';
 import { useAuth } from '@/components/AuthStateProvider';
 import { Switch } from "@/components/ui/switch";
 import { FileText } from 'lucide-react';
-import { getQuoteFromCache, setQuoteInCache } from '@/utils/cache';
+import { getQuoteFromCache, setQuoteInCache, hasQuoteInCache } from '@/utils/cache';
 
 // Keep state between navigations
 interface GlobalState {
@@ -87,264 +87,113 @@ interface Quote {
     emoji: string;
     users: { id: string }[];
   }[];
-  comments: number;
+  comment_count: number;
 }
 
+const LIMIT = 20;
 const PREFETCH_THRESHOLD = 800;
 const SCROLL_DEBOUNCE = 150;
 const SCROLL_THRESHOLD = 800;
 
 const NewsfeedPage = () => {
-  const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [activeTab, setActiveTab] = useState('all');
-  const [offset, setOffset] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [loadingMore, setLoadingMore] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [showRawQuotes, setShowRawQuotes] = useState(false);
+  // Auth and router hooks
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
-  const LIMIT = 20;
+
+  // State hooks
+  const [quotes, setQuotes] = useState<Quote[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const [activeTab, setActiveTab] = useState('all');
+  const [showRawQuotes, setShowRawQuotes] = useState(false);
+  const [isRestoringQuotes, setIsRestoringQuotes] = useState(false);
+  
+  // Refs
+  const restorationComplete = useRef(false);
   const shouldRestoreScroll = useRef(false);
   const isRestoringScroll = useRef(false);
-  const isInitialMount = useRef(true);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Create a ref for the observer
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  // Add new state for tracking restoration
-  const [isRestoringQuotes, setIsRestoringQuotes] = useState(false);
-  const restorationComplete = useRef(false);
-
-  // Initialize client-side state
-  useEffect(() => {
-    const storedState = getGlobalState();
-    setIsRestoringQuotes(true);
-    setQuotes(storedState.quotes);
-    setActiveTab(storedState.activeTab);
-    setOffset(storedState.offset);
-    setHasMore(storedState.hasMore);
-    setShowRawQuotes(storedState.showRawQuotes);
-    globalState = storedState;
-
-    // If we have a saved scroll position, restore it
-    if (storedState.scrollY > 0) {
-      window.scrollTo(0, storedState.scrollY);
-    }
-
-    // Only fetch if we have no quotes at all (fresh start)
-    if (storedState.quotes.length === 0) {
-      console.log('🔄 Fresh start - fetching initial quotes');
-      setLoading(true);
-      fetchQuotes(storedState.activeTab, 0, false);
-    } else {
-      // Mark restoration as complete since we have quotes
-      restorationComplete.current = true;
-      setIsRestoringQuotes(false);
-    }
-  }, []);
-
-  // Add this effect to handle scroll restoration after quotes render
-  useEffect(() => {
-    // Only attempt scroll restoration if we have quotes and should restore scroll
-    if (quotes.length > 0 && shouldRestoreScroll.current) {
-      const storedState = getGlobalState();
-      if (storedState.scrollY > 0) {
-        // Use requestAnimationFrame to ensure DOM has updated
-        requestAnimationFrame(() => {
-          window.scrollTo(0, storedState.scrollY);
-          shouldRestoreScroll.current = false;
-        });
-      }
-    }
-  }, [quotes]); // Only run when quotes change
-
-  // Handle navigation events
-  useEffect(() => {
-    const handleRouteChangeStart = () => {
-      if (!isRestoringScroll.current) {
-        setGlobalState({
-          scrollY: window.scrollY,
-          quotes,
-          offset,
-          hasMore,
-          activeTab,
-          showRawQuotes
-        });
-      }
-    };
-
-    const handleRouteChangeComplete = async (url: string) => {
-      const isNewsfeed = url === '/' || url === '/newsfeed';
-      const storedState = getGlobalState();
-      
-      if (isNewsfeed && storedState.scrollY > 0) {
-        shouldRestoreScroll.current = true;
-        setIsRestoringQuotes(true);
-        
-        // Restore the saved state first
-        setQuotes(storedState.quotes);
-        setOffset(storedState.offset);
-        setHasMore(storedState.hasMore);
-        setActiveTab(storedState.activeTab);
-        setShowRawQuotes(storedState.showRawQuotes);
-        
-        // Mark restoration as complete since we have quotes
-        restorationComplete.current = true;
-        setIsRestoringQuotes(false);
-        
-        // Scroll restoration will happen in the quotes effect above
-        
-        // If we need more quotes, fetch them silently in the background
-        const viewportHeight = window.innerHeight;
-        const scrollPosition = storedState.scrollY;
-        const estimatedQuotesNeeded = Math.ceil((scrollPosition + viewportHeight) / 300);
-        
-        if (estimatedQuotesNeeded > storedState.quotes.length && storedState.hasMore) {
-          const nextBatch = await fetch(
-            `/api/quotes?tab=${storedState.activeTab}&limit=${LIMIT}&offset=${storedState.offset}`
-          ).then(res => res.json());
-          
-          if (nextBatch.quotes.length > 0) {
-            // Cache the new quotes
-            nextBatch.quotes.forEach((quote: Quote) => {
-              if (quote.id) {
-                setQuoteInCache(quote.id, quote);
-              }
-            });
-            
-            // Update state while preserving scroll
-            const combinedQuotes = [...storedState.quotes, ...nextBatch.quotes];
-            const uniqueQuotes = Array.from(
-              new Map(combinedQuotes.map(quote => [quote.id, quote])).values()
-            );
-            
-            setQuotes(uniqueQuotes as Quote[]);
-            setOffset(storedState.offset + nextBatch.quotes.length);
-            setHasMore(nextBatch.hasMore);
-          }
-        }
-      }
-    };
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-    
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, [router, quotes, offset, hasMore, activeTab, showRawQuotes]);
-
-  const prefetchQuoteDetails = useCallback(async (quoteId: string) => {
-    if (getQuoteFromCache(quoteId)) return;
-
+  // Callbacks
+  const fetchQuotes = useCallback(async (tab: string, startOffset: number, append: boolean = true) => {
     try {
-      const response = await fetch(`/api/quotes/${quoteId}`);
-      if (!response.ok) throw new Error('Failed to fetch quote details');
-      const data = await response.json();
-      setQuoteInCache(quoteId, data);
-    } catch (error) {
-      console.error('Error prefetching quote:', error);
-    }
-  }, []);
-
-  const handleQuoteClick = useCallback((quoteId: string) => {
-    console.log('👆 Quote clicked:', {
-      quoteId,
-      currentScroll: window.scrollY
-    });
-
-    // Cache current quote data before navigation
-    const quote = quotes.find(q => q.id === quoteId);
-    if (quote) {
-      setQuoteInCache(quoteId, quote);
-    }
-
-    // Save state with current scroll position
-    setGlobalState({
-      scrollY: window.scrollY,
-      lastQuoteClicked: quoteId,
-      quotes,
-      offset,
-      hasMore,
-      activeTab,
-      showRawQuotes
-    });
-
-    router.push(`/quote/${quoteId}`);
-    
-    // Prefetch full details in the background
-    if (!getQuoteFromCache(quoteId)) {
-      prefetchQuoteDetails(quoteId);
-    }
-  }, [router, prefetchQuoteDetails, quotes, offset, hasMore, activeTab, showRawQuotes]);
-
-  const fetchQuotes = useCallback(async (tab: string, currentOffset: number, append = false) => {
-    if (append && loadingMore) {
-      console.log('🛑 Skipping fetch - already loading more');
-      return;
-    }
-    
-    try {
-      append ? setLoadingMore(true) : setLoading(true);
-      console.log('📊 Fetching quotes:', { 
-        tab, 
-        offset: currentOffset, 
-        append,
-        currentQuotes: quotes.length
-      });
+      console.log('🔍 Fetching quotes:', { tab, startOffset, append, loading, loadingMore });
       
-      const response = await fetch(`/api/quotes?tab=${tab}&limit=${LIMIT}&offset=${currentOffset}`);
-      if (!response.ok) throw new Error('Failed to fetch quotes');
-      
+      if (loadingMore && append) {
+        console.log('⏳ Already loading more quotes, skipping fetch');
+        return;
+      }
+
+      if (append) {
+        setLoadingMore(true);
+      } else {
+        setLoading(true);
+      }
+
+      const response = await fetch(
+        `/api/quotes?tab=${tab}&limit=${LIMIT}&offset=${startOffset}`
+      );
       const data = await response.json();
+
       console.log('📥 Received quotes:', { 
-        count: data.quotes.length,
+        count: data.quotes?.length,
         hasMore: data.hasMore,
-        newOffset: currentOffset + data.quotes.length
+        append,
+        currentCount: quotes.length
       });
 
-      setHasMore(data.hasMore);
-      
-      // Cache quotes as they come in
-      data.quotes.forEach((quote: Quote) => {
-        if (quote.id) {
-          setQuoteInCache(quote.id, quote);
-        }
-      });
+      if (data.quotes) {
+        // Cache the new quotes
+        data.quotes.forEach((quote: Quote) => {
+          if (quote.id) {
+            setQuoteInCache(quote.id, quote);
+          }
+        });
 
-      setQuotes(prev => {
-        if (append) {
-          // When appending, combine old and new quotes
-          const combined = [...prev, ...data.quotes];
-          // Remove duplicates based on ID
-          const uniqueQuotes = Array.from(
-            new Map(combined.map(quote => [quote.id, quote])).values()
-          ) as Quote[];
-          console.log('📝 Updated quotes:', {
+        setQuotes(prev => {
+          let newQuotes;
+          if (append) {
+            // When appending, add new quotes to the end
+            const combinedQuotes = [...prev, ...data.quotes];
+            // Remove duplicates while preserving order
+            newQuotes = Array.from(
+              new Map(combinedQuotes.map(quote => [quote.id, quote])).values()
+            ) as Quote[];
+          } else {
+            // When replacing, just use the new quotes (they're already sorted from API)
+            newQuotes = data.quotes;
+          }
+          
+          console.log('📊 Updating quotes:', {
+            action: append ? 'append' : 'replace',
             prevCount: prev.length,
-            newCount: uniqueQuotes.length,
-            added: uniqueQuotes.length - prev.length
+            newCount: newQuotes.length,
+            firstQuoteDate: newQuotes[0]?.created_at,
+            lastQuoteDate: newQuotes[newQuotes.length - 1]?.created_at
           });
-          return uniqueQuotes;
-        } else {
-          // When replacing, just use new quotes
-          return data.quotes;
-        }
-      });
-
-      if (data.quotes.length > 0) {
-        setOffset(currentOffset + data.quotes.length);
+          
+          return newQuotes;
+        });
+        
+        setOffset(startOffset + data.quotes.length);
+        setHasMore(data.hasMore);
       }
     } catch (error) {
-      console.error('Error fetching quotes:', error);
+      console.error('❌ Error fetching quotes:', error);
     } finally {
-      append ? setLoadingMore(false) : setLoading(false);
+      if (append) {
+        setLoadingMore(false);
+      } else {
+        setLoading(false);
+      }
     }
-  }, [loadingMore]);
+  }, [quotes.length, loading, loadingMore]);
 
   const handleTabChange = useCallback((value: string) => {
+    console.log('📑 Tab changed:', value);
     setActiveTab(value);
     setQuotes([]);
     setOffset(0);
@@ -353,51 +202,152 @@ const NewsfeedPage = () => {
     fetchQuotes(value, 0, false);
   }, [fetchQuotes]);
 
-  // Handle infinite scroll
+  // Effects
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null;
-    
-    const handleScroll = () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-      
-      timeoutId = setTimeout(() => {
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const documentHeight = document.documentElement.scrollHeight;
-        const threshold = documentHeight - SCROLL_THRESHOLD;
+    console.log('🔑 Auth state changed:', { 
+      authLoading, 
+      hasUser: !!user, 
+      quotesLoading: loading,
+      quoteCount: quotes.length 
+    });
 
-        console.log('📜 Scroll check:', {
-          position: scrollPosition,
-          documentHeight,
-          threshold,
-          shouldLoad: scrollPosition > threshold,
-          loading,
-          loadingMore,
-          hasMore
-        });
+    if (!authLoading && !user) {
+      console.log('👉 Redirecting to signin');
+      router.push('/auth/signin');
+    }
+  }, [authLoading, user, router, loading, quotes.length]);
 
-        if (scrollPosition > threshold && !loading && !loadingMore && hasMore) {
-          console.log('🔄 Loading more quotes', {
-            currentOffset: offset,
-            currentCount: quotes.length
+  useEffect(() => {
+    console.log('📊 Component state:', {
+      loading,
+      loadingMore,
+      hasMore,
+      quoteCount: quotes.length,
+      offset,
+      isRestoringQuotes,
+      restorationComplete: restorationComplete.current
+    });
+  }, [loading, loadingMore, hasMore, quotes.length, offset, isRestoringQuotes]);
+
+  // Initialize client-side state
+  useEffect(() => {
+    // Don't do anything if still checking auth
+    if (authLoading) {
+      console.log('⏳ Waiting for auth...');
+      return;
+    }
+
+    // Redirect if not authenticated
+    if (!user) {
+      console.log('👉 Redirecting to signin');
+      router.push('/auth/signin');
+      return;
+    }
+
+    // Only run initialization once
+    if (restorationComplete.current) {
+      return;
+    }
+
+    const initializeQuotes = async () => {
+      try {
+        // Check if this is a fresh page load vs navigation
+        const isPageReload = window.performance?.navigation?.type === 1;
+
+        if (isPageReload) {
+          console.log('🧹 Page was refreshed - clearing cache and session storage');
+          sessionStorage.removeItem(STORAGE_KEY);
+          localStorage.clear(); // This clears the quote cache
+          setQuotes([]);
+          setOffset(0);
+          setHasMore(true);
+          setLoading(true);
+          await fetchQuotes('all', 0, false);
+        } else {
+          // Normal navigation - restore state if available
+          const storedState = getGlobalState();
+          console.log('💾 Checking stored state:', {
+            hasStoredState: !!storedState,
+            storedQuoteCount: storedState.quotes?.length
           });
-          fetchQuotes(activeTab, offset, true);
+
+          if (storedState.quotes?.length > 0) {
+            console.log('↩️ Restoring state from navigation');
+            setQuotes(storedState.quotes);
+            setActiveTab(storedState.activeTab);
+            setOffset(storedState.offset);
+            setHasMore(storedState.hasMore);
+            setShowRawQuotes(storedState.showRawQuotes);
+            globalState = storedState;
+
+            // If we have a saved scroll position, restore it
+            if (storedState.scrollY > 0) {
+              window.scrollTo(0, storedState.scrollY);
+            }
+          } else {
+            // No stored state, fetch fresh
+            console.log('🔄 Starting fresh quote fetch');
+            setLoading(true);
+            await fetchQuotes('all', 0, false);
+          }
         }
-      }, SCROLL_DEBOUNCE);
+      } catch (error) {
+        console.error('Error initializing quotes:', error);
+      } finally {
+        restorationComplete.current = true;
+        setLoading(false);
+      }
     };
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    initializeQuotes();
+  }, [authLoading, user]); // Only depend on auth state
 
+  // Cleanup observer on unmount
+  useEffect(() => {
     return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      window.removeEventListener('scroll', handleScroll);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
     };
-  }, [loading, loadingMore, hasMore, offset, activeTab, quotes.length, fetchQuotes]);
+  }, []);
+
+  // Add effect to handle route changes
+  useEffect(() => {
+    const handleRouteChange = () => {
+      // Reset loading state when route changes
+      setLoading(true);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
+
+  // Show loading state while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <EchoLayout>
+          <div className="max-w-2xl mx-auto px-4 py-6">
+            <div className="space-y-4">
+              <div className="w-full h-32 bg-white/10 rounded-lg animate-pulse" />
+              <div className="w-3/4 h-6 bg-white/10 rounded animate-pulse" />
+              <div className="w-1/2 h-6 bg-white/10 rounded animate-pulse" />
+            </div>
+          </div>
+        </EchoLayout>
+      </div>
+    );
+  }
+
+  // Redirect if not authenticated
+  if (!user) {
+    return null;
+  }
 
   // Render quotes with loading states
-  const renderQuotes = useMemo(() => (
+  const renderQuotes = (
     <div className="space-y-6 max-w-2xl mx-auto px-4">
       {(loading && quotes.length === 0) || (isRestoringQuotes && !restorationComplete.current) ? (
         Array.from({ length: Math.ceil(window.innerHeight / 300) }).map((_, i) => (
@@ -410,8 +360,7 @@ const NewsfeedPage = () => {
               key={`${quote.id}-${activeTab}`}
               quote={quote}
               showRawQuote={showRawQuotes}
-              onQuoteClick={() => handleQuoteClick(quote.id)}
-              onHover={() => prefetchQuoteDetails(quote.id)}
+              onQuoteClick={() => router.push(`/quote/${quote.id}`)}
             />
           ))}
           {loadingMore && !isRestoringQuotes && restorationComplete.current && (
@@ -452,16 +401,7 @@ const NewsfeedPage = () => {
         </>
       )}
     </div>
-  ), [quotes, loading, loadingMore, hasMore, activeTab, showRawQuotes, handleQuoteClick, prefetchQuoteDetails, offset, fetchQuotes, isRestoringQuotes]);
-
-  // Cleanup observer on unmount
-  useEffect(() => {
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
+  );
 
   return (
     <>

@@ -23,6 +23,7 @@ export async function GET(
           article_headline,
           parent_monitored_url,
           parent_monitored_url_logo,
+          comment_count,
           speaker:speakers!inner(
             id,
             name,
@@ -74,7 +75,8 @@ export async function GET(
         emoji: reaction.emoji,
         users: reaction.users?.map(u => ({ id: u.user_id })) || []
       })) || [],
-      comments: commentsResult.data || []
+      comments: commentsResult.data || [],
+      comment_count: quoteResult.data.comment_count || 0
     }
 
     return NextResponse.json(transformedData)
@@ -97,6 +99,7 @@ export async function PUT(
     const id = params.id
     const json = await request.json()
     
+    // Handle full quote update
     const { data: quote, error } = await supabase
       .from('quotes')
       .update({
