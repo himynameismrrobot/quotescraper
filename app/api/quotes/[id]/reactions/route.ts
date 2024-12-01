@@ -33,117 +33,89 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const id = await params.id
   try {
     const supabase = await createClient()
-    const json = await request.json()
+    const params = await context.params
+    const id = params.id
+    const { emoji } = await request.json()
     
-    // Get authenticated user from auth.users
-    const { data: { user }, error: userError } = await supabase.auth.getUser()
-    if (userError || !user) {
+    const { data: { session } } = await supabase.auth.getSession()
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    // Check if user exists in public.users table
-    const { data: existingUser } = await supabase
-      .from('users')
-      .select('id')
-      .eq('id', user.id)
-      .single()
-
-    if (!existingUser) {
-      console.log('User exists in auth but not in public schema:', user.id);
-      return NextResponse.json(
-        { error: 'User not found in public schema' },
-        { status: 404 }
-      )
-    }
-
-    // Check if user has already reacted with this emoji
+    // Check if reaction already exists
     const { data: existingReaction } = await supabase
       .from('quote_reactions')
       .select('id')
       .eq('quote_id', id)
-      .eq('emoji', json.emoji)
+      .eq('emoji', emoji)
       .single()
 
-    let reactionId: string
+    if (existingReaction) {
+      // Add user to existing reaction
+      const { error: userError } = await supabase
+        .from('quote_reactions_users')
+        .insert([
+          {
+            quote_reaction_id: existingReaction.id,
+            user_id: session.user.id
+          }
+        ])
+        .select()
 
-    if (!existingReaction) {
-      // Create new reaction
+      if (userError) throw userError
+    } else {
+      // Create new reaction and add user
       const { data: newReaction, error: reactionError } = await supabase
         .from('quote_reactions')
         .insert([
           {
-            emoji: json.emoji,
-            quote_id: id
+            quote_id: id,
+            emoji: emoji
           }
         ])
         .select()
         .single()
 
-      if (reactionError) {
-        console.error('Error creating reaction:', reactionError)
-        return NextResponse.json(
-          { error: 'Failed to create reaction' },
-          { status: 500 }
-        )
-      }
-      reactionId = newReaction.id
-    } else {
-      reactionId = existingReaction.id
-    }
+      if (reactionError) throw reactionError
 
-    // Check if user has already associated with this reaction
-    const { data: existingAssociation } = await supabase
-      .from('quote_reactions_users')
-      .select('*')
-      .eq('quote_reaction_id', reactionId)
-      .eq('user_id', user.id)
-      .single()
-
-    if (!existingAssociation) {
-      // Create user association
-      const { error: userAssocError } = await supabase
+      const { error: userError } = await supabase
         .from('quote_reactions_users')
         .insert([
           {
-            quote_reaction_id: reactionId,
-            user_id: user.id
+            quote_reaction_id: newReaction.id,
+            user_id: session.user.id
           }
         ])
 
-      if (userAssocError) {
-        console.error('Error creating user association:', userAssocError)
-        return NextResponse.json(
-          { error: 'Failed to associate user with reaction' },
-          { status: 500 }
-        )
-      }
+      if (userError) throw userError
     }
 
-    // Get updated reaction data
-    const { data: updatedReaction, error: getError } = await supabase
+    // Get updated reactions
+    const { data: reactions } = await supabase
       .from('quote_reactions')
       .select(`
-        *,
+        emoji,
         users:quote_reactions_users(
-          user:users(*)
+          user_id
         )
       `)
-      .eq('id', reactionId)
-      .single()
+      .eq('quote_id', id)
 
-    if (getError) throw getError
+    const transformedReactions = reactions?.map(reaction => ({
+      emoji: reaction.emoji,
+      users: reaction.users?.map(u => ({ id: u.user_id })) || []
+    })) || []
 
-    return NextResponse.json(updatedReaction)
+    return NextResponse.json(transformedReactions)
   } catch (error) {
-    console.error('Error creating reaction:', error)
+    console.error('Error adding reaction:', error)
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 }
@@ -153,24 +125,24 @@ export async function POST(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const id = await params.id
   try {
     const supabase = await createClient()
+    const params = await context.params
+    const id = params.id
     const { searchParams } = new URL(request.url)
     const emoji = searchParams.get('emoji')
     
-    // Get authenticated user
-    const { data: { user }, error: userError } = await supabase.auth.getUser()
-    if (userError || !user) {
+    const { data: { session } } = await supabase.auth.getSession()
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    // First, get the reaction
+    // Get reaction ID
     const { data: reaction } = await supabase
       .from('quote_reactions')
       .select('id')
@@ -179,67 +151,51 @@ export async function DELETE(
       .single()
 
     if (reaction) {
-      // Remove the user association
+      // Remove user from reaction
       const { error: deleteError } = await supabase
         .from('quote_reactions_users')
         .delete()
         .eq('quote_reaction_id', reaction.id)
-        .eq('user_id', user.id)
+        .eq('user_id', session.user.id)
 
-      if (deleteError) {
-        console.error('Error removing reaction:', deleteError)
-        return NextResponse.json(
-          { error: 'Failed to remove reaction' },
-          { status: 500 }
-        )
-      }
+      if (deleteError) throw deleteError
 
-      // Check if this was the last user for this reaction
-      const { data: remainingUsers } = await supabase
+      // Check if any users left for this reaction
+      const { count, error: countError } = await supabase
         .from('quote_reactions_users')
-        .select('id')
+        .select('*', { count: 'exact' })
         .eq('quote_reaction_id', reaction.id)
 
-      if (!remainingUsers?.length) {
-        // Delete the reaction if no users are left
-        await supabase
+      if (countError) throw countError
+
+      // If no users left, delete the reaction
+      if (count === 0) {
+        const { error: reactionError } = await supabase
           .from('quote_reactions')
           .delete()
           .eq('id', reaction.id)
+
+        if (reactionError) throw reactionError
       }
     }
 
-    // Get updated quote data
-    const { data: updatedQuote, error: quoteError } = await supabase
-      .from('quotes')
+    // Get updated reactions
+    const { data: reactions } = await supabase
+      .from('quote_reactions')
       .select(`
-        *,
-        speaker:speakers(
-          *,
-          organization:organizations(*)
-        ),
-        reactions:quote_reactions(
-          *,
-          users:quote_reactions_users(
-            user:users(*)
-          )
+        emoji,
+        users:quote_reactions_users(
+          user_id
         )
       `)
-      .eq('id', id)
-      .single()
+      .eq('quote_id', id)
 
-    if (quoteError) throw quoteError
+    const transformedReactions = reactions?.map(reaction => ({
+      emoji: reaction.emoji,
+      users: reaction.users?.map(u => ({ id: u.user_id })) || []
+    })) || []
 
-    // Transform the reactions data
-    const transformedQuote = {
-      ...updatedQuote,
-      reactions: updatedQuote.reactions?.map(reaction => ({
-        emoji: reaction.emoji,
-        users: reaction.users?.map(u => ({ id: u.user.id })) || []
-      })) || []
-    }
-
-    return NextResponse.json(transformedQuote)
+    return NextResponse.json(transformedReactions)
   } catch (error) {
     console.error('Error removing reaction:', error)
     return NextResponse.json(

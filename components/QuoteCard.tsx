@@ -76,68 +76,13 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
   const [commentsPage, setCommentsPage] = useState(0);
   const [newComment, setNewComment] = useState('');
   const [isSubmittingComment, setIsSubmittingComment] = useState(false);
-  
-  // Initialize localCommentCount from cache or quote data
   const [localCommentCount, setLocalCommentCount] = useState<number>(() => {
-    const cached = getQuoteFromCache(quote.id);
-    const count = cached?.comment_count ?? quote.comment_count ?? 0;
-    return typeof count === 'number' ? count : 0;
+    return quote.comment_count || 0;
   });
 
-  // Update local count when comments array changes
   useEffect(() => {
-    if (Array.isArray(comments)) {
-      const newCount = comments.length;
-      console.log('💬 QuoteCard - Updating comment count:', {
-        quoteId: quote.id,
-        oldCount: localCommentCount,
-        newCount,
-        commentsArray: comments
-      });
-      setLocalCommentCount(newCount);
-      
-      // Update cache with the new count
-      const updatedQuote = {
-        ...quote,
-        comment_count: newCount
-      };
-      setQuoteInCache(quote.id, updatedQuote);
-      
-      // Update newsfeed state if it exists, preserving quote order
-      const newsfeedState = sessionStorage.getItem('newsfeed_state');
-      if (newsfeedState) {
-        try {
-          const state = JSON.parse(newsfeedState);
-          if (state.quotes) {
-            // Find the quote's current index
-            const quoteIndex = state.quotes.findIndex((q: any) => q.id === quote.id);
-            if (quoteIndex !== -1) {
-              // Create new quotes array with updated quote at same position
-              const updatedQuotes = [...state.quotes];
-              updatedQuotes[quoteIndex] = {
-                ...state.quotes[quoteIndex],
-                comment_count: newCount
-              };
-              
-              // Update state while preserving all other properties
-              sessionStorage.setItem('newsfeed_state', JSON.stringify({
-                ...state,
-                quotes: updatedQuotes
-              }));
-              
-              console.log('✅ QuoteCard - Updated newsfeed state:', {
-                quoteId: quote.id,
-                newCount,
-                position: quoteIndex
-              });
-            }
-          }
-        } catch (error) {
-          console.error('Error updating newsfeed state:', error);
-        }
-      }
-    }
-  }, [comments, quote.id, localCommentCount, quote]);
+    setLocalCommentCount(quote.comment_count || 0);
+  }, [quote.comment_count]);
 
   const fetchComments = useCallback(async (page: number) => {
     if (isLoadingComments) return;
@@ -379,7 +324,7 @@ const QuoteCard = memo(({ quote, showComments = false, showRawQuote = false, onQ
 
     setIsSubmittingComment(true);
     try {
-      console.log('�� QuoteCard - Submitting new comment:', {
+      console.log(' QuoteCard - Submitting new comment:', {
         quoteId: quote.id,
         currentCount: localCommentCount
       });

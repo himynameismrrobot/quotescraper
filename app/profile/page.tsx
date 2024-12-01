@@ -6,6 +6,7 @@ import BottomNav from '@/components/BottomNav'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/components/AuthStateProvider'
@@ -15,6 +16,8 @@ export default function ProfilePage() {
   const router = useRouter()
   const { user, loading } = useAuth()
   const [profile, setProfile] = useState<any>(null)
+  const [followedSpeakers, setFollowedSpeakers] = useState<any[]>([])
+  const [followedOrgs, setFollowedOrgs] = useState<any[]>([])
   const supabase = createClient()
 
   useEffect(() => {
@@ -28,20 +31,55 @@ export default function ProfilePage() {
           router.push('/auth/signin')
         }, 500)
       } else {
-        // Only fetch profile if we have a user
-        const fetchProfile = async () => {
-          const { data, error } = await supabase
+        // Only fetch profile and follows if we have a user
+        const fetchData = async () => {
+          // Fetch profile
+          const { data: profileData } = await supabase
             .from('users')
             .select('*')
             .eq('id', user.id)
             .single()
 
-          if (!error) {
-            setProfile(data)
+          if (profileData) {
+            setProfile(profileData)
+          }
+
+          // Fetch followed speakers
+          const { data: speakersData } = await supabase
+            .from('following')
+            .select(`
+              speaker:speaker_id (
+                id,
+                name,
+                image_url
+              )
+            `)
+            .eq('user_id', user.id)
+            .not('speaker_id', 'is', null)
+
+          if (speakersData) {
+            setFollowedSpeakers(speakersData.map(d => d.speaker).filter(Boolean))
+          }
+
+          // Fetch followed organizations
+          const { data: orgsData } = await supabase
+            .from('following')
+            .select(`
+              organization:org_id (
+                id,
+                name,
+                logo_url
+              )
+            `)
+            .eq('user_id', user.id)
+            .not('org_id', 'is', null)
+
+          if (orgsData) {
+            setFollowedOrgs(orgsData.map(d => d.organization).filter(Boolean))
           }
         }
 
-        fetchProfile()
+        fetchData()
       }
     }
 
@@ -55,6 +93,24 @@ export default function ProfilePage() {
   const handleLogout = async () => {
     await supabase.auth.signOut()
     router.push('/auth/signin')
+  }
+
+  const handleUnfollow = async (type: 'speaker' | 'org', id: string) => {
+    const column = type === 'speaker' ? 'speaker_id' : 'org_id'
+    
+    const { error } = await supabase
+      .from('following')
+      .delete()
+      .eq('user_id', user.id)
+      .eq(column, id)
+
+    if (!error) {
+      if (type === 'speaker') {
+        setFollowedSpeakers(prev => prev.filter(s => s.id !== id))
+      } else {
+        setFollowedOrgs(prev => prev.filter(o => o.id !== id))
+      }
+    }
   }
 
   // Show loading state while checking auth
@@ -110,7 +166,7 @@ export default function ProfilePage() {
             </Button>
           </div>
 
-          <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl">
+          <Card className="w-full backdrop-blur-xl bg-white/10 border-white/20 shadow-xl mb-6">
             <CardHeader>
               <CardTitle className="text-white">Profile Information</CardTitle>
             </CardHeader>
@@ -133,6 +189,81 @@ export default function ProfilePage() {
               )}
             </CardContent>
           </Card>
+
+          <Tabs defaultValue="speakers" className="w-full">
+            <TabsList className="w-full backdrop-blur-xl bg-white/10 border-white/20">
+              <TabsTrigger value="speakers" className="flex-1 text-white data-[state=active]:bg-white/20">
+                Followed Speakers
+              </TabsTrigger>
+              <TabsTrigger value="organizations" className="flex-1 text-white data-[state=active]:bg-white/20">
+                Followed Organizations
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="speakers">
+              <Card className="backdrop-blur-xl bg-white/10 border-white/20">
+                <CardContent className="p-4 space-y-4">
+                  {followedSpeakers.length === 0 ? (
+                    <p className="text-gray-400 text-center py-4">You haven't followed any speakers yet.</p>
+                  ) : (
+                    followedSpeakers.map((speaker) => (
+                      <div key={speaker.id} className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <Avatar>
+                            <AvatarImage src={speaker.image_url} />
+                            <AvatarFallback className="bg-white/10 text-white">
+                              {speaker.name[0]}
+                            </AvatarFallback>
+                          </Avatar>
+                          <span className="text-white">{speaker.name}</span>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleUnfollow('speaker', speaker.id)}
+                          className="text-red-400 hover:text-red-300 hover:bg-red-400/10"
+                        >
+                          Unfollow
+                        </Button>
+                      </div>
+                    ))
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="organizations">
+              <Card className="backdrop-blur-xl bg-white/10 border-white/20">
+                <CardContent className="p-4 space-y-4">
+                  {followedOrgs.length === 0 ? (
+                    <p className="text-gray-400 text-center py-4">You haven't followed any organizations yet.</p>
+                  ) : (
+                    followedOrgs.map((org) => (
+                      <div key={org.id} className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <Avatar>
+                            <AvatarImage src={org.logo_url} />
+                            <AvatarFallback className="bg-white/10 text-white">
+                              {org.name[0]}
+                            </AvatarFallback>
+                          </Avatar>
+                          <span className="text-white">{org.name}</span>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleUnfollow('org', org.id)}
+                          className="text-red-400 hover:text-red-300 hover:bg-red-400/10"
+                        >
+                          Unfollow
+                        </Button>
+                      </div>
+                    ))
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
         <BottomNav />
       </EchoLayout>

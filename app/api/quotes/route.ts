@@ -50,18 +50,151 @@ export async function GET(request: Request) {
       `, { count: 'exact' })
 
     // Apply tab filters
-    if (tab === 'following') {
-      // Add following filter
-      quotesQuery = quotesQuery
-        .in('speaker_id', user?.user_metadata?.following || [])
+    if (tab === 'following' && user) {
+      // First get the user's follows
+      const { data: follows } = await supabase
+        .from('following')
+        .select('speaker_id, org_id')
+        .eq('user_id', user.id)
+
+      if (follows && follows.length > 0) {
+        const speakerIds = follows
+          .filter(f => f.speaker_id)
+          .map(f => f.speaker_id)
+
+        const orgIds = follows
+          .filter(f => f.org_id)
+          .map(f => f.org_id)
+
+        if (speakerIds.length > 0 || orgIds.length > 0) {
+          if (speakerIds.length > 0 && orgIds.length > 0) {
+            // If we have both speaker and org follows, use two separate queries and union them
+            const speakerQuotes = supabase
+              .from('quotes')
+              .select(`
+                id,
+                summary,
+                raw_quote_text,
+                article_date,
+                article_url,
+                article_headline,
+                parent_monitored_url,
+                parent_monitored_url_logo,
+                created_at,
+                updated_at,
+                comment_count,
+                speaker:speakers!inner(
+                  id,
+                  name,
+                  image_url,
+                  organization:organizations(
+                    id,
+                    name,
+                    logo_url
+                  )
+                ),
+                reactions:quote_reactions(
+                  emoji,
+                  users:quote_reactions_users(
+                    user_id
+                  )
+                )
+              `)
+              .in('speaker.id', speakerIds)
+
+            const orgQuotes = supabase
+              .from('quotes')
+              .select(`
+                id,
+                summary,
+                raw_quote_text,
+                article_date,
+                article_url,
+                article_headline,
+                parent_monitored_url,
+                parent_monitored_url_logo,
+                created_at,
+                updated_at,
+                comment_count,
+                speaker:speakers!inner(
+                  id,
+                  name,
+                  image_url,
+                  organization:organizations(
+                    id,
+                    name,
+                    logo_url
+                  )
+                ),
+                reactions:quote_reactions(
+                  emoji,
+                  users:quote_reactions_users(
+                    user_id
+                  )
+                )
+              `)
+              .in('speaker.organization_id', orgIds)
+
+            const [speakerResults, orgResults] = await Promise.all([
+              speakerQuotes,
+              orgQuotes
+            ])
+
+            // Combine and deduplicate results
+            const allQuotes = [
+              ...(speakerResults.data || []),
+              ...(orgResults.data || [])
+            ]
+
+            // Remove duplicates based on quote ID
+            const uniqueQuotes = Array.from(
+              new Map(allQuotes.map(quote => [quote.id, quote])).values()
+            )
+
+            // Sort by created_at
+            const sortedQuotes = uniqueQuotes.sort(
+              (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+            )
+
+            // Paginate manually
+            const paginatedQuotes = sortedQuotes.slice(offset, offset + limit)
+
+            return NextResponse.json({
+              quotes: paginatedQuotes.map(quote => ({
+                ...quote,
+                reactions: quote.reactions?.map(reaction => ({
+                  emoji: reaction.emoji,
+                  users: reaction.users?.map(u => ({ id: u.user_id })) || []
+                })) || [],
+                comments: quote.comment_count || 0
+              })),
+              hasMore: offset + limit < sortedQuotes.length,
+              total: sortedQuotes.length
+            })
+          } else if (speakerIds.length > 0) {
+            quotesQuery = quotesQuery.in('speaker.id', speakerIds)
+          } else {
+            quotesQuery = quotesQuery.in('speaker.organization_id', orgIds)
+          }
+        } else {
+          // If no follows, return no results
+          quotesQuery = quotesQuery.eq('id', 'no-results')
+        }
+      } else {
+        // If no follows, return no results
+        quotesQuery = quotesQuery.eq('id', 'no-results')
+      }
     }
 
-    // Get total count and paginated results
+    // Only execute the regular query if we haven't already returned results
     const { data: quotes, error, count } = await quotesQuery
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
 
-    if (error) throw error
+    if (error) {
+      console.error('Query error:', error)
+      throw error
+    }
 
     // Transform the data
     const transformedQuotes = quotes?.map(quote => ({
