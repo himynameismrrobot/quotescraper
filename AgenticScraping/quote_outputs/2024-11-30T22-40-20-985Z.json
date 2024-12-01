@@ -1,0 +1,259 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-30T22:40:20.986Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nLatest updates\n--------------\n\n1.  ![Image 22: Ruben Amorim Manager of Manchester United during the UEFA Europa League 2024/25 League Phase MD5 training and press conference at Carrington Training Ground on November 27, 2024](https://ichef.bbci.co.uk/ace/standard/640/cpsprodpb/abf0/live/64ff98c0-af33-11ef-bf13-0d5fafac0b95.jpg.webp)Image source, Getty Images\n    \n    BBC Sport presenter Mark Chapman has been getting to know Manchester United boss Ruben Amorim in an exclusive Football Focus interview, with the Portuguese manager explaining why he appears to be \"very relaxed\" in his new job.\n    \n    \"I will be OK - no matter what,\" Amorim said. \"In this stage of my life, I will be OK so that's why I am relaxed.\n    \n    \"Everybody says to me: 'This will change me'. This will not change me.\n    \n    \"If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed.\n    \n    \"I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this \\[and make the move\\].\n    \n    \"Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"\n    \n    Watch the full interview with Ruben Amorim on [Football Focus on iPlayer](https://www.bbc.co.uk/iplayer/episodes/b006m8tc/football-focus) or listen to the special [Football Daily podcast on BBC Sounds](https://www.bbc.co.uk/sounds/play/p0k7y4sr)\n    \n2.  ![Image 25: Ruben Amorim, head coach of Manchester United, during the UEFA Europa League 2024/25 League Phase MD5 match between Manchester United and FK Bodo/Glimt at Old Trafford](https://ichef.bbci.co.uk/ace/standard/640/cpsprodpb/1a87/live/b06baf40-af26-11ef-907d-d11d58b97d6a.jpg.webp)Image source, Getty Images\n    \n3.  **Manchester United manager Ruben Amorim, speaking to TNT Sports**: \"Of course, I see what everybody sees, good moments, difficult moments.\n    \n    \"There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won!\n    \n    \"Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special.\n    \n    \"I will keep this to the end of my career.\"\n    \n4.  **On the game:** \"Like a real ride. We started well, but then suffered two goals in two transitions. I like the way the players tried to play our game.\n    \n    \"Sometimes we won the ball and have had problems in the past giving the ball away too much - the mindset is keeping the ball.\n    \n    \"They are really trying and I think we deserved the win.\"\n    \n    \n    \n    \n    ",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I will be OK - no matter what. In this stage of my life, I will be OK so that's why I am relaxed. Everybody says to me: 'This will change me'. This will not change me. If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed. I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move]. Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.",
+          "summary": "I feel ready for this challenge and believe I will succeed.",
+          "id": "a74a2b59-3c74-459c-a4e8-8e35bf56aae5",
+          "similar_to_quote_id": "8ebe2e94-a31e-42e7-acfa-6d0b1fb8dd27",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.559356093406677
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Of course, I see what everybody sees, good moments, difficult moments. There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won! Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special. I will keep this to the end of my career.",
+          "summary": "I recognize both the challenges and support from the fans.",
+          "id": "6107251c-eed3-4ccb-88d7-7246ad52882f",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "3cbb99dc-d136-4acd-a413-7bd2c5a53d7e",
+          "similarity_score": 0.765397489070892
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Like a real ride. We started well, but then suffered two goals in two transitions. I like the way the players tried to play our game. Sometimes we won the ball and have had problems in the past giving the ball away too much - the mindset is keeping the ball. They are really trying and I think we deserved the win.",
+          "summary": "We faced challenges, but the players showed great effort and deserved the win.",
+          "id": "f3ea2c6d-f701-4a29-888a-16036959aebf",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "eca02a3f-0438-4d11-8efb-a60353551525",
+          "similarity_score": 0.744139194488525
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/become-fans-favourite-manchester-united-30482227",
+        "article_headline": "I have become a fans favourite at Manchester United but I had no idea they loved me so much",
+        "article_text": "Noussair Mazraoui has quickly endeared himself to Man Utd fans and he is getting as much love from the coaching staff as the terraces.\n\nBy\n[Tyrone Marshall](https://www.manchestereveningnews.co.uk/authors/tyrone-marshall/) Senior Football Writer\n\n*   Until this week, Noussair Mazraoui had never played as a centre-back before. That he has taken to a specialised role in a new system with the minimum of fuss will be no surprise to the supporters who have quickly taken the Morrocan to heart at [Old Trafford](https://www.manchestereveningnews.co.uk/all-about/old-trafford).\n\nMazraoui has only played 19 games for [Manchester United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc), but he's already played four different positions. In just two games, the 27-year-old looks tailor-made for the right centre-back slot in Ruben Amorim's 3-4-3 system.\n\nWith United building play in a back three and defending as a four, Mazraoui's versatility to switch between centre-back and right-back is invaluable. Along with Bruno Fernandes, he is the only outfield player to play every minute of Amorim's first two games in charge, and the head coach likes what he sees.\n\n\"He’s an incredible player, he’s our future,\" Amorim said of Mazraoui after the win against Bodo/Glimt. \"He played in different positions, he always looks fresh but we have to be careful. There’s a lot of games but he’s here to stay. This kind of player is what we need.\"\n\nMazraoui has looked unflustered in adapting to a new role, and although it has changed how he sees the game, he is enjoying its benefits.\n\n“ This is the first time. It’s nice. You have to view the game differently because you are not as high up the pitch like when you are the full-back,\" he said. \"But you get more time on the ball and you must make the most of that in the build-up. There are some different things I have to do but it’s still the same game.\"\n\nAmorim has road-tested 17 different starters in his first two games in charge, but Mazraoui seems someone set for a long-term role, with the Portuguese describing him as the type of player he needs.\n\n“It’s a big compliment to hear the coach say that,\" he said. \"What can I say? I try my best every day and in every game. I give my all for the team, for the coach and for the supporters.\n\n“We are all in this together. It isn’t about one player.”\n\nUnited's spending across three summer windows under Erik ten Hag hit more than £600m. Mazraoui was one of the cheaper buys, at an initial £12.8m, with a further £4.2m in add-ons, but he looks like a bargain.\n\nSupporters have already taken him to their hearts. His combative style is celebrated on social media and his low-key passion and commitment have won over a fanbase who were disappointed by the team's start to the season.\n\nMazraoui underwent minor surgery after complaining of palpitations back in September, but having initially been told he would be sidelined for a few weeks, he ended up not missing a game. That is the kind of commitment that has made him such a popular figure at Old Trafford, although when that was put to him, he was unaware of his status.\n\n“To be honest I’ve not seen a lot \\[about that\\], but it gives me a really good feeling to hear that about the fans. I love the fans and I always say in every interview that I give my all for them,\" he said. \n\n\"I hope and I think they see that, that I give my all for the badge and for the supporters. Everybody wants to go home with a win and when I can give that to them as a player and as a team that’s what you do it for.\"\n\nMazraoui has had a close-up view of Amorim's start to life at Old Trafford, with a draw against Ipswich followed by a victory against Bodo Glimt.\n\nThere have been plenty of changes as the head coach instils his 3-4-3 system into a new group of players and although Mazraoui accepts it will take time for everyone to adapt, he is confident in the player's ability to do just that.\n\n“I think always when you want to implement a new style of play that isn’t even close to how we played before then no-one can expect us to understand everything the manager has in his mind right from the start,\" he said. \n\n“So yes, of course, this is going to be a tough time - but come on, we are all top players and we play the game to win. Eventually we will get to wherever the coach wants us to be.\n\n“We have unbelievable players. Of course we can adapt and I think we are showing that. We have to get used to the new style, but I don’t think it will take too long.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "He’s an incredible player, he’s our future. He played in different positions, he always looks fresh but we have to be careful. There’s a lot of games but he’s here to stay. This kind of player is what we need.",
+          "summary": "I see him as our future and he adapts well.",
+          "id": "7aab9b12-7437-42e6-bd78-69248c5536a6",
+          "similar_to_quote_id": "5a2f77a0-c3e0-49c6-b5e8-0ec691f6fe00",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.607254922389984
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "This is the first time. It’s nice. You have to view the game differently because you are not as high up the pitch like when you are the full-back. But you get more time on the ball and you must make the most of that in the build-up. There are some different things I have to do but it’s still the same game.",
+          "summary": "I enjoy the new role; it allows me more time on the ball.",
+          "id": "2c99501f-8f1d-41db-b7ac-0deee27c15f4",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bc7072f4-8edd-478a-8061-554f9ff61032",
+          "similarity_score": 0.483840942382812
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "It’s a big compliment to hear the coach say that. What can I say? I try my best every day and in every game. I give my all for the team, for the coach and for the supporters. We are all in this together. It isn’t about one player.",
+          "summary": "I always give my best for the team and appreciate the coach's praise.",
+          "id": "b98a795e-847d-408e-9a5f-89cee352900c",
+          "similar_to_quote_id": "aaf79f15-b399-44d0-b611-5d1b99757486",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.560616075992584
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "To be honest I’ve not seen a lot [about that], but it gives me a really good feeling to hear that about the fans. I love the fans and I always say in every interview that I give my all for them. I hope and I think they see that, that I give my all for the badge and for the supporters. Everybody wants to go home with a win and when I can give that to them as a player and as a team that’s what you do it for.",
+          "summary": "It feels great to hear the fans' support; I strive to give my all for them.",
+          "id": "47c99832-1b95-4db1-9ce7-3cd233e41ef0",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a69f1818-bc9a-4789-9d06-3d152c27470d",
+          "similarity_score": 0.670426785945892
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "I think always when you want to implement a new style of play that isn’t even close to how we played before then no-one can expect us to understand everything the manager has in his mind right from the start. So yes, of course, this is going to be a tough time - but come on, we are all top players and we play the game to win. Eventually we will get to wherever the coach wants us to be. We have unbelievable players. Of course we can adapt and I think we are showing that. We have to get used to the new style, but I don’t think it will take too long.",
+          "summary": "Adapting to a new style takes time, but our quality will help us succeed.",
+          "id": "0653d4d3-251e-4f35-b3b7-bba25cdb63b8",
+          "similar_to_quote_id": "977530bd-7de3-4645-8b8b-ba0929a88b8c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.608218669891357
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-man-citys-sunday-30487272",
+        "article_headline": "Why Manchester United and Man City's Sunday kick-off times are earlier than usual",
+        "article_text": "Manchester United host Everton at Old Trafford in the Premier League prior to Manchester City's important trip to leaders Liverpool.\n\nBy Hannah Pinnock\n\nRuben Amorim will take charge of his first Premier League game at Old Trafford on Sunday when Manchester United host Everton.\n\nThe Portuguese coach has overseen two games so far, including a 1-1 draw away at Ipswich Town and a narrow 3-2 UEFA Europa League victory at home to Norwegian side FK Bodo/Glimt. United sit 13th and 12th in the Premier League and European standings respectively.\n\nOn Sunday, they welcome Merseyside club Everton to Old Trafford at an earlier time of 1:30pm. Typically, the two Sunday slots for the Premier League are the later times of 2pm and 4:30pm.\n\nWhile an official reason hasn't been given for the change to the earlier kick-off times, it's most likely due to the Liverpool vs Manchester City clash taking place at 4pm instead of 4:30pm.\n\nThe MEN has previously reported the decision was made at the request of Merseyside Police in light of supporter trouble in previous meetings between the two teams. Therefore, the earlier games have likely been moved to avoid any crossover of TV coverage, with Chelsea's game against Villa also set to be broadcast on Sky Sports.\n\nAmorim will hope his side can gain some ground in the top four chase with a victory over Everton this weekend as they will then travel to face title chasers Arsenal midweek in the Premier League. City meanwhile are desperate to address their slump after they went six games without a win following an unbelievable draw against Feyenoord on Tuesday night.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-brings-new-man-30453910",
+        "article_headline": "Ruben Amorim brings in new Man United rule after Marcus Rashford and Casemiro decision",
+        "article_text": "Ruben Amorim brings in new Man United rule after Marcus Rashford and Casemiro decision - Manchester Evening News\nRuben Amorim has been in charge of Manchester United for a matter of days and has already implemented a new rule.\n\nManchester United boss Ruben Amorim is reportedly cracking down on squad discipline and has announced that players will no longer be able to use international breaks as an excuse for extra holidays.\n\nAmorim took up his coaching duties at the beginning of the week and found his squad depleted due to many being away playing for their nations. Two players who were not involved for their national teams were Marcus Rashford and Casemiro.\n\nBoth players took the opportunity to travel to the US; Rashford was spotted at an NBA game in Madison Square Garden, while Casemiro visited Disney World in Florida.\n\nWhilst not pointing the finger at Rashford or Casemiro for seizing their break, Amorim clearly stated: \"Would I set a different structure? Yes, for sure. But we cannot put this on the players. They told them they have five days off so they can fly anywhere. Because nobody in the club says you cannot fly. So we cannot, this time, put that on Rash [Rashford] or Case [Casemiro].\"\n\nThe recent escapades of Rashford and Casemiro were met with criticism from ex-United stalwart Gary Neville, who voiced concerns about the poor optics and questioned whether trips abroad are the best way for players to recuperate amidst difficult times at the club.\n\nHe stated: \"I'm not that wound up about [Marcus] Rashford and Casemiro going over to the United States, but what I'm asking is, if you've got a four-day break, Portland is a 12-hour flight and an eight-hour time difference, your jetlag is bad, and you feel a bit [rough].\n\n\"They went to Portland, and I'm asking the question based on professionalism – you're playing badly, the team are losing, your 13th in the league, and there is a new manager coming in – would you choose that trip as a break to recharge your batteries? That's not a recharging trip. It's not right that.\"\n\nAmorim commented on the changes he plans to make: \"Us as a club have to set the standards and have to manage that. It's my decision if they can have five days, or three days, or three days to rest and you cannot fly. This is something that us as a club have to decide. So this must be started in the club, with us and me being responsible in that area.\"\n\nAmorim, known for his attention to detail, has prohibited his coaches from giving out complex instructions. The former Sporting Lisbon boss believes that if he can't explain a particular idea in a single sentence, it shouldn't be communicated until it's simplified.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On squad rules] Would I set a different structure? Yes, for sure. But we cannot put this on the players. They told them they have five days off so they can fly anywhere. Because nobody in the club says you cannot fly. So we cannot, this time, put that on Rash [Rashford] or Case [Casemiro].",
+          "summary": "I would set a different structure, but we can't blame the players for now.",
+          "id": "59764a11-dc5c-4a84-acc6-df006ad8553c",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "356d1ffc-0991-4808-9196-f93842cf39ef",
+          "similarity_score": 0.471312940120697
+        },
+        {
+          "speaker_name": "Gary Neville",
+          "raw_quote_text": "[On Rashford and Casemiro's trips] I'm not that wound up about [Marcus] Rashford and Casemiro going over to the United States, but what I'm asking is, if you've got a four-day break, Portland is a 12-hour flight and an eight-hour time difference, your jetlag is bad, and you feel a bit [rough]. They went to Portland, and I'm asking the question based on professionalism – you're playing badly, the team are losing, your 13th in the league, and there is a new manager coming in – would you choose that trip as a break to recharge your batteries? That's not a recharging trip. It's not right that.",
+          "summary": "I'm concerned about the professionalism of taking such a long trip during a critical period.",
+          "id": "fae96f5c-f38b-4097-a8cf-1002e6c3622d",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "474065e9-a6e1-4537-9b4c-a2212572fcc5",
+          "similarity_score": 0.582542419433594
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On setting standards] Us as a club have to set the standards and have to manage that. It's my decision if they can have five days, or three days, or three days to rest and you cannot fly. This is something that us as a club have to decide. So this must be started in the club, with us and me being responsible in that area.",
+          "summary": "We must set standards as a club, and I will decide how many days off are appropriate.",
+          "id": "aa946f33-7cf7-4d0b-a514-d7f15e29821b",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "fae96f5c-f38b-4097-a8cf-1002e6c3622d",
+          "similarity_score": 0.593442857265472
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/premier-league-arsenal-sir-alex-ferguson-transfer-flop-961490-20241130",
+        "article_headline": "Ex-Man United star admits he wanted to leave the club after just one training session and he begged his agent to get his contract ripped up",
+        "article_text": "Ex-Man Utd star admits he wanted to leave after one training session and begged to get his contract ripped up - Man Utd - SPORTbible\n===============\n\n**One former Manchester United star has confessed that he wanted to leave the club almost immediately after joining after asking his agent to rip up his contract.**\n\nSince the departure of legendary manager [Sir Alex Ferguson](https://www.sportbible.com/sir-alex-ferguson) in 2013, dozens of player have joined [United](https://www.sportbible.com/manchester-united), with some more successful than others.\n\nHowever, one thing that has been clear with almost all players that have joined the club since the famous Fergie era, they wanted to be wearing the Manchester United shirt.\n\nBut that wasn't the case for one superstar who joined the club years after Ferguson's departure, as they later admitted they tried to leave the club after just one training session.\n\nWhen [Alexis Sanchez](https://www.sportbible.com/alexis-sanchez) made the move from [Arsenal](https://www.sportbible.com/arsenal) to Old Trafford in January 2018, many United fans thought that they had secured the signing of one of the best players in the [Premier League.](https://www.sportbible.com/premier-league)\n\nAnd yet, things never worked out for Sanchez at United and he has since confessed that he almost instantly regretted agreeing to the transfer.\n\nSpeaking on his Instagram in September 2020, the Chilean forward said: \"I accepted the opportunity to go to United, it felt tempting and it was something good for me,\n\n\"I liked this club a lot when I was a kid. Eventually I signed but I didn't ask for information on what was happening inside the club.\n\n\"Sometimes there are things that you don't realise until you get there, and I remember the first training session I had, I realised a lot of things.\n\n\"After the session I got home and I told my family and my agent, 'Can you not rip up the contract to go back to Arsenal?'.\n\n\"They laughed, I told them there's something that doesn't sit right, it doesn't seem good.\n\n\"But I already signed, I was already there. After the first few months I carried on having the same feeling, we weren't united as a team in that moment.\"\n\nAfter registering an incredible 124 goals or assists in 166 appearances at Arsenal, Sanchez managed only 14 in 45 appearances for United.\n\nHaving played just one season with the Red Devils, he joined Serie A side [Inter Milan](https://www.sportbible.com/inter-milan) on a season-long loan in 2018/19 before securing a permanent move to the club the following summer.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Alexis Sanchez",
+          "raw_quote_text": "[Speaking about his regret] \"I accepted the opportunity to go to United, it felt tempting and it was something good for me, I liked this club a lot when I was a kid. Eventually I signed but I didn't ask for information on what was happening inside the club. Sometimes there are things that you don't realise until you get there, and I remember the first training session I had, I realised a lot of things. After the session I got home and I told my family and my agent, 'Can you not rip up the contract to go back to Arsenal?'. They laughed, I told them there's something that doesn't sit right, it doesn't seem good. But I already signed, I was already there. After the first few months I carried on having the same feeling, we weren't united as a team in that moment.\"",
+          "summary": "I felt tempted by the move to United, but after my first training session, I wanted to leave and asked my agent to rip up my contract.",
+          "id": "17d66a5c-9bce-473b-b3ae-35b79d97dca7",
+          "similar_to_quote_id": "686661bc-0b86-48cb-9f1f-b4a1f270eab1",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.543939530849457
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/liverpool/mo-salah-fpl-liverpool-man-city-012885-20241129",
+        "article_headline": "Mo Salah's FPL team ahead of Liverpool's game with Man City goes viral as he makes two huge changes",
+        "article_text": "**Mohamed Salah's Fantasy Premier League team has gone viral ahead of Liverpool's clash against Manchester City.**\n\nOn Sunday afternoon, all eyes will be fixated on Anfield as Pep Guardiola's men look to end their winless streak against league leaders [Liverpool](https://www.sportbible.com/liverpool).\n\nFor the first time in a while, [City](https://www.sportbible.com/manchester-city) will head into the match as the underdogs after their recent dreadful form that has seen them lose five and draw one.\n\nMeanwhile, Liverpool have had a flying start under Arne Slot as they currently sit eight points clear at the top of the table.\n\nAhead of the clash between Liverpool and City, it has been revealed that Reds talisman [Salah](https://www.sportbible.com/mohamed-salah) has made two huge changes to his [FPL](https://www.sportbible.com/fantasy-premier-league) team.\n\nAs [per](https://x.com/fplfocal/status/1862575474364363130?s=46&t=uxXCWj4CwoDO3TqegCIzVA) FPL Local, Salah has swapped out City duo Josko Gvardiol and Ederson for William Saliba and Matz Sels.\n\nSave to say Salah is backing himself and his teammates to get the job done against City on Sunday.\n\nMo Salah's FPL team ahead of Liverpool vs Manchester City. Image: X/@FPLFocal\n\nAhead of Sunday, Liverpool have been dealt a huge blow as defender [Ibrahima Konate is set to be sidelined for the next few weeks](https://www.sportbible.com/football/football-news/liverpool/ibrahima-konate-liverpool-injury-news-182882-20241129).\n\nThe Frenchman wrote on social media: \"So frustrating to pick up this injury right at the end of a great game on Wednesday night. Now we start the recovery process but one thing I promise is I will come back and be the best I can be once again. Thank you for the amazing support at Anfield.\n\n\"Inshallah we will keep going and I will support the team every step of the way.\"\n\nSpeaking ahead of the match, Reds boss [Slot](https://www.sportbible.com/arne-slot) said: \"I think in general if you play one of your competitors it is always an important moment that has not so much to do with the amount of points they have or we have. These teams have always been in the last few years very close to each other, so those games are always very important.\n\n\"Just like the ones against Arsenal and Chelsea, but those ones are only important if you win against all the other teams so that makes it that almost every game is very important to win, for them and also for us.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ibrahima Konate",
+          "raw_quote_text": "[After his injury] So frustrating to pick up this injury right at the end of a great game on Wednesday night. Now we start the recovery process but one thing I promise is I will come back and be the best I can be once again. Thank you for the amazing support at Anfield. Inshallah we will keep going and I will support the team every step of the way.",
+          "summary": "I'm frustrated with my injury but I'm committed to recovering and supporting the team.",
+          "id": "202ca25e-3a9a-4fad-80d2-3c8c36b13268",
+          "similar_to_quote_id": "f056a7d7-8415-4e99-8e7e-cddb5f3a1f5e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.500534057617188
+        },
+        {
+          "speaker_name": "Arne Slot",
+          "raw_quote_text": "I think in general if you play one of your competitors it is always an important moment that has not so much to do with the amount of points they have or we have. These teams have always been in the last few years very close to each other, so those games are always very important. Just like the ones against Arsenal and Chelsea, but those ones are only important if you win against all the other teams so that makes it that almost every game is very important to win, for them and also for us.",
+          "summary": "Matches against our competitors are crucial, regardless of points, and every game is important to win.",
+          "id": "4f6a6eca-dac0-41ca-a2f7-a255a83cfb19",
+          "similar_to_quote_id": "850b3100-c103-451d-a67c-d1b037c49698",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.554908454418182
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/liverpool-mo-salah-contract-update-instagram-900131-20241129",
+        "article_headline": "Mo Salah breaks the internet with latest Instagram Story as Liverpool star's future takes new twist",
+        "article_text": "**Liverpool’s Mohamed Salah has put fans on high alert after they saw what he posted to Instagram on Friday afternoon.**\n\n[Salah](https://www.sportbible.com/mohamed-salah), 32, has been the subject of much media attention lately, with the player’s current contract set to expire in Jun 2024 if no new agreement can be reached by the clubs.\n\nFollowing the Reds’ 3-2 victory against Southampton at St Mary’s last Sunday, Salah spoke to the gathered journalists outside the stadium and revealed that he was “more out than in” when discussing the current situation.\n\n\"We are almost in December, and I haven't received any offers yet to stay in the club,” he told reporters after the match last Sunday.\n\n\"I'm probably more out than in.\"\n\nWhen asked if he was disappointed that he has yet to receive an offer, Salah added: “Of course, yeah.\n\n\"I'm not going to retire soon, so I'm just playing, focusing on the season, and I'm trying to win the Premier League and hopefully the Champions League as well. I'm disappointed, but we will see.\"\n\nOf course, a lot has happened in the days that followed, [Jamie Carragher expressed how he was ‘disappointed’](https://www.sportbible.com/football/football-news/champions-league/liverpool-mo-salah-contract-jamie-carragher-475131-20241125) by Salah’s remarks, and the Egyptian started in Liverpool’s 2-0 win against Real Madrid in the Champions League on Wednesday – Salah missed a second-half penalty.\n\nHowever, on Friday, his latest social media post got Liverpool fans thinking.\n\nThe former Chelsea man posted a story to Instagram which showed him walking towards Liverpool’s ‘AXA Training Centre’ located in Kirkby, Liverpool.\n\nOf course, exactly what the photograph means is up for debate, but Liverpool fans were quick to give their thoughts on social media.\n\nOne said: “Sign the contract, big boy.”\n\nAnother added: “Ready to sign a new contract.”\n\nWith a third saying: “Mo just has that aura around him. This man needs to be paid!”\n\nA fourth explained: “He’s trying to use leverage to get the best deal. Both sides are clearly signalling they want to make a deal so it will very likely happen.”\n\nSalah will likely start the Premier League match against Manchester City at Anfield on Sunday – a win would send the Reds 11 points clear of Pep Guardiola’s side.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Mohamed Salah",
+          "raw_quote_text": "We are almost in December, and I haven't received any offers yet to stay in the club.",
+          "summary": "I haven't received contract offers yet.",
+          "id": "2bdc70f6-68c8-465c-9c03-33b04e8bf5a1",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "b0acacc8-d698-450b-bd65-0b354fe5ba65",
+          "similarity_score": 0.367293804883957
+        },
+        {
+          "speaker_name": "Mohamed Salah",
+          "raw_quote_text": "I'm probably more out than in.",
+          "summary": "I'm feeling more likely to leave than stay.",
+          "id": "08e20959-b648-4dbe-aae7-81a253d78dd3",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "17d66a5c-9bce-473b-b3ae-35b79d97dca7",
+          "similarity_score": 0.504492998123169
+        },
+        {
+          "speaker_name": "Mohamed Salah",
+          "raw_quote_text": "Of course, yeah. I'm not going to retire soon, so I'm just playing, focusing on the season, and I'm trying to win the Premier League and hopefully the Champions League as well. I'm disappointed, but we will see.",
+          "summary": "I'm disappointed with the lack of offers but focused on winning the season.",
+          "id": "47d9ebab-7a3e-4bb6-9109-f672304fd79e",
+          "similar_to_quote_id": "977530bd-7de3-4645-8b8b-ba0929a88b8c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.564070582389832
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/28/premier-league-10-things-to-look-out-for-this-weekend",
+        "article_headline": "Ten things to look out for this weekend",
+        "article_text": "Page Not Found | The Guardian\n===============\n\nSorry – we haven’t been able to serve the page you asked for.\n\nYou may have followed an outdated link, or have mistyped a URL. If you believe this to be an error please [report it](https://www.theguardian.com/info/tech-feedback).\n\n[The Guardian homepage](https://www.theguardian.com/)\n\n ![Image 1](https://beacon.gu-web.net/count/40x.gif)",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    }
+  ]
+}

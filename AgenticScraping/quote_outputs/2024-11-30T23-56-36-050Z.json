@@ -1,0 +1,491 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-30T23:56:36.050Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nScores & Fixtures\n-----------------\n\nScroll LeftScroll Right\n\n*   Premier League ![Image 4](https://static.files.bbci.co.uk/core/website/assets/static/sport/football/manchester-united.86bd98b7c3e30d7b85d3.svg) Man Utd Manchester United plays ![Image 5](https://static.files.bbci.co.uk/core/website/assets/static/sport/football/everton.1c2e4b8f74caea608676.svg) Everton Everton at 13:30 on Sun the 1 of Dec\n*   Premier League\n    \n    Arsenal\n    \n    plays\n    \n    ![Image 7](https://static.files.bbci.co.uk/core/website/assets/static/sport/football/manchester-united.86bd98b7c3e30d7b85d3.svg)\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 20:15 on Wed the 4 of Dec\n*   Premier League\n    \n    Nottm Forest\n    \n    Nottingham Forest\n    \n    at 17:30 on Sat the 7 of Dec\n*   UEFA Europa League\n    \n    Viktoria Plzeň\n    \n    plays\n    \n    ![Image 11](https://static.files.bbci.co.uk/ace/standard/640/cpsprodpb/1a87/live/b06baf40-af26-11ef-907d-d11d58b97d6a.jpg.webp)\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 17:45 on Thu the 12 of Dec\n\nLatest updates\n--------------\n\n1.  BBC Sport presenter Mark Chapman has been getting to know Manchester United boss Ruben Amorim in an exclusive Football Focus interview, with the Portuguese manager explaining why he appears to be \"very relaxed\" in his new job.\n    \n    \"I will be OK - no matter what,\" Amorim said. \"In this stage of my life, I will be OK so that's why I am relaxed.\n    \n    \"Everybody says to me: 'This will change me'. This will not change me.\n    \n    \"If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed.\n    \n    \"I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move].\n    \n    \"Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"\n    \n2.  **Ruben Amorim has become the latest manager to be tasked with restoring Manchester United's on-pitch fortunes.**\n    \n    The club paid £11m to Portuguese club Sporting to recruit the 39-year-old and his staff, making him the sixth permanent manager since Sir Alex Ferguson's illustrious 26-year reign ended with his retirement in 2013.\n    \n    After a draw at Ipswich and a win against Bodo/Glimt in his first two games, his side host Everton on Sunday (13:30 GMT).\n    \n3.  **On his connection with the Manchester United fans,** Amorim revealed: \"Yes for sure, I feel that. Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think.\n    \n    \"Maybe because I am different from the last coach and this can bring a different connection with the next guy.\n    \n    \"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling.\n    \n    \"To maintain this feeling, we have to play better and win games and be really honest with the supporters.\n    \n    \"If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"\n    \n4.  **Mason Mount is a \"proper footballer\" who wants to succeed at Manchester United,** says head coach Ruben Amorim.\n    \n    Mount, 25, joined from Chelsea in the summer of 2023 but his time at Old Trafford so far has been hampered by injury issues.\n    \n    Amorim talked about his \"belief\" in Mount and said of the England midfielder: \"The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing.\n    \n    \"He has proved he is a really talented player. He was a European champion, so we believe in him a lot.\n    \n    \"He has to stay fit and, like all the guys in the team, they are quality players, they have to improve and believe in themselves.\"\n    \n    \"On Thursday he did a great job. You see some moments and details where you can see that Mason is a proper footballer. We believe in him a lot and I especially believe a lot in Mason.\"\n    \n5.  **Ruben Amorim, speaking to TNT Sports, stated:** \"Of course, I see what everybody sees, good moments, difficult moments.\n    \n    \"There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won!\n    \n    \"Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special.\n    \n    \"I will keep this to the end of my career.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I will be OK - no matter what. In this stage of my life, I will be OK so that's why I am relaxed. Everybody says to me: 'This will change me'. This will not change me. If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed. I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move]. Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.",
+          "summary": "I will be okay regardless of what happens; I believe we'll succeed and felt I had to take this opportunity.",
+          "id": "a7f3482a-dab1-4137-956b-86d295f2f3d5",
+          "similar_to_quote_id": "8ebe2e94-a31e-42e7-acfa-6d0b1fb8dd27",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.559356093406677,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Yes for sure, I feel that. Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think. Maybe because I am different from the last coach and this can bring a different connection with the next guy. I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling. To maintain this feeling, we have to play better and win games and be really honest with the supporters. If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.",
+          "summary": "I feel a connection with fans and believe I can be the right guy to restore that by being honest and improving our play.",
+          "id": "e344405e-0e47-452e-8e9c-c50f129ad676",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "cce6f941-d0a5-465d-9217-7e924b4790a1",
+          "similarity_score": 0.547685384750366,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing. He has proved he is a really talented player. He was a European champion, so we believe in him a lot. He has to stay fit and, like all the guys in the team, they are quality players, they have to improve and believe in themselves. On Thursday he did a great job. You see some moments and details where you can see that Mason is a proper footballer. We believe in him a lot and I especially believe a lot in Mason.",
+          "summary": "Mason is working hard and truly wants to succeed; we believe in his talent and dedication.",
+          "id": "7d1522b2-5686-41ad-a061-27085ca7777c",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "3854709f-205f-45df-abc1-89105f3a3013",
+          "similarity_score": 0.792905032634735
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Of course, I see what everybody sees, good moments, difficult moments. There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won! Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special. I will keep this to the end of my career.",
+          "summary": "I see both good and challenging moments, but I'm grateful for the warm reception from fans which I will cherish throughout my career.",
+          "id": "cc621236-ee9b-4dfc-a8e7-ff4c060e3d2e",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "3cbb99dc-d136-4acd-a413-7bd2c5a53d7e",
+          "similarity_score": 0.765397489070892,
+          "is_valid": true,
+          "invalid_reason": null
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/become-fans-favourite-manchester-united-30482227",
+        "article_headline": "I have become a fans favourite at Manchester United but I had no idea they loved me so much",
+        "article_text": "Noussair Mazraoui has quickly endeared himself to Man Utd fans and he is getting as much love from the coaching staff as the terraces.\n\nUntil this week, Noussair Mazraoui had never played as a centre-back before. That he has taken to a specialised role in a new system with the minimum of fuss will be no surprise to the supporters who have quickly taken the Morrocan to heart at Old Trafford.\n\nMazraoui has only played 19 games for Manchester United, but he's already played four different positions. In just two games, the 27-year-old looks tailor-made for the right centre-back slot in Ruben Amorim's 3-4-3 system.\n\nWith United building play in a back three and defending as a four, Mazraoui's versatility to switch between centre-back and right-back is invaluable. Along with Bruno Fernandes, he is the only outfield player to play every minute of Amorim's first two games in charge, and the head coach likes what he sees.\n\n\"He’s an incredible player, he’s our future,\" Amorim said of Mazraoui after the win against Bodo/Glimt. \"He played in different positions, he always looks fresh but we have to be careful. There’s a lot of games but he’s here to stay. This kind of player is what we need.\"\n\nMazraoui has looked unflustered in adapting to a new role, and although it has changed how he sees the game, he is enjoying its benefits.\n\n“This is the first time. It’s nice. You have to view the game differently because you are not as high up the pitch like when you are the full-back,\" he said.\n\n\"But you get more time on the ball and you must make the most of that in the build-up. There are some different things I have to do but it’s still the same game.\"\n\nAmorim has road-tested 17 different starters in his first two games in charge, but Mazraoui seems someone set for a long-term role, with the Portuguese describing him as the type of player he needs.\n\n“It’s a big compliment to hear the coach say that,\" he said. \"What can I say? I try my best every day and in every game. I give my all for the team, for the coach and for the supporters.\n\n“We are all in this together. It isn’t about one player.”\n\nUnited's spending across three summer windows under Erik ten Hag hit more than £600m. Mazraoui was one of the cheaper buys, at an initial £12.8m, with a further £4.2m in add-ons, but he looks like a bargain.\n\nSupporters have already taken him to their hearts. His combative style is celebrated on social media and his low-key passion and commitment have won over a fanbase who were disappointed by the team's start to the season.\n\nMazraoui underwent minor surgery after complaining of palpitations back in September, but having initially been told he would be sidelined for a few weeks, he ended up not missing a game. That is the kind of commitment that has made him such a popular figure at Old Trafford, although when that was put to him, he was unaware of his status.\n\n“To be honest I’ve not seen a lot [about that], but it gives me a really good feeling to hear that about the fans. I love the fans and I always say in every interview that I give my all for them,\" he said.\n\n\"I hope and I think they see that, that I give my all for the badge and for the supporters. Everybody wants to go home with a win and when I can give that to them as a player and as a team that’s what you do it for.\"\n\nMazraoui has had a close-up view of Amorim's start to life at Old Trafford, with a draw against Ipswich followed by a victory against Bodo Glimt.\n\nThere have been plenty of changes as the head coach instils his 3-4-3 system into a new group of players and although Mazraoui accepts it will take time for everyone to adapt, he is confident in the player's ability to do just that.\n\n“I think always when you want to implement a new style of play that isn’t even close to how we played before then no-one can expect us to understand everything the manager has in his mind right from the start,\" he said.\n\n“So yes, of course, this is going to be a tough time - but come on, we are all top players and we play the game to win. Eventually we will get to wherever the coach wants us to be.\n\n“We have unbelievable players. Of course we can adapt and I think we are showing that. We have to get used to the new style, but I don’t think it will take too long.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "He’s an incredible player, he’s our future. He played in different positions, he always looks fresh but we have to be careful. There’s a lot of games but he’s here to stay. This kind of player is what we need.",
+          "summary": "He's incredible and our future; we need players like him.",
+          "id": "4dcd405e-16df-45b0-a5a4-e6ae83933dfb",
+          "similar_to_quote_id": "5a2f77a0-c3e0-49c6-b5e8-0ec691f6fe00",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.60731565952301,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "This is the first time. It’s nice. You have to view the game differently because you are not as high up the pitch like when you are the full-back. But you get more time on the ball and you must make the most of that in the build-up. There are some different things I have to do but it’s still the same game.",
+          "summary": "It's nice; I view the game differently and have more time on the ball.",
+          "id": "9764f279-6b9a-4cf4-96bd-e52ea4ea6686",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bc7072f4-8edd-478a-8061-554f9ff61032",
+          "similarity_score": 0.483840942382812,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "It’s a big compliment to hear the coach say that. What can I say? I try my best every day and in every game. I give my all for the team, for the coach and for the supporters. We are all in this together. It isn’t about one player.",
+          "summary": "It's a compliment; I give my all for the team and we're in this together.",
+          "id": "cce6f941-d0a5-465d-9217-7e924b4790a1",
+          "similar_to_quote_id": "aaf79f15-b399-44d0-b611-5d1b99757486",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.560616075992584,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "To be honest I’ve not seen a lot [about that], but it gives me a really good feeling to hear that about the fans. I love the fans and I always say in every interview that I give my all for them. I hope and I think they see that, that I give my all for the badge and for the supporters. Everybody wants to go home with a win and when I can give that to them as a player and as a team that’s what you do it for.",
+          "summary": "I love the fans; I give my all for them so we can win together.",
+          "id": "d0b74310-7ff5-4915-906f-81a0fb90bfd7",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a69f1818-bc9a-4789-9d06-3d152c27470d",
+          "similarity_score": 0.670426785945892,
+          "is_valid": false,
+          "invalid_reason": "Includes text by the article author referring to 'that', which is ambiguous context."
+        },
+        {
+          "speaker_name": "Noussair Mazraoui",
+          "raw_quote_text": "I think always when you want to implement a new style of play that isn’t even close to how we played before then no-one can expect us to understand everything the manager has in his mind right from the start. So yes, of course, this is going to be a tough time - but come on, we are all top players and we play the game to win. Eventually we will get to wherever the coach wants us to be. We have unbelievable players. Of course we can adapt and I think we are showing that. We have to get used to the new style, but I don’t think it will take too long.",
+          "summary": "Implementing a new style takes time, but we will adapt and win.",
+          "id": "f7e64995-881c-4d5d-8aa8-b8477ad7388c",
+          "similar_to_quote_id": "977530bd-7de3-4645-8b8b-ba0929a88b8c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.608218669891357,
+          "is_valid": true,
+          "invalid_reason": null
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-worry-shows-size-30487760",
+        "article_headline": "Ruben Amorim 'worry' shows size of task at Manchester United but there is no need to panic",
+        "article_text": "Ruben Amorim 'worry' shows size of task at Manchester United but there is no need to panic - Jack Flintham - Manchester Evening News\n\nManchester United are just two matches into the Ruben Amorim era at Old Trafford but already the critics are circling.\n\nBy Jack Flintham, Sport Central Audience Writer\n\nManchester United head coach Ruben Amorim (Image: James Gill - Danehouse/Getty Images)\n\nManchester United's start under Ruben Amorim has been modest to say the least.\n\nWhile the change in formation and new roles for some United players has been drastic, the performances have not yet altered dramatically. At Ipswich Town, the Reds were on fire in the opening 90 seconds but soon the frailties of the squad rose to the surface with a draw the fair result.\n\nOn Thursday night it looked for 20 minutes like it would be a bleak debut for Amorim at Old Trafford as Bodo/Glimt stunned the hosts with two good goals. But United settled with Rasmus Hojlund becoming the hero to secure a big three points in the context of their Europa League campaign.\n\nNeither result should have sparked too strong a reaction from supporters. Ultimately, Amorim's reign is still in its infancy so to expect drastic improvements so soon is unrealistic as is being able to draw meaningful conclusions on whether the Portuguese head coach will be a success or not.\n\nHowever, that did not stop former Arsenal man Paul Merson venting his opinion on Sky Sports' Soccer Saturday. \"It shocked me how far they are off,\" he said.\n\n\"When they went 1-0 up against Ipswich within one or two minutes, you think then: 'Here we go, they are going to keep the ball and get their confidence up.' You are 1-0 up away from home, within about two or three minutes Ipswich nearly scored and it was like... there is so much work to be done.\n\n\"My biggest worry out of all of it was the interview after, when he said: 'That's it now, I have never done so many interviews, now I have got to concentrate on the team.' No, you are the manager of one of the biggest clubs in world football, you will do interviews when they ask you to do interviews and you are told to do interviews.\n\n\"That was the one worry I think they have got to cope with. When you are in Portuguese football, you will do an interview here and there and they wheel along.\n\nOf course, it is a culture shock for Amorim adjusting to the demands of the Premier League and United but there is no sign at this stage that he is either out of his depth or unable to adjust in the future. Merson's worries would be cause for concern two years into his reign, not two games.\n\nWhatever happens on Sunday against Everton, it is important not to jump to conclusions. This is a long-term project not a short-term fix and United fans need not be concerned by teething issues in the team or with the manager.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "[Referring to Manchester United's performance] \"It shocked me how far they are off,\" he said.",
+          "summary": "I was shocked by how far off Manchester United is.",
+          "id": "d1b5b72a-d45c-4c40-a4ae-311c4d5e43b2",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "c5e0aae4-6a51-4c3a-b9a2-42b29f748bd6",
+          "similarity_score": 0.510172069072723,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "[After describing a goal sequence] \"When they went 1-0 up against Ipswich within one or two minutes, you think then: 'Here we go, they are going to keep the ball and get their confidence up.' You are 1-0 up away from home, within about two or three minutes Ipswich nearly scored and it was like... there is so much work to be done.\"",
+          "summary": "After going up 1-0, I felt they would gain confidence, but nearly conceding shows how much work remains.",
+          "id": "48e0cc80-a7ee-45bf-bbef-320941c649a5",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "71e239ab-10c0-4256-92e2-85a7b4ed00c3",
+          "similarity_score": 0.604507923126221,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "[Commenting on Amorim's interview] \"My biggest worry out of all of it was the interview after, when he said: 'That's it now, I have never done so many interviews, now I have got to concentrate on the team.' No, you are the manager of one of the biggest clubs in world football, you will do interviews when they ask you to do interviews and you are told to do interviews.\"",
+          "summary": "I'm concerned about Amorim not understanding the interview demands as Manchester United's manager.",
+          "id": "09a41303-cb04-44e1-82ca-9d678cb42268",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "b9c9420f-81ed-4785-9ed1-3be3da6add18",
+          "similarity_score": 0.589227676391602,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "[Explaining a cultural difference] \"That was the one worry I think they have got to cope with. When you are in Portuguese football, you will do an interview here and there and they wheel along.\"",
+          "summary": "He needs to adapt to the different expectations of the Premier League.",
+          "id": "ae6a640a-21ab-4364-8d44-b994aed93586",
+          "similar_to_quote_id": "392167bb-7ddc-4f7c-a11b-706a097d9a68",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.616997718811035,
+          "is_valid": false,
+          "invalid_reason": "Quote includes context and commentary written by the article author, which violates the validity criteria."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/how-man-uniteds-starting-xi-30485306",
+        "article_headline": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings",
+        "article_text": "Amorim brought along his iconic three-back formation to Manchester. It's been clear that the players are still having to get used to it. However, with all new managers, Amorim will have a list of players that he wants to bring in to suit his tactics.\n\n**READ MORE:** [Liverpool suffer major Premier League title race injury blow ahead of Man City clash](https://www.manchestereveningnews.co.uk/sport/football/football-news/liverpool-suffer-major-premier-league-30484425)\n\n**READ MORE:** [Why 'Netflix of Football' is a step closer after Premier League clubs make significant decision](https://www.manchestereveningnews.co.uk/sport/football/football-news/netflix-football-step-closer-after-30483231)\n\nWe have rounded up the six key possible signings that could change the dynamic of Manchester United.\n\n### **Geovany Quenda**\n\nThe 17-year-old is a player who Amorim adores from his Sporting CP days. Quenda would be following the likes of [Cristiano Ronaldo](https://www.manchestereveningnews.co.uk/all-about/cristiano-ronaldo) and [Bruno Fernandes](https://www.manchestereveningnews.co.uk/all-about/bruno-fernandes) if he changes the green and white stripes of Libson for the red of United.\n\nThe Portuguese manager handed the youngster his debut in August and the wing-back has played every game since. Wing-backs are essential to Amorim's shape as they have the important job to manage the attack down the ring whilst still maintaining their defensive duties.\n\n  \n\n![Image 64: Geovany Quenda](https://i2-prod.manchestereveningnews.co.uk/incoming/article30414028.ece/ALTERNATES/s615b/1_JS350813746.jpg)\n\nGeovany Quenda could be on his way to Manchester with both United and City believed to be keen (Image: Carlos Rodrigues/Getty Images)\n\nThe key thing with this potential signing is that Amorim trusts Quenda. Their relationship could look to build into the kind of connection Ronaldo and [Sir Alex Ferguson](https://www.manchestereveningnews.co.uk/all-about/sir-alex-ferguson) had. Reports are that the 17-year-old has a £83m release clause in his contract which could be an issue - although the MEN reported on Friday that [United representatives have already met with the player's agent Jorge Mendes ahead of a potential move.](https://www.manchestereveningnews.co.uk/sport/football/transfer-news/manchester-united-meet-geovany-quendas-30482307)\n\n### **Christopher Nkunku**\n\nThe [Chelsea](https://www.manchestereveningnews.co.uk/all-about/chelsea-fc) forward is claimed to be a player of interest to United by [TEAMtalk](https://www.teamtalk.com/news/man-utd-transfers-rival-dortmund-frustrated-chelsea-ace-perfect-ruben-amorim-signing-sources). The French international hasn't had the easiest start to his time at the Blues. A knee injury had him out of play last season for a good chunk of the year. Now fit and ready, he is still only experiencing a small amount of minutes, mainly appearing in the Conference League.\n\nAgain, Nkunku would be an ideal move for Amorim as he has experience playing with a three back during his time at RB Leipzig. Although he is now primarily used a winger, Nkunku has had experience in a centre forward role, a position which Amorim is experimenting with as seen when he put [Marcus Rashford](https://www.manchestereveningnews.co.uk/all-about/marcus-rashford) up front against Ipswich, as well as in attacking midfield - a role former United interim boss [Ralf Rangnick previously praised him for being 'one of the best' at.](https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-sent-clear-53m-30468659)\n\nA permanent move away from Chelsea looks like an unlikely scenario, however, a loan move in January could be on the table with the Frenchman unhappy in London.\n\n### **Viktor Gyokeres**\n\nOne of the hottest strikers on the market, Gyokeres has a fantastic relationship with Amorim already from Sporting. Under the Portuguese boss, the striker managed 16 goals in 11 league games. So not only does the Swedish forward know how to play to Amorim's dynamic, but the boss understands how to get the most out of his forward.\n\nIn Amorim's first two games, he has played with two different central strikers in Rashford and [Rasmus Hojlund](https://www.manchestereveningnews.co.uk/all-about/rasmus-hojlund). Hojlund has been the most successful, grabbing a brace in the Europa League on Thursday.\n\nBringing the Swede into United would put the £100m+ signings of Hojlund and [Joshua Zirkzee](https://www.manchestereveningnews.co.uk/all-about/joshua-zirkzee) in jeopardy, but performances can pay.\n\n### **Matheus Cunha**\n\nAnother striker is [Wolves](https://www.manchestereveningnews.co.uk/all-about/wolverhampton-wanderers-fc)' main man Cunha. The Midlands side have just picked up their season, grabbing their first two wins in a row recently. Now, with manager Gary O'Neil having a further understanding of where gaps may lie, bringing in reinforcements may require big names like Cunha being sold.\n\n  \n\n![Image 65: Matheus Cunha](https://i2-prod.manchestereveningnews.co.uk/incoming/article30467415.ece/ALTERNATES/s615b/0_GettyImages-2186769955.jpg)\n\nMatheus Cunha has been linked with a move to Manchester United in the past (Image: Jack Thomas)\n\nThe striker had cost Wolves £43m and they will likely be looking at making a profit from the Brazilian. Although Wolves are 17th, Cunha has bagged 7 goals from 12 games, more than the likes of Ollie Watkins, Bukayo Saka and Luis Diaz.\n\nAmorim will be smart enough to not overload his attacking options. Cunha has been known to play in attacking midfield, however, which could hint at a new role for captain Bruno Fernandes if [TBR Football reports](http://iftbrfootballreportsofunited'sinterestinthebrazilianprovetobetrue,/) of United's interest in the Brazilian prove to be true,.\n\n### **Rayan Ait-Nouri**\n\nIt looks like it could be double Wolves' for Amorim as the Algerian star Ait-Nouri has captured his eye. The defenders contract is set to expire in the summer of 2026 with [The Sun](https://www.thesun.co.uk/sport/31913903/man-utd-amorim-transfer-wolves-ait-nouri/) claiming that he wants a move away from the club.\n\nThe Portuguese manager is certainly looking to expand his defensive options, especially those at left-back. The Wolves wing-back has proven himself a force to be reckoned with on the attack, frequently getting into a position to put a ball in the box, something that a player like Hojlund would certainly take advantage of.\n\nAn important factor is the fear of relegation for Wolves. Although they have collected a couple of wins recently, they still only sit one spot above relegation thanks to a better goal difference. It's certain that Ait-Nouri would prefer European football to Championship.\n\n### **Verdict**\n\nAmorim would certainly have some exciting options at his disposal should he pull off a major summer revamp at United. Should that happen, United's starting XI next season could be: Onana; Yoro, De Ligt, Martinez; Mazraoui, Fernandes, Ugarte, Ait-Nouri; Nkunku, Cunha; Gyokeres.\n\n### Get United transfer news and updates on WhatsApp!\n\n  \n\n![Image 114](https://i2-prod.manchestereveningnews.co.uk/incoming/article27464952.ece/ALTERNATES/s615/0_Untitled-5.png)\n\nOur team of Manchester United experts are on top of all the goings-on at Old Trafford for this week and beyond, and you can get the latest team news, injury updates, reaction and analysis along with inside information to your phone by joining our new [free WhatsApp community](https://chat.whatsapp.com/B5dw9xqKkzMC2U7R4ZRscA). You can also join the 50,000 (and growing!) band of United fans who are following our [WhatsApp Channel.](https://whatsapp.com/channel/0029Va5la6v3bbV7no7rii2X)\n\n### **Sign up to our community [here](https://chat.whatsapp.com/B5dw9xqKkzMC2U7R4ZRscA), and join our WhatsApp channel [here](https://whatsapp.com/channel/0029Va5la6v3bbV7no7rii2X).**\n\n\\--\n\n**We also treat our community members to special offers, promotions, and adverts from us and our partners. If you don’t like our community, you can check out any time you like. If you’re curious, you can read our [Privacy Notice](https://www.reachplc.com/site-services/privacy-policy).**\n\n**READ NEXT:**\n\n*   ['More natural' - Ruben Amorim sent Man United demand for Everton Premier League clash](https://www.manchestereveningnews.co.uk/sport/football/football-news/more-natural-ruben-amorim-sent-30488029?int_source=nba)\n*   [Viktor Gyokeres transfer clause confirmed as Dan Ashworth deal revealed amid Man United links](https://www.manchestereveningnews.co.uk/sport/football/transfer-news/viktor-gyokeres-transfer-clause-confirmed-30485876?int_source=nba)\n*   [Get a LEGO set for £3.33 instead of £36 in one-day only Argos Black Friday deal](https://www.manchestereveningnews.co.uk/whats-on/family-kids-news/lego-set-333-instead-36-30479569?int_source=nba)\n*   [Mango's sparkly £30 jumper that's 'perfect' for Christmas parties reduced to £1.50](https://www.manchestereveningnews.co.uk/news/fashion-news/mangos-sparkly-30-jumper-thats-30474912?int_source=nba)\n*   [Ruben Amorim assistant breaks silence on Man United appointment with five-word message](https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-assistant-breaks-silence-30487388?int_source=nba)",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-calls-out-player-transfer-news-763710-20241130",
+        "article_headline": "Man Utd star singled out by Ruben Amorim 'decides to leave the club in January' as brutal squad cut starts",
+        "article_text": "**One Manchester United player has been called out by new manager Ruben Amorim following first match in the Old Trafford dugout.**\n\nAfter joining from Sporting CP earlier this month, [Amorim](https://www.sportbible.com/ruben-amorim) took charge of his [first home game as United boss against Bodo/Glimt on Thursday.](https://www.sportbible.com/football/football-news/man-utd/marcus-rashford-bodo-glimt-europa-league-coach-007473-20241129)\n\nDespite [Alejandro Garnacho](https://www.sportbible.com/alejandro-garnacho) putting the hosts ahead in thee opening minute of the match, [United](https://www.sportbible.com/manchester-united) were forced to retake the lead after visitors hit back, leading to a final score of 3-2.\n\nAnd in the wake of his first matches in charge of the club, Amorim has made his feelings towards one United player known after singling them out from his teammates for one issue.\n\nAmorim's first match in charge at United was the [Premier League](https://www.sportbible.com/premier-league) clash against Ipswich Town, which ended as a 1-1 draw after [Marcus Rashford's](https://www.sportbible.com/marcus-rashford) early goal wasn't enough to seal the victory.\n\nSpeaking after the game, Amorim criticised striker Joshua Zirkzee for his performance after coming on in the 68th minute of the game.\n\n\"I think that [decision-making] is a concern, you don’t need to coach them at this level,\" Amorim told Sky Sports.\n\n\"Then you have like we are in the end of the game, we were around the box with two strikers. Josh [Zirkzee] has to understand that he has to go to the box to have the crosses.\n\n\"So we are doing some things that were not at the right moment, so that is something we have to address.\n\n\"Sometimes people talk about the 3-4-3, that is not the concern, the system is the system but the understanding of the game is what we have to improve a lot in this area.\"\n\nZirkzee has struggled to impress since joining United from Bologna in the summer for a fee of £34 million, scoring just one goal in his 18 appearances for the club.\n\nHis poor form has led to rumours suggesting that the Dutchman would be eager to move away from United, with [Gazzetta dello Sport](https://www.gazzetta.it/Calcio/Calciomercato/Juventus/30-11-2024/la-juve-raddoppia-con-fagioli-verso-la-francia-motta-pensa-alla-coppia-ferguson-zirkzee.shtml) reporting that he would be keen to reunite with former coach Thiago Motta at Juventus this January.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Speaking about Zirkzee's performance] \"I think that [decision-making] is a concern, you don’t need to coach them at this level.\"",
+          "summary": "Decision-making is a big concern at this level.",
+          "id": "da6140ae-44d7-4b65-a269-48255ea7cbb7",
+          "similar_to_quote_id": "37befda6-ab22-469f-a423-a7ea3addefc9",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.610077142715454,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Discussing game strategy] \"Then you have like we are in the end of the game, we were around the box with two strikers. Josh [Zirkzee] has to understand that he has to go to the box to have the crosses.\"",
+          "summary": "Zirkzee needs to position himself better in the box.",
+          "id": "f80f9685-047e-4c0c-97fb-e748bc1a41f6",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "47064204-c03c-43b2-947c-9665052805fd",
+          "similarity_score": 0.617861270904541,
+          "is_valid": false,
+          "invalid_reason": "Summary is not in first person."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the team's understanding] \"So we are doing some things that were not at the right moment, so that is something we have to address.\"",
+          "summary": "We need to address our timing in certain actions.",
+          "id": "119b50d5-ce65-4747-a2cd-a279d0b317f2",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "3cbb99dc-d136-4acd-a413-7bd2c5a53d7e",
+          "similarity_score": 0.572104573249817,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Regarding the formation] \"Sometimes people talk about the 3-4-3, that is not the concern, the system is the system but the understanding of the game is what we have to improve a lot in this area.\"",
+          "summary": "Improving game understanding is more important than the system.",
+          "id": "7709ef21-9736-402e-88ec-992cf0f457a3",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "4bdbc053-567b-4eb9-8f75-7f9fab859c59",
+          "similarity_score": 0.614925503730774,
+          "is_valid": false,
+          "invalid_reason": "Summary is not in first person."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/brighton-southampton-premier-league-297138-20241129",
+        "article_headline": "Premier League fans are all in agreement after watching Brighton vs Southampton",
+        "article_text": "**Premier League fans have reacted on social media after watching Brighton and Hove Albion against Southampton.**\n\nOn Friday night, the [Premier League](https://www.sportbible.com/premier-league) returned at the AMEX Stadium as high-flying Seagulls welcomed the Saints.\n\nPerhaps as expected, [Brighton](https://www.sportbible.com/brighton-and-hove-albion) dominated the match early on and went ahead in the 29th minute thanks to Kaoru Mitoma.\n\nIn the second half, [Southampton](https://www.sportbible.com/southampton) hit back with Flynn Downes scoring in the 59th minute.\n\nReacting on social media, fans were raving about the performance of Saints young star Tyler Dibling, who has impressed again.\n\nOne fan said: \"Southampton will be relegated but Tyler Dibling will still be in the Premier League next season. What a player.\"\n\nAnother tweeted: \"@ManUtd act quick and sign Tyler Dibling, What a baller.\"\n\nA third fan added: \"Tyler Dibling is one of my favourite footballers to watch right now, hope he has a great career.\"\n\nSomeone else wrote: \"Tyler Dibling is a baller. Big money move incoming soon.\"\n\nA fifth commented: \"Tyler dibling is a sensational baller! what a kid!\"\n\nAnother fan said: \"Tyler Dibling is OUTRAGEOUS.\"\n\n18-year-old Dibling impressed during last weekend's defeat against Liverpool after winning a penalty in the first half and continued his fine form at the AMEX, often carrying the ball forward for the Saints and driving at the Brighton defence.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "Southampton will be relegated but Tyler Dibling will still be in the Premier League next season. What a player.",
+          "summary": "Dibling will be in the Premier League next season despite Southampton's relegation.",
+          "id": "9bf8de2b-f2e9-4639-b861-8119cb392b78",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.397885024547577,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "@ManUtd act quick and sign Tyler Dibling, What a baller.",
+          "summary": "Man Utd should sign Dibling immediately.",
+          "id": "18f64f89-cd2f-417a-b715-2be24d4499f7",
+          "similar_to_quote_id": "902c1f6c-89eb-4182-84a1-a4cf4f812462",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.54664421081543,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "Tyler Dibling is one of my favourite footballers to watch right now, hope he has a great career.",
+          "summary": "Dibling is currently a favorite of mine and I hope he succeeds.",
+          "id": "b0c72167-e393-4457-9b84-8c4b397813a0",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "9bf8de2b-f2e9-4639-b861-8119cb392b78",
+          "similarity_score": 0.596163690090179,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "Tyler Dibling is a baller. Big money move incoming soon.",
+          "summary": "Dibling is a talented player headed for a big transfer.",
+          "id": "7b90d058-91d8-4ae9-9562-535c5153f8a1",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "18f64f89-cd2f-417a-b715-2be24d4499f7",
+          "similarity_score": 0.723717212677002,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "Tyler dibling is a sensational baller! what a kid!",
+          "summary": "Dibling is an exceptional talent.",
+          "id": "3f3ea6c4-790f-4091-821a-3a22d97263b5",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "b0c72167-e393-4457-9b84-8c4b397813a0",
+          "similarity_score": 0.712997198104858,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "Tyler Dibling is OUTRAGEOUS.",
+          "summary": "Dibling's skills are extraordinary.",
+          "id": "e3c47c52-01de-41d2-bc5a-fa672192e7dd",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "7b90d058-91d8-4ae9-9562-535c5153f8a1",
+          "similarity_score": 0.715771913528442,
+          "is_valid": false,
+          "invalid_reason": "Speaker name is ambiguous (Unnamed fan)."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/29/premier-league-10-things-to-look-out-for-this-weekend",
+        "article_headline": "Ten things to look out for this weekend",
+        "article_text": "Premier League: 10 things to look out for this weekend\n======================================================\n\nFraser Forster steps up for Spurs, while the threat level is at its highest for Manchester City at Anfield\n\n1. Veltman can lead Seagulls to second\n-----------------------------------\n\nFabian Hürzeler singled out Joël Veltman as one of the Premier League’s most underrated players as Brighton prepare to face the bottom side, Southampton, on Friday. “He knows what to do to win games,” Hürzeler said of the Netherlands defender, who has started all but one of Brighton’s league games so far. Veltman – who spent eight years at Ajax before moving to the Amex in 2020 for £900,000 – is 11 months older than his manager and his experience has proved invaluable to his side in the absence of the captain, Lewis Dunk, through injury. He is expected to return against Russell Martin’s side as Brighton attempt to record a fourth clean sheet of the league season, not to mention take the opportunity to move into second place before the rest of the weekend’s fixtures. \n\n2. A new Foxes era under Van Nistelrooy?\n-------------------------------------\n\nUnencumbered by any previous association with Nottingham Forest, Ruud van Nistelrooy would probably be a popular appointment at the King Power Stadium, with all available evidence at the time of writing suggesting the Dutchman’s first match in charge of Leicester could even be at the unlikely fortress that is the Gtech Community Stadium. During his spell as interim manager of Manchester United, Van Nistelrooy made no attempt to disguise his enthusiasm for the job and brings trophy-winning experience to Leicester having won the Dutch Cup in his sole season in charge of PSV Eindhoven. Tactically flexible with whatever players he has at his disposal, Van Nistelrooy’s preferred style is to marry quick, attacking intent with defensive solidity and could quickly endear himself to a fanbase that took no time at all to tire of Steve Cooper’s defensive approach. The approach he adopts against the side with the top flight’s best home record will be intriguing.\n\n3. Palace keen for returns to boost chances\n----------------------------------------\n\nWhile the performances have improved, Oliver Glasner will be concerned that the wins have yet to materialise for Crystal Palace. The Austrian will be hoping that Eberechi Eze can make his comeback against Newcastle after a hamstring injury that has sidelined him since the win over Aston Villa in the EFL Cup last month, with Adam Wharton also closing in on a return for a tricky run of fixtures over the next few weeks that includes trips to Ipswich and Brighton, and home games against Manchester City and Arsenal. A repeat of April’s 2-0 win over Newcastle at Selhurst Park courtesy of two goals from Jean-Philippe Mateta would settle the nerves in south London, with Ismaïla Sarr likely to start for a fourth successive match after his first Premier League goal, against Villa last week.\n\n4. Old-school strikers at City Ground\n----------------------------------\n\nHaving suffered back-to-back losses for the first time this season, Nottingham Forest welcome Ipswich to the City Ground and will be hoping to rediscover the defensive mojo that served them so well before their recent reverses. After conceding only seven goals in their opening 10 matches of the campaign, Nuno Espírito Santo’s side have shipped six in their past two and, in Liam Delap, Forest’s central defensive duo of Murillo and Nikola Milenkovic will have to deal with quite the handful. Strong as a bull and a terrific ball-carrier who is as fast as he is fearless, the Ipswich striker’s battle against one of the league’s most impressive defensive partnerships this season ought to make for compelling viewing. In Chris Wood, Forest have a comparatively elderly bulldozer of their own and with both centre-forwards in form and responsible for half their sides’ combined Premier League goal tally of 28, this could be a classic battle of the big men.\n\n5. Cunha gives improving Wolves bite\n---------------------------------\n\nWolves’ top-flight matches have seen 48 goals this season, more than any other team, but more important for Gary O’Neil his side have proved the entertainers in recent weeks. Wolves have scored six goals across their past two matches, Matheus Cunha contributing half of them, but in truth their ability to score was never the primary source of concern. Only Mohamed Salah, Erling Haaland, Cole Palmer and Bukayo Saka this season have been involved in more goals than Cunha, who has provided seven goals and three assists. Wolves have kept a sole clean sheet in the league and, out of necessity, their captain, Mario Lemina, dropped to centre-back in the victory against Fulham last time out. With Santiago Bueno and Craig Dawson returning to fitness before hosting Bournemouth, suddenly Wolves are looking up.\n\n6. Soler offers ray of light for West Ham\n--------------------------------------\n\nThere was not unanimous agreement at West Ham over the decision to sign Carlos Soler on loan from Paris Saint-Germain last summer. Julen Lopetegui wanted the Spain midfielder but others were not as convinced. Some in the recruitment department had eyes on Chelsea’s Carney Chukwuemeka. Yet Lopetegui got his way and the first sign that he might have made the right call came in West Ham’s win at Newcastle on Monday. Soler had not looked up to the pace of the Premier League previously. He was taken off at half-time against Manchester United last month, but was impressive at St James’ Park. Playing in a central role, Soler’s quick thinking in possession made West Ham slicker on the ball. Lopetegui will hope that resurgence continues against Arsenal.\n\n7. Rotation of egos a test for Maresca\n-----------------------------------\n\nIt is a tricky balancing act for Enzo Maresca at Chelsea. Enzo Fernández was out for a while, then in again. The midfielder has five assists in three games, cooling talk of a departure. For Maresca, though, it is not easy to keep every member of his squad happy. João Félix looked miffed not to come off the bench against Arsenal early this month. The Portugal attacker made a surprise start against Leicester last week, with Pedro Neto unavailable, but what of Christopher Nkunku, Mykhailo Mudryk and Jadon Sancho? There have been noises in recent weeks about Nkunku getting frustrated over his lack of game time. Sancho, meanwhile, has not started in more than a month and Mudryk remains an enigma. Will there be opportunities against Aston Villa? Maresca has a lot of attacking options and things are going well at the moment, but managing the egos in his squad will challenge the Italian.\n\n8. Amorim hopes to flower goal desert\n----------------------------------\n\nIn this third game of a nascent Manchester United tenure, Ruben Amorim will hope to see firm signs of “the idea” of playing he references taking hold in his players. Prime in this vision has to be creating more chances because United are arid when going forward, a desert before goal, Thursday night’s 3-2 Europa League win against Bodø/Glimy notwithstanding. Sean Dyche sets his sides up pragmatically so Everton, only five points behind the hosts, will be an apt test of this. Dyche will plot to turn United over on their own patch, and with Old Trafford expectant that, finally, Amorim can be the man, this should be a riveting watch.\n\n9. Forster’s time to shine against Fulham\n--------------------------------------\n\nTottenham have won six and lost five of their 12 Premier League matches this season, their only draw coming against Leicester in an opening game they might have lost but for two fine saves from Guglielmo Vicario. The Italian goalkeeper will be absent for the foreseeable future, his fractured ankle the large cloud that overshadowed Tottenham’s fine win over Manchester City last weekend. The job of deputising for Vicario will presumably fall to Fraser Forster, a state of affairs that has prompted much agonising over the 36-year-old’s ability – or perceived lack thereof – to play a style of football where he is required to ping short passes to his defenders. Ange Postecoglou has dismissed any such concerns, telling reporters it is a skill more related to mindset than ability. No doubt aware of concerns over the drop-off in quality between himself and Vicario, now is the time for Tottenham’s hulking backup goalkeeper to demonstrate he can also be mentally imposing.\n\n10. Threat level highest for Guardiola\n----------------------------------\n\nArne Slot has brought the Midas touch to Liverpool but, of all the accomplishments in his remarkable start, none would surpass the likelihood of releasing Manchester City’s four-year grip on the Premier League title on the first day of December. The prospect of going 11 points clear of the champions with an 18th win in 20 matches under Slot makes this a hugely anticipated and consequential moment for Liverpool. Yet the stakes are even higher for City. Five defeats in six games and a late collapse to draw against Slot’s former club Feyenoord have drained belief from Pep Guardiola’s players. Without Rodri they appear as fragile as Liverpool were in the aftermath of losing Virgil van Dijk to a season-ending anterior cruciate ligament injury in 2020. Josko Gvardiol’s error-strewn performances are an added problem for Guardiola, who must decide whether to risk playing the Croatian against Mohamed Salah. City’s famed powers of recovery are merely an illusion at present. They must rediscover them at Anfield, where Guardiola has never won in front of a crowd.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Fabian Hürzeler",
+          "raw_quote_text": "He knows what to do to win games.",
+          "summary": "Joël Veltman understands how to secure victories.",
+          "id": "264e9ea9-9682-4759-ad81-e7672e04147e",
+          "similar_to_quote_id": "b6e57e7f-1b14-462b-9ead-674bfd6a0004",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.460143506526947,
+          "is_valid": false,
+          "invalid_reason": "The summary is not written in the first person."
+        },
+        {
+          "speaker_name": "Ange Postecoglou",
+          "raw_quote_text": "It is a skill more related to mindset than ability.",
+          "summary": "Playing the style of football required is about mindset, not just skill.",
+          "id": "b5815a3b-fd3c-4fc6-9544-100c9aa86c63",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "d28bbbc8-1b02-4332-bdf6-dc79ff12c4fc",
+          "similarity_score": 0.35589474439621,
+          "is_valid": false,
+          "invalid_reason": "The summary is not written in the first person."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/27/manchester-united-raise-member-ticket-prices-remove-concessions",
+        "article_headline": "Manchester United raise member ticket prices to £66 and remove concessions",
+        "article_text": "Manchester United raise member ticket prices to £66 and remove concessions\n==========================================================================\n\n*   Seats had started at £40 for adults and £25 for children\n*   Supporters’ trust fears big price rise next season\n\nManchester United have raised the cost of tickets for members to £66 and removed concession prices for the rest of this season. The decision has been greeted with dismay by the supporters’ trust, which fears this is the first step before “a significant price rise” next season.\n\nThe move comes as part of the co-owner Sir Jim Ratcliffe’s efforts to make United more financially sustainable in the face of losses. Those tickets previously started at £40 for adults and £25 for children. Of the seats available to members across the rest of the season, 97% have been sold and the money raised by the increase is expected to be in the low millions of pounds.\n\nIn the long term Ratcliffe believes more prudent investment in the football operation is the prime way to make United more financially sound. Their debt totals £714m, comprising non-current borrowings of £481.7m and current borrowings of £232.3m. The latter rose from £36.5m in June’s end-of-year accounts because of United’s revolving credit facility, which offers access to short-term finance and, it is understood, fluctuates during the year.\n\nA Manchester United Supporters Trust statement in response to the ticket price changes said: “The club has provided zero consultation on the matter, neither with the forum nor the Fan Advisory Board nor MUST. We were simply informed of the decision that there will be price rises affecting certain fans that are ‘urgently needed’ to address profitability and sustainability concerns.\n\n“There is a risk that this is only the opening salvo of what will surely be massive pressure to implement a significant price rise for next season. Once they have got used to charging £132 for a parent and child to come to Old Trafford, will they really go back to the old pricing levels for next season?”\n\nUnited and Everton fans will stage a protest against ticket prices before their Premier League clash on Sunday. Supporters are being asked to gather next to the trinity statue outside Old Trafford to support the Football Supporters’ Association’s Stop Exploiting Loyalty campaign. As well as increasing prices generally, fans are unhappy about the removal of concession tickets for certain groups.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Manchester United Supporters Trust",
+          "raw_quote_text": "The club has provided zero consultation on the matter, neither with the forum nor the Fan Advisory Board nor MUST. We were simply informed of the decision that there will be price rises affecting certain fans that are ‘urgently needed’ to address profitability and sustainability concerns.",
+          "summary": "We received no consultation about the price rises, only an announcement of the decision.",
+          "id": "9696d56f-1416-4ec0-8109-7655ff159e18",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "4675b3d8-2538-4e2f-bd6e-a8844eb1361a",
+          "similarity_score": 0.598989725112915,
+          "is_valid": false,
+          "invalid_reason": "The speaker name is ambiguous; it refers to an organization rather than an individual. Quotes must come from identifiable individuals."
+        },
+        {
+          "speaker_name": "Manchester United Supporters Trust",
+          "raw_quote_text": "There is a risk that this is only the opening salvo of what will surely be massive pressure to implement a significant price rise for next season. Once they have got used to charging £132 for a parent and child to come to Old Trafford, will they really go back to the old pricing levels for next season?",
+          "summary": "This could be the start of big price increases for next season.",
+          "id": "f793b726-caef-488a-baf8-08f3b4a87ffb",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "16e3ae95-0b49-4fd0-9bc2-012220fe803c",
+          "similarity_score": 0.58104133605957,
+          "is_valid": false,
+          "invalid_reason": "The speaker name is ambiguous; it refers to an organization rather than an individual. Quotes must come from identifiable individuals."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/27/bodo-glimt-manchester-united-europa-league",
+        "article_headline": "Bodø/Glimt: from Arctic football outpost to centre stage at Old Trafford",
+        "article_text": "Bodø/Glimt: from Arctic football outpost to centre stage at Old Trafford\n\n‘It’s been quite a journey,’ says midfielder Ulrik Saltnes of the Norwegian club’s rise, an example across Scandinavia\n\nBack in 2011, Bodø/Glimt were cash-strapped and forced into a routine beloved of park footballers. They were labouring in Norway’s second tier and – as their sporting director, Håvard Sakariassen, puts it – had “hit the wall”. Those long trips from inside the Arctic Circle feel even more onerous when you are doing everything yourself and, as they prepare to visit Manchester United, they would be forgiven a moment to marvel at how the picture has transformed.\n\n“We didn’t have a kit manager so we washed our kit at home and came to training already dressed,” says Sakariassen, who had recently quit as a player and found himself taking de facto responsibility for managing the team’s equipment. “To compare that to our resources today, it is a totally different world.”\n\nIt says everything that, when Bodø/Glimt walk out at Old Trafford, they will neither look nor feel out of place. This is their fifth successive season of European football and they have racked up the scalps. A Roma team managed by José Mourinho were famously thrashed 6-1 at their Aspmyra Stadion in the 2021-22 Conference League. Celtic and, in the Europa League this season, Porto are among a string of other victims. Arsenal were run mightily close when they visited two years ago. Whereas once there was novelty value in seeing a club from northern Europe’s furthest reaches, and a home town of fewer than 50,000 inhabitants, bloodying big-name noses, they now feel like a staple.\n\n“It’s been quite a journey,” says Ulrik Saltnes, a long-serving midfielder who has made 370 appearances since joining in those days when a return to the top flight seemed some way off. “It’s almost hard to imagine really. Everything was so much smaller. There were so fewer people and the level was completely different. From being a team bouncing up and down the leagues to being a stable team in Europe every season since 2020, it’s just not comparable at all.”\n\nThat stability has coincided with the tenure of Kjetil Knutsen, a 56-year-old manager who has been linked with Premier League jobs but remains at the helm of Norway’s dominant force. Bodø/Glimt had never won an Eliteserien title until four years ago, when they streaked away at the top by 19 points. They have claimed two more and, as long as they beat Lillestrøm in a grandstand finale to the domestic campaign on Sunday, will add another.\n\nIt has been a triumph of club-building: a success story unalloyed by wealthy backers or reckless gambles. Bodø/Glimt picked a proactive, progressive style of football and stuck with it, recruiting imaginatively while sticking firmly to their local roots. Bayern Leverkusen’s Nigeria striker Victor Boniface cut his teeth there but the overwhelming majority of Knutsen’s squad is Norwegian. They have been able to reinvest several hefty transfer fees but, as Sakariassen says: “We don’t see ourselves as a selling club.”\n\nInstead they are driven by process. “We don’t have any goals in the club,” Sakariassen says. “We don’t, before the season, say: ‘Our aim is to become No 1 or 2.’ Or: ‘We’re going to win 80% of the home games.’ We threw that in the bin six years ago. We just work on trying to get better every day, doing the smart things, just working hard and only having one focus: to get the product to get better.”\n\nThey have succeeded in that. Outwardly bigger clubs in Scandinavia readily accept Bodø/Glimt have become a model for how clubs in the region might thrive. A region whose clubs’ influence on the continental stage has faded is represented by a standard bearer few could have expected. It would be a welcome bonus for Sakariassen and his cohort if they could help raise the levels of all around them. “I think you will see Norwegian teams doing well in future,” he says. “We push each other.”\n\nSaltnes points out that domestic opponents have found ways to tackle Bodø/Glimt that European rivals are yet to grasp. The tightness of this year’s title race, Brann poised a point behind, suggests so. Last year Knutsen’s team finished nine points clear of the same opponents so perhaps they will not become the kind of wrecking ball that has dominated similarly sized championships while giving little to the wider ecosystem.\n\nThe focus, though, remains on themselves. Bodø/Glimt’s next local project will be to build a new stadium, although nothing beyond their means. The charmingly atmospheric Aspmyra will be replaced by a slightly bigger 10,000-capacity venue. It will surely host Champions League football at some stage. They should have made a remarkable debut in this season’s group phase but, having taken a two-goal lead against Red Star Belgrade in the playoffs, were consigned to a 3-2 aggregate defeat.\n\nSuch a close-run thing was a further indicator of their progress. Performing at Old Trafford will be, too, and there will be some personal significance for Sakariassen, who admits to being one of the many Norwegians who followed United as a youngster. The main source of pride, though, comes from putting his home town near the centre of on the European map against all odds.\n\n“When I travel around Europe it’s weird for me, coming from Bodø and knowing the history that we are a small club, that everyone knows us. It’s amazing for us, and also to see the impact the club has in Bodø, in the north of Norway and also in Norway. It’s really extraordinary for me as a Bodø/Glimt boy.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ulrik Saltnes",
+          "raw_quote_text": "It’s been quite a journey.",
+          "summary": "My journey with the club has been remarkable.",
+          "id": "cc1a1552-84c3-44b5-95b5-ece333247ac7",
+          "similar_to_quote_id": "ad2977a1-be7b-4bea-9f1e-218008f078ea",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.333598911762238,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Håvard Sakariassen",
+          "raw_quote_text": "To compare that to our resources today, it is a totally different world.",
+          "summary": "Our resources now are completely different from before.",
+          "id": "4aa6d49e-6bb2-404f-8e5e-20a420fd1a50",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.309356868267059,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ulrik Saltnes",
+          "raw_quote_text": "It’s almost hard to imagine really. Everything was so much smaller. There were so fewer people and the level was completely different. From being a team bouncing up and down the leagues to being a stable team in Europe every season since 2020, it’s just not comparable at all.",
+          "summary": "It's hard to imagine how much we've grown from being a smaller team to a stable European presence.",
+          "id": "f9d7f680-6088-4956-a93a-4d387265dc49",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.468932867050171,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Håvard Sakariassen",
+          "raw_quote_text": "We don’t see ourselves as a selling club.",
+          "summary": "We consider ourselves a club that retains talent.",
+          "id": "8bf8e608-bafc-4726-a6b2-7eb052d5baaf",
+          "similar_to_quote_id": "0d3fb705-48e8-41d5-a209-830f5755e46e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.407517552375793,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Håvard Sakariassen",
+          "raw_quote_text": "We don’t have any goals in the club. We don’t, before the season, say: ‘Our aim is to become No 1 or 2.’ Or: ‘We’re going to win 80% of the home games.’ We threw that in the bin six years ago. We just work on trying to get better every day, doing the smart things, just working hard and only having one focus: to get the product to get better.",
+          "summary": "We focus on improving daily rather than setting specific goals.",
+          "id": "e1f660da-a87a-469a-a031-b6a3fa4c6c55",
+          "similar_to_quote_id": "977530bd-7de3-4645-8b8b-ba0929a88b8c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.655006051063538,
+          "is_valid": false,
+          "invalid_reason": "The quote contains excessive contextual information provided by the author."
+        },
+        {
+          "speaker_name": "Håvard Sakariassen",
+          "raw_quote_text": "I think you will see Norwegian teams doing well in future. We push each other.",
+          "summary": "Norwegian teams are set to improve as we motivate each other.",
+          "id": "503db4bd-f49d-4049-bf8d-5b0d720697d0",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bfac2db1-cb50-4093-bd9b-85a0c48b9830",
+          "similarity_score": 0.555949151515961,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Håvard Sakariassen",
+          "raw_quote_text": "When I travel around Europe it’s weird for me, coming from Bodø and knowing the history that we are a small club, that everyone knows us. It’s amazing for us, and also to see the impact the club has in Bodø, in the north of Norway and also in Norway. It’s really extraordinary for me as a Bodø/Glimt boy.",
+          "summary": "As a Bodø/Glimt supporter, it's incredible to witness our club's recognition throughout Europe.",
+          "id": "5fa04eb3-b399-4489-8ba8-188160de1b03",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "2a9dfb0e-2997-450c-bd32-efb86e3d623b",
+          "similarity_score": 0.52657425403595,
+          "is_valid": true,
+          "invalid_reason": null
+        }
+      ],
+      "status": "quotesPublished"
+    }
+  ]
+}

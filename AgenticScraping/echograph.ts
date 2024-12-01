@@ -379,15 +379,17 @@ const quoteExtractionPrompt = `Extract all quotes from the provided article. Tak
 
 
 const quoteValidationPrompt = `Assess the validity of the quotes in the quote object below.
-    Return a JSON object with the same array of quotes but with two additinoal properties on each quote: is_valid and invalid_reason.
+    Return a JSON object with the same array of quotes but with two additional properties on each quote: is_valid and invalid_reason.
     Invalid quotes should have is_valid set to false and an invalid_reason.
     Valid quotes should have is_valid set to true. invalid_reason should be empty.
     Use the article text to help you determine whether the quote is valid or not.
     
-    # Article Metadata & Text 
-    parent_monitoredurl: {parent_monitored_url}
+    # Article Metadata 
+    parent_monitored_url: {parent_monitored_url}
     article_url: {article_url}
     article_headline: {article_headline}
+    
+    # Article Text
     {article_text}
 
     
@@ -395,7 +397,7 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     {quotes_to_validate}
     
     # A quote is only valid if...
-    - The raw quote text only contains the words spoken by a named speaker and not the text written by the author of the article. (IMPORTANT:Context provided within brackets or parentheses is okay)
+    - The raw quote text only contains context in parentheses if helpful and the words spoken by a named speaker. Text written by the author of the article should never be included.
     - The summary is written in the first person
     - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))
     
@@ -404,6 +406,7 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     "quotes": [
         {
         "speaker_name": "Speaker's Name",
+        "id": "Quote ID",
         "raw_quote_text": "The exact quote text",
         "summary": "First-person summary",
         "is_valid": true,
@@ -416,12 +419,15 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
 
 // Zod schemas for the graph state
 const Quote = z.object({
+    id: z.string().optional(),
     speaker_name: z.string(),
     raw_quote_text: z.string(),
     summary: z.string(),
-    is_valid: z.boolean().optional(),
     similar_to_quote_id: z.string().optional(),
-    similarity_score: z.number().optional()
+    similar_to_staged_quote_id: z.string().optional(), // Add similar_to_staged_quote_id
+    similarity_score: z.number().optional(),
+    is_valid: z.boolean().optional(),
+    invalid_reason: z.string().optional()
 });
 
 const Quotes = z.array(z.object({  // Define Quotes as an array of objects
@@ -466,12 +472,14 @@ const ExtractedQuotes = z.object({
     quotes: z.array(z.object({
         speaker_name: z.string(),
         raw_quote_text: z.string(),
-        summary: z.string()
+        summary: z.string(),
+        id: z.string().optional()
     }))
 });
 
 const QuoteValidation = z.object({
     speaker_name: z.string(),
+    id: z.string(),
     raw_quote_text: z.string(),
     summary: z.string(),
     is_valid: z.boolean(),
@@ -528,29 +536,45 @@ const OverallState = Annotation.Root({
     })
 });
 
-// Helper function to merge quotes without duplicates
-function mergeQuotes(existingQuotes, newQuotes) {
-    const quoteMap = new Map();
-    existingQuotes.forEach(quote => {
-        quoteMap.set(quote.raw_quote_text, quote);
-    });
-    newQuotes.forEach(quote => {
-        const existingQuote = quoteMap.get(quote.raw_quote_text);
-        if (existingQuote) {
-            // Merge quote data, prefer defined values
-            const mergedQuote = {
+// Helper function to merge quotes arrays without duplicates
+const mergeQuotes = (existingQuotes: any[], newQuotes: any[]) => {
+    const mergedQuotes = [...existingQuotes];
+    
+    newQuotes.forEach(newQuote => {
+        // Find existing quote by ID
+        const existingQuoteIndex = mergedQuotes.findIndex(
+            existingQuote => existingQuote.id === newQuote.id
+        );
+
+        if (existingQuoteIndex !== -1) {
+            const existingQuote = mergedQuotes[existingQuoteIndex];
+            
+            // Update based on which fields are present in newQuote
+            mergedQuotes[existingQuoteIndex] = {
                 ...existingQuote,
-                ...Object.fromEntries(
-                    Object.entries(quote).filter(([_, v]) => v !== undefined)
-                )
+                // Update validation fields if present
+                ...(newQuote.is_valid !== undefined && {
+                    raw_quote_text: newQuote.raw_quote_text,
+                    speaker_name: newQuote.speaker_name,
+                    summary: newQuote.summary,
+                    is_valid: newQuote.is_valid,
+                    invalid_reason: newQuote.invalid_reason
+                }),
+                // Update similarity fields if present
+                ...(newQuote.similarity_score !== undefined && {
+                    similar_to_quote_id: newQuote.similar_to_quote_id,
+                    similar_to_staged_quote_id: newQuote.similar_to_staged_quote_id, // Add similar_to_staged_quote_id
+                    similarity_score: newQuote.similarity_score
+                })
             };
-            quoteMap.set(quote.raw_quote_text, mergedQuote);
         } else {
-            quoteMap.set(quote.raw_quote_text, quote);
+            // Add new quote
+            mergedQuotes.push(newQuote);
         }
     });
-    return Array.from(quoteMap.values());
-}
+
+    return mergedQuotes;
+};
 
 // Interface for mapping over parent URLs to extract headlines / article URLs
 interface ParentURLState {
@@ -576,14 +600,6 @@ interface ArticleState {
     today_date: string;
 }
 
-// Interface for mapping over quotes to validate them
-interface QuoteState {
-    parent_monitored_url: string;
-    article_url: string;
-    article_headline: string;
-    quote: z.infer<typeof Quote>;
-}
-
 // Interface for mapping over initially extracted quotes to validate them
 interface QuoteValidationState {
     quote_object: {
@@ -599,9 +615,11 @@ interface QuoteValidationState {
             raw_quote_text: string;
             summary: string;
             similar_to_quote_id?: string;
+            similar_to_staged_quote_id?: string; // Add similar_to_staged_quote_id
             similarity_score?: number;
             is_valid?: boolean;
             invalid_reason?: string;
+            id?: string;
         }>;
     };
     today_date: string;
@@ -789,38 +807,40 @@ const extractArticleText = async (
     state: ArticleMarkdownState
 ): Promise<Partial<typeof OverallState.State>> => {
     const executeRequest = async () => {
-        const markdown = await getJinaMarkdown(state.article_url);
-        if (!markdown) {
-            console.log(`No markdown content found for ${state.article_url}`);
-            return { quotes: [] };
-        }
-
-        // Log markdown content length for debugging
-        console.log(`Retrieved markdown content for ${state.article_headline}, length: ${markdown.length} characters`);
-        if (markdown.length < 100) {
-            console.warn("Markdown content seems too short, might be missing content");
-            console.log("Markdown content:", markdown);
-            return { quotes: [] };
-        }
-        
         const today_date = new Date().toISOString().split('T')[0];  // Get today's date in YYYY-MM-DD format
         
-        // Format the prompt with the actual values
-        const prompt = articleExtractionPrompt
-            .replace("{article_url_markdown}", markdown)
-            .replace("{parent_monitored_url}", state.parent_monitored_url)
-            .replace("{article_url}", state.article_url)
-            .replace("{article_headline}", state.article_headline)
-            .replace("{today_date}", today_date);
-
-        logOpenAICall('start', 'extractArticleText', 'gpt-4o-mini', state.article_url, {
-            function_name: 'extractArticleText',
-            model: 'gpt-4o-mini',
-            url: state.article_url,
-            prompt: prompt
-        });
-
         try {
+            const markdown = await getJinaMarkdown(state.article_url);
+            
+            // Validate markdown content
+            if (!markdown || typeof markdown !== 'string') {
+                console.error(`No valid markdown content found for ${state.article_url}`);
+                return createErrorState(state, today_date, 'No valid markdown content found');
+            }
+
+            // Log markdown content length for debugging
+            console.log(`Retrieved markdown content for ${state.article_headline}, length: ${markdown.length} characters`);
+            if (markdown.length < 100) {
+                console.warn("Markdown content seems too short, might be missing content");
+                console.log("Markdown content:", markdown);
+                return createErrorState(state, today_date, 'Markdown content too short');
+            }
+            
+            // Format the prompt with the actual values
+            const prompt = articleExtractionPrompt
+                .replace("{article_url_markdown}", markdown)
+                .replace("{parent_monitored_url}", state.parent_monitored_url)
+                .replace("{article_url}", state.article_url)
+                .replace("{article_headline}", state.article_headline)
+                .replace("{today_date}", today_date);
+
+            logOpenAICall('start', 'extractArticleText', 'gpt-4o-mini', state.article_url, {
+                function_name: 'extractArticleText',
+                model: 'gpt-4o-mini',
+                url: state.article_url,
+                prompt: prompt
+            });
+
             // Log the request
             logger.logOpenAICall({
                 function_name: 'extractArticleText',
@@ -838,48 +858,65 @@ const extractArticleText = async (
             const response = completion.choices[0].message.parsed;
 
             // Validate article text
-            if (!response.article_text || response.article_text.length < 100) {
-                console.warn("Extracted article text is missing or too short");
-                console.log("Response:", response);
-                return { quotes: [] };
+            if (!response.article_text || typeof response.article_text !== 'string') {
+                console.error("Extracted article text is missing or invalid type");
+                return createErrorState(state, today_date, 'Article text missing or invalid');
+            }
+
+            if (response.article_text.length < 100) {
+                console.warn("Extracted article text is too short");
+                return createErrorState(state, today_date, 'Extracted article text too short');
             }
 
             // Log successful extraction
             console.log(`Successfully extracted article text for ${state.article_headline}, length: ${response.article_text.length} characters`);
 
-            // Save article data to the database
-            try {
+            // Save article data to the database with retry logic
+            const saveArticleData = async () => {
+                const articleData = {
+                    parent_monitored_url: state.parent_monitored_url,
+                    article_url: state.article_url,
+                    article_date: new Date(response.article_date || response.publishedTime || today_date),
+                    headline: state.article_headline,
+                    article_text: response.article_text,
+                    total_quotes: 0, // Will be updated later in extractQuotes
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                };
+
                 const { error } = await supabase
                     .from('articles')
-                    .upsert({
-                        parent_monitored_url: state.parent_monitored_url,
-                        article_url: state.article_url,
-                        article_date: new Date(response.article_date || response.publishedTime || today_date),
-                        headline: state.article_headline,
-                        article_text: response.article_text,
-                        total_quotes: 0, // Will be updated later in extractQuotes
-                        created_at: new Date().toISOString(),
-                        updated_at: new Date().toISOString()
-                    }, {
+                    .upsert(articleData, {
                         onConflict: 'article_url'
                     });
 
-                if (error) {
-                    console.error("Error saving article data:", error);
-                    logger.logError({
-                        function_name: 'extractArticleText',
-                        error: error,
-                        article_metadata: {
-                            parent_monitored_url: state.parent_monitored_url,
-                            article_url: state.article_url,
-                            article_headline: state.article_headline
-                        }
-                    });
-                } else {
-                    console.log(`Successfully saved article data to database for: ${state.article_headline}`);
+                if (error) throw error;
+
+                // Verify the save was successful
+                const { data: verifyData, error: verifyError } = await supabase
+                    .from('articles')
+                    .select('article_url, article_text, headline')
+                    .eq('article_url', state.article_url)
+                    .single();
+
+                if (verifyError) throw verifyError;
+
+                // Check if the data was saved correctly
+                if (!verifyData || verifyData.article_text !== response.article_text) {
+                    throw new Error('Article data verification failed: Data mismatch or missing');
                 }
+
+                console.log(`Successfully saved and verified article data for: ${state.article_headline}`);
+            };
+
+            try {
+                await withRetry(
+                    saveArticleData,
+                    3,  // maxRetries for database operations
+                    1000 // initialDelayMs
+                );
             } catch (error) {
-                console.error("Error saving article data:", error);
+                console.error("Error saving article data after retries:", error);
                 logger.logError({
                     function_name: 'extractArticleText',
                     error: error,
@@ -889,9 +926,88 @@ const extractArticleText = async (
                         article_headline: state.article_headline
                     }
                 });
+
+                // Track failed article saves for later retry
+                await supabase
+                    .from('failed_operations')
+                    .insert({
+                        operation_type: 'article_save',
+                        article_url: state.article_url,
+                        article_headline: state.article_headline,
+                        error_message: error.message,
+                        retry_count: 0,
+                        status: 'pending',
+                        metadata: {
+                            parent_monitored_url: state.parent_monitored_url,
+                            article_text: response.article_text,
+                            article_date: response.article_date || response.publishedTime || today_date,
+                            total_quotes: 0
+                        },
+                        created_at: new Date().toISOString(),
+                        updated_at: new Date().toISOString()
+                    })
+                    .single();
+
+                // Also log to error_logs for monitoring
+                await supabase
+                    .from('error_logs')
+                    .insert({
+                        error_type: 'article_save_failure',
+                        error_message: error.message,
+                        article_url: state.article_url,
+                        stack_trace: error.stack,
+                        metadata: {
+                            parent_monitored_url: state.parent_monitored_url,
+                            article_headline: state.article_headline,
+                            retry_attempts: 3,
+                            article_date: response.article_date || response.publishedTime || today_date
+                        },
+                        created_at: new Date().toISOString()
+                    })
+                    .single();
             }
 
-            // Return with proper state structure including empty quotes array
+            // Wait for all database operations to complete
+            await Promise.all([
+                // Update article quote count
+                updateArticleQuoteCount(state.article_url, 0),
+                
+                // Save all quotes to staging
+                Promise.all((response.quotes || []).map(async (quote) => {
+                    if (!quote) return null;
+                    
+                    const { data: stagedQuote, error: stagingError } = await supabase
+                        .from('quote_staging')
+                        .insert({
+                            parent_monitored_url: state.parent_monitored_url,
+                            article_url: state.article_url,
+                            article_headline: state.article_headline,
+                            article_date: today_date,
+                            raw_quote_text: quote.raw_quote_text,
+                            speaker_name: quote.speaker_name,
+                            summary: quote.summary,
+                            similar_to_quote_id: null,
+                            similar_to_staged_quote_id: null, // Add similar_to_staged_quote_id
+                            similarity_score: null,
+                            created_at: new Date().toISOString(),
+                            updated_at: new Date().toISOString()
+                        })
+                        .select('id')
+                        .single();
+
+                    if (stagingError) {
+                        console.error('Error saving quote to staging:', stagingError);
+                        quote.id = null;
+                        return quote;
+                    }
+
+                    // Store the staging ID in the quote state
+                    quote.id = stagedQuote.id;
+                    return quote;
+                }))
+            ]);
+
+            // Return successful state with article text and metadata
             return {
                 quotes: [{
                     article_metadata: {
@@ -901,25 +1017,14 @@ const extractArticleText = async (
                         article_text: response.article_text,
                         article_date: response.article_date || response.publishedTime || today_date
                     },
-                    quotes: [],  // Add empty quotes array to maintain structure
-                    status: 'articleTextExtracted'  // Set status here
+                    quotes: response.quotes || [],
+                    status: 'articleTextExtracted'
                 }]
             };
+
         } catch (error) {
-            // Also maintain structure in error case
-            return { 
-                quotes: [{
-                    article_metadata: {
-                        parent_monitored_url: state.parent_monitored_url,
-                        article_url: state.article_url,
-                        article_headline: state.article_headline,
-                        article_text: "",
-                        article_date: today_date
-                    },
-                    quotes: [],  // Add empty quotes array
-                    status: 'articleTextExtracted'  // Set status here
-                }]
-            };
+            console.error(`Error in extractArticleText for ${state.article_url}:`, error);
+            return createErrorState(state, today_date, error.message);
         }
     };
 
@@ -930,6 +1035,25 @@ const extractArticleText = async (
         });
         processQueue();
     });
+};
+
+// Helper function to create error state with consistent structure
+const createErrorState = (state: ArticleMarkdownState, today_date: string, errorMessage: string) => {
+    console.error(`Error for ${state.article_url}: ${errorMessage}`);
+    return {
+        quotes: [{
+            article_metadata: {
+                parent_monitored_url: state.parent_monitored_url,
+                article_url: state.article_url,
+                article_headline: state.article_headline,
+                article_text: '',
+                article_date: today_date
+            },
+            quotes: [],
+            status: 'error',
+            error: errorMessage
+        }]
+    };
 };
 
 // Gemini quote extraction function
@@ -996,8 +1120,8 @@ const extractQuotes = async (
                     updateArticleQuoteCount(state.article_metadata.article_url, response.quotes.length),
                     
                     // Save all quotes to staging
-                    Promise.all(response.quotes.map(quote => 
-                        supabase
+                    Promise.all(response.quotes.map(async (quote) => {
+                        const { data: stagedQuote, error: stagingError } = await supabase
                             .from('quote_staging')
                             .insert({
                                 parent_monitored_url: state.article_metadata.parent_monitored_url,
@@ -1008,11 +1132,24 @@ const extractQuotes = async (
                                 speaker_name: quote.speaker_name,
                                 summary: quote.summary,
                                 similar_to_quote_id: null,
+                                similar_to_staged_quote_id: null, // Add similar_to_staged_quote_id
                                 similarity_score: null,
                                 created_at: new Date().toISOString(),
                                 updated_at: new Date().toISOString()
                             })
-                    ))
+                            .select('id')
+                            .single();
+
+                        if (stagingError) {
+                            console.error('Error saving quote to staging:', stagingError);
+                            quote.id = null;
+                            return quote;
+                        }
+
+                        // Store the staging ID in the quote state
+                        quote.id = stagedQuote.id;
+                        return quote;
+                    }))
                 ]);
 
                 // Only after database operations complete, update state
@@ -1026,7 +1163,7 @@ const extractQuotes = async (
                             article_date: state.today_date
                         },
                         quotes: response.quotes,
-                        status: 'quotesExtracted'  // Set status here
+                        status: 'quotesExtracted'
                     }]
                 });
             } catch (error) {
@@ -1091,121 +1228,182 @@ const checkQuoteSimilarity = async (
         return { quotes: [] };
     }
 
-    console.log(`Checking similarity for ${quotes.length} quotes from article: ${article_metadata.article_headline}`);
+    console.log(`Starting similarity check for ${quotes.length} quotes from article: ${article_metadata.article_headline}`);
 
-    try {
-        // Process all quotes and wait for all operations to complete
-        const processedQuotes = await Promise.all(quotes.map(async (quote) => {
+    // Track quotes that need processing
+    let quotesToProcess = quotes.map(quote => ({
+        ...quote,
+        embedding: null,
+        hasEmbedding: false,
+        hasSimilarityData: false
+    }));
+
+    // Step 1: Generate embeddings for all quotes in batch
+    console.log("Generating embeddings for all quotes...");
+    for (const quote of quotesToProcess) {
+        if (!quote.hasEmbedding) {
             try {
-                // Generate embedding for the current quote
-                const embedding = await getQuoteEmbedding(quote.raw_quote_text);
+                quote.embedding = await withRetry(async () => {
+                    return await getQuoteEmbedding(quote.raw_quote_text);
+                    });
+                    quote.hasEmbedding = true;
                 console.log(`Generated embedding for quote: "${quote.raw_quote_text.substring(0, 50)}..."`);
-
-                // Find most similar quote using Supabase's vector similarity search
-                const { data: similarQuotes, error } = await supabase.rpc('find_most_similar_quote', {
-                    query_embedding: embedding,
-                    match_threshold: CONFIG.SIMILARITY.THRESHOLD,
-                    match_count: 1
-                });
-
-                if (error) {
-                    console.error("RPC Error:", error);
-                    throw error;
-                }
-
-                console.log("RPC Response:", {
-                    similarQuotes,
-                    threshold: CONFIG.SIMILARITY.THRESHOLD,
-                    embedding: embedding.slice(0, 5) // Just show first 5 values
-                });
-
-                const mostSimilarQuote = similarQuotes?.[0];
-
-                // Update database with similarity info
-                const { error: updateError } = await supabase
-                    .from('quote_staging')
-                    .update({
-                        content_vector: embedding,
-                        similar_to_quote_id: mostSimilarQuote?.id || null,
-                        similarity_score: mostSimilarQuote?.similarity || null,
-                        updated_at: new Date().toISOString()
-                    })
-                    .eq('raw_quote_text', quote.raw_quote_text)
-                    .eq('speaker_name', quote.speaker_name)
-                    .eq('article_url', article_metadata.article_url);
-
-                if (updateError) {
-                    throw updateError;
-                }
-
-                // Return processed quote with similarity info
-                return {
-                    ...quote,
-                    similar_to_quote_id: mostSimilarQuote?.id || null,
-                    similarity_score: mostSimilarQuote?.similarity || null
-                };
             } catch (error) {
-                console.error("Error processing quote:", error);
-                return quote;
+                console.error("Failed to generate embedding after retries:", {
+                    error,
+                    quote: quote.raw_quote_text.substring(0, 100),
+                    speaker: quote.speaker_name
+                });
             }
-        }));
-
-        console.log(`Completed processing similarity check for ${processedQuotes.length} quotes from: ${article_metadata.article_headline}`);
-
-        // Only after all database operations complete, update state
-        return {
-            quotes: [{
-                article_metadata,
-                quotes: processedQuotes,
-                status: 'quoteSimilarityChecked'  // Set status here
-            }]
-        };
-    } catch (error) {
-        console.error("Error in checkQuoteSimilarity:", error);
-        return {
-            quotes: [{
-                article_metadata,
-                quotes: quotes.map(quote => ({
-                    ...quote,
-                    similar_to_quote_id: null,
-                    similarity_score: null
-                }))
-            }]
-        };
+        }
     }
+
+    // Step 2: Process similarity for all quotes with embeddings
+    console.log("Processing similarity for all quotes with embeddings...");
+    for (const quote of quotesToProcess) {
+        if (quote.hasEmbedding && !quote.hasSimilarityData) {
+            try {
+                const result = await withRetry(async () => {
+                    // Find most similar quote
+                    const { data: similarQuotes, error: rpcError } = await supabase.rpc(
+                        'find_most_similar_quote',
+                        {
+                            query_embedding: quote.embedding,
+                            match_count: 1
+                        }
+                    );
+
+                    if (rpcError) throw rpcError;
+
+                    const mostSimilarQuote = similarQuotes?.[0];
+                    const similarityData = {
+                        content_vector: quote.embedding,
+                        similar_to_quote_id: mostSimilarQuote?.similar_to_quote_id || null,
+                        similar_to_staged_quote_id: mostSimilarQuote?.similar_to_staged_quote_id || null,
+                        similarity_score: mostSimilarQuote?.similarity_score || null,
+                        updated_at: new Date().toISOString()
+                    };
+
+                    // Update database
+                    const { error: updateError } = await supabase
+                        .from('quote_staging')
+                        .update(similarityData)
+                        .eq('id', quote.id);
+
+                    if (updateError) throw updateError;
+
+                    return similarityData;
+                });
+
+                // Update quote with similarity data
+                quote.similar_to_quote_id = result.similar_to_quote_id;
+                quote.similar_to_staged_quote_id = result.similar_to_staged_quote_id;
+                quote.similarity_score = result.similarity_score;
+                quote.hasSimilarityData = true;
+
+                console.log(`Processed similarity for quote: "${quote.raw_quote_text.substring(0, 50)}..."`);
+            } catch (error) {
+                console.error("Failed to process similarity:", {
+                    quote: quote.raw_quote_text.substring(0, 50),
+                    error
+                });
+            }
+        }
+    }
+
+    // Step 3: Check if any quotes still need processing
+    const incompleteQuotes = quotesToProcess.filter(
+        q => !q.hasEmbedding || !q.hasSimilarityData
+    );
+
+    if (incompleteQuotes.length > 0) {
+        console.error(`Failed to process ${incompleteQuotes.length}/${quotes.length} quotes from ${article_metadata.article_headline}`);
+
+        // Log failed quotes
+        await Promise.all(incompleteQuotes.map(quote => 
+            supabase.from('failed_operations').insert({
+                operation_type: 'quote_similarity',
+                article_url: article_metadata.article_url,
+                article_headline: article_metadata.article_headline,
+                raw_quote_text: quote.raw_quote_text,
+                speaker_name: quote.speaker_name,
+                error_message: !quote.hasEmbedding ? 
+                    'Failed to generate embedding' : 
+                    'Failed to process similarity data',
+                retry_count: 3,
+                status: 'failed',
+                metadata: {
+                    parent_monitored_url: article_metadata.parent_monitored_url,
+                    article_date: article_metadata.article_date,
+                    has_embedding: quote.hasEmbedding,
+                    has_similarity: quote.hasSimilarityData
+                },
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            })
+        ));
+
+        // Return error state
+        throw new Error(`Failed to process ${incompleteQuotes.length} quotes after retries`);
+    }
+
+    // Step 4: Return processed quotes
+    console.log(`Successfully processed all ${quotes.length} quotes from article: ${article_metadata.article_headline}`);
+    
+        // Return state update with processed quotes and their verified similarity data
+    return {
+        quotes: [{
+            article_metadata,
+            quotes: quotesToProcess.map(quote => ({
+                ...quote,
+                similar_to_quote_id: quote.similar_to_quote_id,
+                similar_to_staged_quote_id: quote.similar_to_staged_quote_id,
+                similarity_score: quote.similarity_score
+            })),
+            status: 'quoteSimilarityChecked'
+        }]
+    };
 };
 
 // Function to validate quotes
 const validateQuotes = async (
     state: QuoteValidationState
 ): Promise<Partial<typeof OverallState.State>> => {
-    const { quotes, article_metadata } = state.quote_object;
-
     return new Promise((resolve) => {
         const operation = async () => {
             try {
+                // Format quotes for validation
+                const quotesForValidation = state.quote_object.quotes.map(quote => ({
+                    speaker_name: quote.speaker_name,
+                    raw_quote_text: quote.raw_quote_text,
+                    summary: quote.summary,
+                    id: quote.id,
+                    is_valid: undefined,  // This will be filled by the validation
+                    invalid_reason: undefined // This will be filled by the validation
+                }));
+
                 const prompt = quoteValidationPrompt
-                    .replace("{quotes_to_validate}", JSON.stringify(quotes))
-                    .replace("{article_text}", article_metadata.article_text)
-                    .replace("{parent_monitored_url}", article_metadata.parent_monitored_url)
-                    .replace("{article_url}", article_metadata.article_url)
-                    .replace("{article_headline}", article_metadata.article_headline);
+                    .replace("{quotes_to_validate}", JSON.stringify(quotesForValidation, null, 2))
+                    .replace("{article_text}", state.quote_object.article_metadata.article_text)
+                    .replace("{parent_monitored_url}", state.quote_object.article_metadata.parent_monitored_url)
+                    .replace("{article_url}", state.quote_object.article_metadata.article_url)
+                    .replace("{article_headline}", state.quote_object.article_metadata.article_headline);
 
                 // Add detailed logging
                 console.log("\nValidation Prompt Details:");
-                console.log("Article:", article_metadata.article_headline);
-                console.log("Number of quotes to validate:", quotes.length);
-                console.log("Prompt:", prompt);
+                console.log("Article:", state.quote_object.article_metadata.article_headline);
+                console.log("Number of quotes to validate:", quotesForValidation.length);
+                console.log("Quotes being validated:", JSON.stringify(quotesForValidation, null, 2));
 
                 // Log the validation request
                 logger.logOpenAICall({
                     function_name: 'validateQuotes',
                     model: 'gpt-4o-mini',
-                    url: article_metadata.article_url,
+                    url: state.quote_object.article_metadata.article_url,
                     prompt: prompt
                 });
 
-                logOpenAICall('start', 'validateQuotes', 'gpt-4o-mini', article_metadata.article_url);
+                logOpenAICall('start', 'validateQuotes', 'gpt-4o-mini', state.quote_object.article_metadata.article_url);
                 
                 const completion = await openai.beta.chat.completions.parse({
                     model: "gpt-4o-mini",
@@ -1215,47 +1413,78 @@ const validateQuotes = async (
                     }), "quotes")
                 });
 
-                console.log("OpenAI Response:", completion.choices[0].message);
-
                 const validatedQuotes = completion.choices[0].message.parsed.quotes;
 
                 // Log the validated quotes
                 console.log('Validated Quotes from LLM:', JSON.stringify(validatedQuotes, null, 2));
 
-                // Wait for all database updates to complete
-                await Promise.all(validatedQuotes.map(quote => 
-                    supabase
-                        .from('quote_staging')
-                        .update({
-                            is_valid: quote.is_valid,
-                            invalid_reason: quote.invalid_reason || null,
-                            updated_at: new Date().toISOString()
-                        })
-                        .eq('raw_quote_text', quote.raw_quote_text)
-                        .eq('speaker_name', quote.speaker_name)
-                        .eq('article_url', article_metadata.article_url)
-                ));
+                // Merge validation results with original quotes to preserve all data
+                const updatedQuotes = await Promise.all(state.quote_object.quotes.map(async (quote) => {
+                    const validationResult = validatedQuotes.find(
+                        vq => vq.raw_quote_text === quote.raw_quote_text && 
+                             vq.speaker_name === quote.speaker_name
+                    );
 
-                console.log(`Validated ${validatedQuotes.length} quotes from: ${article_metadata.article_headline}`);
+                    // Ensure validation data has default values if missing
+                    const isValid = validationResult?.is_valid ?? false;
+                    const invalidReason = validationResult?.invalid_reason || null;
 
-                // Return validated quotes in state
+                    // Update database with validation data
+                    try {
+                        const { data, error } = await supabase
+                            .from('quote_staging')
+                            .update({
+                                is_valid: isValid,
+                                invalid_reason: invalidReason,
+                                updated_at: new Date().toISOString()
+                            })
+                            .eq('id', quote.id)
+                            .select();
+
+                        if (error) {
+                            console.error(`Failed to update quote ${quote.id} in database:`, error);
+                            throw error;
+                        }
+
+                        console.log(`Successfully updated quote ${quote.id} validation status`);
+                        
+                        // Return updated quote with validation data
+                        return {
+                            ...quote,
+                            is_valid: isValid,
+                            invalid_reason: invalidReason
+                        };
+                    } catch (error) {
+                        console.error(`Error updating quote ${quote.id}:`, error);
+                        // Return quote with failed validation on error
+                        return {
+                            ...quote,
+                            is_valid: false,
+                            invalid_reason: "Database update failed"
+                        };
+                    }
+                }));
+
+                console.log(`Validated ${validatedQuotes.length} quotes from: ${state.quote_object.article_metadata.article_headline}`);
+
+                // Return complete quote objects in state with validation data
                 resolve({
                     quotes: [{
-                        article_metadata,
-                        quotes: validatedQuotes,
+                        article_metadata: state.quote_object.article_metadata,
+                        quotes: updatedQuotes,
                         status: 'quotesValidated'
                     }]
                 });
             } catch (error) {
                 console.error("Error in validateQuotes:", error);
-                // On error, return original quotes without validation
+                // On error, return original quotes without validation but preserve existing data
                 resolve({
                     quotes: [{
-                        article_metadata,
-                        quotes: quotes.map(quote => ({
+                        article_metadata: state.quote_object.article_metadata,
+                        quotes: state.quote_object.quotes.map(quote => ({
                             ...quote,
                             is_valid: false,
-                            invalid_reason: "Validation failed"
+                            invalid_reason: "Validation failed: " + error.message
                         }))
                     }]
                 });
@@ -1266,7 +1495,6 @@ const validateQuotes = async (
         processQueue();
     });
 };
-
 
 // Function to check if speaker exists in speakers table
 const checkSpeakerExists = async (speaker: string): Promise<{exists: boolean, id?: string}> => {
@@ -1436,13 +1664,22 @@ const continueToQuoteValidation = (state: typeof OverallState.State) => {
     return state.quotes
         .filter(article => article.status === 'quoteSimilarityChecked')  // Only proceed with articles that have completed similarity check
         .map(articleQuotes => {
+            console.log("\nQuote filtering details for article:", articleQuotes.article_metadata.article_headline);
+            console.log("Original quotes:", articleQuotes.quotes.length);
+            
             // Filter out duplicate quotes based on similarity score
             const uniqueQuotes = articleQuotes.quotes.filter(quote => 
                 !quote.similarity_score || // Keep quotes with no similarity score (unique)
-                quote.similarity_score < -CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
+                quote.similarity_score < CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
             );
 
-            console.log(`Found ${articleQuotes.quotes.length} total quotes, proceeding with ${uniqueQuotes.length} unique quotes for validation (filtered out ${articleQuotes.quotes.length - uniqueQuotes.length} similar quotes)`);
+            console.log("Unique quotes after filtering:", uniqueQuotes.length);
+            console.log("Filtered quotes:", uniqueQuotes.map(q => ({
+                speaker: q.speaker_name,
+                quote_preview: q.raw_quote_text.substring(0, 50) + "...",
+                similarity_score: q.similarity_score || "N/A"
+            })));
+            console.log(`Filtered out ${articleQuotes.quotes.length - uniqueQuotes.length} similar quotes\n`);
             
             // Send the article with its unique quotes to the validateQuotes node
             return new Send("validateQuotes", {

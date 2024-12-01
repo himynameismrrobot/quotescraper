@@ -4,7 +4,7 @@ import { checkAdminAccess } from '@/utils/admin-check'
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check admin access
@@ -13,14 +13,14 @@ export async function POST(
       return NextResponse.json({ error: adminError }, { status })
     }
 
+    const params = await context.params
     const supabase = await createClient()
-    const id = await params.id
 
     // First, get the staged quote
     const { data: stagedQuote, error: fetchError } = await supabase
       .from('quote_staging')
       .select('*')
-      .eq('id', id)
+      .eq('id', params.id)
       .single()
 
     if (fetchError) throw fetchError
@@ -70,7 +70,7 @@ export async function POST(
     const { error: deleteError } = await supabase
       .from('quote_staging')
       .delete()
-      .eq('id', id)
+      .eq('id', params.id)
 
     if (deleteError) throw deleteError
 
@@ -82,4 +82,4 @@ export async function POST(
       { status: 500 }
     )
   }
-} 
+}

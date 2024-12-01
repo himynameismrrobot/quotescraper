@@ -1,0 +1,293 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-30T20:24:08.311Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nLatest updates\n--------------\n\n1.  BBC Sport presenter Mark Chapman has been getting to know Manchester United boss Ruben Amorim in an exclusive Football Focus interview, with the Portuguese manager explaining why he appears to be \"very relaxed\" in his new job.\n\n    \"I will be OK - no matter what,\" Amorim said. \"In this stage of my life, I will be OK so that's why I am relaxed.\n\n    \"Everybody says to me: 'This will change me'. This will not change me.\n    \n    \"If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed.\n    \n    \"I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this \\[and make the move\\].\n    \n    \"Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"\n    \n    Watch the full interview with Ruben Amorim on [Football Focus on iPlayer](https://www.bbc.co.uk/iplayer/episodes/b006m8tc/football-focus) or listen to the special [Football Daily podcast on BBC Sounds](https://www.bbc.co.uk/sounds/play/p0k7y4sr)\n    \n2.  Ruben Amorim has become the latest manager to be tasked with restoring Manchester United's on-pitch fortunes.\n    \n    The club paid £11m to Portuguese club Sporting to recruit the 39-year-old and his staff, making him the sixth permanent manager since Sir Alex Ferguson's illustrious 26-year reign ended with his retirement in 2013.\n    \n    After a draw at Ipswich and a win against Bodo/Glimt in his first two games, his side host Everton on Sunday (13:30 GMT).\n    \n    BBC Sport presenter Mark Chapman caught up with the Portuguese manager on Football Focus, firstly asking him if he is already feeling a connection with the Manchester United fans.\n    \n    \"Yes for sure, I feel that\" Amorim revealed. \"Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think.\n    \n    \"Maybe because I am different from the last coach and this can bring a different connection with the next guy.\n    \n    \"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling.\n    \n    \"To maintain this feeling, we have to play better and win games and be really honest with the supporters.\n    \n    \"If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"\n    \n    Watch the full interview with Ruben Amorim on [Football Focus on iPlayer](https://www.bbc.co.uk/iplayer/episodes/b006m8tc/football-focus) or listen to the special [Football Daily podcast on BBC Sounds](https://www.bbc.co.uk/sounds/play/p0k7y4sr)\n    \n3.  Mason Mount is a \"proper footballer\" who wants to succeed at Manchester United, says head coach Ruben Amorim.\n    \n    Mount, 25, joined from [Chelsea](https://www.bbc.com/sport/football/teams/chelsea) in the summer of 2023 but his time at Old Trafford so far has been hampered by injury issues.\n    \n    Amorim talked about his \"belief\" in Mount and said of the England midfielder: \"The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing.\n    \n    \"He has proved he is a really talented player. He was a European champion, so we believe in him a lot.\n    \n    \"He has to stay fit and, like all the guys in the team, they are quality players, they have to improve and believe in themselves.\n    \n    \"On Thursday he did a great job. You see some moments and details where you can see that Mason is a proper footballer. We believe in him a lot and I especially believe a lot in Mason.\"\n    \n    After a draw at [Ipswich](https://www.bbc.co.uk/sport/football/teams/ipswich-town) in his first game in charge, Amorim is hopeful of a first Premier League win as United boss against [Everton](https://www.bbc.co.uk/sport/football/teams/everton) on Sunday (13:30 GMT).\n    \n    \"It's going to be a different match with a lot of fighting for long balls and second balls,\" he added.\n    \n    \"They have a quality coach who understands the league and understands the moment of the opponent. We need to have the ball because we have a short time to recover.\n    \n    \"I hope for a win and I hope to see different things in my team improve, like we did from Ipswich to now, against Everton, without training. I expect to see different things and better things.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Explaining his relaxed demeanor] \"I will be OK - no matter what. In this stage of my life, I will be OK so that's why I am relaxed. Everybody says to me: 'This will change me'. This will not change me.\"",
+          "summary": "I know I will be alright regardless of what happens.",
+          "id": "44685615-5621-4217-bf93-2f7eb398253e",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On his outlook for success] \"If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed.\"",
+          "summary": "I believe we will succeed, even if I face setbacks.",
+          "id": "02dfbff9-74cf-4991-ad1f-0f0943dc4fc7",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On making the decision to manage at Manchester United] \"I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move]. Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"",
+          "summary": "Leaving Sporting was tough, but I felt it was my destiny to take this opportunity.",
+          "id": "d0ed4868-b5a4-4c59-85bb-3777442450b2",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Describing his connection with fans] \"Yes for sure, I feel that. Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think. Maybe because I am different from the last coach and this can bring a different connection with the next guy.\"",
+          "summary": "I feel a connection with the fans and hope my emotional nature helps that.",
+          "id": "43f183ea-92bc-4b03-945b-1b7a14e898f1",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On his approach to management] \"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling. To maintain this feeling, we have to play better and win games and be really honest with the supporters.\"",
+          "summary": "I aim to prove I’m the right choice by winning and being honest with fans.",
+          "id": "367aaac5-5429-4798-a96b-fd8bf7e94b25",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On building trust with supporters] \"If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"",
+          "summary": "Honesty is key for building trust and a connection with supporters.",
+          "id": "668439b4-cfca-4fc0-a006-4a0a47a14f81",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Mason Mount's abilities and work ethic] \"The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing. He has proved he is a really talented player. He was a European champion, so we believe in him a lot.\"",
+          "summary": "Mason is dedicated and talented; we have strong belief in him.",
+          "id": "976def7f-1049-4e66-899f-862f8d642a34",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On improving the team] \"I hope for a win and I hope to see different things in my team improve, like we did from Ipswich to now, against Everton, without training. I expect to see different things and better things.\"",
+          "summary": "I'm optimistic about improving the team, even without training.",
+          "id": "22173953-9580-4d8e-a3ed-3ebe7677ec63",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/paul-pogba-repeats-marcus-rashford-30487540",
+        "article_headline": "Paul Pogba repeats Marcus Rashford move amid Man United return links and next job hints",
+        "article_text": "Paul Pogba repeats Marcus Rashford move amid Man United return links and next job hints - Manchester Evening News\n\nMarcus Rashford had his professionalism questioned during the international break after flying to the United States on holiday and attending an NBA game in New York\n\nBy\n\nMatthew Abbott\n\n19:00, 30 NOV 2024\n\nPaul Pogba has spent the last week holidaying in Florida and attending NBA games (Image: Issac Baldizon/NBAE)\n\nPaul Pogba is the latest Manchester United player, past or present, to attend an NBA game this month after sitting courtside to watch friend Jimmy Butler play for the Miami Heat twice in the last week.\n\nPogba, 31, has made multiple trips to the United States, namely Florida, this autumn after also going to two Inter Miami matches. Both visits were before the player and Juventus agreed to terminate his contract with the Italian club.\n\nBarely a week later, Pogba was back in Florida and participating in a shootaround on the court at Kaseya Center with Butler before the Heat's game against the Dallas Mavericks. He then sat courtside for that Miami win and was back again a week later on Friday night as they beat the Toronto Raptors.\n\nButler shared a photo on Instagram of them hugging before the game, with Pogba wearing a replica of the Heat's bright red City Edition jersey with his friend's name and number 22 on the back. Earlier this month, former United teammate Marcus Rashford received criticism for doing likewise during the November international break after not being called up to the England squad.\n\nHe sat courtside at a New York Knicks game against the Brooklyn Nets at Madison Square Garden and embraced Knick guard Jalen Brunson after the game, who gave the United forward his game jersey and signed it in front of him. After not making it into the Brazil squad, Casemiro also went to a game between the Orlando Magic and Philadelphia 76ers while on a family trip to The Walt Disney World Resort.\n\nIf Pogba's rumoured return to United materialises, the three would have something in common. Now a free agent after leaving Juventus, the former France international is available to sign for anyone immediately but can begin training again until January or play in a match before March.\n\nThis article contains affiliate links, we will receive a commission on any sales we generate from it. [Learn more](https://www.manchestereveningnews.co.uk/affiliates/)",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/andre-onana-welcomes-surprise-special-30487252",
+        "article_headline": "Andre Onana welcomes surprise special guest to Old Trafford as Man United 'rematch' called for",
+        "article_text": "Manchester United welcomed a special guest to Old Trafford on Thursday for Ruben Amorim's first home match as head coach against Bodo/Glimt in the Europa League.\n\nFootage has emerged of Manchester United goalkeeper Andre Onana and the former UFC heavyweight champion Francis Ngannou having a play fight on the Old Trafford pitch after the Bodo/Glimt game.\n\nNgannou attended the match alongside two-time world heavyweight contender and United fan Derek Chisora. Both posed for photos in the stands with personalized shirts provided by the club.\n\nThe former then went pitchside after the match to spend time with Onana. There, they posed for photos and spoke before having a quick scrap on the pitch. A video they have both shared on social media since shows them assuming a boxing stance before Ngannou dives down to grab Onana's right leg, moves up to his waist, and drags the player to the ground from behind.\n\nFrom there, he positions himself on top before pretending to throw elbows at his head. Ngannou then rolls away as they both get back to their feet, after which, Onana comes over to shake hands before they hug each other.\n\nThe day after, Ngannou shared photos from the visit on his Instagram with the following caption: \"It was a lot of fun last night at Old Trafford during the game against Bodo/Glimt. We chatted after the game with the man of the night, the one and only Andre Onana. Thanks to Manchester United and the staff for the jersey.\"\n\nSoon after, Onana shared the footage alongside the caption: \"I demand a rematch in a real ring! [boxing glove emoji] Let's settle this once and for all! Francis Ngannou.\"\n\nNgannou responded in a separate post: \"Andre Onana is asking for a rematch, and I don't think it's a good idea for him, but since he's insisting, I have no choice but to give the man what he wants.\" He also replied on X, formerly Twitter: \"Be careful what you ask for. It won't go well for you bro, but if you insist.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Francis Ngannou",
+          "raw_quote_text": "It was a lot of fun last night at Old Trafford during the game against Bodo/Glimt. We chatted after the game with the man of the night, the one and only Andre Onana. Thanks to Manchester United and the staff for the jersey.",
+          "summary": "I had a great time at Old Trafford, enjoying the game and chatting with Andre Onana.",
+          "id": "00caa4f2-8340-42b6-b36f-956a53594580",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Andre Onana",
+          "raw_quote_text": "I demand a rematch in a real ring! [boxing glove emoji] Let's settle this once and for all! Francis Ngannou.",
+          "summary": "I want a rematch in a real ring to settle this.",
+          "id": "4b747b62-6051-4b24-8289-5ef2ef495ad3",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Francis Ngannou",
+          "raw_quote_text": "Andre Onana is asking for a rematch, and I don't think it's a good idea for him, but since he's insisting, I have no choice but to give the man what he wants.",
+          "summary": "I'm not sure a rematch is a good idea for Andre, but I’ll give him what he wants.",
+          "id": "1faa822b-0f4d-4b7a-81b7-70a3d1082b27",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Francis Ngannou",
+          "raw_quote_text": "Be careful what you ask for. It won't go well for you bro, but if you insist.",
+          "summary": "Be careful what you wish for; it may not end well for you, but if you want it, let's go.",
+          "id": "00f8f6ad-0bd5-4233-ab64-b18640b49ba8",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/erik-ten-hag-left-himself-30487517",
+        "article_headline": "Erik ten Hag left himself on an island at Man United - he did something I would not have",
+        "article_text": "Erik ten Hag left himself on an island at Man United - he did something I would not have - Manchester Evening News\n\nFormer Chelsea boss Gus Hiddink believes Erik ten Hag made one key mistake during his time at Manchester United.\n\nBy\nMatty Hewitt\n\n20:00, 30 NOV 2024\n\nFormer Chelsea boss Gus Hiddink believes Erik Ten Hag took many coaches he was close with to Old Trafford which resulted in his downfall. The Reds parted company with the Dutch head coach last month after United made their worst start to a Premier League campaign in the club's history.\n\nTen Hag was followed by first-team coach Steve McClaren, Benni McCarthy and Richard Hartis to Old Trafford before all three left the club throughout the Dutchman's United reign. Ruud van Nistelrooy returned to Untied as assistant manager this summer, before becoming interim boss when Ten Hag was sacked.\n\nHiddink believes the outgoing Reds boss struggled to integrate into the United culture and left himself 'isolated' by bringing too many confidants with him to Old Trafford. Ten Hag was sacked after United's 2-1 defeat to West Ham United - their fourth of the campaign.\n\nHiddink, who won the FA Cup during a stint in charge of Chelsea, told Dutch outlet Voetbal Primeur: \"Everyone does it in their own way, but I was surprised at how many confidants Erik gathered around him.\n\n\"Then you end up on an island, which makes it more difficult to integrate into the culture of your new club and is watched with suspicion. I always took one assistant abroad with me, with whom I could map out things in the field of football.\n\n\"I therefore opted for local trainers and supervisors. People who knew the club or the country well. You play a role in how you are judged. Sometimes approach it with a wink. I mean, we are talking about football, not about war and peace.\n\n\"You should not respond to force that comes your way with force. Then it will explode somewhere.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Gus Hiddink",
+          "raw_quote_text": "[Reflecting on Erik ten Hag's approach] Everyone does it in their own way, but I was surprised at how many confidants Erik gathered around him. Then you end up on an island, which makes it more difficult to integrate into the culture of your new club and is watched with suspicion. I always took one assistant abroad with me, with whom I could map out things in the field of football. I therefore opted for local trainers and supervisors. People who knew the club or the country well. You play a role in how you are judged. Sometimes approach it with a wink. I mean, we are talking about football, not about war and peace. You should not respond to force that comes your way with force. Then it will explode somewhere.",
+          "summary": "I was surprised at how many confidants Erik had, which made it hard for him to integrate into the club's culture.",
+          "id": "dca92080-6580-4505-8464-4d0a0d95a07d",
+          "similar_to_quote_id": "e445ed59-a4f8-4fe4-b52e-6b880ab2d026",
+          "similarity_score": 0.617130875587463
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/arsenal-hit-huge-worry-ahead-30488795",
+        "article_headline": "Arsenal hit with huge worry ahead of Man United Premier League clash",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "error"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/how-man-uniteds-starting-xi-30485306",
+        "article_headline": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings",
+        "article_text": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings - Will Jenkins - Manchester Evening News\n\nThe summer transfer window will be a crucial time for Ruben Amorim as he looks to create his perfect Manchester United team under his formation.\n\nBy Will Jenkins\n\n*   07:30, 30 NOV 2024\n\nManchester United are set to have a busy time in the transfer window in the summer, when the team could face a big revamp under new head coach Ruben Amorim.\n\nThe Portuguese manager won his first game as manager of United on Thursday night. Along with being his first match at Old Trafford, a 3-2 win in the Europa League against Bode/Glimt gave Amorim his first taste of success in England.\n\nAmorim brought along his iconic three-back formation to Manchester. It's been clear that the players are still having to get used to it. However, with all new managers, Amorim will have a list of players that he wants to bring in to suit his tactics.\n\nWe have rounded up the six key possible signings that could change the dynamic of Manchester United.\n\n### **Geovany Quenda**\n\nThe 17-year-old is a player who Amorim adores from his Sporting CP days. Quenda would be following the likes of Cristiano Ronaldo and Bruno Fernandes if he changes the green and white stripes of Lisbon for the red of United.\n\nThe Portuguese manager handed the youngster his debut in August and the wing-back has played every game since. Wing-backs are essential to Amorim's shape as they have the important job to manage the attack down the ring whilst still maintaining their defensive duties.\n\nThe key thing with this potential signing is that Amorim trusts Quenda. Their relationship could build into the kind of connection Ronaldo and Sir Alex Ferguson had. Reports are that the 17-year-old has a £83m release clause in his contract which could be an issue - although the MEN reported on Friday that United representatives have already met with the player's agent Jorge Mendes ahead of a potential move.\n\n### **Christopher Nkunku**\n\nThe Chelsea forward is claimed to be a player of interest to United by TEAMtalk. The French international hasn't had the easiest start to his time at the Blues. A knee injury forced him out of play last season for a good chunk of the year. Now fit and ready, he is still only experiencing a small amount of minutes, mainly appearing in the Conference League.\n\nAgain, Nkunku would be an ideal move for Amorim as he has experience playing with a three back during his time at RB Leipzig. Although he is now primarily used as a winger, Nkunku also has experience in a centre forward role, a position which Amorim is experimenting with.\n\nA permanent move away from Chelsea looks unlikely; however, a loan move in January could be possible with the Frenchman unhappy in London.\n\n### **Viktor Gyokeres**\n\nOne of the hottest strikers on the market, Gyokeres has a fantastic relationship with Amorim already from Sporting. Under the Portuguese boss, the striker managed 16 goals in 11 league games. Thus, the Swedish forward knows how to play to Amorim's dynamic, but the boss also understands how to get the most out of his forward.\n\nIn Amorim's first two games, he has played with two different central strikers in Rashford and Rasmus Hojlund. Hojlund has been the most successful, grabbing a brace in the Europa League on Thursday.\n\nBringing the Swede into United would put the £100m+ signings of Hojlund and Joshua Zirkzee in jeopardy, but performances can pay.\n\n### **Matheus Cunha**\n\nAnother striker linked is Wolverhampton's main man Cunha. The Midlands side have just picked up their season, making two wins in a row recently. Now, manager Gary O'Neil's understanding to fill the gaps may require big names like Cunha being sold.\n\nThe striker cost Wolves £43m and they'll likely be looking for a profit on the Brazilian. Although Wolves are struggling, Cunha has bagged 7 goals from 12 games, better than the likes of Ollie Watkins, Bukayo Saka, and Luis Diaz.\n\nAmorim will be wise not to overload his attacking options. Cunha can also play in attacking midfield, hinting towards a new role for captain Bruno Fernandes.\n\n### **Rayan Ait-Nouri**\n\nIt looks like it could be double Wolves' for Amorim as the Algerian star Ait-Nouri has caught his eye. The defender's contract expires in 2026 and reports say he wants a move away from the club. Amorim is certainly looking to expand his defensive options, especially at left-back.\n\nAn essential factor is the relegation fear for Wolves. Despite some recent wins, they still are afloat above relegation thanks to a better goal difference. Surely Ait-Nouri would prefer European football to second-tier football.\n\n### **Verdict**\n\nAmorim would have exciting options at his disposal should he pull off a major summer revamp at United. Should that happen, United's possible starting XI next season could be: Onana; Yoro, De Ligt, Martinez; Mazraoui, Fernandes, Ugarte, Ait-Nouri; Nkunku, Cunha; Gyokeres.\n\nGet United transfer news and updates on WhatsApp!",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "The key thing with this potential signing is that Amorim trusts Quenda. Their relationship could build into the kind of connection Ronaldo and Sir Alex Ferguson had.",
+          "summary": "I trust Quenda, and our relationship can grow like that of Ronaldo and Ferguson.",
+          "id": "e516a491-029c-4671-855f-7ca2ed4cc461",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Amorim will be wise not to overload his attacking options.",
+          "summary": "I must be careful not to overload our attack.",
+          "id": "caa2a652-db3f-466a-b503-fc00c7718a2f",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-handed-perfect-30483310",
+        "article_headline": "Chido Obi-Martin handed perfect chance to deliver on Manchester United backing",
+        "article_text": "Chido Obi-Martin handed perfect chance to deliver on Manchester United backing - Manchester Evening News\n\nThe talented youngster signed professional terms with United this week.\n\nBy\n\nSean Sweeney\n\nDanish wonderkid Chido Obi-Martin signed his first professional contract with Manchester United this week.\n\nSigned in October from Arsenal, Obi-Martin has made four appearances for the United Under-18s and scored four goals including a hat-trick against Nottingham Forest.\n\nHe’s already impressed in his time at Arsenal and is continuing to impress in United’s academy. With a trip to Stoke in the under-18s Premier League this morning, can Obi-Martin continue his rich vein of form and make himself an option in Ruben Amorim’s plans?\n\nObi-Martin’s stats speak for themselves when considering the talent he has. In the 21 matches he played for the Arsenal Under-18s, he scored 32 goals and provided three assists.\n\nWhile Arsenal looked to keep him past the end of his contract, he instead chose to look elsewhere and made his move to Carrington in October.\n\nToday, only eight weeks after signing for United he started his professional contract making him eligible to play for the first team. With United in need of more striking options as Joshua Zirkzee and Ramus Holjund struggle for consistent form, Obi-Martin has the chance to impress tomorrow against Stoke City to put himself in Amorim's long term thinking.\n\nUnited are currently top of the Under-18s Premier League table with a five-point lead over rivals Manchester City. They have been in imperious form this season as they look to retain their crown. United have won nine out of nine this season, scoring 43 goals and only conceding four. On the back of a 3-0 win at home to Everton, they will be looking to continue their unbeaten streak with victory tomorrow.\n\nIf Obi-Martin can continue his goalscoring talents tomorrow, it will be interesting to see how quickly Amorim looks to move him into first team contention. With Holjund scoring two last night against Bodo/Glimt, competition for starting in that centre-forward position is fierce. It will only continue to become more fierce as speculation increases about United looking to launch a record-breaking transfer for Sporting Lisbon’s Viktor Gyokeres. The Swede’s goalscoring talents are just as impressive as Obi-Martin’s on a bigger stage and Amorim has a familiar relationship with him. However, if the Dane's incredible goalscoring record at youth level continues to catch the eye, it won't be long until we see him tested at senior level.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/arsenal/jorginho-west-ham-united-premier-league-230330-20241130",
+        "article_headline": "Fans are left furious after spotting what Jorginho did during Arsenal's 5-2 win over West Ham United",
+        "article_text": "**Fans are not happy with Arsenal midfielder Jorginho after spotting his behaviour during his side's win over West Ham United.**\n\nArsenal made it three wins in three matches on Saturday as they comfortably beat local rivals West Ham United 5-2 in a Premier League clash at the London stadium.\n\nFive different players each found the back of the net for the Gunners, with Gabriel, Leandro Trossard, Martin Odegaard, Kai Havertz and Bukayo Saka all scoring in the match.\n\nHowever, the goalscorers are not the player that fans are talking about, as they took to social media to criticise the behaviour of one Arsenal player during the closing moments of the game.\n\nIn the closing moments of the match, midfielder Jorginho appeared to block the view of West Ham keeper Lukasz Fabianski after Arsenal were awarded a free kick in a dangerous position.\n\nAfter complaints from the Polish keeper, referee Anthony Taylor intervened to tell Jorginho to move to allow Fabianski to see the incoming free kick better, but that didn't stop fans speaking up about the incident.\n\nReacting to the moment online, one fan wrote on X: \"Jorginho ridiculous! Anti-football, disgraceful\"\n\nWhile one asked: \"What sort of barbaric sportsmanship was that?\"\n\nAnother criticised the midfielder, adding: \"Jorginho blocking the view of Fabianski when he’s setting up his wall in the 90th minute when the game is all done really tells you everything about his character.\"\n\nAnd one Arsenal fan joked: \"Jorginho trying some dark arts against Fabianski.\"\n\nUltimately, even if Arsenal had gone on to score another goal as the visitors were comfortably ahead when the incident occurred.\n\nThe result makes it three wins in a row for Arsenal after they dropped points to Newcastle United and Chelsea in the Premier League and Inter Milan in the Champions.\n\nIt takes Mikel Arteta's side up to second in the League with 25 points and puts pressure on both first-placed Liverpool and fourth-placed Manchester City who play each other at Anfield on Sunday.\n\nNext time out for the Gunners, they welcome Ruben Amorim to the Emirates as they host Manchester United in a midweek Premier League fixture.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Unnamed fan on X",
+          "raw_quote_text": "[reacting to Jorginho's actions] Jorginho ridiculous! Anti-football, disgraceful",
+          "summary": "I find Jorginho's actions disgraceful and anti-football.",
+          "id": "eea03b3a-e7c3-4027-b463-5d325c16704f",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Unnamed fan",
+          "raw_quote_text": "[questioning Jorginho's sportsmanship] What sort of barbaric sportsmanship was that?",
+          "summary": "I question the barbaric sportsmanship displayed by Jorginho.",
+          "id": "06b0d3a9-1a61-4998-9882-d1f32efc2bf2",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Unnamed critic",
+          "raw_quote_text": "[commenting on Jorginho's character] Jorginho blocking the view of Fabianski when he’s setting up his wall in the 90th minute when the game is all done really tells you everything about his character.",
+          "summary": "Jorginho's actions reveal a lot about his character.",
+          "id": "af53de22-55b3-46ca-be36-725904dd5291",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Unnamed Arsenal fan",
+          "raw_quote_text": "[joking about Jorginho] Jorginho trying some dark arts against Fabianski.",
+          "summary": "I'm joking that Jorginho was using dark arts against Fabianski.",
+          "id": "d99cb811-ce36-4300-a753-d0b0cfe079ab",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/29/premier-league-10-things-to-look-out-for-this-weekend",
+        "article_headline": "Ten things to look out for this weekend",
+        "article_text": "Premier League: 10 things to look out for this weekend | Soccer | The Guardian\n===============\nFraser Forster steps up for Spurs, while the threat level is at its highest for Manchester City at Anfield\n\n1\n\nVeltman can lead Seagulls to second\n-----------------------------------\nFabian Hürzeler singled out Joël Veltman as one of the Premier League’s most underrated players as Brighton prepare to face the bottom side, Southampton, on Friday. “He knows what to do to win games,” Hürzeler said of the Netherlands defender, who has started all but one of Brighton’s league games so far. Veltman – who spent eight years at Ajax before moving to the Amex in 2020 for £900,000 – is 11 months older than his manager and his experience has proved invaluable to his side in the absence of the captain, Lewis Dunk, through injury. He is expected to return against Russell Martin’s side as Brighton attempt to record a fourth clean sheet of the league season, not to mention take the opportunity to move into second place before the rest of the weekend’s fixtures. **Ed Aarons**\n\n*   _Brighton v Southampton, Friday 8pm (all times GMT)_\n\n2\n\nA new Foxes era under Van Nistelrooy?\n-------------------------------------\nUnencumbered by any previous association with Nottingham Forest, Ruud van Nistelrooy would probably be a popular appointment at the King Power Stadium, with all available evidence at the time of writing suggesting the Dutchman’s first match in charge of Leicester could even be at the unlikely fortress that is the Gtech Community Stadium. During his spell as interim manager of Manchester United, Van Nistelrooy made no attempt to disguise his enthusiasm for the job and brings trophy-winning experience to Leicester having won the Dutch Cup in his sole season in charge of PSV Eindhoven. Tactically flexible with whatever players he has at his disposal, Van Nistelrooy’s preferred style is to marry quick, attacking intent with defensive solidity and could quickly endear himself to a fanbase that took no time at all to tire of Steve Cooper’s defensive approach. The approach he adopts against the side with the top flight’s best home record will be intriguing. **Barry Glendenning**\n\n*   _Brentford v Leicester, Saturday 3pm_\n\n3\n\nPalace keen for returns to boost chances\n----------------------------------------\nWhile the performances have improved, Oliver Glasner will be concerned that the wins have yet to materialise for Crystal Palace. The Austrian will be hoping that Eberechi Eze can make his comeback against Newcastle after a hamstring injury that has sidelined him since the win over Aston Villa in the EFL Cup last month, with Adam Wharton also closing in on a return for a tricky run of fixtures over the next few weeks that includes trips to Ipswich and Brighton, and home games against Manchester City and Arsenal. A repeat of April’s 2-0 win over Newcastle at Selhurst Park courtesy of two goals from Jean-Philippe Mateta would settle the nerves in south London, with Ismaïla Sarr likely to start for a fourth successive match after his first Premier League goal against Villa last week. **EA**\n\n*   _Crystal Palace v Newcastle, Saturday 3pm_\n\n4\n\nOld-school strikers at City Ground\n----------------------------------\nHaving suffered back-to-back losses for the first time this season, Nottingham Forest welcome Ipswich to the City Ground and will be hoping to rediscover the defensive mojo that served them so well before their recent reverses. After conceding only seven goals in their opening 10 matches of the campaign, Nuno Espírito Santo’s side have shipped six in their past two and, in Liam Delap, Forest’s central defensive duo of Murillo and Nikola Milenkovic will have to deal with quite the handful. Strong as a bull and a terrific ball-carrier who is as fast as he is fearless, the Ipswich striker’s battle against one of the league’s most impressive defensive partnerships this season ought to make for compelling viewing. In Chris Wood, Forest have a comparatively elderly bulldozer of their own and with both centre-forwards in form and responsible for half their sides’ combined Premier League goal tally of 28, this could be a classic battle of the big men. **BG**\n\n*   _Nottingham Forest v Ipswich, Saturday 3pm_\n\n5\n\nCunha gives improving Wolves bite\n---------------------------------\nWolves’ top-flight matches have seen 48 goals this season, more than any other team, but more important for Gary O’Neil his side have proved the entertainers in recent weeks. Wolves have scored six goals across their past two matches, Matheus Cunha contributing half of them, but in truth their ability to score was never the primary source of concern. Only Mohamed Salah, Erling Haaland, Cole Palmer and Bukayo Saka this season have been involved in more goals than Cunha, who has provided seven goals and three assists. Wolves have kept a sole clean sheet in the league and, out of necessity, their captain, Mario Lemina, dropped to centre-back in the victory against Fulham last time out. With Santiago Bueno and Craig Dawson returning to fitness before hosting Bournemouth, suddenly Wolves are looking up. Andoni Iraola knows all about that, having kicked off the month by beating Manchester City. **Ben Fisher**\n\n*   _Wolves v Bournemouth, Saturday 3pm_\n\n6\n\nSoler offers ray of light for West Ham\n--------------------------------------\nThere was not unanimous agreement at West Ham over the decision to sign Carlos Soler on loan from Paris Saint-Germain last summer. Julen Lopetegui wanted the Spain midfielder but others were not as convinced. Some in the recruitment department had eyes on Chelsea’s Carney Chukwuemeka. Yet Lopetegui got his way and the first sign that he might have made the right call came in West Ham’s win at Newcastle on Monday. Soler had not looked up to the pace of the Premier League previously. He was taken off at half-time against Manchester United last month, but was impressive at St James’ Park. Playing in a central role, Soler’s quick thinking in possession made West Ham slicker on the ball. Lopetegui will hope that resurgence continues against Arsenal. **Jacob Steinberg**\n\n*   _West Ham v Arsenal, Saturday 5.30pm_\n\n7\n\nRotation of egos a test for Maresca\n-----------------------------------\nIt is a tricky balancing act for Enzo Maresca at Chelsea. Enzo Fernández was out for a while, then in again. The midfielder has five assists in three games, cooling talk of a departure. For Maresca, though, it is not easy to keep every member of his squad happy. João Félix looked miffed not to come off the bench against Arsenal early this month. The Portugal attacker made a surprise start against Leicester last week, with Pedro Neto unavailable, but what of Christopher Nkunku, Mykhailo Mudryk and Jadon Sancho? There have been noises in recent weeks about Nkunku getting frustrated over his lack of game time. Sancho, meanwhile, has not started in more than a month and Mudryk remains an enigma. Will there be opportunities against Aston Villa? Maresca has a lot of attacking options and things are going well at the moment, but managing the egos in his squad will challenge the Italian. **JS**\n\n*   _Chelsea v Aston Villa, Sunday 1.30pm_\n\n8\n\nAmorim hopes to flower goal desert\n----------------------------------\nIn this third game of a nascent Manchester United tenure, Ruben Amorim will hope to see firm signs of “the idea” of playing he references taking hold in his players. Prime in this vision has to be creating more chances because United are arid when going forward, a desert before goal, Thursday night’s 3-2 Europa League win against Bodø/Glimy notwithstanding. Sean Dyche sets his sides up pragmatically so Everton, only five points behind the hosts, will be an apt test of this. Dyche will plot to turn United over on their own patch, and with Old Trafford expectant that, finally, Amorim can be the man, this should be a riveting watch. **Jamie Jackson**\n\n*   _Manchester United v Everton, Sunday 1.30pm_\n\n9\n\nForster’s time to shine against Fulham\n--------------------------------------\nTottenham have won six and lost five of their 12 Premier League matches this season, their only draw coming against Leicester in an opening game they might have lost but for two fine saves from Guglielmo Vicario. The Italian goalkeeper will be absent for the foreseeable future, his fractured ankle the large cloud that overshadowed Tottenham’s fine win over Manchester City last weekend. The job of deputising for Vicario will presumably fall to Fraser Forster, a state of affairs that has prompted much agonising over the 36-year-old’s ability – or perceived lack thereof – to play a style of football where he is required to ping short passes to his defenders. Ange Postecoglou has dismissed any such concerns, telling reporters it is a skill more related to mindset than ability. No doubt aware of concerns over the drop-off in quality between himself and Vicario, now is the time for Tottenham’s hulking backup goalkeeper to demonstrate he can also be mentally imposing. **BG**\n\n*   _Tottenham v Fulham, Sunday 1.30pm_\n\n10\n\nThreat level highest for Guardiola\n----------------------------------\nArne Slot has brought the Midas touch to Liverpool but, of all the accomplishments in his remarkable start, none would surpass the likelihood of releasing Manchester City’s four-year grip on the Premier League title on the first day of December. The prospect of going 11 points clear of the champions with an 18th win in 20 matches under Slot makes this a hugely anticipated and consequential moment for Liverpool. Yet the stakes are even higher for City. Five defeats in six games and a late collapse to draw against Slot’s former club Feyenoord have drained belief from Pep Guardiola’s players. Without Rodri they appear as fragile as Liverpool were in the aftermath of losing Virgil van Dijk to a season-ending anterior cruciate ligament injury in 2020. Josko Gvardiol’s error-strewn performances are an added problem for Guardiola, who must decide whether to risk playing the Croatian against Mohamed Salah. City’s famed powers of recovery are merely an illusion at present. They must rediscover them at Anfield, where Guardiola has never won in front of a crowd. **Andy Hunter**\n\n*   _Liverpool v Manchester City, Sunday 4pm_\n| Pos | Team | P | GD | Pts |\n| --- | --- | --- | --- | --- |\n| 1 | Liverpool | 12 | 16 | 31 |\n| 2 | Man City | 12 | 5 | 23 |\n| 3 | Chelsea | 12 | 9 | 22 |\n| 4 | Arsenal | 12 | 9 | 22 |\n| 5 | Brighton | 12 | 5 | 22 |\n| 6 | Tottenham Hotspur | 12 | 14 | 19 |\n| 7 | Nottm Forest | 12 | 2 | 19 |\n| 8 | Aston Villa | 12 | 0 | 19 |\n| 9 | Fulham | 12 | 0 | 18 |\n| 10 | Newcastle | 12 | 0 | 18 |\n| 11 | Brentford | 12 | 0 | 17 |\n| 12 | Man Utd | 12 | 0 | 16 |\n| 13 | AFC Bournemouth | 12 | -1 | 15 |\n| 14 | West Ham | 12 | -4 | 15 |\n| 15 | Everton | 12 | -7 | 11 |\n| 16 | Leicester | 12 | -8 | 10 |\n| 17 | Wolverhampton | 12 | -8 | 9 |\n| 18 | Ipswich | 12 | -10 | 9 |\n| 19 | Crystal Palace | 12 | -7 | 8 |\n| 20 | Southampton | 12 | -15 | 4 |",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Fabian Hürzeler",
+          "raw_quote_text": "He knows what to do to win games.",
+          "summary": "He understands what it takes to win.",
+          "id": "6d989d02-7c8f-4fdc-9c9a-7fc6a912ea57",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "the idea of playing he references taking hold in his players.",
+          "summary": "I hope to see my playing philosophy taking hold.",
+          "id": "a23c7d8d-5cc0-464a-bcda-6520aa1df551",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Ange Postecoglou",
+          "raw_quote_text": "it is a skill more related to mindset than ability.",
+          "summary": "The skill is more about mindset than ability.",
+          "id": "67ff73f2-74c4-4031-8f29-77056cfd3283",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    }
+  ]
+}

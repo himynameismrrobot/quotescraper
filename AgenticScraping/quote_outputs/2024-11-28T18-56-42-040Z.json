@@ -1,0 +1,945 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-28T18:56:42.040Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/articles/cvgw6y6p19eo",
+        "article_headline": "22:17 27 November Man Utd fans criticise ticket prices - as club reveals manager change costs",
+        "article_text": "Manchester United: Fan groups protest against 'offensive' ticket price rises - BBC Sport\n===============\n\n![Image 1: A view of the exterior of Old Trafford](https://ichef.bbci.co.uk/ace/standard/1008/cpsprodpb/feea/live/c235abf0-acff-11ef-91b6-596e8853c220.jpg)Image source, Getty Images\n\nImage caption,\n\nFans are planning a protest against the price rises at Old Trafford on Sunday\n\n[Simon Stone](https://www.bbc.co.uk/sport/topics/c8gr7dqlp5pt)\n\nChief football news reporter\n\n*   Published\n    \n    27 November 2024\n\n**Manchester United have been accused of exploiting fans after taking the mid-season decision to raise matchday ticket prices to £66 per game, with no concessions for children or pensioners.**\n\nIt comes as the club confirmed the cost of paying off former boss Erik ten Hag and his staff was £10.4m, while the cost of paying a release clause to bring in his replacement Ruben Amorim was £11m.\n\nUnited have put the raised prices on their website, having told their fans' forum of the move on Tuesday.\n\nThe club privately say the decision will only affect a small number of supporters as 97% of available tickets have already been sold.\n\nHowever, the remainder will be subject to the increase.\n\nIn an open letter to United chief executive Omar Berrada, the 1958 fans' group described the decision as \"clear exploitation of our loyal fanbase\".\n\nThe 1958 group, which led protests against the Glazer ownership before Ineos agreed a part-purchase of the club last December, said it was planning a joint protest with Everton supporters before Sunday's Premier League game between the clubs at Old Trafford.\n\nUnited allow season ticket holders to sell back to the club any individual tickets they do not intend to use.\n\n\"The club will then resell the ticket at a higher price,\" said the 1958 group. \"This is 'corporate touting' at its finest and simply unacceptable.\"\n\nManchester United Supporters' Trust also criticised what it called an \"offensive\" move it says was taken without any fan consultation.\n\n\"We have objected to this action in the strongest possible terms,\" the group said, adding it was \"seeking urgent discussions with the club to get them to listen to fans' concern at this policy\".\n\nUnited argue they need to generate as much money as possible in order to stay within the Premier League's profit and sustainability rules, while bringing in players they hope will make Amorim's squad competitive.\n\nManager change costs topped £20m\n--------------------------------\n\nIn their first-quarter financial results released on Tuesday, United revealed they had spent £8.6m as part of a redundancy programme that has led to about 250 employees losing their jobs.\n\nCritics have pointed out this sum is tiny compared to the amounts ploughed into the first team, who have slumped into the bottom half of the Premier League and won just seven out of 18 competitive games in all competitions - form that triggered the dismissal of manager Ten Hag.\n\nIn addition to paying off Ten Hag and his staff they appointed Amorim after paying a release clause to Portuguese club Sporting.\n\nA longer version of the first-quarter accounts was released to the New York Stock Exchange on Wednesday, revealing the full cost of sacking Ten Hag and meeting Amorim's release clause.\n\nUnited are not the only club to have increased ticket prices this season.\n\nEven though the Premier League has agreed new TV deals worth £6.7bn for its UK market alone over the next four years, almost all clubs have confirmed increases, leading to widespread protests and the Football Supporters' Association launching a 'Stop Exploiting Loyalty' campaign.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "1958 Fans' Group",
+          "raw_quote_text": "[In an open letter to the club's chief executive] We have described the decision as \"clear exploitation of our loyal fanbase\".",
+          "summary": "We believe this decision exploits our loyal fans.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes authorial context in brackets, making it invalid."
+        },
+        {
+          "speaker_name": "1958 Fans' Group",
+          "raw_quote_text": "\"This is 'corporate touting' at its finest and simply unacceptable.\"",
+          "summary": "This is blatant corporate ticket reselling and is unacceptable.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Manchester United Supporters' Trust",
+          "raw_quote_text": "\"We have objected to this action in the strongest possible terms, seeking urgent discussions with the club to get them to listen to fans' concern at this policy.\"",
+          "summary": "We're strongly opposing this and want the club to address fans' concerns.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nLatest updates\n--------------\n\n1.  **Simon Stone**  \n    Chief football news reporter\n    \n    Norwegian side Bodo/Glimt flew into Manchester on Wednesday before the Europa League match with Manchester United at Old Trafford.\n    \n    While Glimt are currently establishing themselves as Norway's top team, that has not always been the case.\n    \n    Sporting director Havard Sakariassen used to be a player at the club and he remembered a period where the squad had to wash their own kit.\n    \n    \"If you go back to the year in 2009-2011, the club was struggling really hard financially,\" he said.\n    \n    \"I had my last season in 2011 as a player. In mid-season that year I quit. I was old and not any good. I left the changing room and went upstairs.\n    \n    \"At that time the club was in such bad conditions that we didn't have a kit manager. We washed our training gear at home and came to training already dressed. That was the situation at Bodo/Glimt in 2011.\n    \n    \"We had one person working for the A team that autumn. That was me. I was the kit man.\"\n    \n    Even though the Norwegian champions accept they can never come close to matching the financial muscle Premier League clubs receive, they do not travel to Manchester without belief of causing a shock.\n    \n    \"We don't have the resources you see at top clubs in England,\" Sakariassen added. \"We will never, ever be able to compete with that.\n    \n    \"But we truly believe in development and that we can get the potential out of the players we have here. If we can do that, as individuals and as a team, it is huge. Then you can make a great team and it goes a long way.\n    \n    \"Maybe I am naive. But in a single match like on Thursday, I think we will be able to compete against Manchester United and have a great performance at Old Trafford.\"\n    \n    **Simon Stone**  \n    Chief football news reporter\n    \n    New Manchester United coach Ruben Amorim has an unusual way of singling out players when he is making generic points.\n    \n    He did it on Sunday when he spoke about his players having difficulties adapting to his new system, pointing to an instance when Jonny Evans found himself in the wrong place.\n    \n    Today in his news conference, Amorim explained he was using Evans to emphasise the point he was making rather than being critical.\n    \n    A couple of answers later, he was talking about players needing to score goals and said Amad Diallo needs to be better at it.\n    \n    This is good, but it is also a bit dangerous because at some point the subtlety might be lost and it will come across as a direct criticism, which it isn't.\n    \n    Then, it will turn into a storm he then has to deal with when he next speaks to the media.\n    \n    Manchester United captain Bruno Fernandes says he is confident of fitting in to Ruben Amorim's new system at Old Trafford.\n    \n    \"You always have to adapt to different ideas and positions, even sometimes playing in the same system you have to adapt to different ideas of playing,\" said Fernandes before Thursday's Europa League game against Norwegian champions Bodo/Glimt.\n    \n    \"It is not difficult for me to adapt in any position. I am really well aware of that.\n    \n    \"During training I try to absorb everything, from every position. I try to have an understanding of the game because being the captain, the manager cannot always give the message from the bench to the pitch. As captain, you have to try to resolve the situation together with your team-mates. Having knowledge of every position is my role.\"\n    \n    Fernandes has four goals and two assists in his past five games in all competitions in November after initially struggling for goal contributions at the start of the season. He is confident he will settle quickly into Amorim's tactical setup.\n    \n    \"I think [adapting to the system] could probably be worse for the younger players - I know what the Sporting players were doing very well,\" he added. \"Not because I was reading what the manager was doing, but because I was watching their games!\"  \n    \n    \"We are international players. Every time you go to the national team, you probably play in a different system. With Portugal, we sometimes play with a back three. I've had that experience of the manager's formation already.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "[Reflecting on Bodo/Glimt's past struggles] \"If you go back to the year in 2009-2011, the club was struggling really hard financially,\" he said. \"I had my last season in 2011 as a player. In mid-season that year I quit. I was old and not any good. I left the changing room and went upstairs. At that time the club was in such bad conditions that we didn't have a kit manager. We washed our training gear at home and came to training already dressed. That was the situation at Bodo/Glimt in 2011. We had one person working for the A team that autumn. That was me. I was the kit man.\"",
+          "summary": "I remember when between 2009 and 2011, the club struggled financially, and as a player, I had to wash my own kit.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Havard Sakariassen",
+          "raw_quote_text": "[Acknowledging financial limitations] \"We don't have the resources you see at top clubs in England. We will never, ever be able to compete with that. But we truly believe in development and that we can get the potential out of the players we have here. If we can do that, as individuals and as a team, it is huge. Then you can make a great team and it goes a long way. Maybe I am naive. But in a single match like on Thursday, I think we will be able to compete against Manchester United and have a great performance at Old Trafford.\"",
+          "summary": "We can't match the financial power of top clubs, but we believe in our development and can compete on the day.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Bruno Fernandes",
+          "raw_quote_text": "[On adapting to the new system] \"You always have to adapt to different ideas and positions, even sometimes playing in the same system you have to adapt to different ideas of playing. It is not difficult for me to adapt in any position. I am really well aware of that. During training I try to absorb everything, from every position. I try to have an understanding of the game because being the captain, the manager cannot always give the message from the bench to the pitch. As captain, you have to try to resolve the situation together with your team-mates. Having knowledge of every position is my role.\"",
+          "summary": "I adapt to different ideas and positions easily, and as captain, it's my job to understand the game and help my teammates.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Bruno Fernandes",
+          "raw_quote_text": "[On his adaptation experience] \"I think [adapting to the system] could probably be worse for the younger players - I know what the Sporting players were doing very well. Not because I was reading what the manager was doing, but because I was watching their games! We are international players. Every time you go to the national team, you probably play in a different system. With Portugal, we sometimes play with a back three. I've had that experience of the manager's formation already.\"",
+          "summary": "Younger players might struggle more than I do since I've seen how others adapt to different systems, including my national team.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-bodo-glimt-live-30468119",
+        "article_headline": "Manchester United vs Bodo/Glimt LIVE early team news and how to watch Europa League fixture",
+        "article_text": "Manchester United vs Bodo/Glimt live team news as Tyrell Malacia, Rasmus Hojlund and Mason Mount start - Manchester Evening News\n\nLive updates from Old Trafford as Man United take on Bodo/Glimt in the Europa League in Ruben Amorim's first home game in charge.\n\nBy\n\nSamuel LuckhurstChief Manchester United writer\n\nTyrone MarshallSenior Football Writer\n\nSteven Railston\n\n*Updated18:48, 28 NOV 2024*\n\nManchester United face Bodo/Glimt in the Europa League on Thursday night. \n\nHead coach Ruben Amorim will be targeting a victory in his first home game in charge of Manchester United when they face Bodo/Glimt in the Europa League this evening.\n\nAmorim started his United tenure with a 1-1 draw against Ipswich Town at Portman Road on Sunday and will now be determined to oversee his first win since succeeding Erik ten Hag earlier this month.\n\nUnited have won just one of their opening four Europa League outings this season, drawing three, meaning they need to up the ante in their quest to automatically qualify for the knockout stages.\n\nAmorim, who has made no secret of his determination to win his first home game as United boss, could make changes to his starting XI this evening, admitting at Wednesday's press conference that rotation will be key in the coming weeks.\n\nUnited head into tonight's match looking to record a fourth home win in their last five Old Trafford outings after getting the better of Leicester City, both in the Premier League and the Carabao Cup, and PAOK during Ruud van Nistelrooy's stint in interim charge.\n\n**Follow the LIVE blog below for regular updates and analysis from Old Trafford...**\n\nKey Events\n\n18:48Tyrone Marshall\n### Fernandes in a deeper role\n\nI thought Fernandes was at his best on Sunday when he was switched to that deeper role and it’s going to be interesting to see him there from the off tonight. He played his debut there against Wolves and then had a small spell there under Ten Hag. His range of passing can be an asset in that position, but Amorim did say at the weekend that he needs to stop him from playing the long pass as often as he does.\n\n18:48Samuel Luckhurst\n### Amorim makes six changes\n\nThat’s a substantial six changes. It’s not a surprise after Amorim promised to rotate. United have a more important game on Sunday, too.\n\nIt will be a pleasant surprise if tonight is plain sailing for United. Six changes in a new formation, with Mount starting for the first time since August, Malacia for the first time since May 2023 and Antony for the first time since September, means there could be a lot of fine-tuning required.\n\n18:46Steven Railston\n### TEAM NEWS | BODO/GLIMT STARTING XI\n\n18:45KEY EVENT\n### TEAM NEWS | UNITED STARTING XI\n\nXI | Onana, Antony, Mazraoui, De Ligt, Martinez, Malacia, Fernandes, Ugarte, Mount, Hojlund, Garnacho.\n\nSubs | Bayindir, Heaton, Dalot, Shaw, Casemiro, Eriksen, Mainoo, Amad, Rashford, Zirkzee.\n\n18:35Steven Railston\n### 10 minutes until team news\n\nNot long until we have the starting teams confirmed.\n\n18:29Tyrone Marshall\n### Malacia could start\n\nThe social media leaks are suggesting Tyrell Malacia could be in line for a first appearance for United since May 2023. He made his comeback for the Under-21s against Huddersfield two weeks ago and looked solid in a 50-minute outing, but this is a significant step up if he does start, especially with the work rate required to play as a wing-back in Amorim’s system.\n\n18:27Samuel Luckhurst\n### Antony and Hojlund to start?\n\nOne of the early whispers is that Antony and Rasmus Hojlund will start with Bruno Fernandes in the front three. That is unconfirmed until an hour and 15 minutes before kick-off.\n\n18:21Samuel Luckhurst\n### Sancho started for Chelsea\n\nIt appears Jadon Sancho is playing a match of football. It has gone quiet about United letting him go after a couple of stats-padding appearances for Chelsea. Nobody has ever watched United this season and concluded, “They missed Sancho today.” And they never will.\n\nAs for the Europa League, United have currently dropped down to 18th. Results are going against them! Alas, there is no jeopardy even if they drop more points against more minnows tonight.\n\n18:08Tyrone Marshall\n### Who will Amorim start?\n\nBe interesting to see how Amorim treats this game tonight and how the team evolves from Sunday. Options to bring players in and the likes of Shaw, Ugarte, Mainoo and Hojlund should be pushing for starts. It would be good to see Mount given a start as well, Amorim clearly likes him. He has always had a reputation for being a coach’s dream and he looks a good fit for one of the No. 10 roles in this side.\n\n18:02Steven Railston\n### Amorim's programme notes\n\nAmorim's appointment makes this game exciting.\n\n17:54Samuel Luckhurst\n### Amorim's first game at Old Trafford\n\nThere will be more interest around Amorim’s first Premier League home game at the weekend but tonight’s tie is undeniably more anticipated now United have a new coach. Bodo/Glimt are one of those teams you underestimate at your peril and United have form for easing off the gas against the purported fodder of the Europa League. Twente is recent proof of that and PAOK had the odd moment at the start of the month.\n\nSo far, so much the same. United have arrived in good time for the game. Ten Hag wanted to relocate to a hotel before home matches last season but was overruled. With money tight, the Ineos cabal best be justifying their existence.\n\n17:42Tyrone Marshall\n### It is freezing cold\n\nIt’s a freezing cold night at Old Trafford, so the team from the Arctic Circle will be right at home. They will also feel at home backed by more than 6,000 fans, who have been making quite a noise and made for quite a sight in Manchester today. It could be some week for the club and their supporters. They play at Old Trafford tonight and on Sunday they just need to beat already relegated Lillestrom at home to win the Norwegian title on the final day of the season.\n\n17:35Steven Railston\n### Will Fernandes be rested?\n\nHe spoke alongside Amorim at yesterday's press conference/\n\n17:12Steven Railston\n### Martinez back in the squad\n\nThe centre-back is available again after recovering from a back injury.\n\n16:48Steven Railston\n### Amorim issues warning to Rashford\n\nAmorim has stressed Marcus Rashford has \"to want it\" if he is to regain his prolific form.\n\n> \"I will try to help him,\" Amorim said. \"That position is not the best one for him, especially in a game like that. We have to kick with high pressure, we have to kick the ball so many times and it was like fighting with two giants.\n> \n> \"We'll try to find the right solution for him, as for the other players. But he has to be Marcus, first of all, to try to return to that moment and then he will have all the help of the staff, the club and the fans because he's a Manchester United boy. But he has to be the first one to want it.\"\n\n16:33Steven Railston\n### United vs Bodo/Glimt odds\n\nAnd United are heavy, heavy favourites to win tonight.\n\n**Betfair - match odds**\n\n*   Man Utd - 1/7\n*   Draw - 5/1\n*   Bodo Glimt - 12/1\n\nOdds via Betfair\n\n16:32Steven Railston\n### Europa League odds\n\nUnited are second favourites to win the Europa League.\n\n**Betfair - Europa League odds**\n\n*   Tottenham - 7/2\n*   Man Utd - 11/2\n*   Athletic Bilbao, Lazio - 9/1\n*   Real Sociedad - 10/1\n*   Roma, Porto, Galatasaray - 14/1\n*   Lyon - 16/1\n*   Eintracht Frankfurt - 18/1\n*   Ajax - 18/1\n*   Olympiacos, Fenerbahce - 20/1\n*   Nice, Hoffenheim, Besiktas, Anderlecht - 50/1\n\nOdds via Betfair\n\n16:11Steven Railston\n### Why Yoro is not training with United\n\nUnited defender Leny Yoro is still not training in every first team session.\n\nYoro was involved in new head coach Ruben Amorim's first team training session last Monday but he was absent from the travelling squad for the Premier League draw with Ipswich Town.\n\nThe 19-year-old was missing again for United's session on Wednesday ahead of their Europa League tie against Bodo/Glimt at Old Trafford tomorrow night.\n\n[United sources say Yoro was on a designated recovery day as he continues his rehabilitation from a fractured metatarsal. Yoro has been sidelined since he was forced off in United's pre-season friendly defeat to Arsenal on July 26.]\n\nYoro was provisionally due to start for the Under 21s in their National League Cup win at Altrincham last Tuesday but he was withdrawn from the squad.\n\nUnited signed Yoro from Lille for £52.18 million rising to £58.91m in July but he only played 80 minutes in the friendlies with Rangers and Arsenal.\n\nFellow centre back Jonny Evans also did not train as his conditioning is carefully managed. Evans, who turns 37 in January, started at Portman Road and came off early in the second half.\n\n16-year-old centre back Godwill Kukonki trained with United again on Wednesday and the squad welcomed back Harry Maguire (calf) and Lisandro Martinez (back) from injury.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Marcus Rashford's form] \"I will try to help him. That position is not the best one for him, especially in a game like that. We have to kick with high pressure, we have to kick the ball so many times and it was like fighting with two giants. We'll try to find the right solution for him, as for the other players. But he has to be Marcus, first of all, to try to return to that moment and then he will have all the help of the staff, the club and the fans because he's a Manchester United boy. But he has to be the first one to want it.\"",
+          "summary": "I want to help Rashford regain his form, but he must first want to improve.",
+          "similar_to_quote_id": "860b037a-ad51-44bf-8c1c-3119ed95a504",
+          "similarity_score": 0.826728999614716
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-supporters-send-letter-30472621",
+        "article_headline": "Man United supporters send letter to Omar Berrada slamming 'disgraceful' ticket price changes",
+        "article_text": "Manchester United supporters have written a letter to chief executive Omar Berrada outlining their fury with the club's decision to increase ticket prices, describing the changes as a \"disgrace\".\n\nMembers of the Manchester United Supporters Trust (MUST), the Fan Advisory Board (FAB) and the Fans Forum are putting United's hierarchy under pressure after the price of tickets for each of United's remaining fixtures at Old Trafford this season were increased to £66.\n\nUnited, on Tuesday evening, sent an email to members of the Fans' Forum announcing they had increased ticket prices with immediate effect. All tickets for remaining home games are now priced at £66, regardless of the age of the person buying them.\n\nThe letter has slammed United's decision to hike the ticket prices for young supporters, insisting it is \"scandalous\".\n\nThe full letter said: \"Dear Omar,\n\n\"We write on behalf of the members of the Fans' Forum, Fans' Advisory Board and the Board and Committee of MUST, to protest in the strongest possible terms to the ticket price changes announced on 26 November.\n\n\"These changes are a disgrace, both in their substance and in how the club has gone about making them.\n\n\"First, you are making changes to ticket prices mid-season, with immediate effect. This has never happened before.\n\n\"Secondly, the scale of the increase to individual fans is at a level never seen before - as much as 40 percent increase for adults and 164 percent for kids. The worst aspect of this is the removal of discounts for children and seniors. An Under-17 ticket costing £25 in one of the ends is now £66. A parent taking their child will now pay £132, around double the current price.\n\n\"Surely we can all agree that youngsters going to the game with their parents are the future of the club? And yet, scandalously, it is this very group that will suffer the biggest increases of all. Furthermore, it is of great concern that the club has taken this approach to concessionary tickets and the way these policy changes have been communicated, bearing in mind the Premier League rules that surround these issues.\n\n\"Thirdly, this increase in ticket prices will indisputably have an impact on the 15/19 usage rules. Your conditions state that in order for a resold ticket to be counted as used, the club must be able to re-sell it. Did the club do analysis of how price increases would impact take up for these spare tickets? This is a direct change to Season Ticket policy mid-season which surely has not been explored in terms of its impact. Is it the club's intention to penalise Season Ticket holders who, despite trying to comply, fall afoul of the usage rules?\n\n\"Finally, with the ink barely dry on your recently published Fan Engagement Strategy and despite a consultation protocol agreed in discussions with FAB and MUST (one that explicitly addressed matters of ticketing), the club made this decision without any consultation whatsoever. The manner in which this has been done completely undermines the integrity of the club's fan engagement processes.\n\n\"It adds insult to injury that such an unprecedented and controversial approach has been adopted notwithstanding the meagre returns this programme will yield. This is a clear-cut case of the cure being worse than the disease.\n\n\"Tickets are the access point for match-going supporters. By exploiting them, you risk losing the goodwill and affinity which brings so much added value to the club, not just in support for the team but financially as well, both in terms of fans' discretionary spend and also value for sponsors.\n\n\"The marginal ticket gains in ticket revenue will be outweighed by the loss in these other areas. Compared with our main rivals, United has a proud tradition of fairer pricing, which in turn has helped to generate our huge loyal support over decades. Decisions like this one take this loyalty for granted and put it at risk.\n\n\"The club's announcement of these changes stated that you wish to engage with fans to discuss longer-term changes to tickets and prices. Such engagement can only take place in an environment of mutual trust - and that has been undermined this week. It is as if the club has decided to set fan engagement back to the dark ages. This is unacceptable.\n\n\"There are three things we ask you to do now:\n\n\"Pause these changes until meetings can be held with the FAB and FF to discuss them properly.\n\n\"Re-commit to the principles of consultation the club previously agreed with the FAB, FF and MUST.\n\n\"Establish, in conjunction will all three bodies, the consultation plan that will govern next year's ticketing decisions.\n\n\"We look forward to hearing from you as a matter of urgency.\"\n\nThe club declined to comment when approached.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Members of the Fans' Forum, Fans' Advisory Board and the Board and Committee of MUST",
+          "raw_quote_text": "[Protesting against the ticket price changes] \"These changes are a disgrace, both in their substance and in how the club has gone about making them.\"",
+          "summary": "I think the changes to ticket prices are disgraceful due to both their nature and the club's communication.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The speaker's name is ambiguous as it refers to a group rather than an individual."
+        },
+        {
+          "speaker_name": "Members of the Fans' Forum, Fans' Advisory Board and the Board and Committee of MUST",
+          "raw_quote_text": "[Expressing concern for future supporters] \"Surely we can all agree that youngsters going to the game with their parents are the future of the club? And yet, scandalously, it is this very group that will suffer the biggest increases of all.\"",
+          "summary": "I believe young fans who attend games with parents represent the future, yet they're facing the largest price hikes.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The speaker's name is ambiguous as it refers to a group rather than an individual."
+        },
+        {
+          "speaker_name": "Members of the Fans' Forum, Fans' Advisory Board and the Board and Committee of MUST",
+          "raw_quote_text": "[Addressing concerns over engagement] \"Such engagement can only take place in an environment of mutual trust - and that has been undermined this week. It is as if the club has decided to set fan engagement back to the dark ages. This is unacceptable.\"",
+          "summary": "I feel that engagement with fans requires trust, which has been severely damaged by recent decisions.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The speaker's name is ambiguous as it refers to a group rather than an individual."
+        },
+        {
+          "speaker_name": "Members of the Fans' Forum, Fans' Advisory Board and the Board and Committee of MUST",
+          "raw_quote_text": "[Requesting action from the club] \"There are three things we ask you to do now: Pause these changes until meetings can be held with the FAB and FF to discuss them properly.\"",
+          "summary": "I request that there be a pause on the changes until proper discussions can occur.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The speaker's name is ambiguous as it refers to a group rather than an individual."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-could-give-alejandro-30468665",
+        "article_headline": "Ruben Amorim could be about to give Alejandro Garnacho a new Manchester United role",
+        "article_text": "Ruben Amorim could be about to give Alejandro Garnacho a new Manchester United role - George Smith - Manchester Evening News\n\nMan United head coach Ruben Amorim is likely to continue testing the water over the next few games and weeks.\n\nWhen Manchester United star Alejandro Garnacho went to bed on Sunday night, he probably still had Ruben Amorim's voice ringing in his ears.\n\nThe new United head coach spent much of the first half at Portman Road shouting instructions at the 20-year-old, who appeared to be struggling to get to grips with Amorim's new-look system.\n\nThe Argentine international started in attack, lining up on the left of the front-three, but playing in a narrower role than what he has previously been used to.\n\nIn Amorim's 3-4-3 system, United's width is provided by the wing-backs. That was highlighted less than two minutes in when Amad went galloping down the right, beat his man and sent over a cross for Marcus Rashford to turn home.\n\nOn the opposite flank, it was Diogo Dalot who was tasked with charging down the left. United were constantly looking for him and Amad in the wide areas when they picked up the ball.\n\nNaturally, it is going to take United time to adapt to Amorim's methods and demands. It will take weeks, possibly even months, before everything clicks into place and starts to work like clockwork.\n\nWhat was interesting at Portman Road was that Amorim, at half-time, adjusted Garnacho's role, bringing him over to the right flank to ensure he was still on the same side of the pitch as he was stood, making it easier to hand out more instructions. Bruno Fernandes had played on the right in the first 45 minutes.\n\nBefore United had even started travelling to Portman Road for the first time in 22 years, Amorim had already hinted that Garnacho would be starting in one of the forward roles and not as a wing-back, if selected.\n\nHe said: \"We should start with full-backs because to teach a winger how to defend is harder.\"\n\nOn the back of that statement, it was automatically presumed that full-backs Noussair Mazraoui and Dalot would start in the wing-back roles. However, a centre-back shortage meant Mazraoui was roped into playing at right-sided centre-back, forcing Amad to play as the right-sided wing-back.\n\nTo Amad's credit, he did well, making his mark on the game inside the opening two minutes with his assist for Rashford's goal. He did reasonably well defensively, but it is hard to envision him becoming a wing-back long-term.\n\nBut during this period, where United's players are getting to grips with Amorim's methods and rotation is set to be a familiar theme, Amorim is within his rights to experiment.\n\nIt is why the prospect of Garnacho starting as a wing-back against Bodo/Glimt at Old Trafford this evening cannot be fully dismissed. United head into the Europa League clash as heavy favourites to scoop all three points.\n\nOf course, United's Europa League campaign to date provides enough evidence to confirm that nothing is a given, but the Reds should have an energy about themselves this evening, likewise a hunger to win their first home game of the Amorim era.\n\nUnited should be striving to get on the front foot this evening and take the game to their Norwegian visitors. United are the big hitters in this season's competition and should be stamping their authority on matches, particularly at home against European minnows.\n\nWith that said, the prospect of testing the water with Garnacho in a wing-back role in a fixture United are expected to control could be a wise experiment. Amorim is likely to conduct several experiments over the coming weeks as he continues to learn more about his players and the way in which they fit into his system.\n\nGarnacho is a crowd-pleasing player who loves to get on the ball and entertain supporters. Amad is cut from a similar cloth.\n\nLong-term, both players should be striving to play in the front line, tasked with scoring and creating goals. In the short term, however, they must be prepared to play in a slightly different habitat, just as Amad did against Ipswich Town.\n\nBut there will be times when they will have to play as wing-backs. Facing inferior opposition at home, on a night where the crowd is likely to be enthused by Amorim's recent arrival, could be the perfect time for Garnacho's audition.\n\nThis article contains affiliate links, we will receive a commission on any sales we generate from it.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[In reference to player roles] We should start with full-backs because to teach a winger how to defend is harder.",
+          "summary": "I believe starting with full-backs is essential since teaching wingers to defend is more difficult.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The raw quote contains author-added context within brackets, making it invalid."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/a-dream-inside-bodoglimts-remarkable-30469183",
+        "article_headline": "'A dream' - Inside Bodo/Glimt's remarkable rise as Man United and Ruben Amorim sent warning",
+        "article_text": "Bodø/Glimt take on Manchester United at Old Trafford this evening and are confident of writing the next chapter of their remarkable success story.\n\nBodø/Glimt will arrive at Old Trafford to take on Manchester United this evening as one of European football's biggest success stories.\n\nThe Norwegian champions were only promoted back to the Eliteserien (Norway's top flight) ahead of the 2018 season but they have established themselves as Norway's premier side, continually beating off the challenge of the traditional bigger clubs.\n\nUnder the management of Kjetli Knutsen, Bodø/Glimt have won three of the last four Norwegian titles and have not finished below second in any of the last five seasons. They have also made their mark in Europe, making headlines when they thrashed Jose Mourinho's Roma 6-1 in the 2021/22 Europa Conference League - a competition they reached the quarter-finals of.\n\nBased in the arctic circle, their Aspmyra home stadium has become a fortress. Temperatures become excruciatingly cold in the winter and they play on astro turf, making it an extremely difficult place for opposition sides to visit.\n\nTheir recruitment and development of players is among the best in Europe and despite consistently losing some of their better players, they continue to recover and compete at the top end of Norwegian football. Bayer Leverkusen forward Victor Boniface is one particular example of a player who cut his cloth at the club, and Jans Petter Hauge earned a move to AC Milan.\n\nAnd while United secured the services of one of Europe's brightest managers in Sporting CP coach Ruben Amorim, Bodø/Glimt have their own in Knutsen. The 56-year-old Norwegian has turned down the Ajax job and has been heavily linked with Brighton and Hove Albion in the past.\n\nAs Amorim makes his Old Trafford bow this evening, it will be no surprise if Knutsen has a plan ready to nullify United.\n\n\"Knutsen is a very impressive manager who is able to turn a lot of youngsters into real quality players, with some of them going on to do great things in Europe,\" Matthew and Anker from Football Norway told the Manchester Evening News.\n\n\"He has also taken Norway by storm and although we would love to keep a talented Norwegian manager in Norway, he probably does have bigger ambitions than to only lead Bodø/Glimt to Champions League.\n\n\"Although only the future will tell. He definitely has the capability to potentially manage in the Premier League in the future, but it depends if he really wants it. He turned down Ajax, and never really pushed for anything when linked with Brighton. Maybe he is waiting for the perfect job to come round, whatever that is, or he feels he has unfinished business with Glimt, but who knows.\"\n\nAnd if Knutsen is waiting for the 'perfect job' in England, he will have no bigger audition than taking his team to Old Trafford in the Europa League this evening. It is a huge week in their history, with the trip to Manchester followed by a huge weekend in the Norwegian football calendar.\n\nGlimt head into the final weekend of the Eliteserien one point above their nearest title rivals SK Brann and they just need to better their result when they take on already relegated Lillestrom to win a fourth title in five years. But while the importance of Sunday's game is not lost on them, their trip to United has dominated the headlines in Norway this week.\n\n\"Playing against a Premier League side, especially one as big as Manchester United, makes for a lot of headlines. Going to Old Trafford is a dream for the majority of football fans and players here,\" Matthew and Anker added.\n\n\"The players themselves have also been speaking about how much they're looking forward to the match and getting to play at Old Trafford. The only way I can put the excitement and feeling into perspective is if a lower league club in England drew United away in the FA Cup. It’s a massive deal.\"\n\nSuch has been Glimt's success, they actually head to Manchester one point and three positions above United in the expanded Europa League table after wins over Porto and Braga and are on course to qualify for the knockout rounds.\n\nA win at Old Trafford would move them four points clear of United and leave Amorim's side scrapping to qualify for the next stage of the competition. And while they acknowledge their underdog tags, there is a quiet confidence they could spring a surprise in Amorim's first game in charge at Old Trafford.\n\n\"For Bodø/Glimt, Manchester United is a great team with a great history,\" the pair concluded. \"However, they are a team that is struggling to find form and right now might not be at their greatest point. So if there ever was a time to believe you can beat Manchester United at Old Trafford, it's now.\n\n\"Bodø/Glimt is a team that plays with a lot of confidence and as we previously mentioned about it being a huge game for the players, so they will be really up for it. It just depends if they can not get ‘overwhelmed’ by the magnitude of it all - like they did earlier this season when they played Red Star Belgrade in the final Champions League qualifying game.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[Speaking on Knutsen's talent] Knutsen is a very impressive manager who is able to turn a lot of youngsters into real quality players, with some of them going on to do great things in Europe.",
+          "summary": "I believe Knutsen impresses as a manager, developing young talent into quality players.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[On Knutsen's ambitions and future] He has also taken Norway by storm and although we would love to keep a talented Norwegian manager in Norway, he probably does have bigger ambitions than to only lead Bodø/Glimt to Champions League.",
+          "summary": "I think Knutsen likely has bigger ambitions than just leading Bodø/Glimt.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[Discussing the significance of the match] Playing against a Premier League side, especially one as big as Manchester United, makes for a lot of headlines. Going to Old Trafford is a dream for the majority of football fans and players here.",
+          "summary": "I feel that playing at Old Trafford is a dream for most fans and players.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[On the players' excitement] The players themselves have also been speaking about how much they're looking forward to the match and getting to play at Old Trafford. The only way I can put the excitement and feeling into perspective is if a lower league club in England drew United away in the FA Cup. It’s a massive deal.",
+          "summary": "I think the players are excited to play at Old Trafford, akin to an FA Cup draw.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[On Bodø/Glimt's chances against Manchester United] For Bodø/Glimt, Manchester United is a great team with a great history. However, they are a team that is struggling to find form and right now might not be at their greatest point. So if there ever was a time to believe you can beat Manchester United at Old Trafford, it's now.",
+          "summary": "I see Glimt has an opportunity to beat United, who are struggling.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Matthew and Anker",
+          "raw_quote_text": "[Reflecting on the team's confidence] Bodø/Glimt is a team that plays with a lot of confidence and as we previously mentioned about it being a huge game for the players, so they will be really up for it. It just depends if they can not get ‘overwhelmed’ by the magnitude of it all - like they did earlier this season when they played Red Star Belgrade in the final Champions League qualifying game.",
+          "summary": "I believe Glimt is confident but must avoid being overwhelmed by the occasion.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-names-one-manchester-30465558",
+        "article_headline": "LUCKHURST: Ruben Amorim names one of Manchester United's 'greatest weapons' in first programme notes",
+        "article_text": "New Man United head coach Ruben Amorim has penned his first programme notes ahead of the visit of Bodo/Glimt.\n\nRuben Amorim believes Manchester United matchgoers can become one of their \"greatest weapons\" as he attempts to \"fix\" the club.\n\nUnited are 12th in the Premier League and 15th in the Europa League after 19 games this term, having also progressed to the League Cup quarter-finals.\n\nA fourth Premier League defeat in their ninth fixture signalled the end for former manager Erik ten Hag, under whom United plummeted to eighth last term.\n\nAmorim was confirmed as Ten Hag's replacement nearly four weeks ago and he will take charge of United at Old Trafford for the first time against Bodo/Glimt in the Europa League on Thursday night.\n\nIn the same week United raised the cost of tickets for members to £66 and scrapped concession prices for the remainder of the season, Amorim addressed paying supporters in his maiden programme notes.\n\n\"To be writing my first programme notes as head coach of Manchester United is an honour and a privilege,\" Amorim writes. \"It took a lot for me to leave Sporting, but everybody recognises the lure of Manchester United and, from the moment I began talking with the club's representatives, I felt a connection that made it impossible to refuse this opportunity.\n\n\"I honestly feel that I am where I am supposed to be, and I promise that I will do everything I can to put this club where it needs to be.\n\n\"I know, of course, that there is a lot of work to be done here. It is a huge responsibility, but I have the clear sense that everyone involved with Manchester United is so hungry and determined to succeed. The unique history of this club is known around the world but, when I arrived in Manchester, I took the Old Trafford tour and it gave me a feeling that I want everyone to have: to remember who we are, and what that means. Our history must inspire us.\n\n\"We must be excited by the opportunity to write a new chapter. Every player and member of staff here has the ability to contribute to that mission, and there is far more potential here than the season so far has suggested.\n\n\"Now, I cannot fix this situation alone, and neither can any of the players or staff. This is not about any individual at the club. This is about what we can become together by working hard, enjoying ourselves and having no fear. I must say that, for all the potential inside the club, I believe one of the greatest weapons of Manchester United is the fanbase.\n\n\"I have been to Old Trafford as a player and I have felt what can happen when you face United's players and fans together, so I know from experience that if we all work as one, back each other and give our all to each game, there is no limit to what we can achieve.\n\n\"Last Sunday, we travelled to Ipswich Town. A draw was, of course, not the result we wanted, but I was pleased with the intent of the players, who showed how open they were to our new approach, despite only having two training sessions together.\n\n\"Since we now have four months until the next international break, we have to maximise every minute on the training pitch and every game. The time we have together provides opportunities to grow together, starting tonight as we host Kjetil Knutsen and his Bodo/Glimt players in the Europa League.\n\n\"Our first aim, of course, is to win the game. Our second is to set the tone for how we want games at Old Trafford to feel: all of us, together, giving everything we have for Manchester United.\",  \n \nThis article contains affiliate links, we will receive a commission on any sales we generate from it. Learn more.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Speaking about his appointment] \"To be writing my first programme notes as head coach of Manchester United is an honour and a privilege. It took a lot for me to leave Sporting, but everybody recognises the lure of Manchester United and, from the moment I began talking with the club's representatives, I felt a connection that made it impossible to refuse this opportunity.\"",
+          "summary": "It's a privilege to write my first notes as head coach, and I felt a strong connection with the club from the start.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote includes context from the article and is not only spoken words."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On his commitment] \"I honestly feel that I am where I am supposed to be, and I promise that I will do everything I can to put this club where it needs to be.\"",
+          "summary": "I feel I belong here and will do everything to elevate the club.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Addressing the challenges] \"I know, of course, that there is a lot of work to be done here. It is a huge responsibility, but I have the clear sense that everyone involved with Manchester United is so hungry and determined to succeed.\"",
+          "summary": "There is much work ahead, but the determination here is palpable.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Speaking about the club's history] \"Our history must inspire us. We must be excited by the opportunity to write a new chapter.\"",
+          "summary": "We need to be inspired by our history and eager to create a new chapter.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On teamwork] \"Now, I cannot fix this situation alone, and neither can any of the players or staff. This is not about any individual at the club. This is about what we can become together by working hard, enjoying ourselves and having no fear.\"",
+          "summary": "I can't fix this alone; it's about what we achieve together.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the importance of fans] \"I must say that, for all the potential inside the club, I believe one of the greatest weapons of Manchester United is the fanbase.\"",
+          "summary": "The fanbase is one of our greatest strengths.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Reflecting on past experiences] \"I have been to Old Trafford as a player and I have felt what can happen when you face United's players and fans together, so I know from experience that if we all work as one, back each other and give our all to each game, there is no limit to what we can achieve.\"",
+          "summary": "I've felt the power of United's players and fans together; we can achieve great things if we unite.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the recent draw] \"Last Sunday, we travelled to Ipswich Town. A draw was, of course, not the result we wanted, but I was pleased with the intent of the players, who showed how open they were to our new approach, despite only having two training sessions together.\"",
+          "summary": "The draw was disappointing, but I appreciated the players' intent and openness to our new approach.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On future training] \"Since we now have four months until the next international break, we have to maximise every minute on the training pitch and every game. The time we have together provides opportunities to grow together.\"",
+          "summary": "We need to make the most of our training time and grow as a team.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Regarding upcoming matches] \"Our first aim, of course, is to win the game. Our second is to set the tone for how we want games at Old Trafford to feel: all of us, together, giving everything we have for Manchester United.\"",
+          "summary": "Winning is our primary goal, and we aim to create a strong atmosphere at Old Trafford.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/harry-maguire-sends-six-word-30475036",
+        "article_headline": "Harry Maguire sends six-word Man United message after Ruben Amorim injury update",
+        "article_text": "Harry Maguire sends six-word Man United message after Ruben Amorim injury update - Manchester Evening News\n\nManchester United defender Harry Maguire is edging towards a return after a spell on the sidelines.\n\nBy\nStephen KillenSenior Football Writer\n\n18:27, 28 NOV 2024\n\nHarry Maguire is edging closer to a return for Manchester United (Image: Photo by Alex Livesey/Getty Images)\n\nManchester United defender Harry Maguire has returned to training following a spell on the sidelines through injury.\n\nThe England centre-back was forced off during the goalless draw with Aston Villa at the beginning of October. The calf issue has meant Maguire has sat out of their last five Premier League outings - including Erik ten Hag's final matches in the dugout before Ruud van Nistelrooy took charge on a temporary basis with Ruben Amorim succeeding him shortly after.\n\nIt's a welcome boost for the newly-appointed Portuguese head coach who has been without some key defensive figures in his early United tenure. Argentine Lisandro Martinez has also been sidelined after suffering a back issue on the eve of the November international break, summer signing Leny Yoro is still awaiting his debut after picking up a problem in pre-season.\n\nMaguire wrote on Instagram: \"Back out there with the lads.\"\n\nAmorim declared that Martinez is back in content with Maguire also on the comeback trail as he welcomes back players from the treatment table. The former Sporting boss may see a return from Martinez and Maguire for their Europa League tie against Bodo/Glimt.\n\n\"Licha is ready to play, Harry [Maguire] is returning, that's a good thing,\" he said on Wednesday. \"Leny Yoro is improving his fitness, Luke [Shaw] is healthy. Let's see if he plays in the starting 11 or not.\"\n\nAmorim was searching for not only his first win in charge but United's first triumph in the Europa League after a tough start. He will be looking to build upon their draw at Ipswich Town on Sunday when he makes his Old Trafford league bow against Everton.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Harry Maguire",
+          "raw_quote_text": "Back out there with the lads.",
+          "summary": "I'm back out there with my teammates.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Licha is ready to play, Harry [Maguire] is returning, that's a good thing.",
+          "summary": "It's good that both Martinez and I are returning.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Leny Yoro is improving his fitness, Luke [Shaw] is healthy. Let's see if he plays in the starting 11 or not.",
+          "summary": "Yoro is getting fit, and we will see if Shaw starts.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The summary is not in the first person."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/erik-ten-hags-man-united-30474353",
+        "article_headline": "Erik ten Hag's Man United recommendation 'could join' Ruud van Nistelrooy at Leicester City",
+        "article_text": "Manchester United's former interim head coach Ruud van Nistelrooy could be set for an immediate return to the Premier League\n\nManchester United legend Ruud van Nistelrooy is reportedly eyeing one of Erik ten Hag's former assistants to be his number two at Leicester City.\n\nVan Nistelrooy was appointed as assistant to Ten Hag in the summer after Mitchell van der Gaag and Steve McClaren both left the club. United also managed the coup of adding Go Ahead Eagles' manager Rene Hake to their backroom staff, with Ten Hag a long term admirer of his work, as Ineos looked to revitalise their coaches.\n\nUnfortunately for Ten Hag, this fresh lease of life lasted merely a matter of a couple of months as a historically poor start to the season culminated with the Dutchman being sacked by the board at the end of October. Van Nistelrooy was kept on as interim alongside Hake until November 11 when Ruben Amorim became head coach.\n\nThe Portuguese's arrival led to the departure of Ten Hag's coaches but Van Nistelrooy does not look like he will have been unemployed for long. It is being widely reported that the former PSV Eindhoven manager will be returning to the Premier League with the Foxes after they sacked Steve Cooper last weekend.\n\nAccording to The Times, Van Nistelrooy could be looking to add Hake to his coaching team ahead of his appointment at the King Power Stadium. However, there is no word on whether the former striker will be looking to add Jelle ten Rouwelaar or Pieter Morel to his team after they joined the duo out of United earlier this month.\n\nIf Van Nistelrooy was to be appointed Leicester manager, he would be reunited with United on March 15 when the Reds travel to the East Midlands in the Premier League. During his spell in interim charge, Van Nistelrooy masterminded two big victories over the Foxes in both the Premier League and Carabao Cup.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/ruben-amorim-lines-up-first-30474920",
+        "article_headline": "Ruben Amorim 'plots' first Manchester United transfer ahead of 'club meeting'",
+        "article_text": "Ruben Amorim 'plots' first Manchester United transfer ahead of 'club meeting' - Manchester Evening News\n\nRuben Amorim is keen to put his own stamp in the Manchester United squad ahead of the January transfer window\n\nBy\n\nBruna Reis\n\n*   18:30, 28 NOV 2024\n\nRuben Amorim is reportedly eyeing a swoop for Benfica defender Tomas Araujo to bolster his defensive options at Manchester United.\n\nAraujo, 22, who has been at the club since the age of 14, has seen a significant rise at the club. He is now one of the indisputable starters for head coach Bruno Lage, alongside former Manchester City star Nicolas Otamendi.\n\nAs Amorim looks to build a squad of his own at Old Trafford, The Sun reports a meeting is set to take place with the club on Friday, which will involve discussing a potential move for Araujo. United have been dealing with a number of injuries in defence this campaign.\n\nAraujo, who has previously been targeted by Crystal Palace and Paris Saint-Germain last summer, is thought to fit the profile Amorim is looking for. At the time, Benfica bosses rejected the move and it's said that clubs are 'closely monitoring' the situation.\n\nThe report adds that Araujo has been placed on Amorim's wishlist but whether the Reds will approach Benfica over a transfer in the New Year remains to be seen. He won't come cheap however, as he has a €100million (£83m) release clause attached to his contract.\n\nAraujo's former youth coach at Benfica, Renato Paiva, has previously praised the centre-back's development. \"I said that Tomas and Ruben Dias were the most complete central defenders that I had trained,\" he told A Bola.\n\n\"I even said that Tomas' technical quality and game perception could make him a central midfielder because he could have immense ability both as a central defender and as a central midfielder. It's one of Tomás' greatest attributes, his serenity, sometimes excessive - sometimes it was his only 'sin'.\n\n\"I felt he was still a little soft, not aggressive enough to be a central defender. He has speed, construction, intelligence, he knows how to behave, he's humble... Things are coming together and that's a good thing.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Renato Paiva",
+          "raw_quote_text": "[Speaking on Araujo's abilities] I said that Tomas and Ruben Dias were the most complete central defenders that I had trained.",
+          "summary": "I believe Tomas and Ruben Dias are the most complete central defenders I've trained.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Renato Paiva",
+          "raw_quote_text": "[Regarding Araujo's versatility] I even said that Tomas' technical quality and game perception could make him a central midfielder because he could have immense ability both as a central defender and as a central midfielder.",
+          "summary": "Tomas has the talent to excel as both a central defender and a central midfielder.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Renato Paiva",
+          "raw_quote_text": "[About Araujo's character] I felt he was still a little soft, not aggressive enough to be a central defender. He has speed, construction, intelligence, he knows how to behave, he's humble... Things are coming together and that's a good thing.",
+          "summary": "He was soft at first, but now his speed, intelligence, and humility are coming together well.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/idolised-david-beckham-man-united-30464878",
+        "article_headline": "I idolised David Beckham and Man United - now I want to ruin Ruben Amorim's Old Trafford debut",
+        "article_text": "I idolised David Beckham and Man United - now I want to ruin Ruben Amorim's Old Trafford debut - Manchester Evening News\n\nUnited's Europa League clash with Bodo/Glimt will mean more than most to one opposition player\n\nBy\n\nAlex James\n\n04:30, 28 NOV 2024\n\nRuben Amorim will step out as Manchester United manager at Old Trafford for the first time tonight. The Reds welcome Bodo Glimt in the Europa League seeking a victory to bolster their qualification chances.\n\nUnited are 15th in the expanded table, three points adrift of a top eight spot that would put them straight into the last 16.\n\nAnd while the Norwegian visitors are not household names, they are above United in the standings and should not be under-estimated. They are top of their domestic league and are 2023 champions.\n\nThey also possess some English league experience in Philip Zinckernagel who played for Watford and Nottingham Forest. Indeed he made his debut in English football at Old Trafford, starting for Watford in a 1-0 reverse to United in January 2021.\n\nA little under four years on he will be back. None of the XI who lined up for the Reds that day are still at the club and United are undergoing their latest new era. For Zinckernagel, on loan at Bodo/Glimt from Club Brugges, he will be hoping to make an impact at the home of one of his football heroes.\n\nThe Dane grew up idolising David Beckham. He was his football hero and he would love nothing more than to find the net in front of a huge Old Trafford crowd just like his hero did on so many occasions.\n\nHe perhaps still harbours ambitions of playing in the top flight, something that didn't materialise during his spell with the Hornets. He is now 29 and thriving back at Bodo/Glimt in an attacking midfield role but capable of playing across midfield.\n\nHe always had the drive to succeed, as his dad Torben, speaking to The Athletic in 2022, explained: “When he first started playing, he was on it and was always super disciplined. He was always a very talented footballer. He didn’t care about parties and always did the right thing, and followed the rules.\n\n\"Then there was a shift in his early twenties when he started to work with his mental coach and they started to instil more perspective on what he wanted to achieve and that changed his game completely, and he only headed in one direction.”\n\nThe next staging post in Zinckernagel's career could be celebrating at Old Trafford, even if Amorim and the United fans will hope otherwise.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Torben Zinckernagel",
+          "raw_quote_text": "When he first started playing, he was on it and was always super disciplined. He was always a very talented footballer. He didn’t care about parties and always did the right thing, and followed the rules. Then there was a shift in his early twenties when he started to work with his mental coach and they started to instil more perspective on what he wanted to achieve and that changed his game completely, and he only headed in one direction.",
+          "summary": "I was always disciplined and focused on my goals, especially after working with a mental coach.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The summary is not in the first person."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-true-cost-sacking-30468034",
+        "article_headline": "Manchester United true cost of sacking Erik ten Hag and hiring Ruben Amorim revealed",
+        "article_text": "Manchester United true cost of sacking Erik ten Hag and hiring Ruben Amorim revealed - Manchester Evening News\n\nThe latest Manchester United news as the club replaced Erik ten Hag with Ruben Amorim this month after a disappointing start to the season.\n\nBy Amie Wilson\n\n* 07:48, 28 NOV 2024\n* Updated07:50, 28 NOV 2024\n\nManchester United sacked Erik ten Hag last month after a disappointing start to the season. (Image: Martin Rickett/PA Wire)\n\nManchester United have revealed the total cost of the recent managerial change at Old Trafford, with it potentially impacting on the January transfer budget.\n\nUnited confirmed the sacking of Erik ten Hag back in October, following the Premier League loss in July. The decision came just months after the Dutchman put pen to paper on a new contract.\n\nThe club’s latest financial report now reveals that it cost a total of £10.4 million to pay off Ten Hag and members of his coaching staff. Ruud van Nistelrooy took charge of four games on an interim basis amid the search for a new head coach, but he was among those to leave following the appointment of Ruben Amorim.\n\nThe arrival of the former Sporting CP boss as well as his backroom staff has cost approximately £11 million, according to the report. The Portuguese coach had a €10 million (£8.4m) release clause in his Sporting contract which United triggered, with other costs likely to be on the backroom staff.\n\nIt means, in total, the managerial change cost United £21.4 million. Given the Premier League’s Profitability and Sustainability rules, that could potentially be taken into account when Amorim is given a transfer budget for the upcoming January window.\n\nAmorim’s arrival at United was confirmed at the start of the month, but he didn’t officially join until November 11. He took charge of his first game last weekend with United drawing 1-1 with newly-promoted Ipswich Town at Portman Road.\n\nUnited are back in action tonight (Thursday) when Bodo/Glimt visit Old Trafford in the Premier League (8pm kick-off). It will be the new head coach’s first home game in charge of the club.\n\nThis article contains affiliate links, we will receive a commission on any sales we generate from it.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-sent-clear-53m-30468659",
+        "article_headline": "Man United sent clear £53m transfer warning for star Ralf Rangnick loves ahead of January window",
+        "article_text": "",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/la-liga/real-madrid/liverpool-real-madrid-ratings-lequipe-kylian-mbappe-799001-20241128",
+        "article_headline": "L'Equipe hand out their most brutal ratings to date and not even Liverpool players were safe after beating Real Madrid",
+        "article_text": "Real Madrid forward Kylian Mbappe received a damning 2/10 rating from L'Equipe for his below-par performance against Liverpool, while Mohamed Salah was handed a questionably low score.\n\nArne Slot's side secured their place in the Champions League knockout phase on Wednesday as goals from Alexis Mac Allister and Cody Gakpo sealed a relatively straightforward 2-0 win over a lacklustre Los Blancos.\n\nMadrid, meanwhile, dropped down to 24th in the league table with two wins from a possible five.\n\nFor the first time in their history, the Spanish giants have lost three games in the group stage/league phase of the Champions League and unsurprisingly, L'Equipe took no prisoners with their much-anticipated ratings piece.\n\nIn total, three Real Madrid players were handed 2/10 ratings – Kylian Mbappe, Arda Guler and Ferland Mendy.\n\nLuka Modric, Jude Bellingham and Braham Diaz came away with scores of 3/10 while Raul Asencio, Federico Valverde and Antonio Rudiger were hit with a rating of 5/10.\n\nThose who could hold their heads high on Wednesday night, according to L'Equipe, were Thibaut Courtois and Eduardo Camavinga, who picked up ratings of 7/10.\n\nLiverpool, on the other hand, were handed more generous ratings, although Mohamed Salah, Darwin Nunez, Ryan Gravenberch, Andy Robertson and Curtis Jones might not be happy with 5/10's.\n\nAs you can see from the graphic below, Conor Bradley and Caoimhin Kelleher were handed the highest ratings at 7/10.\n\nSpeaking after the final whistle, Real Madrid manager Carlo Ancelotti opened up on Kylian Mbappe's lack of form.\n\n\"It has happened many times that forwards have a hard time scoring,\" he said. \"There is a medicine which is to be patient. It is a difficult moment for him, especially after missing the penalty. Everyone has to support him. He may be a bit lacking in confidence.\n\n\"When things don't go your way, the idea you have to have is to play simple. It's a bit like this moment, but you can't judge him for missing a penalty. All players miss penalties. He has to keep working well. We have to be patient because he's an extraordinary player.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Carlo Ancelotti",
+          "raw_quote_text": "(Speaking about the challenges forwards face) \"It has happened many times that forwards have a hard time scoring. There is a medicine which is to be patient. It is a difficult moment for him, especially after missing the penalty. Everyone has to support him. He may be a bit lacking in confidence. When things don't go your way, the idea you have to have is to play simple. It's a bit like this moment, but you can't judge him for missing a penalty. All players miss penalties. He has to keep working well. We have to be patient because he's an extraordinary player.\"",
+          "summary": "I acknowledge that forwards struggle to score sometimes, and we must be patient and supportive of him, especially after missing a penalty.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes additional context within parentheses which might not be part of the original spoken words."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/transfer-news/liverpool-virgil-van-dijk-real-madrid-transfer-question-206847-20241128",
+        "article_headline": "Virgil van Dijk directly asked by Spanish reporter if he would join Real Madrid and his response has got fans talking",
+        "article_text": "**Virgil van Dijk was directly asked by a Spanish journalist if he plans to leave Liverpool for Real Madrid following Wednesday's Champions League clash at Anfield.**\n\n[Liverpool beat Madrid 2-0 on Merseyside](https://www.sportbible.com/football/football-news/liverpool-real-madrid-champions-league-history-072405-20241127) to book their place in the next round of the [Champions League](https://www.sportbible.com/champions-league), leaving the defending champions in a precarious position.\n\nMadrid are now 24th in the standings and at real risk of an early elimination from Europe, prompting reports [that head coach Carlo Ancelotti could be sacked if things get any worse.](https://www.sportbible.com/football/la-liga/real-madrid/carlo-ancelotti-next-manager-replacement-liverpool-851110-20241128)\n\n[Liverpool](https://www.sportbible.com/liverpool), on the other hand, are flying under new boss Arne Slot and have taken 17 wins from 19 games in all competitions this season.\n\nThey're now favourites to win both the Premier League and Champions League, raising hopes among supporters that several of the club's best players will commit their long-term futures to the Reds.\n\n[Van Dijk](https://www.sportbible.com/virgil-van-dijk), 33, is one of three key players – along with Mohamed Salah and Trent Alexander-Arnold – who is out of contract at the end of the season.\n\nThere has been speculation the Dutchman could leave in the summer, with Barcelona touted as one potential destination for the Netherlands international.\n\n[Real Madrid](https://www.sportbible.com/real-madrid) are also in need of defensive reinforcements, with David Alaba and Eder Militao currently out injured.\n\nAfter the defeat to Liverpool, Van Dijk was [directly asked](https://x.com/elchiringuitotv/status/1861944653941002336?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1861944653941002336%7Ctwgr%5E0cada5132e3d6e28cf310f23d536f072526b6fb4%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Furl%3Dhttps%3A%2F%2Ftwitter.com%2Felchiringuitotv%2Fstatus%2F1861944653941002336) by a journalist for Spanish outlet _El Chiringuito_ if he plans to leave the Reds.\n\n\"Wow, what a direct question. They don't ask me that direct \\[in England\\],\" joked Van Dijk.\n\n\"At the moment, there is nothing I can say. The only thing I can say is that I'm fully focussed on \\[Liverpool's next game against\\] Man City.\"\n\nThe journalist then replied: \"Real Madrid need defenders. Alaba, Militao all are injured.\"\n\nTo which Van Dijk replied: \"\\[Antonio\\] Rudiger is there?\"\n\nThe Spanish journalist then continued his line of questioning, adding: \"Maybe you in Real Madrid?\"\n\nVan Dijk replied: \"When?\", to which the journalist said: \"In the summer.\"\n\nThe defender then repeated himself: \"Wow. I don't know, the main focus for me is facing Man City.\"\n\nVan Dijk's cryptic response and reluctance to publicly commit his future to Liverpool has worried some supporters on social media.\n\n\"Can Liverpool hurry up and tie down Van Dijk. Absolutely insane he can talk to the likes of Real Madrid in just 5 weeks,\" posted one fan on X.\n\nWhile another added: \"He won't say no to Madrid.\"\n\nLiverpool fans may have no reason to be concerned, however, with a fresh report on Thursday claiming [Van Dijk is set to remain at Anfield.](https://www.sportbible.com/football/football-news/liverpool/liverpool-contract-announcement-real-madrid-agent-breaking-283645-20241128)\n\nWhile Van Dijk is free to negotiate a pre-contract agreement with foreign clubs in January, _Anfield Watch_ [claim](https://www.anfieldwatch.co.uk/liverpool-fc/news/exclusive-virgil-van-dijk-is-staying-at-liverpool/) the Dutchman's agent is 'telling interested parties that he's no longer attainable'.\n\nThe report claims that it's now a 'formality' that Van Dijk will sign a new deal, even suggesting that it may have already been signed but is yet to be publicly announced by the Premier League club.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "Wow, what a direct question. They don't ask me that direct [in England],",
+          "summary": "I find this question very direct, unlike in England.",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "At the moment, there is nothing I can say. The only thing I can say is that I'm fully focussed on [Liverpool's next game against] Man City.",
+          "summary": "I can't say anything right now; I'm focused on the next match.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "[Antonio] Rudiger is there?",
+          "summary": "Rudiger is already at Madrid, right?",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "When?",
+          "summary": "You're asking when I might join Madrid?",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "Wow. I don't know, the main focus for me is facing Man City.",
+          "summary": "I don't have an answer, I'm focused on the upcoming match.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "Wow, what a direct question. They don't ask me that direct [in England]",
+          "summary": "I find this question very direct, unlike in England.",
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/liverpool/thierry-henry-trent-jamie-carragher-liverpool-real-madrid-866106-20241128",
+        "article_headline": "Thierry Henry left visibly stunned after Jamie Carragher comments on Real Madrid's interest in Trent Alexander-Arnold",
+        "article_text": "Jamie Carragher commented on Real Madrid's ongoing interest in Trent Alexander-Arnold after Liverpool maintained their unbeaten run in the Champions League – and Thierry Henry was left stunned.\n\nLiverpool produced a scintillating performance against defending champions Madrid on Wednesday night as goals from Alexis Mac Allister and Cody Gakpo secured their place in the Champions League knockout phase.\n\nIt was a superb team performance from Arne Slot's side, who made Los Blancos look distinctly average at Anfield, but one of the standout performers was right-back Conor Bradley.\n\nIn the absence of Trent Alexander-Arnold, Bradley not only recorded an assist but completed four tackles and eight duels. He also won possession back nine times against Carlo Ancelotti's side.\n\nIn fact, no player in the Champions League has recorded higher figures across those categories in a match this season, according to Opta.\n\nAfter the full-time whistle, Jamie Carragher made a comment about the Northern Ireland international that grabbed many people's attention, including fellow pundit Thierry Henry.\n\nSpeaking on CBS Sports, Carragher said: “Coming into this game, there’s been a lot of talk about Real Madrid looking to buy Liverpool’s right back. But, I’m not sure if that player is called Trent Alexander-Arnold or Conor Bradley.”\n\nClearly taken by surprise, Henry replied: “Wow!”\n\nHenry was full of praise for Bradley, especially after his crunching tackle on Kylian Mbappe in the first-half.\n\n“That (tackle), for me, already did set the tone,” Henry told CBS Sports. “Boom! That’s it. You all know, when you go into someone like that at the beginning of the game, you’re going to struggle.\n\n“We see him making that run every time, he fancied it. You could see, he fancied himself against Mbappe.\n\n“Everything he did was spot on. We were waiting for Salah, we were waiting for Mbappe, but we saw Conor Bradley so fair play to him.”\n\nHenry added: “Conor Bradley was just outstanding. I think he didn’t have to do a lot defensively because Mbappe didn’t do a lot offensively, so it became very easy.\n\n“But the positions he takes right now, what he can do and how he understands when he needs to make that run…\n\n“The assist (for the opener) was not a Trent Alexander-Arnold assist, in all fairness, but still, he is where he is supposed to be.”\n\nAlexander-Arnold, meanwhile, continues to be linked with a move to Real Madrid.\n\nLiverpool are keen to initiate contract negotiations with the player, who has made over 300 appearances for his boyhood club, but reports in Spain suggest the defender's entourage have held discussions with Madrid over a potential transfer.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Jamie Carragher",
+          "raw_quote_text": "Coming into this game, there’s been a lot of talk about Real Madrid looking to buy Liverpool’s right back. But, I’m not sure if that player is called Trent Alexander-Arnold or Conor Bradley.",
+          "summary": "There's talk about Real Madrid wanting to buy Liverpool's right back, but I'm not sure if it's Trent or Conor.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Thierry Henry",
+          "raw_quote_text": "Wow!",
+          "summary": "I was stunned!",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Thierry Henry",
+          "raw_quote_text": "That (tackle), for me, already did set the tone. Boom! That’s it. You all know, when you go into someone like that at the beginning of the game, you’re going to struggle.",
+          "summary": "That tackle set the tone; going in hard early makes it tough for others.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Thierry Henry",
+          "raw_quote_text": "We see him making that run every time, he fancied it. You could see, he fancied himself against Mbappe. Everything he did was spot on. We were waiting for Salah, we were waiting for Mbappe, but we saw Conor Bradley so fair play to him.",
+          "summary": "He was confident, made the right runs, and outperformed expectations.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Thierry Henry",
+          "raw_quote_text": "Conor Bradley was just outstanding. I think he didn’t have to do a lot defensively because Mbappe didn’t do a lot offensively, so it became very easy.",
+          "summary": "Conor was outstanding; he had a simple game since Mbappe wasn’t active.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Thierry Henry",
+          "raw_quote_text": "But the positions he takes right now, what he can do and how he understands when he needs to make that run… The assist (for the opener) was not a Trent Alexander-Arnold assist, in all fairness, but still, he is where he is supposed to be.",
+          "summary": "His positioning and understanding of play are excellent, even if the assist wasn't typical of Trent.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/air-jordan-premier-league-michael-jordan-nba-football-502623-20241128",
+        "article_headline": "Air Jordan are considering first-ever Premier League kit design and have two clubs in mind",
+        "article_text": "Air Jordan are considering first-ever Premier League kit design and have two clubs in mind - Premier League - SPORTbible\n\n**The iconic Jordan Brand are considering a partnership with an English club, according to reports, after two Premier League teams were named as those in the running based on certain conditions.**\n\nEarlier this year, it was suggested that the lucrative partnership between Ligue 1 giants Paris Saint-Germain and Jordan could end after the 2024/25 season.\n\nFrench publication **Foot Mercato** claimed that the relationship had 'plateaued' and even started to show 'some signs of weakness and weariness among the general public' after six years.\n\nThe report went on to suggest that an English club would 'recover the goose that lays the golden eggs', but who is being considered?\n\nSportico's **Łukasz Bączek** has already claimed that the Jordan Brand 'is in negotiations' with Chelsea and Tottenham Hotspur as part of an extended cooperation with Nike on the club's alternate jersey.\n\nIt is said the brand would 'prefer' to work Chelsea because of its 'greater recognition as a football brand and past success' but if both clubs fail to qualify for next season's Champions League, then a deal would be off the cards.\n\nBaczek confirmed this statement on Wednesday, when a report from **Footy Headlines** suggested that Jordan would 'shift focus' to an English club.\n\n\"Jordan Brand will not design Chelsea or Spurs kits if the clubs fail to qualify for next season's UCL,\" he wrote. \"Nothing has changed in this respect.\"\n\nBack in January, it was suggested that Jordan chose a London-based club because the city is considered one of the world's fashion capitals.\n\n\"The US brand is not considering cooperation with Liverpool, which is outfitted by Nike, due to its ownership ties with LeBron James and his brand,\" added Baczek.\n\n\"Jordan Brand is counting on success, as is the case with many collections from PSG, also in the field of streetwear.\"\n\nThoughts on an English club teaming up with the Jordan Brand? Let us know in the comments.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Łukasz Bączek",
+          "raw_quote_text": "[Regarding the potential partnership with clubs] Jordan Brand will not design Chelsea or Spurs kits if the clubs fail to qualify for next season's UCL. Nothing has changed in this respect.",
+          "summary": "I won't design kits for Chelsea or Spurs if they don't make it to the UCL.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Łukasz Bączek",
+          "raw_quote_text": "[On the collaboration with Liverpool] The US brand is not considering cooperation with Liverpool, which is outfitted by Nike, due to its ownership ties with LeBron James and his brand.",
+          "summary": "We're not looking to collaborate with Liverpool because of LeBron James' involvement.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes editorial context that suggests ownership ties, which are not part of the direct speech."
+        },
+        {
+          "speaker_name": "Łukasz Bączek",
+          "raw_quote_text": "[On expectations from the brand] Jordan Brand is counting on success, as is the case with many collections from PSG, also in the field of streetwear.",
+          "summary": "I expect our partnership to be successful, similar to our PSG collections.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes editorial context which is not part of the direct speech."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/liverpool/liverpool-contract-announcement-real-madrid-agent-breaking-283645-20241128",
+        "article_headline": "Liverpool superstar 'is STAYING' as agent drops contract bombshell after Real Madrid win",
+        "article_text": "**Liverpool continued their excellent start to the season by sweeping aside Real Madrid in the Champions League, and things could be about to get even better for Reds supporters.**\n\n[Arne Slot](https://www.sportbible.com/arne-slot)'s side [beat the defending European champions 2-0 at Anfield](https://www.sportbible.com/football/football-news/liverpool-real-madrid-champions-league-history-072405-20241127) on Wednesday night to book their place in the next round of the [Champions League](https://www.sportbible.com/champions-league).\n\nAlexis Mac Allister and Cody Gakpo scored to secure another impressive victory for [Liverpool](https://www.sportbible.com/liverpool), who are now top of both the [Premier League](https://www.sportbible.com/premier-league) and the Champions League tables.\n\nLiverpool and Madrid were both without several key players for the match but it was Slot's side that coped best without their absentees, securing a deserved 17th win from 19 matches for the Dutchman since his move to Anfield.\n\nLiverpool are the first team to book a place in the next round of the competition, but they are yet secure a spot in the top eight – which would see them avoid the play-off round.\n\nLiverpool fans will be delighted with the club's form and things may be about to get better for Reds supporters, with captain [Virgil van Dijk](https://www.sportbible.com/virgil-van-dijk) set to sign a new deal at Anfield.\n\nVan Dijk, 33, is one of three key players – along with Mohamed Salah and Trent Alexander-Arnold – who are out of contract at the end of the season.\n\nThere has been speculation the Dutchman could leave in the summer after six hugely successful years on Merseyside.\n\nBut _Anfield Watch_ [claim](https://www.anfieldwatch.co.uk/liverpool-fc/news/exclusive-virgil-van-dijk-is-staying-at-liverpool/) he is set to sign a new deal, committing his long-term future to the club.\n\nVan Dijk is free to negotiate a pre-contract agreement with foreign clubs in January but the Dutchman's agent is reportedly 'telling interested parties that he's no longer attainable'.\n\nThe report claims that it's now a 'formality' that Van Dijk will sign a new deal, even suggesting that it may have already been signed but is yet to be publicly announced.\n\nSpeaking last month, Van Dijk gave little away on his future and hinted it would be resolved later in the campaign.\n\n\"I'm very calm,\" Van Dijk [told](https://x.com/SkySportsPL/status/1827765190793847273) _Sky Sports_. \"Let's see what happens towards the end of the season.\n\n\"I'm enjoying my football, physically and mentally. Keep enjoying the game because it's a beautiful game that we play and I play.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Virgil van Dijk",
+          "raw_quote_text": "I'm very calm. Let's see what happens towards the end of the season. I'm enjoying my football, physically and mentally. Keep enjoying the game because it's a beautiful game that we play and I play.",
+          "summary": "I'm calm about my future and enjoying the game.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-promise-gentlemans-agreement-transfer-news-390621-20241127",
+        "article_headline": "Ruben Amorim set to break his first promise at Man Utd despite 'gentleman's agreement'",
+        "article_text": "**Ruben Amorim is reportedly set to break the first promise he made after joining Manchester United just days after joining.**\n\nSince replacing [Erik ten Hag](https://www.sportbible.com/erik-ten-hag) as [United](https://www.sportbible.com/manchester-united) manager earlier this month, [Amorim](https://www.sportbible.com/ruben-amorim) has impressed fans with many praising the work ethic he appears to have established at the club.\n\nIn his first game in the United dugout, fans applauded Amorim [despite surrendering an early lead through Marcus Rashford to draw 1-1 with Ipswich Town at Portman Road.](https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-ipswich-town-portugal-media-reacts-092422-20241125)\n\nBut now, the Portuguese manager could be set to break a promise that he made as soon as he joined United, as details of a 'gentleman's agreement' have emerged.\n\nEarlier this month, a report from [Mirror Football](https://www.mirror.co.uk/sport/football/news/man-utd-ruben-amorim-transfer-34149790) claimed that Amorim had established a gentleman's agreement with former club [Sporting CP](https://www.sportbible.com/sporting-cp) that he would not sign any of the club's players when the January transfer window opens.\n\nFormer United boss Erik ten Hag made a similar deal with previous club Ajax, but broke it when [signing Lisandro Martinez and Antony from the Dutch side and continued to do so during the pursuit of several other players at the club such as Jurrien Timber.](https://www.sportbible.com/football/manchester-united-jurrien-timber-ajax-transfer-news-latest-114211-20230116)\n\nAnd now, a new report has suggested that Amorim is set to follow in the footsteps of his predecessor and go back on the promise made to his former club by attempting to lure some of their best players to Old Trafford.\n\nAccording to the [Daily Mail](https://www.dailymail.co.uk/sport/football/article-14128249/MAN-UNITED-CONFIDENTIAL-United-Viktor-Gyokeres-Ruben-Amorim.html), Amorim sent United scouts to Portugal to watch Sporting trio Geovany Quenda, Viktor Gyokeres and Pedro Goncalves in their Champions League match against Arsenal on Tuesday night.\n\nAmorim is already actually familiar with the three players, particularly Gyokeres who has scored 67 goals in 70 games for Sporting since joining from Coventry City in the summer of 2023.\n\nHowever, United scout's likely will not have been impressed [as Arsenal comfortably beat Sporting 5-1 at at the Jose Alvalade Stadium.](https://www.sportbible.com/football/football-news/viktor-gyokeres-sporting-arsenal-champions-league-753109-20241126)\n\nIn their first Champions League match without Amorim as manager, Sporting allowed Arsenal to establish dominance in the first half, with goals from Gabriel Martinelli, Kai Havertz and [Gabriel Magalhaes taking the half-time score to 3-0.](https://www.sportbible.com/football/football-news/champions-league/arsenal-sporting-gyokeres-gabriel-celebration-917165-20241127)\n\nAlthough Sporting defender Goncalo Inacio scored early in the second half, it proved to be only a consolation goal as Bukayo Saka and Leandro Trossard netted Arsenal's fourth and fifth goals before full-time.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/ricky-gervais-roy-keane-man-utd-premier-league-016685-20241127",
+        "article_headline": "Roy Keane shakes Ricky Gervais' hand after they agree on what they want banned forever",
+        "article_text": "Roy Keane shook hands with Ricky Gervais on a recent podcast after the comedian started a debate on what he wants banned from existence.\n\nGervais, who is best known for creating shows like The Office, An Idiot Abroad and After Life, appeared on Thursday's episode of Stick To Football with Gary Neville, Jamie Carragher, Jill Scott and Ian Wright.\n\nHe was also joined by former Manchester United captain Roy Keane, who recently criticised his noisy neighbours over using a leaf blower in the early hours.\n\nIn fact, Keane believes it should be illegal to use them before 8am. \"I took my dog out this morning at 7:15 and where I live and someone is on the blower with the leaves at quarter past seven in the morning,\" Keane said.\n\n\"It's a disgrace. I think it should be banned. I was gonna go over and say 'people are in bed!' You're not allowed to use them. It's 8 o'clock.\"\n\nJust weeks after Keane's outburst and Gervais happened to bring up his hatred of leaf blowers, which brought a rare handshake from the former Republic of Ireland international.\n\nHere's how the conversation played out on the latest episode of Stick To Football, brought to you by Sky Bet.\n\nGervais: \"I want to ban leaf blowers. Why have they got leaf blowers? What are they doing? They're blowing leaves into the street. Well... they are going to blow back!\"\n\nKeane: *shakes hand*\n\nJill Scott: \"The last episode, he spoke about leaf blowers for about half an hour.\"\n\nGervais: \"Honestly I want to go to the council and ask them to ban leaf blowers. It's bad for the environment. It's noisy. It's pointless.\"\n\nKeane: \"The bit that annoys me is, one [person] does it, and he blows the leaves down there... and then the other guy, he's a gardener, blows them f*****g back to where they were. They just keep doing it every day.\"\n\nGervais: \"What's up with a rake and putting it in a bag? Or get a vacuum.\"\n\nAfter his appearance on the podcast, Gervais joked about Keane's recent confrontation with an Ipswich Town fan.\n\nTaking to X, formerly Twitter, the comedian wrote: \"I’m just glad Roy didn’t want to chat to me in the car park.\"\n\nIn the aftermath of Sunday's Premier League clash between Manchester United and Ipswich, a furious Keane was spotted confronting a supporter during an ad break.\n\nFootage soon emerged of the heated incident, where Keane can be heard telling the supporter: \"I’ll wait for you in the car park and we can discuss it.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Roy Keane",
+          "raw_quote_text": "[Criticizing the use of leaf blowers] \"I took my dog out this morning at 7:15 and where I live and someone is on the blower with the leaves at quarter past seven in the morning. It's a disgrace. I think it should be banned. I was gonna go over and say 'people are in bed!' You're not allowed to use them. It's 8 o'clock.\"",
+          "summary": "I believe leaf blowers should be banned before 8 AM because it's disruptive to people resting.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, which violates the quote validity condition."
+        },
+        {
+          "speaker_name": "Ricky Gervais",
+          "raw_quote_text": "[Expressing frustration about leaf blowers] \"I want to ban leaf blowers. Why have they got leaf blowers? What are they doing? They're blowing leaves into the street. Well... they are going to blow back!\"",
+          "summary": "I want to ban leaf blowers because they're ineffective and noisy.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, violating the quote validity condition."
+        },
+        {
+          "speaker_name": "Ricky Gervais",
+          "raw_quote_text": "[Requesting action against leaf blowers] \"Honestly I want to go to the council and ask them to ban leaf blowers. It's bad for the environment. It's noisy. It's pointless.\"",
+          "summary": "I want the council to ban leaf blowers since they're harmful and unnecessary.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, violating the quote validity condition."
+        },
+        {
+          "speaker_name": "Roy Keane",
+          "raw_quote_text": "[Describing the inefficiency of leaf blowers] \"The bit that annoys me is, one [person] does it, and he blows the leaves down there... and then the other guy, he's a gardener, blows them f*****g back to where they were. They just keep doing it every day.\"",
+          "summary": "It frustrates me that leaf blowers just pass the problem around instead of solving it.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, violating the quote validity condition."
+        },
+        {
+          "speaker_name": "Ricky Gervais",
+          "raw_quote_text": "[Proposing an alternative method of clearing leaves] \"What's up with a rake and putting it in a bag? Or get a vacuum.\"",
+          "summary": "I think using a rake or vacuum is a better option than leaf blowers.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, violating the quote validity condition."
+        },
+        {
+          "speaker_name": "Roy Keane",
+          "raw_quote_text": "[Confronting a supporter] \"I’ll wait for you in the car park and we can discuss it.\"",
+          "summary": "I told the supporter I'd wait for them in the car park for a discussion.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote contains context provided by the article in brackets, violating the quote validity condition."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/paul-pogba-next-club-premier-league-431652-20241127",
+        "article_headline": "Paul Pogba brutally rejects Premier League club desperate to make him their star signing of 2025",
+        "article_text": "**Paul Pogba has turned down the opportunity to resume his career at a Premier League club, it has been reported.**\n\nThe Frenchman will return to football in March after serving a doping ban, which was reduced to 18 months from four years on appeal at the Court of Arbitration for Sport (CAS).\n\nHe was suspended four years in 2023 after an initial sample taken after a game against Udinese showed DHEA - a compound that promotes the production of hormones in the body including testosterone - in his system.\n\nIn response, Pogba denied '[knowingly or deliberately taking any supplements that violate anti-doping regulations](https://www.sportbible.com/football/football-news/paul-pogba-ban-anti-doping-test-383730-20240229)' and stressed he would appeal the verdict.\n\nDays after his ban was reduced, the 31-year-old agreed to terminate his contract with Juventus with immediate effect.\n\nThat means he is now a free agent and, crucially, can be registered by a new club at any time ahead of his return to competition next year.\n\nSpanish outlet Fichajes [report](https://www.fichajes.net/en/news/the-premier-league-club-that-rejected-paul-pogba-20241126.html) that he is carefully considering his options - and has already turned down one [Premier League](https://www.sportbible.com/premier-league) club.\n\nIt is claimed that [Pogba](https://www.sportbible.com/paul-pogba) has rejected a move to [Newcastle](https://www.sportbible.com/newcastle-united), with the Magpies having been keen on making the Frenchman one of their marquee signings in January.\n\nThe report adds that Pogba is 'leaning towards other destinations to revive his career'.\n\nHe is yet to speak out about his search for a new club, but did conduct an interview with Sky Sports after his appeal verdict was announced.\n\nPogba [said](https://www.skysports.com/football/news/11095/13234640/paul-pogba-exclusive-interview-midfielder-considered-retirement-but-now-eyeing-france-recall-after-seeing-ban-reduced): \"Where would I like to play? On the pitch! I would love to be on the pitch. Any pitch. It's tough training alone.\n\n\"The main focus is to get back training and fit, to be on the pitch and do what I love. My vision is to show I am a footballer. A new Paul Pogba with the same qualities. I am still ready.\"",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Paul Pogba",
+          "raw_quote_text": "Where would I like to play? On the pitch! I would love to be on the pitch. Any pitch. It's tough training alone. The main focus is to get back training and fit, to be on the pitch and do what I love. My vision is to show I am a footballer. A new Paul Pogba with the same qualities. I am still ready.",
+          "summary": "I want to play on any pitch and focus on getting back training to show I'm still a footballer.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/ruud-van-nistelrooy-man-utd-premier-league-manager-146385-20241127",
+        "article_headline": "Ruud van Nistelrooy will come up against Man Utd this season after he 'agrees' to join club",
+        "article_text": "Ruud van Nistelrooy is reportedly on the verge of returning to Premier League management, just weeks after leaving Manchester United.\n\nThe 48-year-old, who joined United's coaching staff in the summer alongside fellow assistant Rene Hake, was ushered into the hot seat when Erik ten Hag was sacked last month.\n\nHe took charge of four matches across all competitions and stayed unbeaten with three wins and a draw, but new head coach Ruben Amorim decided against handing Van Nistelrooy a place in his backroom staff.\n\nIn regards to his interim spell at Old Trafford, the Dutchman picked up two wins over struggling Leicester City, who recently sacked Steve Cooper after a five-month spell in charge at the King Power.\n\nThe Foxes have picked up just two victories from 12 league games this season, and have conceded 14 goals in their last five games in all competitions.\n\nNow, they are set to appoint Van Nistelrooy as their next manager, according to The Telegraph, who claim documents are being signed with his camp.\n\nThe appointment of a new manager has been led by owner-chair Aiyawatt 'Top' Srivaddhanaprabha and director of football Jon Rudkin.\n\nUnited will face Leicester at the King Power on March 15, 2025.\n\nAfter his swift exit this month, Van Nistelrooy penned an emotional goodbye letter to United fans.\n\n“I want to thank you from the bottom of my heart for your incredible efforts and support,\" he said. \"It has been a privilege and honour to represent the club as a player, coach and manager, and I will always cherish the memories we have shared together.\"\n\nHe added: “Man Utd will always have a special place in my heart, and I hope there are many more glory days at Old Trafford very soon - not only because I want the club to do well, but because you all deserve it.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruud van Nistelrooy",
+          "raw_quote_text": "I want to thank you from the bottom of my heart for your incredible efforts and support. It has been a privilege and honour to represent the club as a player, coach and manager, and I will always cherish the memories we have shared together.",
+          "summary": "I deeply appreciate your support and feel honored to represent the club.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruud van Nistelrooy",
+          "raw_quote_text": "Man Utd will always have a special place in my heart, and I hope there are many more glory days at Old Trafford very soon - not only because I want the club to do well, but because you all deserve it.",
+          "summary": "Man Utd holds a special place in my heart, and I wish for more success for the club and its fans.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/live/2024/nov/28/manchester-united-v-bodglimt-europa-league-live",
+        "article_headline": "Live Manchester United v Bodø/Glimt: Europa League – live",
+        "article_text": "Manchester United v Bodø/Glimt: Europa League – live | Europa League | The Guardian\n=============== \n\n*   Europa League updates from the 8pm GMT kick-off\n\nLIVE Updated 29s ago\n\n[Will Unwin](https://www.theguardian.com/profile/will-unwin)\n\nThu 28 Nov 2024 13.53 ESTFirst published on Thu 28 Nov 2024 13.45 EST\n\nKey events\n\n*   [4m ago Starting lineups](https://www.theguardian.com/football/live/2024/nov/28/manchester-united-v-bodglimt-europa-league-live?filterKeyEvents=false&page=with%3Ablock-6748bb428f0816561c49e29c#block-6748bb428f0816561c49e29c)\n*   [8m ago Preamble](https://www.theguardian.com/football/live/2024/nov/28/manchester-united-v-bodglimt-europa-league-live?filterKeyEvents=false&page=with%3Ablock-674750a98f08a903b24be930#block-674750a98f08a903b24be930)\n\n![Image 4: Old Trafford.](https://i.guim.co.uk/img/media/a96cab3c9d447c35e29618af57551834855a2894/0_0_5591_3356/master/5591.jpg?width=465&dpr=1&s=none&crop=none)\n\nThe pre-match stage is set at Old Trafford. Photograph: Martin Rickett/PA\n\nKey events\n\n*   [4m ago Starting lineups](https://www.theguardian.com/football/live/2024/nov/28/manchester-united-v-bodglimt-europa-league-live?filterKeyEvents=false&page=with%3Ablock-6748bb428f0816561c49e29c#block-6748bb428f0816561c49e29c)\n*   [8m ago Preamble](https://www.theguardian.com/football/live/2024/nov/28/manchester-united-v-bodglimt-europa-league-live?filterKeyEvents=false&page=with%3Ablock-674750a98f08a903b24be930#block-674750a98f08a903b24be930)\n\n**Interesting from Amorim as Antony and Malacia are given their chance.** Could Amorim be the man to get the best out of Antony?\n\n**Get in the mood with Nick Ames.**\n\n**Manchester United (3-4-3):** Onana; Mazraoui, De Ligt, Martinez; Antony, Ugarte, Fernandes, Malacia; Mount, Hojlund, Garnacho\n\n**Subs:** Bayindir, Heaton, Rashford, Zirkzee, Eriksen, Diallo, Dalot, Shaw, Mainoo\n\n**Bodo/Glimt (4-3-3):** Haikin; Wembangomo, Gundersen, Bjortuft, Bjorkan; Evjen, Berg, Brunstad Fet; Zinckernagel, Helmersen, Hauge\n\n**Subs:** Faye Lund, Nielsen, Auklend, Hogh, Espejord, Saltnes, Moe, Sjovold, Maata, Sorli, Sorensen, Mikkelsen\n\nI am sure we can all find exciting firsts for Ruben Amorim in the coming weeks and months but tonight he is ticking off his Old Trafford debut as United boss and taking charge of them in Europe for the first time. After drawing at Ipswich, he will be hoping for a more convincing performance but his team are learning on the move. As Amorim knows, United need to quickly improve in Europe if they are to guarantee a place in the next round, so need to build some momentum.\n\nBodo/Glimt are in town, swapping the artic conditions of home for something only slightly milder. The Norwegians are managed by Kjetil Knutsen who is linked to every half-decent job in English football but seems pretty happy with his lot and why wouldn’t he be?\n\n**Kick-off: 8pm GMT**\n\nExplore more on these topics\n\n*   [Europa League](https://www.theguardian.com/football/uefa-europa-league)\n*   [European club football](https://www.theguardian.com/football/europeanfootball)\n*   [Manchester United](https://www.theguardian.com/football/manchester-united)\n*   [Bodø/Glimt](https://www.theguardian.com/football/bodoglimt)",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/28/fans-at-old-trafford-and-anfield-to-coordinate-protests-against-ticket-prices",
+        "article_headline": "Rival fans at Old Trafford and Anfield to unite in protests against ticket prices",
+        "article_text": "Rival fans at Old Trafford and Anfield to unite in protests against ticket prices | Soccer | The Guardian\n=============== \n\nThe protests are part of the Football Supporters’ Association’s ‘Stop Exploiting Loyalty’ campaign. Photograph: Tony O Brien/Reuters\n\nRival fans at Old Trafford and Anfield to unite in protests against ticket prices\n=================================================================================\n\n*   Fans to come together at Sunday’s Premier League games\n*   Manchester United raised members’ ticket prices to £66\n\nManchester United, Everton, Liverpool and Manchester City fans will hold joint protests against rising ticket prices on Sunday as part of the Football Supporters’ Association’s [Stop Exploiting Loyalty](https://thefsa.org.uk/news/stop-exploiting-loyalty/) campaign.\n\nThe action will take place before United host Everton at 1.30pm and [Liverpool](https://www.theguardian.com/football/liverpool) face City at 4.30pm. At Old Trafford’s trinity statue the United fan group FC58, Everton supporters and Fans Supporting Foodbanks representatives will display a Stop Exploiting Loyalty banner. This will be mirrored at Anfield, where from 3pm the Spirit of Shankly group and Liverpool fans will gather by the Fans Supporting Foodbanks collection point with the City 1894 group and MCFC Fans Foodbank Support.\n\nA statement from the groups said: “Banners inside and outside the grounds will highlight a shared message: enough is enough – stop exploiting loyalty. Fan groups from all four clubs are joining to support the Football Supporters’ Association’s #StopExploitingLoyalty campaign, which highlights soaring ticket prices, the erosion of concessionary rates, and above-inflation increases that are pricing out the very people who form the backbone of English football culture.\n\n“It comes in the same week the Premier League’s new broadcast rights deal rose by 17% to a staggering £12.25bn, further diminishing the significance of general admission ticket income to clubs’ finances. Yet, despite this, all but one Premier League club raised ticket prices last season, and this week [Manchester United](https://www.theguardian.com/football/manchester-united) announced that all new tickets for children and older fans at Old Trafford will increase to £66.\n\n“There is also growing concern that some clubs are now targeting the £30 cap on away tickets in the Premier League, threatening to dismantle one of the last safeguards for fans, many of whom make multiple financial sacrifices to continue supporting their club. Football does not have a revenue problem; it has a spending problem – and loyal supporters should not bear the cost.”\n\nOn Wednesday [the Guardian reported](https://www.theguardian.com/football/2024/nov/27/manchester-united-raise-member-ticket-prices-remove-concessions) United’s raising of ticket prices was part of Sir Jim Ratcliffe’s drive to make the club more financially sustainable.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Unnamed fan groups",
+          "raw_quote_text": "Banners inside and outside the grounds will highlight a shared message: enough is enough – stop exploiting loyalty.",
+          "summary": "We want to send a strong message: stop exploiting loyalty.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Speaker is ambiguous; not a named individual."
+        },
+        {
+          "speaker_name": "Unnamed statement",
+          "raw_quote_text": "Football does not have a revenue problem; it has a spending problem – and loyal supporters should not bear the cost.",
+          "summary": "Football's issue isn't revenue; it's spending and fans shouldn't bear the cost.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Speaker is ambiguous; not a named individual."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/27/ruud-van-nistelrooy-set-to-succeed-steve-cooper-as-leicester-manager",
+        "article_headline": "Ruud van Nistelrooy set to succeed Steve Cooper as Leicester manager",
+        "article_text": "Ruud van Nistelrooy set to succeed Steve Cooper as Leicester manager | Leicester City | The Guardian\n===============\n\nRuud van Nistelrooy applauds the fans during his spell as interim head coach of Manchester United. Photograph: Martin Rickett/PA\n\nRuud van Nistelrooy set to succeed Steve Cooper as Leicester manager\n====================================================================\n\n*   Cooper sacked last Sunday after defeat by Chelsea\n*   Leicester are 16th in table, one point above drop zone\n\nRuud van Nistelrooy is poised to become the new Leicester City manager, making an almost immediate return to the Premier League after leaving Manchester United.\n\nVan Nistelrooy, a United hero, is expected to succeed Steve Cooper, who was sacked last Sunday. His last game was a home defeat against his predecessor, Enzo Maresca, now in charge of the high-flying Chelsea.\n\nLeicester were interested in Graham Potter and Carlos Corberán before installing Cooper in the summer but this week the club held productive talks with Van Nistelrooy. The club were reluctant to pay compensation for a manager, making him an attractive option.\n\nVan Nistelrooy previously had a short spell managing PSV Eindhoven, the club where he made his big breakthrough as a player, winning the Dutch Cup in 2023 before resigning, citing a lack of support within the club.\n\nLeicester are 16th in the table, one point above the relegation zone. The Dutchman’s first game could be at Brentford on Saturday, before matches against West Ham, Brighton, Newcastle, and Wolves.\n\nLeicester’s players returned to training after a Christmas party in Copenhagen, where players were filmed dancing at a nightclub in front of a sign that read: “Enzo I miss you.”\n\nVan Nistelrooy joined United as an assistant coach in July but was appointed interim head coach after the sacking of Erik ten Hag and oversaw four games, winning three, drawing one.\n\nTwo of Van Nistelrooy’s wins in the United dugout came against Leicester, with a 5-2 win in the Carabao Cup before a 3-0 league victory in his final match in caretaker charge.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/27/marcus-rashford-has-to-really-want-it-to-return-to-top-form-says-ruben-amorim",
+        "article_headline": "Marcus Rashford ‘has to really want it’ to return to top form, says Ruben Amorim",
+        "article_text": "Marcus Rashford ‘has to really want it’ to return to top form, says Ruben Amorim | Manchester United | The Guardian\n===============\n\nRuben Amorim has urged Marcus Rashford ‘to be Marcus’ at Manchester United. Photograph: Martin Rickett/PA\n\nMarcus Rashford ‘has to really want it’ to return to top form, says Ruben Amorim\n================================================================================\n\n*   Forward has scored five goals in 19 games this season\n*   Amorim keen for all attacking players to improve output\n\nRuben Amorim believes Marcus Rashford has to “really want it” if the forward is to recapture his 30-goal Manchester United form of two seasons ago.\n\nRashford scored after two minutes of United’s 1-1 draw at Ipswich on Sunday, Amorim’s first game in charge, but this was only his fifth goal in 19 appearances. Last term Rashford scored only eight goals in 43 games, having registered a career-high 30 in the previous campaign.\n\nAmorim was asked what was required for Rashford to return to his best. “He has to be the first one to really want it,” the head coach said. “Then, he will have the help of all the staff and fans. He has to be Marcus – he is a Manchester United boy.”\n\nRashford operated as the central striker in Amorim’s 3-4-3 at Ipswich but has stated he prefers to play wide left. “That position [against Ipswich] is not the best one for him,” Amorim said. “Especially in a game like that, he was fighting with two giants [the centre-backs] and we will try to find the right solution for him.”\n\nAmorim said Bruno Fernandes, Rasmus Højlund, Joshua Zirkzee and Amad Diallo also need to score more. United have only 13 league goals and 32 from 19 games in all competitions. He said: “There is a concern [about this] but we have to improve as a team, we have quality players that can score so many goals. You can feel in the second half we controlled possession of the ball but were not dangerous.\n\n“We will try to improve as a team, Rasmus and Rash and even Bruno to score more goals, Amad. All these guys need to improve, we can score so many goals. I don’t need new strikers to score – we can improve as a team.”\n\nAmorim was asked whether he would ever deviate from 3-4-3 to, for example, a back four. “We’ll do it – we have to do it,” he said. “And when I talk about our structure, I believe we can play in different systems. So we defend more in this game [Ipswich], sometimes in a 4-4-2, because Amad [the right wing-back] was with [their] left-back. So we want to put the structure in place, and then we have to play in different systems. Nowadays every team changes the dynamics. So we will adapt that.”\n\nHarry Maguire and Lisandro Martínez are available after injury for Thursday’s visit of Bodø/Glimt for the fifth Europa League group game. United are 15th with six points.",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "He has to be the first one to really want it. Then, he will have the help of all the staff and fans. He has to be Marcus – he is a Manchester United boy.",
+          "summary": "I believe Marcus must want it first to regain his top form.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The summary is not in first person."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "That position [against Ipswich] is not the best one for him. Especially in a game like that, he was fighting with two giants [the centre-backs] and we will try to find the right solution for him.",
+          "summary": "The central striker position isn't ideal for Marcus; we need to find better options for him.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The summary is not in first person."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "There is a concern [about this] but we have to improve as a team, we have quality players that can score so many goals. You can feel in the second half we controlled possession of the ball but were not dangerous.",
+          "summary": "We have a concern about scoring, but we can improve as a team since we have quality players.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The summary is not in first person."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "We’ll do it – we have to do it. And when I talk about our structure, I believe we can play in different systems.",
+          "summary": "We must and will adapt our formation as necessary.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/video/2024/nov/24/we-will-suffer-for-a-long-period-ruben-amorim-on-manchester-united-debut-video",
+        "article_headline": "'We will suffer for a long period': Ruben Amorim on Manchester United debut – video",
+        "article_text": "'We will suffer for a long period': Ruben Amorim on Manchester United debut – video | Ruben Amorim | The Guardian\n===============\n\n![Image 2: Ruben Amorim said 'we are going to suffer for a long period' after Manchester United drew with promoted team Ipswich Town](https://i.guim.co.uk/img/media/7ec06c479b841a74129e684ca3998dbf4768effa/0_0_1843_1106/master/1843.jpg?width=465&dpr=1&s=none&crop=none)\n\n2:11\n\n[Ruben Amorim](https://www.theguardian.com/football/ruben-amorim) said Manchester United are going 'to suffer for a long period' after his managerial debut at the club ended in a 1-1 Premier League draw at Ipswich. He added: 'We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit. They are thinking too much because we are changing too much with two training \\[sessions\\] now without space to improve in training'.\n\n*   [**Amorim’s Manchester United pegged back by Ipswich after rapid start**](https://www.theguardian.com/football/2024/nov/24/ipswich-manchester-united-premier-league-match-report)",
+        "article_date": "2024-11-28"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Manchester United are going 'to suffer for a long period' after his managerial debut at the club ended in a 1-1 Premier League draw at Ipswich. He added: 'We start now, we risk a little bit, we suffer a little bit and in the next year we will be better at this point so we have to risk it a little bit. They are thinking too much because we are changing too much with two training [sessions] now without space to improve in training'.",
+          "summary": "I believe we will suffer for a long time, but we need to take risks to improve next year.",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes text written by the author and does not solely contain the speaker's own words."
+        }
+      ],
+      "status": "quotesPublished"
+    }
+  ]
+}

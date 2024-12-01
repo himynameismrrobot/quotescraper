@@ -54,8 +54,8 @@ export async function POST(request: Request) {
       .from('speakers')
       .insert([{
         name: json.name,
-        image_url: json.imageUrl,
-        organization_id: json.organizationId || null
+        image_url: json.image_url,
+        organization_id: json.organization_id || null
       }])
       .select(`
         *,

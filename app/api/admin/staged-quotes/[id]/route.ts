@@ -4,7 +4,7 @@ import { checkAdminAccess } from '@/utils/admin-check'
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check admin access
@@ -13,13 +13,13 @@ export async function GET(
       return NextResponse.json({ error: adminError }, { status })
     }
 
+    const params = await context.params
     const supabase = await createClient()
-    const id = await context.params.id
     
     const { data: quote, error: dbError } = await supabase
       .from('quote_staging')
       .select('*')
-      .eq('id', id)
+      .eq('id', params.id)
       .single()
 
     if (dbError) throw dbError
@@ -42,7 +42,7 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Check admin access
@@ -51,25 +51,71 @@ export async function PATCH(
       return NextResponse.json({ error: adminError }, { status })
     }
 
+    const params = await context.params
     const supabase = await createClient()
     const json = await request.json()
-    const id = await context.params.id
     
-    const { data: quote, error: dbError } = await supabase
+    // First check if the quote exists
+    const { data: existingQuote, error: fetchError } = await supabase
       .from('quote_staging')
-      .update({
-        summary: json.summary,
-        raw_quote_text: json.rawQuoteText,
-        article_date: json.articleDate,
-        speaker_name: json.speakerName
-      })
-      .eq('id', id)
+      .select()
+      .eq('id', params.id)
+      .single()
+
+    if (fetchError) {
+      console.error('Database error:', fetchError)
+      return NextResponse.json(
+        { error: 'Failed to fetch quote from database' },
+        { status: 500 }
+      )
+    }
+
+    if (!existingQuote) {
+      return NextResponse.json(
+        { error: 'Staged quote not found' },
+        { status: 404 }
+      )
+    }
+
+    // Validate the input
+    if (!json || typeof json !== 'object') {
+      return NextResponse.json(
+        { error: 'Invalid request body' },
+        { status: 400 }
+      )
+    }
+
+    // Check if any fields are being updated
+    const updates: any = {}
+    if ('summary' in json) updates.summary = json.summary
+    if ('raw_quote_text' in json) updates.raw_quote_text = json.raw_quote_text
+    if ('article_date' in json) updates.article_date = json.article_datenpm r
+    if ('speaker_name' in json) updates.speaker_name = json.speaker_name
+
+    if (Object.keys(updates).length === 0) {
+      return NextResponse.json(
+        { error: 'No valid fields to update' },
+        { status: 400 }
+      )
+    }
+
+    // Update the quote and return the updated row
+    const { data, error: updateError } = await supabase
+      .from('quote_staging')
+      .update(updates)
+      .eq('id', params.id)
       .select()
       .single()
 
-    if (dbError) throw dbError
+    if (updateError) {
+      console.error('Database error:', updateError)
+      return NextResponse.json(
+        { error: 'Failed to update quote in database' },
+        { status: 500 }
+      )
+    }
 
-    return NextResponse.json(quote)
+    return NextResponse.json(data)
   } catch (error) {
     console.error('Error updating staged quote:', error)
     return NextResponse.json(
@@ -81,22 +127,31 @@ export async function PATCH(
 
 export async function DELETE(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const supabase = await createClient()
-    const id = await context.params.id
+    // Check admin access
+    const { error: adminError, status } = await checkAdminAccess()
+    if (adminError) {
+      return NextResponse.json({ error: adminError }, { status })
+    }
 
-    const { error } = await supabase
+    const params = await context.params
+    const supabase = await createClient()
+
+    const { error: dbError } = await supabase
       .from('quote_staging')
       .delete()
-      .eq('id', id)
+      .eq('id', params.id)
 
-    if (error) throw error
+    if (dbError) throw dbError
 
-    return NextResponse.json({ success: true })
+    return new NextResponse(null, { status: 204 })
   } catch (error) {
-    console.error('Error:', error)
-    return NextResponse.json({ error: 'Failed to delete staged quote' }, { status: 500 })
+    console.error('Error deleting staged quote:', error)
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    )
   }
-} 
+}

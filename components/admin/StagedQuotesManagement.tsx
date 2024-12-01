@@ -44,6 +44,7 @@ const StagedQuotesManagement: React.FC = () => {
     speakerName: string;
     quoteId: string;
   } | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchStagedQuotes();
@@ -86,20 +87,30 @@ const StagedQuotesManagement: React.FC = () => {
 
   const updateStagedQuote = async (id: string, field: 'summary' | 'raw_quote_text' | 'article_date' | 'speaker_name', value: string) => {
     try {
+      setError(null); // Clear any previous errors
       const response = await fetch(`/api/admin/staged-quotes/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [field]: value }),
       });
-      if (!response.ok) throw new Error('Failed to update staged quote');
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        setError(data.error || 'Failed to update staged quote');
+        return;
+      }
+      
       fetchStagedQuotes();
     } catch (error) {
       console.error('Error updating staged quote:', error);
+      setError('An unexpected error occurred while updating the quote');
     }
   };
 
   const acceptQuote = async (id: string) => {
     try {
+      setError(null); // Clear any previous errors
       const response = await fetch(`/api/admin/staged-quotes/${id}/accept`, {
         method: 'POST',
       });
@@ -119,32 +130,37 @@ const StagedQuotesManagement: React.FC = () => {
       }
       
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to accept quote');
+        setError(data.message || 'Failed to accept quote');
+        return;
       }
       
       fetchStagedQuotes();
     } catch (error) {
       console.error('Error accepting quote:', error);
-      if (error instanceof Error) {
-        alert(error.message);
-      }
+      setError('An unexpected error occurred while accepting the quote');
     }
   };
 
   const rejectQuote = async (id: string) => {
     try {
+      setError(null); // Clear any previous errors
       const response = await fetch(`/api/admin/staged-quotes/${id}`, {
         method: 'DELETE',
       });
-      if (!response.ok) throw new Error('Failed to reject quote');
+      if (!response.ok) {
+        setError('Failed to reject quote');
+        return;
+      }
       fetchStagedQuotes();
     } catch (error) {
       console.error('Error rejecting quote:', error);
+      setError('An unexpected error occurred while rejecting the quote');
     }
   };
 
   const rejectAllQuotes = async () => {
     try {
+      setError(null); // Clear any previous errors
       if (!confirm('Are you sure you want to reject all quotes? This cannot be undone.')) {
         return;
       }
@@ -158,6 +174,7 @@ const StagedQuotesManagement: React.FC = () => {
       fetchStagedQuotes();
     } catch (error) {
       console.error('Error rejecting all quotes:', error);
+      setError('An unexpected error occurred while rejecting all quotes');
     }
   };
 
@@ -165,6 +182,7 @@ const StagedQuotesManagement: React.FC = () => {
     if (!addSpeakerModal) return;
 
     try {
+      setError(null); // Clear any previous errors
       const createSpeakerResponse = await fetch('/api/admin/speakers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -177,7 +195,8 @@ const StagedQuotesManagement: React.FC = () => {
 
       if (!createSpeakerResponse.ok) {
         const errorData = await createSpeakerResponse.json();
-        throw new Error(errorData.message || 'Failed to create speaker');
+        setError(errorData.message || 'Failed to create speaker');
+        return;
       }
 
       const acceptResponse = await fetch(`/api/admin/staged-quotes/${addSpeakerModal.quoteId}/accept`, {
@@ -186,14 +205,15 @@ const StagedQuotesManagement: React.FC = () => {
 
       if (!acceptResponse.ok) {
         const errorData = await acceptResponse.json();
-        throw new Error(errorData.message || 'Failed to accept quote');
+        setError(errorData.message || 'Failed to accept quote');
+        return;
       }
 
       fetchStagedQuotes();
       setAddSpeakerModal(null);
     } catch (error) {
       console.error('Error in handleAddSpeakerAndQuote:', error);
-      alert(error instanceof Error ? error.message : 'Failed to add speaker and save quote');
+      setError('An unexpected error occurred while adding speaker and quote');
     }
   };
 
@@ -218,6 +238,11 @@ const StagedQuotesManagement: React.FC = () => {
         </div>
       </CardHeader>
       <CardContent>
+        {error && (
+          <div className="mb-4 p-4 text-sm text-red-800 rounded-lg bg-red-50">
+            {error}
+          </div>
+        )}
         <Table>
           <TableHeader>
             <TableRow>

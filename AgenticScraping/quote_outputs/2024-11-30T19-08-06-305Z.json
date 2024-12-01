@@ -1,0 +1,364 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-30T19:08:06.305Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/articles/cx2ye47jkz2o",
+        "article_headline": "'Maybe it's destiny' - Amorim on Man Utd job & coaching philosophy",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/videos/c62lp2ky9lvo",
+        "article_headline": "Man Utd job will change my life... not me - Amorim. Video, 00:03:13",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-could-unleash-new-30486680",
+        "article_headline": "Ruben Amorim could unleash new midfield vs Everton to give Manchester United fans what they want",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/ruben-amorim-gives-tyrell-malacia-30487790",
+        "article_headline": "Ruben Amorim gives Tyrell Malacia verdict and provides Manchester United injury update",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/manchester-united-face-up-alarming-30488118",
+        "article_headline": "Manchester United face up to alarming £43m transfer reality",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-marks-landmark-30487111",
+        "article_headline": "Chido Obi-Martin marks landmark Manchester United moment by scoring again for Under-18s",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/sir-jim-ratcliffe-ineos-betraying-30480953",
+        "article_headline": "LUCKHURST: Sir Jim Ratcliffe and Ineos are betraying Manchester United fans over ticket price hike",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/im-not-entirely-convinced-paul-30486945",
+        "article_headline": "'I'm not entirely convinced' - Paul Merson reveals Ruben Amorim concern for Man United",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/i-sneaky-feeling-pundits-disagree-30488265",
+        "article_headline": "'I have a sneaky feeling' - pundits disagree on Manchester United vs Everton score prediction",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-icon-sir-alex-30488427",
+        "article_headline": "Man United icon Sir Alex Ferguson vs Pep Guardiola has clear winner - only one has changed football",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ineos-demand-personal-promise-player-30488201",
+        "article_headline": "Ineos demand, personal promise, player meetings - Inside Ruben Amorim's Man United",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/fired-manchester-united-treble-sir-30457787",
+        "article_headline": "I fired Manchester United to the Treble - but Sir Alex Ferguson told me I was a failure",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-uniteds-best-world-star-30488123",
+        "article_headline": "Manchester United's 'best in the world' star has been told what he wanted to hear",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-history-repeat-itself-30480963",
+        "article_headline": "RAILSTON: Manchester United history is about to repeat itself with £72million player - and it's good news",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/sverre-nypan-can-emulate-erling-30469188",
+        "article_headline": "Sverre Nypan can emulate Erling Haaland and Martin Odegaard - but he is not ready for Man United yet",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/how-man-uniteds-starting-xi-30485306",
+        "article_headline": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/manchester-united-rejected-14-ive-30482441",
+        "article_headline": "Manchester United rejected me at 14 - but I've since proved them wrong",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-handed-perfect-30483310",
+        "article_headline": "Chido Obi-Martin handed perfect chance to deliver on Manchester United backing",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/think-manchester-united-need-balance-30473165",
+        "article_headline": "I think Manchester United need balance in midfield - a transfer return is not the answer",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-handed-mixed-predictions-30474042",
+        "article_headline": "Manchester United handed mixed predictions as Ruben Amorim searches for first Premier League win",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/two-manchester-united-players-staking-30484594",
+        "article_headline": "Two Manchester United players are staking clear Ruben Amorim claim - but one is failing his audition",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/liverpool/liverpool-man-utd-shirts-jamie-carragher-838203-20241130",
+        "article_headline": "Why the shirts of two recent Man United legends are permanently displayed in Liverpool's away dressing room at Anfield",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/ruben-amorim-calls-out-player-transfer-news-763710-20241130",
+        "article_headline": "Man Utd star singled out by Ruben Amorim 'decides to leave the club in January' as brutal squad cut starts",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/aaron-ramsdale-tweet-southampton-brighton-premier-league-var-485676-20241130",
+        "article_headline": "Aaron Ramsdale's first tweet since May goes viral after what happened in Southampton's draw with Brighton",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/the-guardian-top-40-wonderkids-609725-20241129",
+        "article_headline": "What happened to the 40 young players The Guardian tipped in 2014 to dominate world football",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/liverpool/mo-salah-fpl-liverpool-man-city-012885-20241129",
+        "article_headline": "Mo Salah's FPL team ahead of Liverpool's game with Man City goes viral as he makes two huge changes",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/brighton-southampton-premier-league-297138-20241129",
+        "article_headline": "Premier League fans are all in agreement after watching Brighton vs Southampton",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/premier-league-air-jordan-nike-chelsea-tottenham-605183-20241129",
+        "article_headline": "How much Chelsea and Tottenham could be paid for first-ever Premier League kit design from Air Jordan",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/liverpool-mo-salah-contract-update-instagram-900131-20241129",
+        "article_headline": "Mo Salah breaks the internet with latest Instagram Story as Liverpool star's future takes new twist",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/transfer-news/liverpool-trent-alexander-arnold-contract-real-madrid-979245-20241129",
+        "article_headline": "Major development in Trent Alexander-Arnold transfer saga involving Liverpool and Real Madrid",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/29/premier-league-10-things-to-look-out-for-this-weekend",
+        "article_headline": "Ten things to look out for this weekend",
+        "article_text": "",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    }
+  ]
+}

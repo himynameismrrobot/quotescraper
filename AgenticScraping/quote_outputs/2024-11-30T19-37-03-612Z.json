@@ -1,0 +1,471 @@
+{
+  "model": "openai",
+  "timestamp": "2024-11-30T19:37:03.612Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nLatest updates\n--------------\n\n1. BBC Sport presenter Mark Chapman has been getting to know Manchester United boss Ruben Amorim in an exclusive Football Focus interview, with the Portuguese manager explaining why he appears to be \"very relaxed\" in his new job.\n\n\"I will be OK - no matter what,\" Amorim said. \"In this stage of my life, I will be OK so that's why I am relaxed.\n\n\"Everybody says to me: 'This will change me'. This will not change me.\n\n\"If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed.\n\n\"I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move].\n\n\"Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"\n\nWatch the full interview with Ruben Amorim on [Football Focus on iPlayer](https://www.bbc.co.uk/iplayer/episodes/b006m8tc/football-focus) or listen to the special [Football Daily podcast on BBC Sounds](https://www.bbc.co.uk/sounds/play/p0k7y4sr)\n\n2. Ruben Amorim has become the latest manager to be tasked with restoring Manchester United's on-pitch fortunes.\n\nThe club paid £11m to Portuguese club Sporting to recruit the 39-year-old and his staff, making him the sixth permanent manager since Sir Alex Ferguson's illustrious 26-year reign ended with his retirement in 2013.\n\nAfter a draw at Ipswich and a win against Bodo/Glimt in his first two games, his side host Everton on Sunday (13:30 GMT).\n\nBBC Sport presenter Mark Chapman caught up with the Portuguese manager on Football Focus, firstly asking him if he is already feeling a connection with the Manchester United fans.\n\n\"Yes for sure, I feel that\" Amorim revealed. \"Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think.\n\n\"Maybe because I am different from the last coach and this can bring a different connection with the next guy.\n\n\"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling.\n\n\"To maintain this feeling, we have to play better and win games and be really honest with the supporters.\n\n\"If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"\n\nWatch the full interview with Ruben Amorim on [Football Focus on iPlayer](https://www.bbc.co.uk/iplayer/episodes/b006m8tc/football-focus) or listen to the special [Football Daily podcast on BBC Sounds](https://www.bbc.co.uk/sounds/play/p0k7y4sr)\n\n8. Mason Mount is a \"proper footballer\" who wants to succeed at Manchester United, says head coach Ruben Amorim.\n\nMount, 25, joined from [Chelsea](https://www.bbc.com/sport/football/teams/chelsea) in the summer of 2023 but his time at Old Trafford so far has been hampered by injury issues.  \n    He started against Bodo/Glimt and played for an hour of Thursday's Europa League victory.\n\nAmorim talked about his \"belief\" in Mount and said of the England midfielder: \"The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing.\n\n\"He has proved he is a really talented player. He was a European champion, so we believe in him a lot.\n\n\"He has to stay fit and, like all the guys in the team, they are quality players, they have to improve and believe in themselves.\n\n\"On Thursday he did a great job. You see some moments and details where you can see that Mason is a proper footballer. We believe in him a lot and I especially believe a lot in Mason.\"\n    \nAfter a draw at [Ipswich](https://www.bbc.co.uk/sport/football/teams/ipswich-town) in his first game in charge, Amorim is hopeful of a first Premier League win as United boss against [Everton](https://www.bbc.co.uk/sport/football/teams/everton) on Sunday (13:30 GMT).\n\n\"It's going to be a different match with a lot of fighting for long balls and second balls,\" he added.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Explaining his relaxed demeanor] \"I will be OK - no matter what. In this stage of my life, I will be OK so that's why I am relaxed. Everybody says to me: 'This will change me'. This will not change me. If something happens, I will be frustrated for a while but I know I will recover. But I believe that we are going to succeed. I'm ready. When I had this invitation, I felt that it was really hard to leave my players at Sporting. But, when I had this opportunity, I felt I had to do this [and make the move]. Maybe it is destiny and I will be a little bit lucky in the beginning and then everything is going to be fine.\"",
+          "summary": "I will be OK regardless of what happens, I believe we will succeed.",
+          "id": "5e999e6b-a20e-40bf-ab4e-836f92b77589",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote contains text written by the article author."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Expressing connection with fans] \"Yes for sure, I feel that. Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think. Maybe because I am different from the last coach and this can bring a different connection with the next guy.\"",
+          "summary": "I feel a connection with the fans, partially due to my emotional nature.",
+          "id": "e37bfca9-e85b-4d6d-b690-e050c0557c11",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote contains text written by the article author."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Regarding the team's success] \"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling. To maintain this feeling, we have to play better and win games and be really honest with the supporters. If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"",
+          "summary": "I am confident I'm the right coach, and honesty will build a strong connection with supporters.",
+          "id": "4ba78102-e3b2-4bb7-b9f3-1248d46c1d0c",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote contains text written by the article author."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Mason Mount] \"The first thing is he's working really hard. Then you have to understand the human also - he wants this really badly, and that is the most important thing. He has proved he is a really talented player. He was a European champion, so we believe in him a lot. He has to stay fit and, like all the guys in the team, they are quality players, they have to improve and believe in themselves. On Thursday he did a great job. You see some moments and details where you can see that Mason is a proper footballer. We believe in him a lot and I especially believe a lot in Mason.\"",
+          "summary": "Mason is incredibly hard-working and talented; we believe strongly in him.",
+          "id": "ab61eb1e-8f20-47b5-845c-b14e9da4ef5c",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote contains text written by the article author."
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Anticipating the match] \"It's going to be a different match with a lot of fighting for long balls and second balls.\"",
+          "summary": "The next match will involve a lot of battles for possession.",
+          "id": "278134b9-9ea8-4651-a8a5-bb39a04d070e",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "Quote contains text written by the article author."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-could-unleash-new-30486680",
+        "article_headline": "Ruben Amorim could unleash new midfield vs Everton to give Manchester United fans what they want",
+        "article_text": "Ruben Amorim could unleash new midfield vs Everton to give Manchester United fans what they want - George Smith - Manchester Evening News\n\nMan United head coach Ruben Amorim will be eyeing his second win in charge when Everton visit Old Trafford in the Premier League on Sunday.\n\nPredicting how Manchester United will line up under Ruben Amorim is already a challenge.\n\nYou would have struggled to find anybody who correctly predicted the starting line-up at Ipswich Town last Sunday, likewise against Bodo/Glimt at Old Trafford on Thursday night.\n\nThe fact Amorim has arrived at Old Trafford at a point in the season where the fixtures are coming thick and fast means that he is having to rotate to keep his players fresh. Sunday's visit of Everton will mark the first of nine assignments United must overcome in December alone.\n\nThe visit of the Toffees to Old Trafford on Sunday lunchtime will mark Amorim's first Premier League home game in charge, and you can guarantee changes will be made to the XI once again. The former Sporting Lisbon boss made six alterations to the XI that started at Ipswich Town against Bodo/Glimt.\n\nAs a result of those six alterations, Amorim deployed an entirely different midfield four to the one that started in Suffolk, starting Antony and Tyrell Malacia in the wing-back roles and Manuel Ugarte and Bruno Fernandes in the centre. The latter started against Ipswich but in a more advanced role.\n\nAs a result of playing deeper against Bodo/Glimt, Fernandes joined forces with Ugarte in the centre of midfield, flanked by Antony and Malacia in the wing-back roles. Nobody anticipated that combination in the wing-back department.\n\nNeither Antony nor Malacia justified their inclusions, meaning they are highly unlikely to feature on Sunday's teamsheet as starters. The expectation is that Diogo Dalot and Amad will be recalled and provide United with the width Amorim demands in his 3-4-3 system.\n\nAmad has been one of United's best players this season and made his mark as a wing-back in next to no time at Ipswich, creating Marcus Rashford's goal inside the opening two minutes. Dalot offered plenty of running power on the opposite flank, but could face competition from Luke Shaw for that particular berth.\n\nSandwiched between Amad and Dalot, most United supporters dream of seeing Kobbie Mainoo partnering Ugarte and forming United's new first-choice midfield pairing. Mainoo did not feature in either of Amorim's first two games in charge, playing the role of an unused substitute against both Ipswich and Bodo/Glimt.\n\nMainoo, who is one of the most talented players to have stepped off the Carrington production line in recent years, has not played for United since the 0-0 draw with Aston Villa on October 6 because of injury. United have missed his technical ability and flair in the engine room in recent weeks.\n\nMainoo has only once previously started alongside Ugarte, who has been getting better and better in recent weeks, and many believe they could work well together. With Amad lining up on one side and Dalot or Shaw on the other, Amorim can unleash a new-look midfield in his search for consistency.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/ruben-amorim-gives-tyrell-malacia-30487790",
+        "article_headline": "Ruben Amorim gives Tyrell Malacia verdict and provides Manchester United injury update",
+        "article_text": "Tyrell Malacia returned to the Man United starting XI on Thursday night after a lengthy injury lay-off.\n\nManchester United head coach Ruben Amorim has said he was \"really happy\" with Tyrell Malacia's comeback from injury against Bodo/Glimt on Thursday night.\n\nThe United full-back missed well over year of action due to injury and made his return to the starting XI in the Europa League on Thursday. Malacia was taken off at half-time as his minutes are carefully managed.\n\nThe Dutchman struggled at times and Philip Zinckernagel took full advantage of Malacia's lack of match sharpness to race away from him and put his side 2-1 up on the night.\n\nDespite that, Amorim admitted he thought Malacia did really well and was happy with the bravery he showed on the ball.\n\n\"It was huge for him, the confidence of everybody, I think he did really well,\" he told MUTV. \"It was more than a year without playing and the way he behaved, so brave with the ball, I'm really happy with him.\"\n\nUnited face Everton in the Premier League on Sunday as Amorim goes in search of his first league win as head coach. The Portuguese's options in defence have been limited due to injuries since his arrival, though he revealed he could welcome back some of his injured stars this weekend.\n\n\"Maybe, we have to see,\" he said when asked if any players could return on Sunday. \"We have one more training, if not in the starting XI then they will be on the bench.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "It was huge for him, the confidence of everybody, I think he did really well. It was more than a year without playing and the way he behaved, so brave with the ball, I'm really happy with him.",
+          "summary": "I'm really happy with how brave he was after a year of not playing.",
+          "id": "a248c1b1-118f-429c-ac1b-db7066c3fa35",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Maybe, we have to see. We have one more training, if not in the starting XI then they will be on the bench.",
+          "summary": "We might have some players returning; it depends on the next training.",
+          "id": "b8fb3638-108a-4d6d-b213-482639a53564",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/manchester-united-face-up-alarming-30488118",
+        "article_headline": "Manchester United face up to alarming £43m transfer reality",
+        "article_text": "Manchester United face up to alarming £43m transfer reality - Ross Jackson - Manchester Evening News\n\nMatthijs de Ligt was signed by Man United for £42.9m in August but he's struggled in his short time at the club.\n\nWhen Manchester United secured the double signing of Noussair Mazraoui and Matthijs de Ligt from Bayern Munich in the summer, few would have envisioned the former having the impact he has in his early months at the club.\n\nThough still early days, Mazraoui has been a genuine success story at United, a club all too familiar with transfer flops. The problem with the aforementioned double deal is that De Ligt is already looking like another expensive error.\n\nThe Dutchman was one of the most highly-rated centre-backs in Europe when he left Ajax for Juventus in 2019, but since then he has never threatened to hit the heights many expected of him. His stint in Turin came to an end after just three seasons and he spent even less time at Bayern Munich, signing for United after just two years in the Bundesliga.\n\nThere was genuine hope amongst United supporters that De Ligt could recapture the form he showed at Ajax. That's already looking like a pipe dream.\n\nIt must be said that purely being available for selection is a positive in a United side that continues to be blighted by injuries, particularly in defence. De Ligt has played in all 12 of United's Premier League outings so far this season, yet he's struggled to be the commanding figure United hoped he would be and has failed to live up to the billing of a player who arrived with a list of former clubs on his CV that the best of the best would be proud of.\n\nThere's still time for De Ligt at United and Ruben Amorim may well be able to help him return to his best. However, Amorim needs the player in the centre of his back three to be a commanding presence and there has been little to suggest De Ligt can be that man so far.\n\nUnited took a gamble in signing a player who had failed to consistently showcase his best form since his Ajax exit in 2019. So far there has been little evidence to suggest the gamble will pay off.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-marks-landmark-30487111",
+        "article_headline": "Chido Obi-Martin marks landmark Manchester United moment by scoring again for Under-18s",
+        "article_text": "Chido Obi-Martin marks landmark Manchester United moment by scoring again for Under-18s - Manchester Evening News\n\nMan United youngster Chido Obi-Martin opened the scoring in the Under-18s' 3-0 win over Stoke City.\n\nBy\nGeorge Smith Senior Football Writer\n\nChido Obi-Martin was on the scoresheet once again for the Under-18s. (Image: MUTV.)\n\nManchester United striker Chido Obi-Martin celebrated signing his first professional contract by scoring the opener in the Under-18s' 3-0 win over Stoke City on Saturday.\n\nThe Danish youth international put United ahead with 71 minutes on the clock, converting a penalty, before James Scanlon and Dante Plunkett made sure of the points in the closing stages.\n\nTurning 17 on Friday, Obi-Martin's maiden professional contract was allowed to commence at Old Trafford. The striker signed a scholarship with an agreement for his professional contract to begin when he turned 17 after joining United from Arsenal in the summer.\n\nThe Dane won the penalty that gave him the opportunity to put his side ahead. He got goal-side of Pijus Otegbayo and drew a foul from the Potters centre-back.\n\nObi-Martin, who has now scored in each of his last two appearances for the Under-18s, made no mistake from the spot, sending the goalkeeper the wrong way.\n\nThe striker was substituted not long after putting United in front, being replaced by Victor Musa with 76 minutes on the clock. The Dane's exit did not damage United's prospects of scooping all three points at Stoke's Clayton Wood training base, with Scanlon smashing in a brilliant second seven minutes later.\n\nHe rifled in a fierce effort from the edge of the box to claim his 10th goal of the season in the Under-18s Premier League. Plunkett made sure of the points in the closing stages, turning the ball home from close range.\n\nThe U18s have now won each of their first 10 league matches this season, scoring 46 goals in the process. They have also kept four consecutive clean sheets.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Chido Obi-Martin",
+          "raw_quote_text": "[Celebrating first professional contract] I got goal-side of Pijus Otegbayo and drew a foul from the Potters centre-back. I made no mistake from the spot, sending the goalkeeper the wrong way.",
+          "summary": "I drew a foul and scored the penalty.",
+          "id": "786be793-fcca-42bc-9234-ce9318956e7a",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote includes context in brackets which is written by the article's author and not the speaker."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/im-not-entirely-convinced-paul-30486945",
+        "article_headline": "'I'm not entirely convinced' - Paul Merson reveals Ruben Amorim concern for Man United",
+        "article_text": "'I'm not entirely convinced' - Paul Merson reveals Ruben Amorim concern for Man United - Manchester Evening News\n\nLatest Manchester United news and gossip as Paul Merson gives his verdict on Ruben Amorim's start to life as United head coach\n\nPaul Merson has expressed his concern for Ruben Amorim's future as Manchester United manager after watching recent matches.\n\nAmorim took charge of his first United fixture last week with the 1-1 draw with Ipswich Town in the Premier League. The Reds followed that with a 3-2 win over Bodo/Glimt in the Europa League on Thursday night in what was Amorim's first victory since taking charge at Old Trafford.\n\nSunday will see United host Everton in the Premier League as Amorim takes charge of his home debut in the top flight. Merson has predicted that United will win the game 2-0 but has offered a warning to Amorim after watching recent matches.\n\nAfter being held to a draw with Ipswich last week, Merson explained why he is concerned about Amorim's style of play at United. The former Arsenal star went on to explain why the new United boss will be under increased pressure to succeed in the weeks and months ahead.\n\n\"I think even Ruben Amorim was shocked by what happened [against Ipswich],\" Merson told Sportskeeda. \"If they don't start winning games, Amorim will have to start answering a lot more questions whether he likes it or not.\n\n\"That is just how big this club is and how the Premier League is in a nutshell. I'm not entirely convinced about Manchester United's new system under Amorim.\n\n\"After a point in that game, you would've thought Ipswich were the bigger club and not United, that's how it went.\n\n\"You could say everyone was away on international duty, and he did not have enough time. But if that performance was against one of the big boys in the league, Manchester United would have been destroyed by four or five goals!\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "I think even Ruben Amorim was shocked by what happened [against Ipswich]. If they don't start winning games, Amorim will have to start answering a lot more questions whether he likes it or not.",
+          "summary": "I believe Ruben Amorim was surprised by the Ipswich result and will face more questions if he doesn't secure wins.",
+          "id": "dab8f8fb-27d0-4185-acdc-76ae8f3c633b",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "That is just how big this club is and how the Premier League is in a nutshell. I'm not entirely convinced about Manchester United's new system under Amorim.",
+          "summary": "The size of the club and the nature of the Premier League mean I'm not fully convinced by Amorim's system.",
+          "id": "087cb615-f7a9-4c01-9a63-38b1cc698950",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "After a point in that game, you would've thought Ipswich were the bigger club and not United, that's how it went.",
+          "summary": "At one point, it felt like Ipswich was the bigger club, not Manchester United.",
+          "id": "d3557d3e-70b2-4b77-9e9d-caece066f0bd",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        },
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "You could say everyone was away on international duty, and he did not have enough time. But if that performance was against one of the big boys in the league, Manchester United would have been destroyed by four or five goals!",
+          "summary": "While international duties affected the team, such a performance against top clubs would lead to a heavy defeat.",
+          "id": "723845e4-dfb8-4024-ba67-7f729f34c2fe",
+          "similar_to_quote_id": null,
+          "similarity_score": null
+        }
+      ],
+      "status": "quoteSimilarityCheckFailed"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/how-man-uniteds-starting-xi-30485306",
+        "article_headline": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings",
+        "article_text": "How Man United's starting XI could look after summer revamp with Geovany Quenda and four signings - Will Jenkins - Manchester Evening News\n\nThe summer transfer window will be a crucial time for Ruben Amorim as he looks to create his perfect Manchester United team under his formation.\n\nManchester United are set to have a busy time in the transfer window in the summer, when the team could face a big revamp under new head coach Ruben Amorim.\n\nThe Portuguese manager won his first game as manager of United on Thursday night. Along with being his first match at Old Trafford, a 3-2 win in the Europa League against Bode/Glimt gave Amorim his first taste of success in England.\n\nAmorim brought along his iconic three-back formation to Manchester. It's been clear that the players are still having to get used to it. However, with all new managers, Amorim will have a list of players that he wants to bring in to suit his tactics.\n\nWe have rounded up the six key possible signings that could change the dynamic of Manchester United.\n\n### Geovany Quenda\n\nThe 17-year-old is a player who Amorim adores from his Sporting CP days. Quenda would be following the likes of Cristiano Ronaldo and Bruno Fernandes if he changes the green and white stripes of Libson for the red of United.\n\nThe Portuguese manager handed the youngster his debut in August and the wing-back has played every game since. Wing-backs are essential to Amorim's shape as they have the important job to manage the attack down the ring whilst still maintaining their defensive duties.\n\nThe key thing with this potential signing is that Amorim trusts Quenda. Their relationship could look to build into the kind of connection Ronaldo and Sir Alex Ferguson had. Reports are that the 17-year-old has a £83m release clause in his contract which could be an issue - although the MEN reported on Friday that United representatives have already met with the player's agent Jorge Mendes ahead of a potential move.\n\n### Christopher Nkunku\n\nThe Chelsea forward is claimed to be a player of interest to United by TEAMtalk. The French international hasn't had the easiest start to his time at the Blues. A knee injury had him out of play last season for a good chunk of the year. Now fit and ready, he is still only experiencing a small amount of minutes, mainly appearing in the Conference League.\n\nAgain, Nkunku would be an ideal move for Amorim as he has experience playing with a three-back during his time at RB Leipzig. Although he is now primarily used as a winger, Nkunku has had experience in a centre forward role, a position which Amorim is experimenting with as seen when he put Marcus Rashford up front against Ipswich, as well as in attacking midfield - a role former United interim boss Ralf Rangnick previously praised him for.\n\nA permanent move away from Chelsea looks like an unlikely scenario, however, a loan move in January could be on the table with the Frenchman unhappy in London.\n\n### Viktor Gyokeres\n\nOne of the hottest strikers on the market, Gyokeres has a fantastic relationship with Amorim already from Sporting. Under the Portuguese boss, the striker managed 16 goals in 11 league games. So not only does the Swedish forward know how to play to Amorim's dynamic, but the boss understands how to get the most out of his forward.\n\nIn Amorim's first two games, he has played with two different central strikers in Rashford and Rasmus Hojlund. Hojlund has been the most successful, grabbing a brace in the Europa League on Thursday.\n\nBringing the Swede into United would put the £100m+ signings of Hojlund and Joshua Zirkzee in jeopardy, but performances can pay.\n\n### Matheus Cunha\n\nAnother striker is Wolves' main man Cunha. The Midlands side have just picked up their season, grabbing their first two wins in a row recently. Now, with manager Gary O'Neil having a further understanding of where gaps may lie, bringing in reinforcements may require big names like Cunha being sold.\n\nThe striker had cost Wolves £43m and they will likely be looking at making a profit from the Brazilian. Although Wolves are 17th, Cunha has bagged 7 goals from 12 games, more than the likes of Ollie Watkins, Bukayo Saka and Luis Diaz.\n\nAmorim will be smart enough to not overload his attacking options. Cunha has been known to play in attacking midfield, however, which could hint at a new role for captain Bruno Fernandes if United's interest in the Brazilian proves to be true.\n\n### Rayan Ait-Nouri\n\nIt looks like it could be double Wolves' for Amorim as the Algerian star Ait-Nouri has captured his eye. The defenders contract is set to expire in the summer of 2026 with The Sun claiming that he wants a move away from the club.\n\nThe Portuguese manager is certainly looking to expand his defensive options, especially those at left-back. The Wolves wing-back has proven himself a force to be reckoned with on the attack, frequently getting into a position to put a ball in the box, something that a player like Hojlund would certainly take advantage of.\n\nAn important factor is the fear of relegation for Wolves. Although they have collected a couple of wins recently, they still only sit one spot above relegation thanks to a better goal difference. It's certain that Ait-Nouri would prefer European football to Championship.\n\n### Verdict\n\nAmorim would certainly have some exciting options at his disposal should he pull off a major summer revamp at United. Should that happen, United's starting XI next season could be: Onana; Yoro, De Ligt, Martinez; Mazraoui, Fernandes, Ugarte, Ait-Nouri; Nkunku, Cunha; Gyokeres.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-rejected-14-ive-30482441",
+        "article_headline": "Manchester United rejected me at 14 - but I've since proved them wrong",
+        "article_text": "Manchester United rejected me at 14 - but I've since proved them wrong - Manchester Evening News\n\nManchester United take on Everton in the Premier League on Sunday and Dwight McNeil will be facing the club who released him as a teenager.\n\nIt's somewhat ironic that Manchester United pointed out Dwight McNeil's poor crossing ability as one of the factors behind their decision to allow him to leave the club.\n\nMcNeil now has 29 Premier League assists to his name and is perhaps Everton's biggest creative threat as they prepare to face United at Old Trafford on Sunday. The 25-year-old spent nine years as a kid in the Reds' academy but was let go at 14.\n\nHe subsequently linked up with Burnley and broke through at Turf Moor, earning England Under-21 honours and a move to Everton where he has since been reunited with his former Clarets boss Sean Dyche. McNeil is often used in the number 10 position at Goodison and may well line up there again if selected against Ruben Amorim's side, while he also has the wing back experience and attacking versatility that Amorim values.\n\nWhen McNeil was released by United, he channelled his disappointment into a desire to prove those in the red half of Manchester wrong. A little over 10 years later it's fair to say he's done just that.\n\nA Premier League regular since he was 18, McNeil has more than 200 top flight appearances to his name. He's faced United plenty of times before and there is certainly no wondering what might have been for a player who came through at the club with the likes of Angel Gomes.\n\n\"Getting released by United was hard at the time but looking back now I don’t have any regrets,\" he said, speaking to Mail Online. \"My dad was a United fan and so was I. I went there at five-years-old but at 14 the coaches told my mum and dad I was released and they told me on the way home in the car.\n\n\"It was hard for me to take and my parents main concern was that I was alright. United told us in March and said I could stay until the end of the season but we decided it was best to leave completely and I went on a six-week trial to Burnley.\n\n\"I think the feeling was to try and prove the people who made the decision wrong and I think I’ve managed to do that. Burnley helped me massively. While the quality wasn’t as good, people were faster and stronger and I was in the first-team dressing-room at 17.\"\n\nMcNeil has since become a mainstay of an Everton team struggling at the wrong end of the table. He'll be back at Old Trafford on Sunday, and United will hope he doesn't offer them a reminder of what could have been.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Dwight McNeil",
+          "raw_quote_text": "[Reflecting on his release from Manchester United] Getting released by United was hard at the time but looking back now I don’t have any regrets.",
+          "summary": "I had a tough time being released but now I have no regrets.",
+          "id": "ac3de1f0-fba0-4753-bdae-72350cb5e203",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Dwight McNeil",
+          "raw_quote_text": "[Recalling the moment of his release] My dad was a United fan and so was I. I went there at five-years-old but at 14 the coaches told my mum and dad I was released and they told me on the way home in the car.",
+          "summary": "My family was a United family, and being told I was released at 14 was tough.",
+          "id": "293777e0-f29f-4a02-8431-e4b627fdebe0",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Dwight McNeil",
+          "raw_quote_text": "[Describing the aftermath of his release] It was hard for me to take and my parents’ main concern was that I was alright. United told us in March and said I could stay until the end of the season but we decided it was best to leave completely and I went on a six-week trial to Burnley.",
+          "summary": "It was difficult for me and my parents focused on my well-being after the release.",
+          "id": "76f11220-6b5d-403b-a625-065eed890d68",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Dwight McNeil",
+          "raw_quote_text": "[About proving Manchester United wrong] I think the feeling was to try and prove the people who made the decision wrong and I think I’ve managed to do that. Burnley helped me massively. While the quality wasn’t as good, people were faster and stronger and I was in the first-team dressing-room at 17.",
+          "summary": "My goal was to prove Manchester United wrong, and Burnley was crucial in my development.",
+          "id": "bfa3e9bc-fa6f-4351-b921-a82ec72e2a4d",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-handed-perfect-30483310",
+        "article_headline": "Chido Obi-Martin handed perfect chance to deliver on Manchester United backing",
+        "article_text": "The talented youngster signed professional terms with United this week\n\nDanish wonderkid Chido Obi-Martin signed his first professional contract with Manchester United this week.\n\nSigned in October from Arsenal, Obi-Martin has made four appearances for the United Under-18s and scored four goals including a hat-trick against Nottingham Forest.\n\nHe’s already impressed in his time at Arsenal and is continuing to impress in United’s academy. With a trip to Stoke in the under-18s Premier League this morning, can Obi-Martin continue his rich vein of form and make himself an option in Ruben Amorim’s plans?\n\nObi-Martin’s stats speak for themselves when considering the talent he has. In the 21 matches he played for the Arsenal Under-18s, he scored 32 goals and provided three assists.\n\nWhile Arsenal looked to keep him past the end of his contract, he instead chose to look elsewhere and made his move to Carrington in October.\n\nToday, only eight weeks after signing for United he started his professional contract making him eligible to play for the first team. With United in need of more striking options as Joshua Zirkzee and Ramus Holjund struggle for consistent form, Obi-Martin has the chance to impress tomorrow against Stoke City to put himself in Amorim's long term thinking.\n\nUnited are currently top of the Under-18s Premier League table with a five-point lead over rivals Manchester City. They have been in imperious form this season as they look to retain their crown.\n\nUnited have won nine out of nine this season, scoring 43 goals and only conceding four. On the back of a 3-0 win at home to Everton, they will be looking to continue their unbeaten streak with victory tomorrow.\n\nIf Obi-Martin can continue his goalscoring talents tomorrow, it will be interesting to see how quickly Amorim looks to move him into first team contention.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/think-manchester-united-need-balance-30473165",
+        "article_headline": "I think Manchester United need balance in midfield - a transfer return is not the answer",
+        "article_text": "I think Manchester United need balance in midfield - a transfer return is not the answer - Manchester Evening News\n\nUnited have been linked with re-signing Angel Gomes and Paul Pogba in recent weeks\n\nBy Sean Sweeney\n\n09:00, 30 NOV 2024\n\nAngel Gomes has been heavily linked recently with a move back to Old Trafford next summer. Manchester United and Tottenham Hotspur have emerged as the top contenders to sign the midfielder.\n\nGomes released a statement on Thursday stating his focus is primarily on recovering from injury which he is getting surgery for soon.\n\nWith his contract at Lille running out at the end of the season and excitement for a potential return to Manchester increasing, former United striker Louis Saha has advised his old club against signing him.\n\n\"The solution is like someone who is really a master in that position, providing the link between the defence and the attack,\" said Saha when speaking with Slotswise.\n\nThe two-time Premier League champion spoke about the problems United have in their midfield, and suggested Paul Pogba is much better suited to be the solution.\n\n\"There are not many like Paul Pogba in the world. It’s all about creating a nice balance in midfield and he provides so much.\"\n\n\"I think there needs to be a balance in the midfield and I don’t think Angel Gomes will be the solution. It’s not an easy role to play and I see Angel Gomes as someone that is maybe not that kind of player.\"\n\nAngel Gomes first started his footballing career rising through the ranks of United’s academy. He started playing with them from as young as six-years-old before going on to make his first senior appearance for United at the age of 16.\n\nDespite this, Saha continues to put his faith in experience and proven talent in 31-year-old Pogba over 24-year-old Gomes.\n\nWith both out of contract and available to play next summer, both options remain open to Ruben Amorim. He may even remember Gomes from his loan spell in Portugal with Boavista who played Amorim’s Sporting Lisbon side twice during his time there.\n\nHe struggled to break into the first team though, only making 10 senior appearances for United. Consequently, he left Manchester in 2020 to play for Lille where he has been since. At Lille, Gomes has been able to flourish as an attacking midfielder. He has made 129 appearances for Les Dogues and scored 9 goals with 19 assists provided.\n\nDespite this, Saha continues to put his faith in experience and proven talent in 31-year-old Pogba over 24-year-old Gomes.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Louis Saha",
+          "raw_quote_text": "The solution is like someone who is really a master in that position, providing the link between the defence and the attack.",
+          "summary": "I believe the solution is a master in linking defense and attack.",
+          "id": "7439a51e-1950-4cf7-b808-620639d5e80e",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Louis Saha",
+          "raw_quote_text": "There are not many like Paul Pogba in the world. It’s all about creating a nice balance in midfield and he provides so much.",
+          "summary": "Not many match Paul Pogba; he brings vital balance to midfield.",
+          "id": "5adff1c7-edc4-4169-9c53-8b8ee1031359",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Louis Saha",
+          "raw_quote_text": "I think there needs to be a balance in the midfield and I don’t think Angel Gomes will be the solution. It’s not an easy role to play and I see Angel Gomes as someone that is maybe not that kind of player.",
+          "summary": "We need balance in midfield, and I don't see Gomes as the solution.",
+          "id": "d6074cac-2f3b-4309-84a6-3106379e0cb7",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-handed-mixed-predictions-30474042",
+        "article_headline": "Manchester United handed mixed predictions as Ruben Amorim searches for first Premier League win",
+        "article_text": "Manchester United handed mixed predictions as Ruben Amorim searches for first Premier League win - Manchester Evening News\nUnited welcome Everton to Old Trafford in the Premier League on Sunday\nBy Sean McCormick, Sport Content Editor\n\nRuben Amorim will manage his first Premier League match at Old Trafford on Sunday when Manchester United welcome Everton to the 'Theatre of Dreams'.\n\nAmorim's first taste of the Premier League ended in a 1-1 draw away at Ipswich Town last Sunday, but he had his first taste of victory in the United dugout on Thursday as United beat Bodo/Glimt 3-2 in the Europa League.\n\nAs United continue to get to grips with his 3-4-3 formation, there are signs that Amorim is turning things in the right direction and a first Premier League win will only underline that belief.\n\nUnited head into the weekend in 12th in the Premier League and Amorim will be desperate to move his side back into the top half of the table.\n\nWith that in mind, Manchester Evening News have rounded up the predictions of a number of leading Premier League pundits ahead of the visit of Sean Dyche's side.\n\n### Paul Merson\n\nThe Sky Sports pundit told SportsKeeda: \"Nothing changed for United last week in my opinion. Ipswich were by far the better team.\n\n\"I think even Ruben Amorim was shocked by what happened. If they don't start winning games, Amorim will have to start answering a lot more questions whether he likes it or not. That is just how big this club is and how the Premier League is in a nutshell.\n\n\"I'm not entirely convinced about Manchester United's new system under Amorim. \n\n**Merson's prediction:** Manchester United 2-0 Everton\n\n### Chris Sutton\n\nThe former Celtic and Chelsea forward told BBC Sport: \"There has been so much hype, or even over-hype, about Manchester United, and I feel a bit sorry for their new manager Ruben Amorim because he needs time, and two or three transfer windows, to put things right. \n\n\"As for Everton, well a fair few of their fans still seem to be on Sean Dyche's back, and they could not find a way past Brentford's 10 men last week.\n\n**Sutton's prediction:** Manchester United 1-1 Everton\n\n### Mark Lawrenson\n\nThe former BBC Sport pundit told Paddy Power: \"Everton can’t stop drawing and they’re certainly not scoring much. \n\n\"With home advantage Manchester United should win this.\"\n\n**Lawrenson's prediction:** Manchester United 2-1 Everton",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Paul Merson",
+          "raw_quote_text": "Nothing changed for United last week in my opinion. Ipswich were by far the better team. I think even Ruben Amorim was shocked by what happened. If they don't start winning games, Amorim will have to start answering a lot more questions whether he likes it or not. That is just how big this club is and how the Premier League is in a nutshell. I'm not entirely convinced about Manchester United's new system under Amorim.",
+          "summary": "I believe nothing has changed for United, and if they don't start winning, Amorim will face tough questions.",
+          "id": "d3ee2bdb-7c5c-4e67-a225-c00a903ef095",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Chris Sutton",
+          "raw_quote_text": "There has been so much hype, or even over-hype, about Manchester United, and I feel a bit sorry for their new manager Ruben Amorim because he needs time, and two or three transfer windows, to put things right. As for Everton, well a fair few of their fans still seem to be on Sean Dyche's back, and they could not find a way past Brentford's 10 men last week.",
+          "summary": "I feel sorry for Amorim; he needs time and transfers to fix United amid all the hype.",
+          "id": "4ef0ae25-0910-4eb2-9e9d-97df45af1675",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        },
+        {
+          "speaker_name": "Mark Lawrenson",
+          "raw_quote_text": "Everton can’t stop drawing and they’re certainly not scoring much. With home advantage Manchester United should win this.",
+          "summary": "I think United should win this match at home because Everton struggles to score.",
+          "id": "7c6e3ff4-a9de-4f3b-a4f9-bdb26f2b8e7b",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/two-manchester-united-players-staking-30484594",
+        "article_headline": "Two Manchester United players are staking clear Ruben Amorim claim - but one is failing his audition",
+        "article_text": "Two Manchester United players are staking clear Ruben Amorim claim - but one is failing his audition - Manchester Evening News\n========================\n\nManchester United winners and losers from the opening two matches of the Ruben Amorim era\n---------------------------------------------------------------------------------\n\nBy\n\nAlex James\n\n14:00, 30 NOV 2024\n\nThursday night saw Amorim win his first match as United’s new manager against Bodo/Glimt in the Europa League. Goals from Alexjando Garnacho and a Ramus Holjund double helped United climb the table. With Amorim looking to continue United’s winning momentum into Sunday’s clash with Everton, who will he be relying on again and who has failed to impress him so far?\n\nHoljund was instrumental in United’s comeback at Old Trafford last night with two goals either side of half-time. He also played a role in Garnacho's opener by pressing the Bodo/Glimt goalkeeper into a mistake.\n\nWith an inspiring performance to give his new manager his first win, it seems Amorim’s choice of centre forward is more straightforward for this weekend. Joshua Zirkzee’s form continues to be a subject of concern. Without a turnaround in form from the 23-year-old Dutchman, Holjund’s place leading United’s frontline will only become more secure.\n\nAnother player that has become a favourite of Amorim’s since his arrival is Mason Mount. The 25-year-old made his first start for since August on Thursday and looks set to keep appearing for Amorim’s side.\n\n“Today, he did a great job, and you see in some moments and details that you can see Mason Mount is a proper footballer. So we believe a lot in him, I especially believe a lot in Mason Mount,” said Amorim.\n\nMount has struggled since arriving at United, scoring only one goal in 28 appearances. Injuries haven't helped but it seems as though he can finally find his groove under Amorim and show why United spent so much on him.\n\nWhile the mood is lifting for most players at United, some still need to convince the new manager. Antony struggled against Bodo/Glimt and was replaced on the hour mark. The Brazilian has struggled to find their form since signing for United in 2022. In 88 appearances, he’s scored 12 goals and provided five assists.\n\nHe remained on the bench against Ipswich and it looks unlikely Amorim will put his faith in him anytime soon. While United’s future looks bright, Antony's is less certain.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "Today, he did a great job, and you see in some moments and details that you can see Mason Mount is a proper footballer. So we believe a lot in him, I especially believe a lot in Mason Mount.",
+          "summary": "I believe Mason Mount is a proper footballer.",
+          "id": "e6b2c4bd-14e6-46f2-b946-dcb3f97a5b81",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/do-not-care-ian-wright-30383969",
+        "article_headline": "'Do not care' - Ian Wright delivers damning Man United verdict after major Ineos decision",
+        "article_text": "TV football pundit and former Arsenal star Ian Wright has slammed Manchester United and co-owners Ineos for not caring enough about the women's team, while he also criticised manager Marc Skinner following the team's recent run of subpar results.\n\nIt's been a mixed start to the 2024/25 Women's Super League (WSL) campaign for Skinner's side. Despite an unbeaten run of six games, three of those ended in disappointing draws against Brighton, Arsenal, and a struggling Aston Villa side.\n\nThe Manchester club has been heavily criticised in recent months following reports the women's team had been moved out of their training facilities to accommodate the men's side. Comments from minority owner Sir Jim Ratcliffe also sparked controversy as he admitted plans were still a \"work in progress\" in an interview with Bloomberg back in June.\n\nA summer of high-profile departures followed their FA Cup triumph at Wembley back in May. The team made history as they secured the club's first piece of major silverware in the women's game, but Mary Earps, captain Katie Zelem, Irene Guerrero, Nikita Parris, and Lucia Garcia were among the high-profile departures during the transfer window.\n\nElisabeth Terland, Dominique Janssen, and Celin Bizet were just some of those to come through the door, while starlet Grace Clinton also returned from her loan spell with Tottenham Hotspur. Yet, despite the boost to the playing squad, United have already lost significant ground in the title race after six games.\n\nNow, Wright has weighed in with his views on the club's handling of the women's side. The 61-year-old insists the ownership does not care enough about the team for them to be a success.\n\nHe said on women’s football podcast Crossways: \"When you hear murmurings of Man United saying 'once we sort out the men’s, we’re gonna focus on the women’s' - when is that going to be? You look at the men’s and how far they are off it at the minute.\n\n\"When are they actually going to take notice of the women’s? I genuinely believe, especially with how Man United Women are playing, they do not care. They genuinely do not care enough.\"\n\nFollowing United's recent draw against Villa in the WSL, Skinner emphasised he is working with a new team this season due to the high turnover of players. However, it's an excuse that didn't stick for Wright, as he added: \"Unfortunately for him, the interview he did the other day didn’t stand him in good stead.\n\n\"What he’s saying regarding new players, the team gelling - he’s had this team for long enough now where they should be doing a lot better. You talk about the four new players, [Celin] Bizet - she’s played in the WSL before, [Dominque] Janssen has been there before, [Elisabeth] Terland, and then Grace Clinton who had to go to Tottenham to get herself better and in the England squad.\n\n\"You listen to that interview, no plan B, no real structure of what they’re doing. They were playing against a Villa side that were bottom of the league and he’s talking about they got a good result - at home. This is why I was quite pleased to see Man United fans pull him up about that interview and how David Brent-ish it was for me.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ian Wright",
+          "raw_quote_text": "(On Manchester United's neglect of the women's team) \"When you hear murmurings of Man United saying 'once we sort out the men’s, we’re gonna focus on the women’s' - when is that going to be? You look at the men’s and how far they are off it at the minute. When are they actually going to take notice of the women’s? I genuinely believe, especially with how Man United Women are playing, they do not care. They genuinely do not care enough.\"",
+          "summary": "I feel that Manchester United isn't prioritizing the women's team.",
+          "id": "aa2e9ea5-f238-44aa-8443-a0c598d79f04",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote text includes context in parentheses, which should not be included based on the validity criteria."
+        },
+        {
+          "speaker_name": "Ian Wright",
+          "raw_quote_text": "(Criticizing Marc Skinner's justifications) \"Unfortunately for him, the interview he did the other day didn’t stand him in good stead. What he’s saying regarding new players, the team gelling - he’s had this team for long enough now where they should be doing a lot better. You talk about the four new players, [Celin] Bizet - she’s played in the WSL before, [Dominque] Janssen has been there before, [Elisabeth] Terland, and then Grace Clinton who had to go to Tottenham to get herself better and in the England squad. You listen to that interview, no plan B, no real structure of what they’re doing. They were playing against a Villa side that were bottom of the league and he’s talking about they got a good result - at home. This is why I was quite pleased to see Man United fans pull him up about that interview and how David Brent-ish it was for me.\"",
+          "summary": "Skinner's recent interview showed a lack of planning and justification for his team's performance.",
+          "id": "3de6812d-c481-4545-96b2-1012a5e02b56",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The quote text includes context in parentheses, which should not be included based on the validity criteria."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/premier-league/premier-league-air-jordan-nike-chelsea-tottenham-605183-20241129",
+        "article_headline": "How much Chelsea and Tottenham could be paid for first-ever Premier League kit design from Air Jordan",
+        "article_text": "Chelsea and Tottenham could land huge windfall for first-ever Premier League kit design from Air Jordan - Premier League - SPORTbible\n===============\n**News broke earlier this week that Air Jordan could soon be heading for a kit crossover with a Premier League club, with two in the sights of the US sporting mega brand.**\n\nChelsea and Tottenham have been cited as targets for the iconic clothing line that holds roots from Michael Jordan's days in the NBA.\n\nPSG are the only previous club to have worn the specially-designed kits but the Ligue 1 giants will end their association at the end of the 2024/25 season.\n\nSo the real question remains, how much could both the Blues and Spurs profit from collaborating with one of the biggest sports empires in the Premier League?\n\nAccording to PSG's past sponsorship deal with Nike, ESPN wrote back in 2019 that the French giants could profit up to £80m per year.\n\nWe can safely presume that, when adjusted for inflation, that figure could now rise to well over £100m per year.\n\nGiven the Premier League's global dominance too, it is easy to imagine Chelsea or Spurs being attractive and viable selections as London-based clubs for the brand if they follow up on initial interest.\n\n\"Jordan Brand will not design Chelsea or Spurs kits if the clubs fail to qualify for next season's Champions League,\" wrote Sportico's Łukasz Bączek earlier this week. \"Nothing has changed in this respect.\"\n\nBack in January, it was suggested that Jordan would look to choose a London-based club because the city is considered one of the world's fashion capitals.\n\n\"The US brand is not considering cooperation with Liverpool, which is outfitted by Nike, due to its ownership ties with LeBron James and his brand,\" added Baczek.\n\nTottenham could be a sought-after party given their rebrand already this month, which would bring in another extra source of income.",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Łukasz Bączek",
+          "raw_quote_text": "[On a condition for kit design] Jordan Brand will not design Chelsea or Spurs kits if the clubs fail to qualify for next season's Champions League. Nothing has changed in this respect.",
+          "summary": "Jordan Brand won't design kits for Chelsea or Spurs unless they qualify for the Champions League.",
+          "id": "14eee1c6-ae18-4f46-aed0-344af229e687",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text contains context in brackets, which is not allowed."
+        },
+        {
+          "speaker_name": "Łukasz Bączek",
+          "raw_quote_text": "[On potential collaboration] The US brand is not considering cooperation with Liverpool, which is outfitted by Nike, due to its ownership ties with LeBron James and his brand.",
+          "summary": "The US brand is not pairing with Liverpool because of its ties to LeBron James.",
+          "id": "01b932da-604b-4242-8dcf-3a77afaae6a1",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text contains context in brackets, which is not allowed."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/transfer-news/liverpool-trent-alexander-arnold-contract-real-madrid-979245-20241129",
+        "article_headline": "Major development in Trent Alexander-Arnold transfer saga involving Liverpool and Real Madrid",
+        "article_text": "Major development in Trent Alexander-Arnold transfer saga as Real Madrid message revealed - Transfer News - SPORTbible\n\n**Trent Alexander-Arnold's transfer saga has taken another turn just days after Liverpool's impressive victory over Real Madrid.**\n\nLiverpool beat the defending European champions 2-0 at Anfield on Wednesday night to book their place in the next round of the Champions League.\n\nAlexander-Arnold wasn't fit enough to start the match, with Conor Bradley replacing him in Arne Slot's starting line-up.\n\nAnd the youngster excelled against Kylian Mbappe, containing the Frenchman for large periods of the game while also managing to get in a crunching challenge on him during the first half.\n\nDespite Bradley's solid performance, Alexander-Arnold is expected to return to the starting line-up for Liverpool's crucial Premier League clash with Manchester City on Sunday.\n\nThat's after head coach Slot confirmed he would be fit enough to start this weekend.\n\nAlexander-Arnold is out of contract at the end of the season and is yet to commit his long-term future to the Reds amid interest from Real Madrid.\n\nThe England international has kept tight-lipped about his future and frustrated fans on Friday, after Liverpool posted a video of the defender to their social accounts without an update on his contract negotiations.\n\nThe 26-year-old is free to negotiate a pre-contract agreement with foreign clubs including Madrid from the start of January.\n\nAnd it now appears Madrid are pushing ahead in their attempts to sign the full-back.\n\n_talkSPORT_ report that Madrid have officially informed Liverpool they intend to sign Alexander-Arnold.\n\nWhile the Spanish giants are not obliged to inform Liverpool of their intentions, sources close to the European champions say they want to be respectful to the Merseyside club.\n\nReal Madrid are currently operating without their first choice right-back, Dani Carvajal, who suffered an ACL injury in October - and are keen to find a long-term replacement for the Spain international.\n\nAlexander-Arnold is seen as the ideal choice and is also known to be close friends with Jude Bellingham, who was spotted swapping shirts with his England teammate after the midweek Champions League match at Anfield.\n\nAlexander-Arnold is out of contract at the end of the season.\n\nLiverpool are hopeful of convincing Alexander-Arnold to stay along with two other teammates, Mohamed Salah and Virgil van Dijk, who are also out of contract at the end of the season.\n\nSpeaking last month after returning from international duty with England, Alexander-Arnold said he did not want to end his career with any regrets.\n\n\"This was a conversation I had last camp with (Eberechi) Eze when we're going to Ireland,\" Alexander-Arnold said.\n\n\"I was on the coach down to the airport and we had this conversation. I said, you know, that there's a chance I may never win another trophy in my career again. There's a chance of that. There's a chance I win many, many more.\n\n\"You'll only know the morning after you retire. You'll look yourself in the mirror, and you'll have a feeling of either regret or satisfaction of what you have achieved.\"",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Trent Alexander-Arnold",
+          "raw_quote_text": "This was a conversation I had last camp with (Eberechi) Eze when we're going to Ireland. I was on the coach down to the airport and we had this conversation. I said, you know, that there's a chance I may never win another trophy in my career again. There's a chance of that. There's a chance I win many, many more. You'll only know the morning after you retire. You'll look yourself in the mirror, and you'll have a feeling of either regret or satisfaction of what you have achieved.",
+          "summary": "I expressed that I might never win another trophy and that only after retiring will I know if I feel regret or satisfaction with my career.",
+          "id": "f3a689bf-c805-4503-93d6-99d566e48665",
+          "similar_to_quote_id": null,
+          "similarity_score": null,
+          "is_valid": true,
+          "invalid_reason": ""
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/28/premier-league-10-things-to-look-out-for-this-weekend",
+        "article_headline": "Ten things to look out for this weekend",
+        "article_text": "Page Not Found | The Guardian\n===============\n\nSorry – we haven’t been able to serve the page you asked for.\n\nYou may have followed an outdated link, or have mistyped a URL. If you believe this to be an error please [report it](https://www.theguardian.com/info/tech-feedback).\n\n[The Guardian homepage](https://www.theguardian.com/)\n\n ![Image 1](https://beacon.gu-web.net/count/40x.gif)",
+        "article_date": "2024-11-30"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    }
+  ]
+}
