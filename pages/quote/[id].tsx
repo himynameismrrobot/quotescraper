@@ -111,7 +111,7 @@ const QuoteDetailPage: React.FC = () => {
               <div className="w-1/2 h-6 bg-white/10 rounded animate-pulse" />
             </div>
           ) : quote ? (
-            <QuoteCard quote={quote} showComments />
+            <QuoteCard quote={quote} showComments showRawQuote={true} />
           ) : null}
         </div>
         <BottomNav />

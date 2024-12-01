@@ -112,9 +112,14 @@ const NewsfeedPage = () => {
   // Create a ref for the observer
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Add new state for tracking restoration
+  const [isRestoringQuotes, setIsRestoringQuotes] = useState(false);
+  const restorationComplete = useRef(false);
+
   // Initialize client-side state
   useEffect(() => {
     const storedState = getGlobalState();
+    setIsRestoringQuotes(true);
     setQuotes(storedState.quotes);
     setActiveTab(storedState.activeTab);
     setOffset(storedState.offset);
@@ -126,16 +131,37 @@ const NewsfeedPage = () => {
     if (storedState.scrollY > 0) {
       window.scrollTo(0, storedState.scrollY);
     }
+
+    // Only fetch if we have no quotes at all (fresh start)
+    if (storedState.quotes.length === 0) {
+      console.log('🔄 Fresh start - fetching initial quotes');
+      setLoading(true);
+      fetchQuotes(storedState.activeTab, 0, false);
+    } else {
+      // Mark restoration as complete since we have quotes
+      restorationComplete.current = true;
+      setIsRestoringQuotes(false);
+    }
   }, []);
+
+  // Add this effect to handle scroll restoration after quotes render
+  useEffect(() => {
+    // Only attempt scroll restoration if we have quotes and should restore scroll
+    if (quotes.length > 0 && shouldRestoreScroll.current) {
+      const storedState = getGlobalState();
+      if (storedState.scrollY > 0) {
+        // Use requestAnimationFrame to ensure DOM has updated
+        requestAnimationFrame(() => {
+          window.scrollTo(0, storedState.scrollY);
+          shouldRestoreScroll.current = false;
+        });
+      }
+    }
+  }, [quotes]); // Only run when quotes change
 
   // Handle navigation events
   useEffect(() => {
     const handleRouteChangeStart = () => {
-      console.log('🚀 Route change start', {
-        currentScroll: window.scrollY,
-        isRestoring: isRestoringScroll.current
-      });
-
       if (!isRestoringScroll.current) {
         setGlobalState({
           scrollY: window.scrollY,
@@ -145,30 +171,59 @@ const NewsfeedPage = () => {
           activeTab,
           showRawQuotes
         });
-        console.log('💾 Saved scroll position:', window.scrollY);
       }
     };
 
-    const handleRouteChangeComplete = (url: string) => {
+    const handleRouteChangeComplete = async (url: string) => {
       const isNewsfeed = url === '/' || url === '/newsfeed';
       const storedState = getGlobalState();
       
-      console.log('✅ Route change complete', {
-        url,
-        isNewsfeed,
-        savedScroll: storedState.scrollY,
-        shouldRestore: isNewsfeed && storedState.scrollY > 0
-      });
-
       if (isNewsfeed && storedState.scrollY > 0) {
         shouldRestoreScroll.current = true;
-        console.log('🎯 Set restore flag to true');
+        setIsRestoringQuotes(true);
         
-        // Force scroll restoration after a short delay
-        setTimeout(() => {
-          window.scrollTo(0, storedState.scrollY);
-          console.log('🔄 Forced scroll to:', storedState.scrollY);
-        }, 100);
+        // Restore the saved state first
+        setQuotes(storedState.quotes);
+        setOffset(storedState.offset);
+        setHasMore(storedState.hasMore);
+        setActiveTab(storedState.activeTab);
+        setShowRawQuotes(storedState.showRawQuotes);
+        
+        // Mark restoration as complete since we have quotes
+        restorationComplete.current = true;
+        setIsRestoringQuotes(false);
+        
+        // Scroll restoration will happen in the quotes effect above
+        
+        // If we need more quotes, fetch them silently in the background
+        const viewportHeight = window.innerHeight;
+        const scrollPosition = storedState.scrollY;
+        const estimatedQuotesNeeded = Math.ceil((scrollPosition + viewportHeight) / 300);
+        
+        if (estimatedQuotesNeeded > storedState.quotes.length && storedState.hasMore) {
+          const nextBatch = await fetch(
+            `/api/quotes?tab=${storedState.activeTab}&limit=${LIMIT}&offset=${storedState.offset}`
+          ).then(res => res.json());
+          
+          if (nextBatch.quotes.length > 0) {
+            // Cache the new quotes
+            nextBatch.quotes.forEach((quote: Quote) => {
+              if (quote.id) {
+                setQuoteInCache(quote.id, quote);
+              }
+            });
+            
+            // Update state while preserving scroll
+            const combinedQuotes = [...storedState.quotes, ...nextBatch.quotes];
+            const uniqueQuotes = Array.from(
+              new Map(combinedQuotes.map(quote => [quote.id, quote])).values()
+            );
+            
+            setQuotes(uniqueQuotes as Quote[]);
+            setOffset(storedState.offset + nextBatch.quotes.length);
+            setHasMore(nextBatch.hasMore);
+          }
+        }
       }
     };
 
@@ -180,15 +235,6 @@ const NewsfeedPage = () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
   }, [router, quotes, offset, hasMore, activeTab, showRawQuotes]);
-
-  // Initial data fetch
-  useEffect(() => {
-    if (quotes.length === 0) {
-      console.log('🔄 Fetching initial quotes');
-      setLoading(true);
-      fetchQuotes(activeTab, 0, false);
-    }
-  }, [quotes.length, activeTab]);
 
   const prefetchQuoteDetails = useCallback(async (quoteId: string) => {
     if (getQuoteFromCache(quoteId)) return;
@@ -353,8 +399,8 @@ const NewsfeedPage = () => {
   // Render quotes with loading states
   const renderQuotes = useMemo(() => (
     <div className="space-y-6 max-w-2xl mx-auto px-4">
-      {loading && quotes.length === 0 ? (
-        Array.from({ length: 3 }).map((_, i) => (
+      {(loading && quotes.length === 0) || (isRestoringQuotes && !restorationComplete.current) ? (
+        Array.from({ length: Math.ceil(window.innerHeight / 300) }).map((_, i) => (
           <QuoteCardSkeleton key={i} />
         ))
       ) : (
@@ -368,7 +414,7 @@ const NewsfeedPage = () => {
               onHover={() => prefetchQuoteDetails(quote.id)}
             />
           ))}
-          {loadingMore && (
+          {loadingMore && !isRestoringQuotes && restorationComplete.current && (
             <div className="text-center py-4 text-gray-400">
               Loading more quotes...
             </div>
@@ -381,29 +427,24 @@ const NewsfeedPage = () => {
           {/* Intersection Observer sentinel */}
           <div 
             ref={(el) => {
-              // Cleanup old observer
               if (observerRef.current) {
                 observerRef.current.disconnect();
               }
 
-              // If element is null or we shouldn't observe, cleanup and return
-              if (!el || loading || loadingMore || !hasMore) {
+              if (!el || loading || loadingMore || !hasMore || isRestoringQuotes || !restorationComplete.current) {
                 observerRef.current = null;
                 return;
               }
 
-              // Create new observer
               observerRef.current = new IntersectionObserver(
                 (entries) => {
-                  if (entries[0].isIntersecting) {
-                    console.log('🎯 Sentinel element visible, loading more quotes');
+                  if (entries[0].isIntersecting && !isRestoringQuotes && restorationComplete.current) {
                     fetchQuotes(activeTab, offset, true);
                   }
                 },
                 { rootMargin: '200px' }
               );
 
-              // Start observing
               observerRef.current.observe(el);
             }}
             className="h-10"
@@ -411,7 +452,7 @@ const NewsfeedPage = () => {
         </>
       )}
     </div>
-  ), [quotes, loading, loadingMore, hasMore, activeTab, showRawQuotes, handleQuoteClick, prefetchQuoteDetails, offset, fetchQuotes]);
+  ), [quotes, loading, loadingMore, hasMore, activeTab, showRawQuotes, handleQuoteClick, prefetchQuoteDetails, offset, fetchQuotes, isRestoringQuotes]);
 
   // Cleanup observer on unmount
   useEffect(() => {
