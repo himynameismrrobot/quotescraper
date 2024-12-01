@@ -1,6 +1,7 @@
 import { createClient } from '@/utils/supabase/server'
 import { NextResponse } from 'next/server'
 import { checkAdminAccess } from '@/utils/admin-check'
+import { normalizePersonName } from '@/utils/string-utils'
 
 export async function POST(
   request: Request,
@@ -31,16 +32,16 @@ export async function POST(
       )
     }
 
-    // Check if speaker exists
-    const { data: speaker, error: speakerError } = await supabase
+    // Get all speakers to do normalized name comparison
+    const { data: speakers, error: speakersError } = await supabase
       .from('speakers')
       .select('*')
-      .eq('name', stagedQuote.speaker_name)
-      .single()
 
-    if (speakerError && speakerError.code !== 'PGRST116') { // PGRST116 is "not found"
-      throw speakerError
-    }
+    if (speakersError) throw speakersError
+
+    // Find speaker using normalized name comparison
+    const normalizedStagedName = normalizePersonName(stagedQuote.speaker_name)
+    const speaker = speakers?.find(s => normalizePersonName(s.name) === normalizedStagedName)
 
     if (!speaker) {
       return NextResponse.json(
@@ -48,6 +49,14 @@ export async function POST(
         { status: 400 }
       )
     }
+
+    // First, update any quotes that reference this one to remove the reference
+    const { error: updateRefsError } = await supabase
+      .from('quote_staging')
+      .update({ similar_to_staged_quote_id: null })
+      .eq('similar_to_staged_quote_id', params.id)
+
+    if (updateRefsError) throw updateRefsError
 
     // Insert into saved quotes
     const { error: insertError } = await supabase

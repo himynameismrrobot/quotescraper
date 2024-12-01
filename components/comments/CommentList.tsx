@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import ReactionButton from '../reactions/ReactionButton';
@@ -38,18 +38,52 @@ const CommentList: React.FC<CommentListProps> = ({
   const [isUpdating, setIsUpdating] = useState(false);
   const [localComments, setLocalComments] = useState<Comment[]>(comments);
 
-  // Update local comments when props change
-  React.useEffect(() => {
-    setLocalComments(comments);
+  // Update local comments when props change, but preserve local state for reactions
+  useEffect(() => {
+    setLocalComments(prevComments => {
+      return comments.map(newComment => {
+        const existingComment = prevComments.find(c => c.id === newComment.id);
+        // If we have local state for this comment, preserve its reactions
+        if (existingComment) {
+          return {
+            ...newComment,
+            reactions: existingComment.reactions
+          };
+        }
+        return newComment;
+      });
+    });
   }, [comments]);
 
   const handleReactionSelect = async (commentId: string, emoji: string) => {
-    if (isUpdating) return;
+    if (isUpdating || !userId) return;
+    
+    // Update local state optimistically first
+    setLocalComments(prevComments => 
+      prevComments.map(comment => {
+        if (comment.id === commentId) {
+          const existingReaction = comment.reactions?.find(r => r.emoji === emoji);
+          const updatedReactions = comment.reactions || [];
+          
+          if (existingReaction) {
+            // Don't add duplicate user
+            if (!existingReaction.users.some(u => u.id === userId)) {
+              existingReaction.users = [...existingReaction.users, { id: userId }];
+            }
+            return { ...comment, reactions: updatedReactions };
+          } else {
+            return {
+              ...comment,
+              reactions: [...updatedReactions, { emoji, users: [{ id: userId }] }]
+            };
+          }
+        }
+        return comment;
+      })
+    );
     
     try {
       setIsUpdating(true);
-      console.log('Adding reaction:', { commentId, emoji });
-      
       const response = await fetch(`/api/comments/${commentId}/reactions`, {
         method: 'POST',
         headers: {
@@ -59,36 +93,21 @@ const CommentList: React.FC<CommentListProps> = ({
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        console.error('Server error:', error);
-        throw new Error(error.message || 'Failed to add reaction');
+        throw new Error('Failed to add reaction');
       }
 
-      // Update local state
+    } catch (error) {
+      console.error('Error adding reaction:', error);
+      // Revert local state on error
       setLocalComments(prevComments => 
         prevComments.map(comment => {
           if (comment.id === commentId) {
-            const existingReaction = comment.reactions?.find(r => r.emoji === emoji);
-            const updatedReactions = comment.reactions || [];
-            
-            if (existingReaction) {
-              existingReaction.users = [...existingReaction.users, { id: userId! }];
-              return { ...comment, reactions: updatedReactions };
-            } else {
-              return {
-                ...comment,
-                reactions: [...updatedReactions, { emoji, users: [{ id: userId! }] }]
-              };
-            }
+            const originalComment = comments.find(c => c.id === commentId);
+            return { ...comment, reactions: originalComment?.reactions || [] };
           }
           return comment;
         })
       );
-
-      onCommentUpdate?.();
-    } catch (error) {
-      console.error('Error adding reaction:', error);
-      throw error;
     } finally {
       setIsUpdating(false);
     }
@@ -99,23 +118,8 @@ const CommentList: React.FC<CommentListProps> = ({
     
     try {
       setIsUpdating(true);
-      console.log('Removing reaction:', { commentId, emoji });
-      
-      const response = await fetch(`/api/comments/${commentId}/reactions`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ emoji }),
-      });
 
-      if (!response.ok) {
-        const error = await response.json();
-        console.error('Server error:', error);
-        throw new Error(error.message || 'Failed to remove reaction');
-      }
-
-      // Update local state
+      // Update local state optimistically first
       setLocalComments(prevComments => 
         prevComments.map(comment => {
           if (comment.id === commentId) {
@@ -134,11 +138,23 @@ const CommentList: React.FC<CommentListProps> = ({
           return comment;
         })
       );
+      
+      const response = await fetch(`/api/comments/${commentId}/reactions`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ emoji }),
+      });
 
-      onCommentUpdate?.();
+      if (!response.ok) {
+        throw new Error('Failed to remove reaction');
+      }
+
     } catch (error) {
       console.error('Error removing reaction:', error);
-      throw error;
+      // Revert local state on error
+      setLocalComments(comments);
     } finally {
       setIsUpdating(false);
     }
@@ -151,7 +167,7 @@ const CommentList: React.FC<CommentListProps> = ({
   return (
     <div className="space-y-4">
       {localComments.map((comment) => (
-        <div key={comment.id} className="flex space-x-4">
+        <div key={`comment-${comment.id}`} className="flex space-x-4">
           <Avatar>
             <AvatarImage src={comment.user.image || undefined} />
             <AvatarFallback>{comment.user.name?.[0]}</AvatarFallback>
@@ -173,7 +189,7 @@ const CommentList: React.FC<CommentListProps> = ({
               />
               {comment.reactions?.map((reaction) => (
                 <ReactionPill
-                  key={reaction.emoji}
+                  key={`${comment.id}-${reaction.emoji}`}
                   emoji={reaction.emoji}
                   count={reaction.users.length}
                   isUserReaction={reaction.users.some(u => u.id === userId)}

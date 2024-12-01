@@ -89,7 +89,7 @@ export async function PATCH(
     const updates: any = {}
     if ('summary' in json) updates.summary = json.summary
     if ('raw_quote_text' in json) updates.raw_quote_text = json.raw_quote_text
-    if ('article_date' in json) updates.article_date = json.article_datenpm r
+    if ('article_date' in json) updates.article_date = json.article_date
     if ('speaker_name' in json) updates.speaker_name = json.speaker_name
 
     if (Object.keys(updates).length === 0) {
@@ -139,6 +139,15 @@ export async function DELETE(
     const params = await context.params
     const supabase = await createClient()
 
+    // First, update any quotes that reference this one to remove the reference
+    const { error: updateRefsError } = await supabase
+      .from('quote_staging')
+      .update({ similar_to_staged_quote_id: null })
+      .eq('similar_to_staged_quote_id', params.id)
+
+    if (updateRefsError) throw updateRefsError
+
+    // Then delete the quote
     const { error: dbError } = await supabase
       .from('quote_staging')
       .delete()

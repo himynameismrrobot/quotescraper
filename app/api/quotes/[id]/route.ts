@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server'
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
-    const id = await context.params.id
+    const params = await context.params
+    const id = params.id
     
     // Use Promise.all to make parallel requests
     const [quoteResult, commentsResult] = await Promise.all([
@@ -88,10 +89,12 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
+    const params = await context.params
+    const id = params.id
     const json = await request.json()
     
     const { data: quote, error } = await supabase
@@ -107,7 +110,7 @@ export async function PUT(
         content_vector: json.contentVector,
         summary_vector: json.summaryVector
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select(`
         *,
         speaker:speakers(
@@ -131,15 +134,17 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
+    const params = await context.params
+    const id = params.id
     
     const { error } = await supabase
       .from('quotes')
       .delete()
-      .eq('id', params.id)
+      .eq('id', id)
 
     if (error) throw error
 

@@ -3,11 +3,12 @@ import { NextResponse } from 'next/server'
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
-    const id = await context.params.id
+    const params = await context.params
+    const id = params.id
     
     const { data: comments, error } = await supabase
       .from('comments')
@@ -51,11 +52,12 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
-    const id = await context.params.id
+    const params = await context.params
+    const id = params.id
     
     const json = await request.json()
     
