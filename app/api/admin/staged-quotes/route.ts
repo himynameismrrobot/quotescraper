@@ -39,7 +39,8 @@ export async function GET() {
           if (similarStaged) {
             similarQuote = {
               ...similarStaged,
-              speaker: { name: similarStaged.speaker_name }
+              speaker: { name: similarStaged.speaker_name },
+              similarity_score: quote.similarity_score
             };
           }
         }
@@ -58,7 +59,10 @@ export async function GET() {
             .single()
 
           if (similarSaved) {
-            similarQuote = similarSaved;
+            similarQuote = {
+              ...similarSaved,
+              similarity_score: quote.similarity_score
+            };
           }
         }
 

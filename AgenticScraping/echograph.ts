@@ -397,8 +397,8 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     {quotes_to_validate}
     
     # A quote is only valid if...
-    - The raw quote text only contains context in parentheses if helpful and the words spoken by a named speaker. Text written by the author of the article should never be included.
-    - The summary is written in the first person
+    - Text written by the author of the article is not included – UNLESS – it is contained within brackets or parentheses and provides context that helps a reader understand the quote. In that case, it's okay.
+    - The summary is written as if the speaker spoke the words themselves. That is, it's more of an abridged version of the quote than a "summary" per se.
     - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))
     
     # Expected Output Format
@@ -884,13 +884,14 @@ const extractArticleText = async (
                     updated_at: new Date().toISOString()
                 };
 
-                const { error } = await supabase
+                // First attempt the upsert
+                const { error: upsertError } = await supabase
                     .from('articles')
                     .upsert(articleData, {
                         onConflict: 'article_url'
                     });
 
-                if (error) throw error;
+                if (upsertError) throw upsertError;
 
                 // Verify the save was successful
                 const { data: verifyData, error: verifyError } = await supabase
@@ -902,29 +903,35 @@ const extractArticleText = async (
                 if (verifyError) throw verifyError;
 
                 // Check if the data was saved correctly
-                if (!verifyData || verifyData.article_text !== response.article_text) {
-                    throw new Error('Article data verification failed: Data mismatch or missing');
+                if (!verifyData) {
+                    throw new Error('Article data verification failed: Data not found after save');
+                }
+                
+                if (verifyData.article_text !== response.article_text) {
+                    throw new Error('Article data verification failed: Article text mismatch');
+                }
+
+                if (verifyData.headline !== state.article_headline) {
+                    throw new Error('Article data verification failed: Headline mismatch');
                 }
 
                 console.log(`Successfully saved and verified article data for: ${state.article_headline}`);
+                return verifyData;
             };
 
             try {
                 await withRetry(
                     saveArticleData,
-                    3,  // maxRetries for database operations
-                    1000 // initialDelayMs
+                    5,  // Increase maxRetries for database operations
+                    2000 // Increase initial delay for better backoff
                 );
+                
+                console.log(`Article data successfully saved after verification: ${state.article_headline}`);
             } catch (error) {
-                console.error("Error saving article data after retries:", error);
-                logger.logError({
-                    function_name: 'extractArticleText',
-                    error: error,
-                    article_metadata: {
-                        parent_monitored_url: state.parent_monitored_url,
-                        article_url: state.article_url,
-                        article_headline: state.article_headline
-                    }
+                console.error("Failed to save article data after all retries:", {
+                    article: state.article_headline,
+                    error: error.message,
+                    url: state.article_url
                 });
 
                 // Track failed article saves for later retry
@@ -959,7 +966,7 @@ const extractArticleText = async (
                         metadata: {
                             parent_monitored_url: state.parent_monitored_url,
                             article_headline: state.article_headline,
-                            retry_attempts: 3,
+                            retry_attempts: 5,
                             article_date: response.article_date || response.publishedTime || today_date
                         },
                         created_at: new Date().toISOString()
@@ -1095,15 +1102,14 @@ const extractQuotes = async (
 ): Promise<Partial<typeof OverallState.State>> => {
     return new Promise((resolve) => {
         const operation = async () => {
+            // Define prompt first using the template
+            const prompt = quoteExtractionPrompt
+                .replace("{parent_monitored_url}", state.article_metadata.parent_monitored_url)
+                .replace("{article_url}", state.article_metadata.article_url)
+                .replace("{article_headline}", state.article_metadata.article_headline)
+                .replace("{article_text}", state.article_metadata.article_text)
+                .replace("{today_date}", state.today_date);
             try {
-                // Define prompt first using the template
-                const prompt = quoteExtractionPrompt
-                    .replace("{parent_monitored_url}", state.article_metadata.parent_monitored_url)
-                    .replace("{article_url}", state.article_metadata.article_url)
-                    .replace("{article_headline}", state.article_metadata.article_headline)
-                    .replace("{article_text}", state.article_metadata.article_text)
-                    .replace("{today_date}", state.today_date);
-
                 const completion = await openai.beta.chat.completions.parse({
                     model: "gpt-4o-mini",
                     messages: [{ role: "user", content: prompt }],
@@ -1668,10 +1674,12 @@ const continueToQuoteValidation = (state: typeof OverallState.State) => {
             console.log("Original quotes:", articleQuotes.quotes.length);
             
             // Filter out duplicate quotes based on similarity score
-            const uniqueQuotes = articleQuotes.quotes.filter(quote => 
-                !quote.similarity_score || // Keep quotes with no similarity score (unique)
-                //quote.similarity_score > CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
-            );
+            const uniqueQuotes = articleQuotes.quotes
+                //.filter(quote => 
+                //!quote.similarity_score // Keep quotes with no similarity score (unique)
+                // Uncomment and adjust threshold as needed:
+                // || quote.similarity_score > CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
+            //);
 
             console.log("Unique quotes after filtering:", uniqueQuotes.length);
             console.log("Filtered quotes:", uniqueQuotes.map(q => ({
@@ -1726,45 +1734,41 @@ async function main() {
     
     // Stream the processing
     for await (const chunk of await app.stream({}, {
-        streamMode: "values",
+        streamMode: "updates",
     })) {
         // Log each state update with more detail
         console.log("\n==== State Update ====");
         console.log("Timestamp:", new Date().toISOString());
         
-        // Log all possible state fields
-        const stateFields = [
-            'parent_urls',
-            'articles',
-            'article_text',
-            'quotes',
-            'validated_quotes',
-            'processed_quotes'
-        ];
-
-        stateFields.forEach(field => {
-            if (chunk[field]) {
-                console.log(`\n${field.toUpperCase()}:`);
-                if (Array.isArray(chunk[field])) {
-                    chunk[field].forEach((item, index) => {
-                        console.log(`\n[${index + 1}]`, JSON.stringify(item, null, 2));
-                    });
-                } else {
-                    console.log(JSON.stringify(chunk[field], null, 2));
-                }
-            }
-        });
+        // Log the event type and node that made the update
+        if (chunk.event) {
+            console.log("Event Type:", chunk.event);
+        }
+        
+        // If this is a node update, show which node made it
+        if (chunk.data && chunk.data.node) {
+            console.log("Node:", chunk.data.node);
+        }
+        
+        // Log the actual state updates
+        if (chunk.data && chunk.data.state) {
+            console.log("\nState Updates:");
+            Object.entries(chunk.data.state).forEach(([key, value]) => {
+                console.log(`\n${key.toUpperCase()}:`);
+                console.log(JSON.stringify(value, null, 2));
+            });
+        }
 
         console.log("\n==================\n");
 
         // Keep track of the latest state
-        finalState = chunk;
+        finalState = chunk.data?.state || chunk;
     }
 
     // Only save results once at the end
     if (finalState && finalState.quotes) {
         await saveGraphResults(
-            'openai', // geminior 'openai' depending on which model is being used
+            'openai', // gemini or 'openai' depending on which model is being used
             finalState
         );
     }

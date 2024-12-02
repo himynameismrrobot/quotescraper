@@ -371,6 +371,7 @@ const StagedQuotesManagement: React.FC = () => {
     const [search, setSearch] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState(quote.speaker_name);
+    const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
     const filteredSpeakers = speakers.filter(speaker =>
       speaker.name.toLowerCase().includes(search.toLowerCase())
@@ -378,13 +379,23 @@ const StagedQuotesManagement: React.FC = () => {
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
       if (e.key === 'Enter' && filteredSpeakers.length > 0) {
-        onSelect(filteredSpeakers[0]);
+        e.preventDefault();
+        const speaker = filteredSpeakers[0];
+        setSelectedSpeaker(speaker);
+        onSelect(speaker);
         setIsOpen(false);
-        setInputValue(filteredSpeakers[0].name);
+        setInputValue(speaker.name);
       } else if (e.key === 'Escape') {
         setIsOpen(false);
         setInputValue(quote.speaker_name);
       }
+    };
+
+    const handleSpeakerSelect = (speaker: Speaker) => {
+      setSelectedSpeaker(speaker);
+      onSelect(speaker);
+      setIsOpen(false);
+      setInputValue(speaker.name);
     };
 
     useEffect(() => {
@@ -409,7 +420,9 @@ const StagedQuotesManagement: React.FC = () => {
           onBlur={() => {
             setTimeout(() => {
               setIsOpen(false);
-              setInputValue(quote.speaker_name);
+              if (!selectedSpeaker) {
+                setInputValue(quote.speaker_name);
+              }
             }, 200);
           }}
           onKeyDown={handleKeyDown}
@@ -425,11 +438,7 @@ const StagedQuotesManagement: React.FC = () => {
                   <div
                     key={speaker.id}
                     className="px-2 py-1 hover:bg-gray-100 cursor-pointer rounded"
-                    onClick={() => {
-                      onSelect(speaker);
-                      setIsOpen(false);
-                      setInputValue(speaker.name);
-                    }}
+                    onClick={() => handleSpeakerSelect(speaker)}
                   >
                     {speaker.name}
                   </div>
@@ -441,11 +450,7 @@ const StagedQuotesManagement: React.FC = () => {
                 <div
                   key={speaker.id}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    onSelect(speaker);
-                    setIsOpen(false);
-                    setInputValue(speaker.name);
-                  }}
+                  onClick={() => handleSpeakerSelect(speaker)}
                 >
                   {speaker.name}
                   {speaker.organization && (

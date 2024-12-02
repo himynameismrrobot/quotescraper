@@ -23,7 +23,7 @@ BEGIN
     WITH combined_quotes AS (
         -- Get quotes from the main quotes table
         SELECT
-            q.id,
+            q.id as quote_id,
             q.raw_quote_text,
             s.name as speaker_name,
             q.article_headline,
@@ -37,7 +37,7 @@ BEGIN
         
         -- Get quotes from the staging table
         SELECT
-            qs.id,
+            qs.id as quote_id,
             qs.raw_quote_text,
             qs.speaker_name,
             qs.article_headline,
@@ -48,25 +48,25 @@ BEGIN
         WHERE qs.content_vector IS NOT NULL
     )
     SELECT
-        q.id,
+        q.quote_id as id,
         q.raw_quote_text,
         q.speaker_name,
         q.article_headline,
         q.article_url,
         CASE 
-            WHEN most_similar.source_table = 'quotes' THEN most_similar.id
+            WHEN most_similar.source_table = 'quotes' THEN most_similar.quote_id
             ELSE NULL
         END as similar_to_quote_id,
         CASE 
-            WHEN most_similar.source_table = 'staging' THEN most_similar.id
+            WHEN most_similar.source_table = 'staging' THEN most_similar.quote_id
             ELSE NULL
         END as similar_to_staged_quote_id,
         -(q.content_vector <#> query_embedding) as similarity_score
     FROM combined_quotes q
     CROSS JOIN LATERAL (
-        SELECT id, source_table
+        SELECT quote_id, source_table
         FROM combined_quotes inner_q
-        WHERE inner_q.id != q.id
+        WHERE inner_q.quote_id != q.quote_id
         -- Add speaker name filter here
         AND inner_q.speaker_name = q.speaker_name
         ORDER BY inner_q.content_vector <#> q.content_vector ASC
