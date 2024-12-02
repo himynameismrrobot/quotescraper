@@ -1,0 +1,113 @@
+{
+  "model": "openai",
+  "timestamp": "2024-12-01T23:11:45.091Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/videos/cvgk223kw39o",
+        "article_headline": "'It's just madness' - Dyche perplexed by Everton defending",
+        "article_text": "Everton manager Sean Dyche says his side's defending for Manchester United's third goal was \"madness\" in their 4-0 loss at Old Trafford.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Sean Dyche",
+          "raw_quote_text": "[In reference to Manchester United's third goal] Our defending was \"madness\".",
+          "summary": "I described our defending as madness.",
+          "id": "b8090e2a-2542-4004-8561-865b0813cf86",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a212591e-35df-45a1-b4bb-bca883bc437d",
+          "similarity_score": 0.531779944896698,
+          "is_valid": false,
+          "invalid_reason": "The raw quote text includes context in brackets which is not considered helpful or part of the actual spoken words."
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nScores & Fixtures\n-----------------\n\nScroll LeftScroll Right\n\n*   Premier League Full time FT   Man Utd Manchester United 4  Everton Everton 0\n*   Premier League\n    \n    Arsenal\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 20:15 on Wed the 4 of Dec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Nottm Forest\n    \n    Nottingham Forest\n    \n    at 17:30 on Sat the 7 of Dec\n    \n*   UEFA Europa League\n    \n    Plzeň\n    \n    Viktoria Plzeň\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 17:45 on Thu the 12 of Dec\n    \n*   Premier League\n    \n    Man City\n    \n    Manchester City\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 16:30 on Sun the 15 of Dec\n    \n*   League Cup\n    \n    Tottenham\n    \n    Tottenham Hotspur\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 20:00 on Thu the 19 of Dec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Bournemouth\n    \n    AFC Bournemouth\n    \n    at 14:00 on Sun the 22 of Dec\n    \n*   Premier League\n    \n    Wolves\n    \n    Wolverhampton Wanderers\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 17:30 on Thu the 26 of Dec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Newcastle\n    \n    Newcastle United\n    \n    at 20:00 on Mon the 30 of Dec\n    \n*   Premier League\n    \n    Liverpool\n    \n    Liverpool\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at 16:30 on Sun the 5 of Jan\n    \nLatest updates\n--------------\n\n1. **Atmosphere speaks for itself** - Amorim restores feel-good factor.\n    \n    Manchester United's win over Everton at Old Trafford under Ruben Amorim is the biggest margin of victory for a permanent manager in their first home match in the competition for the club.\n    \n    **On the game:** \"It was far from a perfect performance. We have to improve, you can feel that in the game.\"\n    \n    **On their opening goal:** \"You have to congratulate the players and the rest of the staff. The most important thing on set pieces is the staff.\"\n    \n    **On Amad Diallo:** \"He is really big in talent, but small in size. He did a great job but he also has to improve.\"\n    \n    **On the mood becoming more buoyant and optimistic:** \"It helps to have a new face, it always helps. Our fans just ask for hard work and then, in time, they will ask for better football.\" \n\n2. **Marcus Rashford**: \"We all, as individuals, want to get back to our best and then push to improve so even in the bad moments, you are doing the right thing.\"\n    \n3. **Ruben Amorim**: \"It was a really good result and a tough match.\"",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the game] \"It was far from a perfect performance. We have to improve, you can feel that in the game.\"",
+          "summary": "It wasn't a perfect performance; we need to improve.",
+          "id": "bba3c2a1-563e-4d6d-87f9-00573935fead",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a212591e-35df-45a1-b4bb-bca883bc437d",
+          "similarity_score": 0.728243708610535,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On their opening goal] \"You have to congratulate the players and the rest of the staff. The most important thing on set pieces is the staff.\"",
+          "summary": "We should commend the players and staff for the set pieces.",
+          "id": "e79e9aa3-58ee-40a7-b201-42b6f1e73882",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "f243f063-a7c2-49b6-b7db-f4c071852256",
+          "similarity_score": 0.969827890396118,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Amad Diallo] \"He is really big in talent, but small in size. He did a great job but he also has to improve.\"",
+          "summary": "Amad has great talent despite his size, but he needs to improve.",
+          "id": "d05cec88-d146-4c90-8962-52290312a314",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "7a3657bd-d3ec-4f17-8c67-a6dfb0250aca",
+          "similarity_score": 0.828412353992462,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the mood] \"It helps to have a new face, it always helps. Our fans just ask for hard work and then, in time, they will ask for better football.\"",
+          "summary": "A new face boosts the mood; fans want hard work before better football.",
+          "id": "46d867f3-ae95-4ee4-8824-3fd0c4e32f65",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "2d209d00-88df-4982-89d4-1c75d4b3c079",
+          "similarity_score": 0.85352885723114,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "\"We all, as individuals, want to get back to our best and then push to improve so even in the bad moments, you are doing the right thing.\"",
+          "summary": "We all aim to improve and do the right thing, even during tough times.",
+          "id": "1a2810dc-06fe-45ef-bb25-fcc2c47716d7",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "6368d5d9-7ad0-47e8-bd09-fec0cccb01ea",
+          "similarity_score": 0.481373131275177,
+          "is_valid": true,
+          "invalid_reason": null
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "\"It was a really good result and a tough match.\"",
+          "summary": "The match was tough, but we achieved a great result.",
+          "id": "6d0b4f2b-5bf1-4308-b109-39747790507b",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "54484507-d282-4fc1-afce-ff36b6c2a581",
+          "similarity_score": 0.614364624023438,
+          "is_valid": true,
+          "invalid_reason": null
+        }
+      ],
+      "status": "quotesPublished"
+    }
+  ]
+}

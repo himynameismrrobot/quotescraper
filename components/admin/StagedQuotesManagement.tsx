@@ -6,10 +6,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 import { format } from "date-fns";
-import { CalendarIcon, CheckIcon, X, Check, ChevronDown, Eye } from "lucide-react";
+import { CalendarIcon, CheckIcon, X, Check, ChevronDown, Eye, SlidersHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AddSpeakerModal } from '../AddSpeakerModal';
 import { Checkbox } from "@/components/ui/checkbox";
+import { Slider } from "@/components/ui/slider";
 
 interface Speaker {
   id: string;
@@ -36,6 +37,30 @@ interface StagedQuote {
   parent_monitored_url: string;
   is_valid: boolean;
   invalid_reason?: string;
+  similarity_score?: number;
+  similar_staged_quote?: {
+    id: string;
+    summary: string;
+    raw_quote_text: string;
+    article_date: string;
+    article_url: string;
+    article_headline?: string;
+    speaker_name: string;
+    similarity_score: number;
+  };
+  similar_saved_quote?: {
+    id: string;
+    summary: string;
+    raw_quote_text: string;
+    article_date: string;
+    article_url: string;
+    article_headline?: string;
+    similarity_score: number;
+    speaker: {
+      id: string;
+      name: string;
+    };
+  };
 }
 
 const MAX_RECENT_SPEAKERS = 5;
@@ -57,6 +82,8 @@ const StagedQuotesManagement: React.FC = () => {
     quoteId: string;
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showSimilar, setShowSimilar] = useState(false);
+  const [similarityThreshold, setSimilarityThreshold] = useState(0.5);
 
   useEffect(() => {
     fetchStagedQuotes();
@@ -69,6 +96,22 @@ const StagedQuotesManagement: React.FC = () => {
       const response = await fetch('/api/admin/staged-quotes');
       if (!response.ok) throw new Error('Failed to fetch staged quotes');
       const data = await response.json();
+      console.log('Component received data:', {
+        totalQuotes: data.length,
+        quotesWithSimilar: data.filter(q => q.similar_staged_quote || q.similar_saved_quote).length,
+        sampleQuote: data[0]
+      });
+      console.log('Component Debug:', {
+        specificQuote: data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86'),
+        similarQuoteId: data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86')?.similar_to_staged_quote_id,
+        similarQuote: data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86')?.similar_staged_quote,
+        showSimilar
+      });
+      console.log('4. Frontend Raw Response:', {
+        similar_staged_quote: data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86')?.similar_staged_quote,
+        type: typeof data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86')?.similar_staged_quote,
+        isArray: Array.isArray(data.find(q => q.id === 'b8090e2a-2542-4004-8561-865b0813cf86')?.similar_staged_quote)
+      });
       setStagedQuotes(data);
     } catch (error) {
       console.error('Error fetching staged quotes:', error);
@@ -420,10 +463,17 @@ const StagedQuotesManagement: React.FC = () => {
   };
 
   const filteredQuotes = useMemo(() => {
-    return stagedQuotes.filter(quote => 
-      activeTab === 'valid' ? quote.is_valid : !quote.is_valid
-    );
-  }, [stagedQuotes, activeTab]);
+    return stagedQuotes.filter(quote => {
+      const validationMatch = activeTab === 'valid' ? quote.is_valid : !quote.is_valid;
+      
+      if (!showSimilar) return validationMatch;
+      
+      const similarityScore = quote.similar_staged_quote?.similarity_score || 
+                             quote.similar_saved_quote?.similarity_score || 0;
+      
+      return validationMatch && (!showSimilar || similarityScore >= similarityThreshold);
+    });
+  }, [stagedQuotes, activeTab, showSimilar, similarityThreshold]);
 
   const groupedQuotes = React.useMemo(() => {
     if (!isGroupedView) return null;
@@ -548,6 +598,32 @@ const StagedQuotesManagement: React.FC = () => {
               <ChevronDown className={cn("h-4 w-4 mr-2", isCompactView && "rotate-180")} />
               {isCompactView ? "Expand View" : "Compact View"}
             </Button>
+            <Button 
+              variant="outline" 
+              onClick={() => setShowSimilar(!showSimilar)}
+              className="whitespace-nowrap"
+            >
+              <Eye className={cn("h-4 w-4 mr-2", showSimilar && "text-blue-500")} />
+              {showSimilar ? "Hide Similar Quotes" : "Show Similar Quotes"}
+            </Button>
+            {showSimilar && (
+              <div className="flex items-center gap-2 min-w-[200px]">
+                <SlidersHorizontal className="h-4 w-4 text-gray-500" />
+                <div className="flex-1">
+                  <Slider
+                    value={[similarityThreshold]}
+                    onValueChange={([value]) => setSimilarityThreshold(value)}
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    className="w-full"
+                  />
+                </div>
+                <span className="text-sm text-gray-500 min-w-[40px]">
+                  {similarityThreshold.toFixed(2)}
+                </span>
+              </div>
+            )}
             {filteredQuotes.length > 0 && (
               <Button 
                 variant="destructive" 
@@ -901,6 +977,58 @@ const StagedQuotesManagement: React.FC = () => {
                     quote={quote} 
                     colSpan={isCompactView ? 5 : 7} 
                   />
+                  {showSimilar && (quote.similar_staged_quote || quote.similar_saved_quote) && (
+                    <TableRow className="bg-gray-50">
+                      <TableCell>
+                        <div className="flex items-center justify-center">
+                          <div className="w-3 h-3 bg-blue-500/30 rounded-full" />
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="text-sm">
+                          {format(new Date(quote.similar_staged_quote?.article_date || quote.similar_saved_quote?.article_date || ''), 'MMM d, yyyy')}
+                          <div className="font-medium">
+                            {quote.similar_staged_quote?.speaker_name || quote.similar_saved_quote?.speaker.name}
+                          </div>
+                          <div className="text-xs text-gray-500 space-x-2">
+                            <span>{quote.similar_staged_quote ? 'Staged' : 'Saved'}</span>
+                            <span>·</span>
+                            <span>Similarity: {(quote.similar_staged_quote?.similarity_score || quote.similar_saved_quote?.similarity_score || 0).toFixed(2)}</span>
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <div className="max-w-[180px] break-words">
+                          <a 
+                            href={quote.similar_staged_quote?.article_url || quote.similar_saved_quote?.article_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            {quote.similar_staged_quote?.article_headline || 
+                             quote.similar_saved_quote?.article_headline || 
+                             quote.similar_staged_quote?.article_url || 
+                             quote.similar_saved_quote?.article_url}
+                          </a>
+                        </div>
+                      </TableCell>
+                      {!isCompactView && (
+                        <>
+                          <TableCell>
+                            <div className="max-w-[280px] break-words">
+                              {quote.similar_staged_quote?.summary || quote.similar_saved_quote?.summary}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="max-w-[380px] break-words">
+                              {quote.similar_staged_quote?.raw_quote_text || quote.similar_saved_quote?.raw_quote_text}
+                            </div>
+                          </TableCell>
+                        </>
+                      )}
+                      <TableCell />
+                    </TableRow>
+                  )}
                 </React.Fragment>
               ))}
             </TableBody>

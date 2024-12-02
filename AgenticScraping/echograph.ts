@@ -11,7 +11,6 @@ import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
 import { logger } from './logger';
-import { normalizePersonName } from '../utils/string-utils';
 
 // Optional, add tracing in LangSmith
 // process.env.LANGCHAIN_API_KEY = "ls__..."
@@ -78,14 +77,14 @@ let currentActiveRequests = 0;
 let totalArticlesToProcess = 0;
 const requestQueue: (() => Promise<void>)[] = [];
 
-const logOpenAICall = (action: 'start' | 'end', functionName: string, modelName: string, url: string, details?: { error?: ExtendedError } & Record<string, unknown>) => {
+const logOpenAICall = (action: 'start' | 'end', functionName: string, modelName: string, url: string, details?: any) => {
     const requestId = `${functionName}-${url}`;
     if (action === 'start') {
         activeRequests.add(requestId);
     } else {
         activeRequests.delete(requestId);
         if (details?.error) {
-            logger.error(`Error in ${functionName}: ${details.error.message}`);
+            logger.error(`Error in ${functionName}: ${details.error}`);
         }
     }
 };
@@ -167,63 +166,58 @@ async function getJinaMarkdown(url: string): Promise<string> {
 const withRetry = async <T>(
     operation: () => Promise<T>,
     maxRetries: number = 10,
-    initialDelayMs: number = 5000
+    initialDelayMs: number = 5000  // Start with 5 seconds
 ): Promise<T> => {
-    let lastError: ExtendedError | null = null;
+    let lastError;
     
     for (let attempt = 0; attempt < maxRetries; attempt++) {
         try {
             return await operation();
         } catch (error) {
-            const err = error as ExtendedError;
-            lastError = err;
+            lastError = error;
             
             // More comprehensive rate limit detection
             const isRateLimit = 
-                err.message?.toLowerCase().includes('rate limit') ||
-                err.message?.toLowerCase().includes('429') ||
-                err.message?.toLowerCase().includes('too many requests') ||
-                err.message?.toLowerCase().includes('quota exceeded') ||
-                err.status === 429 ||
-                err.code === 'rate_limit_exceeded';
+                error.message?.toLowerCase().includes('rate limit') ||
+                error.message?.toLowerCase().includes('429') ||
+                error.message?.toLowerCase().includes('too many requests') ||
+                error.message?.toLowerCase().includes('quota exceeded') ||
+                error.status === 429 ||
+                error.code === 'rate_limit_exceeded';
 
             // Check for other retryable errors
             const isRetryableError = 
-                err.message?.toLowerCase().includes('timeout') ||
-                err.message?.toLowerCase().includes('network') ||
-                err.message?.toLowerCase().includes('connection') ||
-                err.message?.toLowerCase().includes('econnreset') ||
-                err.code === 'ECONNRESET' ||
-                err.code === 'ETIMEDOUT';
+                error.message?.toLowerCase().includes('timeout') ||
+                error.message?.toLowerCase().includes('network') ||
+                error.message?.toLowerCase().includes('connection') ||
+                error.message?.toLowerCase().includes('econnreset') ||
+                error.code === 'ECONNRESET' ||
+                error.code === 'ETIMEDOUT';
 
             const shouldRetry = isRateLimit || isRetryableError;
 
             if (!shouldRetry && attempt === maxRetries - 1) {
-                console.error('Non-retryable error encountered:', err);
-                throw err;
+                console.error('Non-retryable error encountered:', error);
+                throw error;
             }
 
             // More aggressive backoff with additional random delay
-            const baseDelay = initialDelayMs * Math.pow(2, attempt);
-            const jitter = baseDelay * (Math.random() * 0.5);
+            const baseDelay = initialDelayMs * Math.pow(2, attempt); // Use power of 2
+            const jitter = baseDelay * (Math.random() * 0.5); // Up to 50% jitter
             const delayMs = baseDelay + jitter;
             
             // Better logging
             console.log(`\nRetry attempt ${attempt + 1}/${maxRetries}`);
             console.log(`Error type: ${isRateLimit ? 'Rate limit' : isRetryableError ? 'Network error' : 'Unknown error'}`);
-            console.log(`Error message: ${err.message}`);
+            console.log(`Error message: ${error.message}`);
             console.log(`Waiting ${Math.round(delayMs/1000)} seconds before next attempt...`);
             
             await new Promise(resolve => setTimeout(resolve, delayMs));
         }
     }
     
-    if (lastError) {
-        console.error('Max retries reached. Last error:', lastError);
-        throw lastError;
-    }
-    
-    throw new Error('Max retries reached without error details');
+    console.error('Max retries reached. Last error:', lastError);
+    throw lastError;
 };
 
 async function saveGraphResults(
@@ -402,11 +396,10 @@ const quoteValidationPrompt = `Assess the validity of the quotes in the quote ob
     # Quotes from article
     {quotes_to_validate}
     
-    # Quote validation rules
-    - Valid quotes can contain text which provides context about the quote as long as it is contained within brackets or parentheses.
-    - Valid quotes never include descriptive / narrative text written by the author of the article.
-    - Valid quotes have a summary that sounds like a quote itself and should therefore be written as if they actually spoke it. If this is not the case, update it to be correct versus just flagging as invalid. Note: a summary doesn't need to include the word 'I' to be valid
-    - Valid quotes are those that are attributed to a specific known entity. Quotes attributed to something ambiguous are not valid (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))
+    # A quote is only valid if...
+    - The raw quote text only contains context in parentheses if helpful and the words spoken by a named speaker. Text written by the author of the article should never be included.
+    - The summary is written in the first person
+    - The speaker_name is the actual name of a person rather than something ambiguous (i.e., it cannot be the news publication, article author, or other unnamed speakers (e.g., fans, spokespersons, etc.))
     
     # Expected Output Format
     {
@@ -497,11 +490,14 @@ const QuoteValidation = z.object({
 /* Graph components: define the components that will make up the graph */
 
 const OverallState = Annotation.Root({
-    parent_monitored_urls: Annotation<string[]>(),
+    parent_monitored_urls: Annotation<string[]>({
+        initial: []
+    }),
     quotes: Annotation<z.infer<typeof Quotes>>({
+        initial: [],
         reducer: (state, update) => {
             // Create a shallow copy of the existing state to avoid mutation
-            const updatedState = [...state || []];  // Add default empty array
+            const updatedState = [...state];
 
             update.forEach(newArticle => {
                 const existingArticleIndex = updatedState.findIndex(
@@ -1502,43 +1498,20 @@ const validateQuotes = async (
 
 // Function to check if speaker exists in speakers table
 const checkSpeakerExists = async (speaker: string): Promise<{exists: boolean, id?: string}> => {
-    // First try exact match
-    const { data: exactMatch, error: exactError } = await supabase
+    const { data, error } = await supabase
         .from('speakers')
-        .select('id, name')
-        .eq('name', speaker)
+        .select('id')
+        .ilike('name', speaker)
         .limit(1);
     
-    if (exactError) {
-        console.error('Error checking speaker:', exactError);
+    if (error) {
+        console.error('Error checking speaker:', error);
         return {exists: false};
     }
-
-    if (exactMatch && exactMatch.length > 0) {
-        return {
-            exists: true,
-            id: exactMatch[0].id
-        };
-    }
-
-    // If no exact match, try normalized match
-    const { data: allSpeakers, error: allError } = await supabase
-        .from('speakers')
-        .select('id, name');
     
-    if (allError) {
-        console.error('Error fetching speakers:', allError);
-        return {exists: false};
-    }
-
-    const normalizedInputName = normalizePersonName(speaker);
-    const matchingSpeaker = allSpeakers?.find(s => 
-        normalizePersonName(s.name) === normalizedInputName
-    );
-
     return {
-        exists: !!matchingSpeaker,
-        id: matchingSpeaker?.id
+        exists: data && data.length > 0,
+        id: data && data.length > 0 ? data[0].id : undefined
     };
 };
 
@@ -1697,7 +1670,7 @@ const continueToQuoteValidation = (state: typeof OverallState.State) => {
             // Filter out duplicate quotes based on similarity score
             const uniqueQuotes = articleQuotes.quotes.filter(quote => 
                 !quote.similarity_score || // Keep quotes with no similarity score (unique)
-                quote.similarity_score < CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
+                //quote.similarity_score > CONFIG.SIMILARITY.THRESHOLD // Keep quotes that are different enough
             );
 
             console.log("Unique quotes after filtering:", uniqueQuotes.length);

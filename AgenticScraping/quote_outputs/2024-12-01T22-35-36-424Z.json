@@ -1,0 +1,191 @@
+{
+  "model": "openai",
+  "timestamp": "2024-12-01T22:35:36.424Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "**Manchester United manager Ruben Amorim has been talking to BBC Match of the Day after the win:** \"It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls.\n\n\"I felt that the players could solve some problems that we had as a team because of the quality that they have, but it was far from a perfect performance. But it was a really good result and a tough match.\"\n\n**On their opening goal:** \"You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job.\n\n\"You can see how tall they are and how small we are as a team, so we tried to see where we would have space to create danger.\"\n\n**On Amad Diallo:** \"He is really big in talent, but small in size. He did a great job but he also has to improve. He is in a great moment. Ruud van Nistelrooy helped him a lot in his games in charge and now he is helping me.\"\n\n**On the mood becoming more buoyant and optimistic:** \"It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help.\n\n\"Rather than trying to convince the fans about this performance, \\[it is better to say\\] we have a lot to do, it will take time. Sometimes we are not playing well but everyone defended together.\n\n\"Our fans just ask for hard work and then, in time, they will ask for better football.\"\n\n**Manchester United forward Marcus Rashford has been talking to Sky Sports following the victory:** \"It is a nice result. It is important with a new coach and a new way of playing, when we are still learning. We have to back up this performance and win midweek.\n\n\"We all, as individuals, want to get back to our best and then push to improve so, even in the bad moments, you are doing the right thing.\n\n\"The connection is going to build and grow the more we get used to him. He has \\[Ruben Amorim\\] come in a busy period and hopefully, the connection keeps building and growing. He has come in with a great attitude and it has passed onto the players.\n\n\"The atmosphere is one of the most special things about his club, and playing at this great stadium is always a great feeling.\n\n\"It is early on but I feel energised and ready for the next game. This game has only just finished, but the next one is always the focus for the players.\"\n\n**Manchester United have scored 13 goals from an xG of 18.3 in the Premier League this term, netting about five goals fewer than the quality of their chances suggests they should have. No team is underperforming compared to their xG more than the Red Devils.**",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "(After the win) \"It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls. I felt that the players could solve some problems that we had as a team because of the quality that they have, but it was far from a perfect performance. But it was a really good result and a tough match.\"",
+          "summary": "I believe we need to improve as it wasn't a perfect performance, but I'm pleased with the result.",
+          "id": "54484507-d282-4fc1-afce-ff36b6c2a581",
+          "similar_to_quote_id": "5eb3415a-10e3-401a-8c51-8bb7169ec424",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.891672313213348
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "(On their opening goal) \"You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job. You can see how tall they are and how small we are as a team, so we tried to see where we would have space to create danger.\"",
+          "summary": "The players and staff deserve credit for the set-pieces, and we've adjusted our strategy accordingly.",
+          "id": "ef3bde92-bb1d-4a88-895b-97b1c4dcc43a",
+          "similar_to_quote_id": "92b5d56c-0910-4240-b8fc-b4378e1843bc",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.851342380046844
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "(On Amad Diallo) \"He is really big in talent, but small in size. He did a great job but he also has to improve. He is in a great moment. Ruud van Nistelrooy helped him a lot in his games in charge and now he is helping me.\"",
+          "summary": "Amad has great talent, and while he performed well, he still has areas to improve.",
+          "id": "7a3657bd-d3ec-4f17-8c67-a6dfb0250aca",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "7294edbb-e9f6-43cf-bfb0-0cc001125ca8",
+          "similarity_score": 0.667252838611603
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "(On the mood becoming more buoyant and optimistic) \"It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help. Rather than trying to convince the fans about this performance, \\[it is better to say\\] we have a lot to do, it will take time. Sometimes we are not playing well but everyone defended together. Our fans just ask for hard work and then, in time, they will ask for better football.\"",
+          "summary": "Having a new coach lifts the mood, but we need to be honest with fans that improvement will take time.",
+          "id": "2d209d00-88df-4982-89d4-1c75d4b3c079",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "f81b8787-8eee-487c-9650-0e3f68262d4f",
+          "similarity_score": 0.776742935180664
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "(Following the victory) \"It is a nice result. It is important with a new coach and a new way of playing, when we are still learning. We have to back up this performance and win midweek. We all, as individuals, want to get back to our best and then push to improve so, even in the bad moments, you are doing the right thing. The connection is going to build and grow the more we get used to him. He has \\[Ruben Amorim\\] come in a busy period and hopefully, the connection keeps building and growing. He has come in with a great attitude and it has passed onto the players. The atmosphere is one of the most special things about his club, and playing at this great stadium is always a great feeling. It is early on but I feel energised and ready for the next game. This game has only just finished, but the next one is always the focus for the players.\"",
+          "summary": "I'm happy with the result as we adapt to the new coaching style, and I feel energized for the next match.",
+          "id": "8142d8c8-2b65-4cd1-8584-233bbf4a36dc",
+          "similar_to_quote_id": "92b5d56c-0910-4240-b8fc-b4378e1843bc",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.69513338804245
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/chido-obi-martin-continues-shine-30487226",
+        "article_headline": "Chido Obi-Martin continues to shine as Manchester United star makes Ruben Amorim admission",
+        "article_text": "Chido Obi-Martin continues to shine as Manchester United star makes Ruben Amorim admission - Manchester Evening News\n\nHere are your latest Man United headlines as the Reds prepare to face Everton in the Premier League.\n\nBy\n\nRoss Jackson\n\nSport Content Editor\n\nRuben Amorim will be looking to secure his first Premier League win as Manchester United head coach tomorrow.\n\nThe Reds host Everton just three days on from their 3-2 win over Bodo/Glimt in the Europa League. That victory over the Norwegian side marked the first win of the Amorim era after United could only draw 1-1 with Ipswich in the Portuguese's first game in charge last weekend.\n\nEverton visit Old Trafford having won just twice in the league this season and Sean Dyche's side haven't scored in their last three games. Ahead of the first home league game of the Amorim era, here's a look at the latest United headlines.\n\n**READ MORE:** **[United supporters group announce ticket price protest ahead of Everton fixture](https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-supporters-group-announce-30461312)**\n\n**READ MORE:** **[Sir Jim Ratcliffe and Ineos are betraying United fans over ticket price hike](https://www.manchestereveningnews.co.uk/sport/football/sir-jim-ratcliffe-ineos-betraying-30480953)**\n\n### Obi-Martin scores again\n\nUnited striker Chido Obi-Martin celebrated signing his first professional contract by scoring the opener in the Under-18s' 3-0 win over Stoke City on Saturday.\n\nThe Danish youth international put United ahead with 71 minutes on the clock, converting a penalty, before James Scanlon and Dante Plunkett made sure of the points in the closing stages.\n\nTurning 17 on Friday, Obi-Martin's maiden professional contract was allowed to commence at Old Trafford. The striker signed a scholarship with an agreement for his professional contract to begin when he turned 17 after joining United from Arsenal in the summer.\n\n### Casemiro on Amorim\n\nCasemiro has said all of United's players are 'excited' by the recent appointment of Amorim at Old Trafford.\n\nThe 39-year-old, who was appointed from Sporting Lisbon earlier this month, oversaw his first victory as United head coach on Thursday night, leading his side to a 3-2 win over Bodo/Glimt in the Europa League.\n\nAfter seeing Alejandro Garnacho's first-minute opener wiped out, United recovered from 2-1 down to clinch their second Europa League win of the campaign.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Casemiro",
+          "raw_quote_text": "All of United's players are 'excited' by the recent appointment of Amorim at Old Trafford.",
+          "summary": "We're all excited about Amorim's appointment.",
+          "id": "6af66a8b-910b-4a4c-bc77-04b8d224c82e",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "17ea1210-2ab6-4178-976f-2a438dd06de0",
+          "similarity_score": 0.591540098190308
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-could-confirm-two-30479959",
+        "article_headline": "LUCKHURST: Manchester United could confirm two new first teamers vs Everton",
+        "article_text": "Manchester United could confirm two new first teamers vs Everton - Samuel Luckhurst - Manchester Evening News\n\nMan United take on Everton in the Premier League today and here are five things to look out for at Old Trafford.\n\nManchester United are back at Old Trafford today for the first of nine games in 30 days in December as they look to end a gruelling year on an upbeat note.\n\nUnited got their first win under new head coach Ruben Amorim on Thursday and are seeking their first in the Premier League on the Portuguese's watch against Everton.\n\nCentre backs Harry Maguire, Leny Yoro, Victor Lindelof and Jonny Evans could all still be unavailable after their absences against Bodo/Glimt three days ago but Amorim has a fullish squad to select from.\n\nWith United and Everton fans scheduled to protest against scandalous ticket price increases before kick-off, it is worth keeping an eye out off the pitch as much as on it.\n\nHere are five things to look out for:\n\n**How many more changes?**\n\nAmorim reiterated again on Thursday night United \"have to rotate the team\". Six changes against Bodo/Glimt was more than expected and he could stray close to that number against Everton.\n\nRasmus Hojlund was \"dead\" after a 90-minute shift and some of the substitutions were made with today's game in mind. Diogo Dalot, Amad and Marcus Rashford will all be relatively fresh after their second-half appearances. Christian Eriksen did not play at all and United are certain to have the majority of possession this afternoon.\n\n**Who will have the ball?**\n\n\"We need to have the ball because we have a short time to recover,\" Amorim stressed. It is curious that Kobbie Mainoo has been completely unused in the Portuguese's first two games in charge when United would benefit from a conductor in midfield against shot-shy Everton.\n\nMainoo's full Premier League debut was a memorable one in a 3-0 victory at Goodison Park 12 months ago but he is unlikely to be parachuted back into the starting XI eight weeks on from his last outing at Villa Park. Eriksen is an option or Bruno Fernandes could continue in a deeper role. Fernandes was especially excellent there against Everton at Old Trafford last season and the season before.\n\n**Mason Mounting a comeback?**\n\nAfter a first start in 96 days in midweek today could be Mason Mount's first Premier League start in 99 days. His last one - at Brighton - was his most impressive for United yet it was cut short by injury.\n\nMount lasted just shy of an hour against Bodo and his removal was possibly as much to preserve him for today as it was to manage his return. Amorim has waxed lyrical about Mount in successive weeks and he looked comfortable as one of the two 10s behind Hojlund.\n\n**Eyes on Branthwaite**\n\nUnited had two offers of £43million and £50m rejected for Jarrad Branthwaite in the summer before they made Leny Yoro their marquee 'potential' signing. Branthwaite, like Yoro, has had his fair share of injury problems and has only made three starts this term.\n\nHis return has coincided with Everton keeping two successive clean sheets. They did not score at the other end, mind, and played more than a half against ten-man Brentford last week.\n\nBranthwaite, 22, will inevitably leave Everton for big money but maybe not as big as the £70m they held out for in the summer. United will need to sign probably two centre backs next year and Branthwaite still fits the bill.\n\n**Amad to cement his place?**\n\nAmad will be in the majority of United fans' starting XIs today and his selection would confirm his first-team status under the new head coach. Today should be Amad's fourth start in five games and he was very clearly rested on Thursday night.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On rotating the team] \"have to rotate the team\".",
+          "summary": "I need to rotate the team.",
+          "id": "94a900a6-c69d-4bf6-b61f-fc283df3fbba",
+          "similar_to_quote_id": "aaf79f15-b399-44d0-b611-5d1b99757486",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.827394604682922
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On ball possession] \"We need to have the ball because we have a short time to recover.\"",
+          "summary": "We need the ball to recover quickly.",
+          "id": "598e735f-0296-4375-87d3-f154454db871",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "d1fe0a20-176c-4fb9-867d-d79729e4ce22",
+          "similarity_score": 0.864389181137085
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Mason Mount] \"I have waxed lyrical about Mount in successive weeks.\"",
+          "summary": "I've praised Mount a lot recently.",
+          "id": "df85acce-a7e9-412d-afd6-ace91c19f3ff",
+          "similar_to_quote_id": "10d9a28b-1518-4694-b624-0d2893c266ab",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.817059874534607
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-predicted-line-up-30485990",
+        "article_headline": "Manchester United predicted line-up vs Everton as new midfield unleashed and Amad recalled",
+        "article_text": "Manchester United predicted line-up vs Everton as new midfield unleashed and Amad recalled - George Smith - Manchester Evening News\n\nMan United head coach Ruben Amorim is likely to make changes to his starting XI once again for the visit of Everton.\n\nBy\nGeorge Smith  Senior Football Writer\n\n*   10:01, 30 NOV 2024\n\nManchester United will be aiming to build on their midweek Europa League triumph over Bodo/Glimt when they welcome Everton to Old Trafford in the Premier League on Sunday afternoon.\n\nUnited, who have won each of their last five meetings with the Toffees, secured their first win of the Ruben Amorim era on Thursday evening, coming from behind to beat the Norwegian outfit 3-2 after a Rasmus Hojlund brace.\n\nAmorim will now be determined to oversee his first Premier League victory as United head coach after his first taste of the English top flight ended in a 1-1 draw with Ipswich Town at Portman Road.\n\nThe Portuguese chief, following the win over Bodo/Glimt, confirmed the lack of preparation time for the visit of Everton would result in him having to prepare his players at a walking pace. United are at the start of a fixture marathon, meaning rotation is set to be a familiar theme over the coming weeks.\n\nNevertheless, Andre Onana is poised to maintain his record of starting every Premier League fixture since joining United from Inter Milan in the 2023 summer transfer window. He has kept five clean sheets in the league so far this season and will be determined to add to his collection.\n\nAmorim recalled Lisandro Martinez to the starting XI on Thursday night and he stored 60 minutes under his belt after missing the trip to Ipswich with a back problem. He started in the back-three alongside Matthijs de Ligt and Noussair Mazraoui, and it is possible they could be deployed as a trio once again.\n\nAs far as the wing-back roles are concerned, Amorim made changes on both flanks in midweek, handing starts to Tyrell Malacia and Antony. Neither player did enough to justify retaining their places for the clash with Sean Dyche's side, meaning it is highly likely both Diogo Dalot and Amad will be recalled.\n\nAmorim is not light on options in the centre of midfield, but Manuel Ugarte could retain his place after a polished performance last time out. Bruno Fernandes operated in a deeper role alongside the Uruguayan, but he could be pushed into a more advanced role.\n\nIn attack, Hojlund could keep his place after scoring two goals and claiming an assist on Amorim's home debut. Fernandes is likely to operate in one of the No.10 roles, likewise Marcus Rashford, who stepped off the bench in the second half on Thursday.\n\n**United predicted XI vs Everton:** Onana; Mazraoui, De Ligt, Martinez; Amad, Ugarte, Mainoo, Dalot; Fernandes, Hojlund, Rashford.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[After the win against Bodo/Glimt, Amorim commented] the lack of preparation time for the visit of Everton would result in him having to prepare his players at a walking pace.",
+          "summary": "We have to prepare the players at a walking pace due to the lack of preparation time.",
+          "id": "dcfa6638-712a-4b4e-85ed-6de6a54d6c6c",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bbb86163-a96d-49ee-a9a4-d22880494812",
+          "similarity_score": 0.591226041316986
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/signed-manchester-united-wanted-quit-29041031",
+        "article_headline": "I signed for Manchester United and asked to quit after my first training session",
+        "article_text": "I signed for Manchester United and asked to quit after my first training session - Manchester Evening News\n\nMan United completed the signing of Alexis Sanchez from Arsenal in January 2018, but he wanted to leave almost as soon as he had arrived.\n\nBy\nGeorge Smith Senior Football Writer\n\nHaving scored 38 goals since the beginning of the 2016/17 season, excitement levels soared when Manchester United lured Alexis Sanchez to Old Trafford from Arsenal in January 2018.\n\nThe Chilean, who had joined Arsenal from Barcelona in 2014, joined United as part of a deal that saw Henrikh Mkhitaryan move in the other direction. Considering United had secured themselves the services of a winger who had been free-scoring for the best part of 18 months, there was little doubt about who had got the better end of the deal.\n\nSanchez joined the club for a £14million fee and had already scored nine goals in the first half of the 2017/18 campaign, seven of which had been scored in the Premier League. In truth, it was a relatively small fee to pay for such a reliable source of goals.\n\n\"I am thrilled to be joining the biggest club in the world,\" Sanchez told United's club website after completing his move to Old Trafford. \"I have spent three-and-a-half wonderful years at Arsenal and I bring with me very positive memories of that great club and its fans.\n\n\"The chance to play in this historic stadium and to work with Jose Mourinho was something I could not turn down. I am very proud to be the first Chilean player ever to play for United and I hope I can show our fans all around the world why the club wanted to bring me here.\"\n\nTwo-and-a-half-years, one loan spell and 45 appearances later, Sanchez's United career reached the end of the road when he was allowed to join Inter Milan, who the aforementioned loan spell was with, on a free transfer in August 2020. His relatively short stint at Old Trafford was massively underwhelming and nobody looks back on his time at the club with much fondness. His biggest highlight was scoring United's equaliser in the 2018 FA Cup semi-final victory over Tottenham Hotspur.\n\nIn total, he scored a paltry five goals for the club, three of which were netted before his first and only full season in United colours. He made just 27 appearances in that campaign (2018/19) and struggled to nail down a starting berth under both Jose Mourinho and Ole Gunnar Solskjaer.\n\nSanchez had been the subject of interest from Manchester City prior to his move to United, only for the Blues to back out of a deal to sign him because of his wage demands. That left United with a clear run to secure his signature.\n\nBut despite the words chosen by Sanchez at the time of his unveiling, he was not, as it turned out, overly thrilled at making the switch to Old Trafford, so much so that he wanted to quit after his very first training session at Carrington. The Chilean, who is now 35, revealed a month after leaving the Reds how he begged his agent to try and fashion a return to Arsenal for him.\n\nSpeaking back in September 2020, the attacker said: \"I accepted the opportunity to go to United, it felt tempting and it was something good for me, I liked this club a lot when I was a kid. Eventually I signed but I didn't ask for information on what was happening inside the club.\n\n\"Sometimes there are things that you don't realise until you get there, and I remember the first training session I had, I realised a lot of things. After the session I got home and I told my family and my agent, 'Can you not rip up the contract to go back to Arsenal?'.\n\n\"They laughed, I told them there's something that doesn't sit right, it doesn't seem good. But I already signed, I was already there. After the first few months I carried on having the same feeling, we weren't united as a team in that moment.\"\n\nAt the juncture of Sanchez's arrival at Old Trafford, United were on a four-game winning run and unbeaten in seven, meaning he should have walked into a happy, upbeat and vibrant camp. Instead, judging by his comments, he walked into a fractured and broken dressing room that wasn't united.\n\nFollowing his mid-season arrival in 2017/18, Sanchez made 18 appearances before the end of the campaign, helping United finish second in the Premier League table and reach the FA Cup final, only to be beaten by Chelsea at Wembley, losing out to Eden Hazard's first-half penalty.\n\nA little over a month into the 2018/19 campaign, Sanchez was left out of United's matchday squad for the visit of West Ham United. It was a bombshell decision by Mourinho and it had a major impact on the winger.\n\n\"In a game with West Ham I wasn't picked,\" he said. \"That had never happened to me as a player. It bothered me and I said it couldn't be possible.\n\n\"To go from being one of the best in the Premier League to not playing in five months. I came to my house and I was very sad. The next day I trained in a double shift because I love what I do.\"\n\nSanchez's switch from Arsenal to United will go down as one of the biggest failed transfers in Premier League history. Arsenal got a slightly better tally of nine goals and 13 assists out of Mkhitaryan, meaning they got the better end of the deal.\n\nThe Armenian and Sanchez now play together in Milan with Inter. United supporters won't have too many fond memories of either of them.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Alexis Sanchez",
+          "raw_quote_text": "[Reflecting on his transfer decision] \"I accepted the opportunity to go to United, it felt tempting and it was something good for me, I liked this club a lot when I was a kid. Eventually I signed but I didn't ask for information on what was happening inside the club. Sometimes there are things that you don't realise until you get there, and I remember the first training session I had, I realised a lot of things. After the session I got home and I told my family and my agent, 'Can you not rip up the contract to go back to Arsenal?' They laughed, I told them there's something that doesn't sit right, it doesn't seem good. But I already signed, I was already there. After the first few months I carried on having the same feeling, we weren't united as a team in that moment.\"",
+          "summary": "I felt tempted by the opportunity at United, but soon realized I made a mistake in not asking about the club before signing.",
+          "id": "a817428c-086c-444f-8aa4-cdf3698dc63a",
+          "similar_to_quote_id": "5693865c-a77c-46a7-bea5-57d191846009",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.569121599197388
+        },
+        {
+          "speaker_name": "Alexis Sanchez",
+          "raw_quote_text": "[Discussing his feelings after not being picked] \"In a game with West Ham I wasn't picked. That had never happened to me as a player. It bothered me and I said it couldn't be possible. To go from being one of the best in the Premier League to not playing in five months. I came to my house and I was very sad. The next day I trained in a double shift because I love what I do.\"",
+          "summary": "Being left out of the squad was shocking and made me really sad, but I pushed myself harder in training.",
+          "id": "3188c4c6-4618-4305-a786-28ceaca6d5fd",
+          "similar_to_quote_id": "cf41911f-ba1a-4487-b59e-254a6013a511",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.578350067138672
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live",
+        "article_headline": "Clockwatch\nManchester United 4-0 Everton, Chelsea 3-0 Aston Villa and more: Premier League – as it happened",
+        "article_text": "Manchester United 4-0 Everton, Chelsea 3-0 Aston Villa and more: Premier League – as it happened | Premier League | The Guardian\n\nCole Palmer starred for Chelsea as Aston Villa were overwhelmed, Manchester United thumped Everton and Tottenham drew with Fulham\n\n&nbsp;Updated 5h ago\n\n[Luke McLaughlin](https://www.theguardian.com/profile/luke-mclaughlin)\n\nSun 1 Dec 2024 11.19 ESTFirst published on Sun 1 Dec 2024 08.03 EST\n\nKey events\n\n*   [7h ago Full-time: Chelsea 3-0 Aston Villa](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c80938f0816561c49ff4a#block-674c80938f0816561c49ff4a)\n*   [7h ago Full-time: Tottenham 1-1 Fulham](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c804d8f0816561c49ff48#block-674c804d8f0816561c49ff48)\n*   [7h ago Full-time: Manchester United 4-0 Everton](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c7f628f088c7046fe0d7d#block-674c7f628f088c7046fe0d7d)\n*   [7h ago Goal! 83 min: Chelsea 3-0 Aston Villa (Palmer)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c7da98f08613772568940#block-674c7da98f08613772568940)\n*   [8h ago Goal! 67 min: Tottenham 1-1 Fulham (Cairney)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c79668f088c7046fe0d4a#block-674c79668f088c7046fe0d4a)\n*   [8h ago Goal! 64 min: Manchester United 4-0 Everton (Zirkzee)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c786f8f08613772568916#block-674c786f8f08613772568916)\n*   [8h ago Goal! 54min: Tottenham 1-0 Fulham (Johnson)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c76828f0861377256890b#block-674c76828f0861377256890b)\n*   [8h ago Goal! 46min: Manchester United 3-0 Everton (Rashford)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c75638f0816561c49fee5#block-674c75638f0816561c49fee5)\n*   [8h ago Second-half kick off!](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c75028f088c7046fe0d19#block-674c75028f088c7046fe0d19)\n*   [8h ago Half-time scores](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c70c68f088c7046fe0ce5#block-674c70c68f088c7046fe0ce5)\n*   [8h ago Goal! 41 min: Manchester United 2-0 Everton (Zirkzee)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c6f0b8f088c7046fe0cd9#block-674c6f0b8f088c7046fe0cd9)\n*   [8h ago Goal! 36 min: Chelsea 2-0 Aston Villa (Fernandez)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c6da18f088c7046fe0cc8#block-674c6da18f088c7046fe0cc8)\n*   [8h ago Goal! 34 min: Manchester United 1-0 Everton (Rashford)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c6cf08f0816561c49fea5#block-674c6cf08f0816561c49fea5)\n*   [9h ago Goal! 7 min: Chelsea 1-0 Aston Villa (Jackson)](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c66c08f08613772568872#block-674c66c08f08613772568872)\n*   [9h ago First half kick off!](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c653b8f0816561c49fe4a#block-674c653b8f0816561c49fe4a)\n*   [9h ago Tottenham v Fulham teams](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c5f9e8f088c7046fe0c57#block-674c5f9e8f088c7046fe0c57)\n*   [9h ago Manchester United v Everton teams](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c5f3c8f088c7046fe0c53#block-674c5f3c8f088c7046fe0c53)\n*   [9h ago Chelsea v Aston Villa teams](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-674c5ed48f0816561c49fe2e#block-674c5ed48f0816561c49fe2e)\n*   [10h ago Preamble](https://www.theguardian.com/football/live/2024/dec/01/manchester-united-v-everton-chelsea-v-aston-villa-and-more-premier-league-live?filterKeyEvents=false&page=with%3Ablock-67475f828f08844156ee8d43#block-67475f828f08844156ee8d43)\n\n**Jamie Jackson** is our man at Old Trafford for [Manchester United](https://www.theguardian.com/football/manchester-united) 4-0 Everton:",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+{
+  "model": "openai",
+  "timestamp": "2024-12-01T22:09:54.531Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/videos/c4g2n5k74ryo",
+        "article_headline": "Support from Man Utd fans 'really special' - Amorim",
+        "article_text": "Ruben Amorim says the support he received from Manchester United fans was \"special\" after his side beat Bodo/Glimt 3-2 at Old Trafford in the Europa League.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "The support he received from Manchester United fans was \"special\"",
+          "summary": "The support from Man Utd fans was special.",
+          "id": "8533cbe7-f1da-4102-9a0a-f88791ec1382",
+          "similar_to_quote_id": "b95d55ab-b485-4575-b946-fa55237c5397",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.619675874710083
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Man Utd - Transfer news, results, fixtures, video and audio\n===============\n\nManchester United\n=================\n\nScores & Fixtures\n-----------------\n\nScroll LeftScroll Right\n\n*   Premier League Full time FT Man Utd Manchester United 4 Everton Everton 0\n*   Premier League\n    \n    Arsenal\n    \n    Arsenal\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at20:15 onWedthe4 ofDec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Nottm Forest\n    \n    Nottingham Forest\n    \n    at17:30 onSatthe7 ofDec\n    \n*   UEFA Europa League\n    \n    Plzeň\n    \n    Viktoria Plzeň\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at17:45 onThuthe12 ofDec\n    \n*   Premier League\n    \n    Man City\n    \n    Manchester City\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at16:30 onSunthe15 ofDec\n    \n*   League Cup\n    \n    Tottenham\n    \n    Tottenham Hotspur\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at20:00 onThuthe19 ofDec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Bournemouth\n    \n    AFC Bournemouth\n    \n    at14:00 onSunthe22 ofDec\n    \n*   Premier League\n    \n    Man Utd\n    \n    Manchester United\n    \n    plays\n    \n    Newcastle\n    \n    Newcastle United\n    \n    at20:00 onMonthe30 ofDec\n    \n*   Premier League\n    \n    Liverpool\n    \n    Liverpool\n    \n    plays\n    \n    Man Utd\n    \n    Manchester United\n    \n    at16:30 onSunthe5 ofJan\n\nLatest updates\n--------------\n\n1.  Atmosphere speaks for itself - Amorim restores feel-good factor, published at 17:25\n*   Attribution\n        \n        Man Utd\n        \n    \n2.  It's just madness - Dyche perplexed by Everton defending. Video, 00:03:26, published at 16:36\n*   Attribution\n        \n        Premier League\n        \n    \n3.  Man Utd 'far from perfect' in win over Everton - Amorim. Video, 00:03:23, published at 16:24\n*   Attribution\n        \n        Premier League\n        \n    \n4.  Manchester United's win over Everton at Old Trafford under Ruben Amorim is the biggest margin of victory for a permanent manager in their first home match in the competition for the club.\n    \n    Marcus Rashford has now scored in back-to-back Premier League matches under Ruben Amorim (three goals), as many goals as he managed in his previous 23 matches under both Ruud van Nistelrooy and Erik ten Hag.\n    \n6.  Manchester United manager Ruben Amorim has been talking to BBC Match of the Day after the win: \"It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls.\n    \n    \"I felt that the players could solve some problems that we had as a team because of the quality that they have, but it was far from a perfect performance. But it was a really good result and a tough match.\"\n    \n    **On their opening goal:** \"You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job.\n    \n    \"You can see how tall they are and how small we are as a team, so we tried to see where we would have space to create danger.\"\n    \n    **On Amad Diallo:** \"He is really big in talent, but small in size. He did a great job but he also has to improve. He is in a great moment. Ruud van Nistelrooy helped him a lot in his games in charge and now he is helping me.\"\n    \n    **On the mood becoming more buoyant and optimistic:** \"It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help.\n    \n    \"Rather than trying to convince the fans about this performance, it is better to say we have a lot to do, it will take time. Sometimes we are not playing well but everyone defended together.\n    \n    \"Our fans just ask for hard work and then, in time, they will ask for better football.\"\n    \n7.  Manchester United forward Marcus Rashford has been talking to Sky Sports following the victory: \"It is a nice result. It is important with a new coach and a new way of playing, when we are still learning. We have to back up this performance and win midweek.\n    \n    \"We all, as individuals, want to get back to our best and then push to improve so, even in the bad moments, you are doing the right thing.\n    \n    \"The connection is going to build and grow the more we get used to him. He has come in a busy period and hopefully the connection keeps building and growing. He has come in with a great attitude and it has passed onto the players.\n    \n    \"The atmosphere is one of the most special things about his club, and playing at this great stadium is always a great feeling.\n    \n    \"It is early on but I feel energised and ready for the next game. This game has only just finished, but the next one is always the focus for the players.\"\n    \n8.  Ruben Amorim has become the latest manager to be tasked with restoring Manchester United's on-pitch fortunes.\n    \n    The club paid £11m to Portuguese club Sporting to recruit the 39-year-old and his staff, making him the sixth permanent manager since Sir Alex Ferguson's illustrious 26-year reign ended with his retirement in 2013.\n    \n    After a draw at Ipswich and a win against Bodo/Glimt in his first two games, his side host Everton on Sunday (13:30 GMT).\n    \n    BBC Sport presenter Mark Chapman caught up with the Portuguese manager on Football Focus, firstly asking him if he is already feeling a connection with the Manchester United fans.\n    \n    \"Yes for sure, I feel that,\" Amorim revealed. \"Maybe because I'm a little bit of an emotional person. I can transmit that, even in interviews, I think.\n    \n    \"Maybe because I am different from the last coach and this can bring a different connection with the next guy.\n    \n    \"I believe that I am the right guy. People always believe the next guy is the right guy. We always have this feeling.\n    \n    \"To maintain this feeling, we have to play better and win games and be really honest with the supporters.\n    \n    \"If you are honest and direct with the supporters - maybe you don't always say the popular thing - you can create a better connection.\"\n    \n    **On the game:** \"Like a real ride. We started well, but then suffered two goals in two transitions. I like the way the players tried to play our game.\n    \n    \"Sometimes we won the ball and have had problems in the past giving the ball away too much - the mindset is keeping the ball.\n    \n    \"They are really trying and I think we deserved the win.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[After the match] It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls.",
+          "summary": "We need to improve as it wasn't a perfect performance.",
+          "id": "bbb86163-a96d-49ee-a9a4-d22880494812",
+          "similar_to_quote_id": "a4eae3fb-2ea8-4216-a023-c585bae351b8",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.640170037746429
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the opening goal] You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job.",
+          "summary": "The staff did a great job on set-pieces.",
+          "id": "f243f063-a7c2-49b6-b7db-f4c071852256",
+          "similar_to_quote_id": "22156dd7-af16-4aad-9711-6213ebdc6b8f",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.568789601325989
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the mood becoming more buoyant] It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help.",
+          "summary": "Having a new face helps, and clarity with fans is important.",
+          "id": "bd914c84-ea85-4934-90e1-36f4ebdd9ec0",
+          "similar_to_quote_id": "ea8e1f88-ad71-486f-97a4-8ab1049e2f95",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.458979994058609
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[After the victory] It is a nice result. It is important with a new coach and a new way of playing, when we are still learning.",
+          "summary": "It's a good result as we adapt to our new coach.",
+          "id": "c657e3d9-70c4-4d50-97d8-d074c0fa651a",
+          "similar_to_quote_id": "22156dd7-af16-4aad-9711-6213ebdc6b8f",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.589177370071411
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[On building connections] The connection is going to build and grow the more we get used to him. He has come in with a great attitude and it has passed onto the players.",
+          "summary": "Our connection with him will grow as we adjust.",
+          "id": "f81b8787-8eee-487c-9650-0e3f68262d4f",
+          "similar_to_quote_id": "b95d55ab-b485-4575-b946-fa55237c5397",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.526569664478302
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the game] Like a real ride. We started well, but then suffered two goals in two transitions.",
+          "summary": "The game was a rollercoaster; we started strong but faced challenges.",
+          "id": "b43b82aa-8205-4de0-adb1-d923a0e94855",
+          "similar_to_quote_id": "5eb3415a-10e3-401a-8c51-8bb7169ec424",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.575742959976196
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/manchester-united-player-ratings-amad-30490967",
+        "article_headline": "LUCKHURST: Manchester United player ratings as Amad brilliant vs Everton",
+        "article_text": "Manchester United player ratings as Amad brilliant vs Everton - Samuel Luckhurst - Manchester Evening News\n\nMan United battered Everton 4-0 in the Premier League to rise to the top half of the table and here are how the players rated at Old Trafford.\n\nMarcus Rashford gave United the lead as his half-volley found the back of the net after a deflection off Jarrad Branthwaite. Joshua Zirkzee struck before half time to put United 2-0 up.\n\nRashford grabbed his second to end the game as a contest shortly after the break and Zirkzee then joined him on two goals for the afternoon to make it 4-0.\n\nHere are how the players rated at Old Trafford:\n\n**Andre Onana**\n\nDidn't do anything wrong during a difficult first half for United and had a much quieter second 45 minutes as he kept a clean sheet. Saved late on from Dominic Calvert-Lewin. 7\n\n**Noussair Mazraoui**\n\nHad a more testing time against Iliman Ndiaye but came through it to help keep United's sheet clean before he was rested. 6\n\n**Matthijs de Ligt**\n\nOutpaced by Beto for Everton's best chance with the game goalless as he failed to dominate another defender-striker duel. Came off before the hour. 5\n\n**Lisandro Martinez**\n\nGave Everton an early sighter with a sloppy pass that came to nought. Played Dalot in for a good opening but booked for a cynical foul. 6\n\n**Amad**\n\nScooped a good chance well wide but forced Jarrad Branthwaite into the mistake that led to the second goal and brilliantly played in Marcus Rashford for the third. 8\n\n**Casemiro**\n\nHis tendency to slide in desperately was evident again but Everton never took advantage of Casemiro's clumsiness. 5\n\n**Kobbie Mainoo**\n\nBegan brightly on his first start in eight weeks but failed to sustain that momentum. Got booked for tugging back Dwight McNeil. 6\n\n**Diogo Dalot**\n\nA more purposeful presence on the left-hand side though his end product was often lacking. A gradual improvement this week. 6\n\n**Bruno Fernandes**\n\nAssisted both first-half goals, although he seemed to overhit the pass that Zirkzee finished as it seemed intended for Amad. Came off for a rest with the game won. 7\n\n**Marcus Rashford**\n\nPut United ahead with a sweetly-timed half-volley that deflected in off Branthwaite and made the right run to finish Amad's pass. 7\n\n**Joshua Zirkzee**\n\nGot his first club goal in 18 games by salvaging Fernandes's overhit pass to make it 2-0 and had a key role in the third goal before coolly making it 4-0. 8\n\n**Subs**\n\n**Luke Shaw**\n\nGot more fulfilling minutes in third sub appearance running. 6\n\n**Harry Maguire**\n\nBack in the team for the first time in eight weeks. 6\n\n**Alejandro Garnacho**\n\nEmbarked on some energetic bursts. 6\n\n**Manuel Ugarte**\n\nCoasted through the final quarter. 6\n\n**Mason Mount**\n\nLast to come on. 6\n\n**Manager**\n\nRotated heavily again and it seemed to count against United until the opening goal on 34 minutes. An intense presence on the touchline, he kept the players on their toes and made sensible substitutions. 7",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Amad",
+          "raw_quote_text": "[Amad's performance] forced Jarrad Branthwaite into the mistake that led to the second goal and brilliantly played in Marcus Rashford for the third.",
+          "summary": "I forced Branthwaite into a mistake for the second goal and set up Rashford for the third.",
+          "id": "40bc9199-aa23-4ab2-97d8-43dca8a6c654",
+          "similar_to_quote_id": "860b037a-ad51-44bf-8c1c-3119ed95a504",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.512177765369415
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/amad-responds-perfectly-ruben-amorims-30490976",
+        "article_headline": "LUCKHURST: Amad responds perfectly to Ruben Amorim's touchline reactions in Manchester United win",
+        "article_text": "Man United secured a first four-goal victory in the Premier League in Ruben Amorim's first league match in charge at Old Trafford.\n\nJarrad Branthwaite did not get his move to Manchester United in the summer yet he stepped up as their 12th man against Everton.\n\nA deflection and a dozy pass from the centre-back gifted United both of their first-half goals to turn the game on its head. Branthwaite skulked off at half-time with his head bowed, tugging his shirt in the hope it would be big enough to conceal his embarrassed expression. There was a half left to play yet Everton were done.\n\nUnited were otherwise unconvincing in a first half so troubling that Ruben Amorim was plotting a double substitution at half-time. Branthwaite's collapse caused his teammates to also fold. United ran away with it without running much.\n\nAfter two 3-0 reverses at Old Trafford, the thrashings are being meted out by the home side. There was a hearty and celebratory rendition of \"Amorim's Red and White Army\" from the Stretford End before the hour, with victory already assured. This was United's first four-goal victory in the Premier League since the opening day of the 2021-22 season.\n\nUnited are literally on the up. The three points have elevated them to the heady heights of ninth in the table, the first time they have been in the top half since October. Their goal difference is finally a positive figure.\n\nThe only anger vented by the matchgoers was over the callous ticket price hike by the Ineos cabal. Sir Jim Ratcliffe's Manchester roots have not spared him from the vitriol after spinning supporters a hollow working-class hero yarn.\n\nOn the pitch, Amorim had the luxury of introducing the returning Harry Maguire and Luke Shaw before the hour to grant Matthijs de Ligt and Noussair Mazraoui a breather. The festive season commenced with a cheery rendition of \"Five Cantonas\". In a week the other Manchester side squandered a hefty advantage with a quarter of an hour to play, there was no chance of Everton emulating Feyenoord.\n\nMarcus Rashford and Joshua Zirkzee got two goals apiece but the game belonged to Amad. He made three of the four possible and is the perfect profile of player for Amorim.\n\nIt was only nine months ago that Omari Forson (remember him?) started ahead of Amad. Amad's intensity and selflessness have enabled him to swiftly adapt to Amorim's demands. Forson has played three times for Monza.\n\nRashford's penchant for performing under a new manager (or head coach) has continued with the latest incumbent. His charge and spontaneous strike for United's third goal was reminiscent of his 2022-23 zenith. Rashford is one shy of matching his meagre eight-goal haul of last term.\n\nEverton ordered United to attack the Stretford End in the first half, as they had on their last two visits. Those fixtures ended 2-0. This time it was double that. United fans were \"Olé\"ing as early as the 75th minute.\n\nAmorim was more animated and impatient at 0-0 than on his previous appearances in the United technical area. He had to clap his hands to alert Casemiro to receive the ball, lamented a risk-aversive pass from De Ligt and in the 19th minute instructed Diogo Dalot to come yet he opted to go.\n\nBefore he scored, Zirkzee was berated for being out of position to press. It happened a second time moments later and Amorim reactively turned to the dugout and told Mason Mount and Alejandro Garnacho to warm up. That was in the 24th minute. They were not required at the interval after all.\n\nZirkzee was the third striker to start in Amorim's third match and all three have scored. Zirkzee favours a deeper role and initially had some joy avoiding duels with Branthwaite but once Everton seized the initiative his positioning began to irk Amorim. Zirkzee and Rasmus Hojlund, whose intense pressing resulted in a goal after 48 seconds against Bodo/Glimt, are polar opposites.\n\nStill, Zirkzee rallied to score his first United goal in 18 games for his second in 19. James Tarkowski's dithering defending charitably made another possible and Zirkzee's body language altered markedly.\n\nHis teammates were pleased as punch and he celebrated by pretending to fire a machine gun. He has some way to go to be considered a sharp shooter, though Zirkzee's deeper presence accelerated the attack for Rashford's clinical second goal.\n\nAmorim's wing-back strategy is starting to bear fruit. Amad forced the error from Branthwaite to make it 2-0 through an intense press and his recall effectively cements his status as a first-teamer again.\n\nAmad had earlier irked Amorim by scooping the ball wide from Zirkzee's pass yet he has demonstrated over his four years at United he is not lacking in resilience. He has three assists in two starts under Amorim.\n\nIt is a misconception Amad is one of Ten Hag's legacies when his first start under him came in May. There were only ten more and he has slotted in admirably into Amorim's challenging 3-4-3 formation.\n\nBranthwaite had crucially cut out a couple of early crosses before making more decisive contact with Rashford's half-volley to give United a fortuitous lead on 34 minutes. Branthwaite's intervention sent the ball in the opposite direction to the prone Jordan Pickford.\n\nEverton's followers were bullish for half an hour yet when the fourth goal went in, thousands trudged down the gangways to the nearest exit and boos soundtracked Sean Dyche's first round of substitutions. Former United captain Ashley Young departed to a standing ovation yet many in the Everton end did not applaud him.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-vs-everton-live-30489781",
+        "article_headline": "Manchester United vs Everton live score and goal updates",
+        "article_text": "Manchester United recorded their biggest Premier League win of the season by beating Everton 4-0 at Old Trafford on Sunday afternoon.\n\nMarcus Rashford and Joshua Zirkzee, who started together for the first time under Ruben Amorim, helped themself to a brace each to put Everton to the sword and elevate United up into the top half of the Premier League table.\n\nRashford gave United a 34th-minute lead, firing a deflected effort past Everton goalkeeper Jordan Pickford, before Zirkzee scored his first goal since the opening weekend of the season seven minutes later.\n\nUnited put the game beyond doubt less than 30 seconds into the second half when Rashford claimed his second, firing past Pickford after being slipped in by the lively Amad.\n\nAmad then created United's fourth goal that was turned in by Zirkzee for his second goal of the afternoon.\n\nThe only negative for United was that they lost both Lisandro Martinez and Kobbie Mainoo to suspension. They were both yellow carded in the second half, each collecting their fifth booking of the season in the process.\n\n**You can recap how Sunday afternoon's game unfolded by scanning through our blog below...**\n\nKey Events\n----------\n\n*   15:44 - REPORT: Amad responds perfectly to Amorim's touchline reactions in United win.\n*   15:28 - PLAYER RATINGS: Amad brilliant as United put Everton to the sword.\n*   15:22 - FULL-TIME: MUN 4-0 EFC - A big win for United.\n*   14:53 - 64' - MUN 4-0 EFC - GOAL UNITED! 4-0 (Zirkzee).\n*   14:35 - 46' - MUN 3-0 EFC - GOAL UNITED! 3-0 (Rashford).\n\n16:45 George Smith:\n\n### That's a wrap\n\nWe're calling time on today's live coverage from Old Trafford here, folks.\n\nThank you ever so much for following our live blog today.\n\n### REPORT: Amad responds perfectly to Amorim's touchline reactions in United win\n\nJarrad Branthwaite did not get his move to United in the summer yet he stepped up as their 12th man against Everton.\n\nA deflection and a dozy pass from the centre back gifted United both of their first-half goals to turn the game on its head. Branthwaite skulked off at half-time with his head bowed, tugging his shirt in the hope it would be big enough to conceal his embarrassed expression. There was a half left to play yet Everton were done.\n\nUnited were otherwise unconvincing in a first half so troubling that Ruben Amorim was plotting a double substitution at half-time. Branthwaite's collapse caused his teammates to also fold. United ran away with it without running much.\n\nAfter two 3-0 reverses at Old Trafford, the thrashings are being meted out by the home side. There was a hearty and celebratory rendition of \"Amorim's Red and White Army\" from the Stretford End before the hour, with victory already assured. This was United's first four-goal victory in the Premier League since the opening day of the 2021-22 season.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-makes-marcus-rashford-30492463",
+        "article_headline": "RAILSTON: Ruben Amorim makes Marcus Rashford claim after Manchester United win",
+        "article_text": "Ruben Amorim makes Marcus Rashford claim after Manchester United win - Manchester Evening News\n\nMarcus Rashford scored twice in Man Utd's comfortable win over Everton and Ruben Amorim was asked about his display.\n\nBy\n\nSteven Railston Manchester United Writer\n\nRashford scored a brace.\n\nRuben Amorim agreed Marcus Rashford showed \"he wanted it\" by scoring a brace in Manchester United's dominant 4-0 victory over Everton on Sunday.\n\nAmorim said when asked about Rashford at his press conference last week: \"We'll try to find the right solution for him but he has to be Marcus, first of all, to try to return to that moment.\"\n\nHe added that Rashford \"has to be the first one to want it\" and the United academy graduate responded to that challenge by scoring an impressive brace against Everton.\n\nRashford scored the first goal of Amorim's tenure when finding the net after just 81 seconds against Ipswich Town at Portman Road and now has seven goals in all competitions.\n\nAmorim was asked whether Rashford's performance against Everton was an example of him \"wanting it\" and responded: \"Yeah, yeah... he can do so much. He has to continue to improve.\n\n\"He has the ability to do that but he can play so much better, like the other guys. It was a good performance, tomorrow he has to recover and start thinking about Arsenal.\"\n\nZirkzee also scored twice on Sunday and Amorim discussed his display. \"First thing, I need all the players to cope with all the games and he’s one of them. I just try to put my players in good positions for their characteristics,\" he said.\n\n\"He scored two goals, which is always important for the confidence. But more important than that was his performance because he fought in every situation. It was a good day for him and our team.\"\n\nUnited's win against Everton moved them into the top half of the table. \"I understand that it’s hard for me to say no because you would say I can’t be a Manchester United coach, but I want to be honest with our fans,\" said Amorim about potential Champions League qualification.\n\n\"So let’s focus on the performance and not the results. We’ll see in the end. I’ve said this many times, I will be judged on where we finish, I know that, but let’s focus on the next game and look at the performance.\n\n\"On Thursday, it was a 3-2 and I think we deserved more. Today was 4-0 but I thought Everton deserved more. Let’s focus on the performance, congratulations to the lads, let’s rest, recover and think about Arsenal.\"",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Asked about Rashford's performance] \"We'll try to find the right solution for him but he has to be Marcus, first of all, to try to return to that moment.\"",
+          "summary": "I need Rashford to be himself to get back to his best.",
+          "id": "b8d7482a-ae93-4f17-b29b-206b439cac00",
+          "similar_to_quote_id": "860b037a-ad51-44bf-8c1c-3119ed95a504",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.84158730506897
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Rashford's desire] \"Yeah, yeah... he can do so much. He has to continue to improve. He has the ability to do that but he can play so much better, like the other guys. It was a good performance, tomorrow he has to recover and start thinking about Arsenal.\"",
+          "summary": "Rashford can improve significantly and he needs to focus on recovery and the upcoming match.",
+          "id": "f53308bc-6779-4850-a819-75313e8185de",
+          "similar_to_quote_id": "4d96f452-f776-4549-a9cb-51b536565af5",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.63751631975174
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Discussing Zirkzee's performance] \"First thing, I need all the players to cope with all the games and he’s one of them. I just try to put my players in good positions for their characteristics. He scored two goals, which is always important for the confidence. But more important than that was his performance because he fought in every situation. It was a good day for him and our team.\"",
+          "summary": "I focus on positioning my players well, and Zirkzee's performance and goals were crucial for our confidence.",
+          "id": "05989e95-0b74-4361-a529-cbd2dfb02408",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "266db08d-7a08-4adb-8250-44359037a705",
+          "similarity_score": 0.740449011325836
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Champions League qualification] \"I understand that it’s hard for me to say no because you would say I can’t be a Manchester United coach, but I want to be honest with our fans. So let’s focus on the performance and not the results. We’ll see in the end. I’ve said this many times, I will be judged on where we finish, I know that, but let’s focus on the next game and look at the performance. On Thursday, it was a 3-2 and I think we deserved more. Today was 4-0 but I thought Everton deserved more. Let’s focus on the performance, congratulations to the lads, let’s rest, recover and think about Arsenal.\"",
+          "summary": "I want to focus on performances rather than results, and I acknowledge I'll be judged by our final standing.",
+          "id": "debf5a9b-6709-4f14-8ebf-326b3fc58cbe",
+          "similar_to_quote_id": "977530bd-7de3-4645-8b8b-ba0929a88b8c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.630863070487976
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/david-de-gea-breaks-silence-30492898",
+        "article_headline": "David De Gea breaks silence after Edoardo Bove collapse as Fiorentina vs Inter abandoned",
+        "article_text": "David De Gea breaks silence after Edoardo Bove collapse as Fiorentina vs Inter abandoned - Manchester Evening News\n\nDavid De Gea responds to Edoardo Bove collapse with online message after horrific Fiorentina vs Inter clash\n\nBy Tom Coley\n\n18:32, 1 DEC 2024\nUpdated 18:51, 1 DEC 2024\n\nDavid De Gea was playing as Edoardo Bove collapsed for Fiorentina during Inter match (Image: Image Photo Agency/Getty Images)\n\nFormer Manchester United goalkeeper David De Gea has sent hopeful prayers the way of his Fiorentina teammate Edoardo Bove after he collapsed during Sunday's match against Inter. The game was suspended after 25 minutes with Bove stretchered off and taken to hospital.\n\nDe Gea, who joined the Italian side over the summer and has played 10 times in Serie A alongside Bove, started the game. He was among those who were extremely worried on the field after Bove fell to the ground.\n\nWriting on X (formerly Twitter), De Gea said, \"God Please (prayer hands emoji)\". Players were taken from the pitch by the referee after Bove was removed from the stadium.\n\nA group of medical staff and members of both teams formed a wall to block any view of Bove during the distressing incident. Some were left in tears and putting their hands on their head and over their eyes.\n\nIt has been reported in Italy that Bove is breathing on his own in hospital. The game has since been abandoned and will be rescheduled.\n\nBove, 22, is on loan from Roma and joined Fiorentina over the summer like De Gea. The ex-United shot-stopper moved to Italy as a free agent after not finding a club upon his exit from Old Trafford.\n\nThe Serie A X account also posted a message to Bove. It wrote: \"Forza Edo. Siamo con te!\" alongside an image of the player. It translates to: \"Come on Edo. We are with you!\"\n\nFellow ex-Manchester United star Paul Pogba was among others to offer their support. \"Forza @edo_bove [prayer hands emoji]\" he wrote on his Instagram story with a blank background. Former Manchester City striker Mario Balotelli did the same. He wrote: \"@edo_bove Prego di rivederti così al più presto Ti abbraccio forte [bicep emoji]\", which translates as, \"I pray to see you again as soon as possible I hug you tightly.\"\n\nRomelu Lukaku and Tammy Abraham, who were both at Roma last season but now play at Napoli and AC Milan respectively, have also posted to their Instagram stories for Bove.\n\nBove has played 11 league games for La Viola this season, winning the last seven he has started alongside De Gea. The pair have only failed to win twice when playing together, only one was a defeat.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "David De Gea",
+          "raw_quote_text": "God Please (prayer hands emoji)",
+          "summary": "I'm praying for Edo.",
+          "id": "51e337ce-06c9-434a-9940-a8a1aef8a7ae",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "f7f111a4-b303-4b94-a079-e84188eb14b5",
+          "similarity_score": 0.225876703858376
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/kobbie-mainoo-leny-yoro-agree-30492425",
+        "article_headline": "Kobbie Mainoo and Leny Yoro agree with one-word Amad verdict after Man United win",
+        "article_text": "Manchester United recorded back-to-back victories with a thumping 4-0 win over Everton in the Premier League.\n\nManchester United stars Kobbie Mainoo and Leny Yoro have hailed the impact of Amad after he grabbed two assists in the 4-0 victory over Everton.\n\nThe Reds returned to Old Trafford after an unconvincing win over Bodo/Glimt in the Europa League, but United were a lot closer to what Ruben Amorim is wanting on Sunday afternoon. Marcus Rashford opened the scoring with a deflected effort before Joshua Zirkzee scored after the ball was initially won back well by Amad.\n\nUnited made it three with Rashford's second of the game as the Ivorian laid the ball through for him and the game was wrapped up by Zirkzee just after the hour mark as Amad once again won possession high up the pitch before setting up the Dutchman for his brace.\n\nIt was a performance from Amad that many United fans have come to expect after becoming a key player quickly under Amorim. After the match, United's official Instagram posted a picture of the winger with the caption: \"Unplayable.\"\n\nThis was quickly shared on Mainoo's story and liked by Yoro as they sent a clear verdict on the youngster's performance. Amad's brace of assists made it four in just three Premier League matches for United.\n\nSince Amorim arrived, Amad has been asked to play a wing-back role, one which he has taken to comfortably. During much of Erik ten Hag's reign, Antony was chosen ahead of the 22-year-old much to the bemusement of supporters.\n\nHowever, the winger is now one of the first names on the teamsheet. Next up for Amad and his United teammates is a trip to Arsenal in midweek in the Premier League.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Kobbie Mainoo",
+          "raw_quote_text": "[Sharing a social media post] Unplayable.",
+          "summary": "I think he's unplayable.",
+          "id": "f7f111a4-b303-4b94-a079-e84188eb14b5",
+          "similar_to_quote_id": "7138776f-68ac-410d-a34f-c5bc8ce9ea98",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.339114248752594
+        },
+        {
+          "speaker_name": "Leny Yoro",
+          "raw_quote_text": "[Liking a social media post] Unplayable.",
+          "summary": "I agree he's unplayable.",
+          "id": "042a9db2-05e0-41bd-845e-f5e0bdd74a58",
+          "similar_to_quote_id": "a82458b7-491b-45ef-a20d-6ded10142abe",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.857678771018982
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/bitter-resentful-ticket-hikes-slammed-30492281",
+        "article_headline": "'Bitter and resentful' ticket hikes slammed as Man United, Man City and Liverpool unite",
+        "article_text": "'Bitter and resentful' ticket hikes slammed as Man United, Man City and Liverpool unite - Manchester Evening News\n\nSupporters from Manchester City, Man United, Everton and Liverpool came together to protest ticket hikes\n\nThe price increases from Premier League clubs has been described as 'death by a thousand cuts' with Manchester City Fans Supporting Foodbanks' Nick Clarke expressing his hope for change within English football.\n\nFans from both Liverpool and Manchester joined forces on Sunday to protest against ticket price increases. Manchester United and Everton were together in arms prior to United's 4-0 win in a demonstration against hikes amid recent changes from the Old Trafford hierarchy which will see new tickets for children and older fans rise to £66.\n\nAt Anfield, fans displayed a 'Stop Exploiting Loyalty' and 'Unity is Strength' banners outside of the Kop against the soaring yearly costs. Clarke said: \"Tribalism ultimately holds back supporters across the country, who all experience the same issues to getting things done from protecting the game, as we know and knew it.\n\n\"Spirit of Shankly reached out to us, we looked at the fixture list and United were playing Everton at home on the same day, the four biggest clubs in the north west, all together. We reached out to United fans, for me as a City fan, all the hatred and bitterness that exists between our two clubs, to reach out to United was a tough thing to do but the 1958 group were absolutely fantastic.\n\n\"They understand we can hate each other in the stand to an extent but we will not get anything done outside of it. I want to be there in the same stands in 20 years slagging them off, I want my sons, daughters, nieces and nephews to also be there - it doesn't seem possible with the way football is going now.\n\n\"During a time where fans feel downbeat and depressed, it's not like a one off issue, Villa putting the prices up for Champions League tickets but at City, we've experienced 12 out of 14 seasons price increases - it's death by a thousand cuts, that's what hurts, it's bitter and resentful. It affects us over years, now I've never felt like this before, speaking to Liverpool and United fans, the way we are now I feel so hopeful.\n\n\"English football needs to change, this (protesting) is how we'll change it through the fans - who people say are the lifeblood of the game but none of them act like it.\"\n\nSpirit of Shankly's Gareth Roberts added: \"Man City have been one of our huge rivals on the pitch in recent years and we thought it sent a really strong message to come together today before a huge game and say we've had enough. Because we have had enough - Liverpool fans have, City fans have, United fans, Everton fans have, fans across the league feel they've been squeezed too much now.\n\n\"We've been squeezed for 30 years, let's be honest, I want to send a message, we all want to send a message to the clubs to stop putting the prices up, stop exploiting our loyalty and it's at every turn.\n\n\"Manchester United this week, £66 tickets, one minute it's £25 for an under-16, next it's £66, clearly not acceptable but clearly an example of boardrooms that don't really seem to care about the fans so we're saying, 'you should care'.\n\n\"Where will that lead? That will lead, I think, to a 'product' where you've got people coming, tick it off the bucket list, watch a game, look at the famous Kop and wonder why it's not that noisy and not that passionate anymore then go home and say, 'well, it's not what I heard it was'.\n\n\"Why isn't it? Because you price people out. All we're saying is keep the game affordable, there's £12.25billion coming into the Premier League in TV money over the next three years, that sounds like enough where you don't have to keep putting your hands out to fans.\"",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Nick Clarke",
+          "raw_quote_text": "[Describing the situation of fans] Tribalism ultimately holds back supporters across the country, who all experience the same issues to getting things done from protecting the game, as we know and knew it. English football needs to change, this (protesting) is how we'll change it through the fans - who people say are the lifeblood of the game but none of them act like it.",
+          "summary": "Tribalism limits fan unity; change in English football is needed through fan action.",
+          "id": "c0bbb10d-8344-4c19-bd16-e28181c5ec39",
+          "similar_to_quote_id": "d24fa4ea-9771-4ed0-aff7-171c8e27b3b8",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.519944489002228
+        },
+        {
+          "speaker_name": "Nick Clarke",
+          "raw_quote_text": "[Reflecting on fan unity] I want to be there in the same stands in 20 years slagging them off, I want my sons, daughters, nieces and nephews to also be there - it doesn't seem possible with the way football is going now. During a time where fans feel downbeat and depressed... at City, we've experienced 12 out of 14 seasons price increases - it's death by a thousand cuts, that's what hurts, it's bitter and resentful.",
+          "summary": "I wish for a future where my family can enjoy football without financial burdens.",
+          "id": "e123904d-7e01-49c5-a6ea-5b4fddb0ea23",
+          "similar_to_quote_id": "6233d35c-bb06-4c8f-b36b-ba5eca54efc9",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.649643838405609
+        },
+        {
+          "speaker_name": "Gareth Roberts",
+          "raw_quote_text": "[On fan unity against ticket prices] Man City have been one of our huge rivals on the pitch in recent years and we thought it sent a really strong message to come together today before a huge game and say we've had enough. Because we have had enough - Liverpool fans have, City fans have, United fans, Everton fans have, fans across the league feel they've been squeezed too much now.",
+          "summary": "We united today to send a strong message that fans have had enough of being squeezed.",
+          "id": "a692f315-be8a-47f6-9d6c-c4f35266d51f",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "c0bbb10d-8344-4c19-bd16-e28181c5ec39",
+          "similarity_score": 0.687360405921936
+        },
+        {
+          "speaker_name": "Gareth Roberts",
+          "raw_quote_text": "[Addressing price hikes] Manchester United this week, £66 tickets, one minute it's £25 for an under-16, next it's £66, clearly not acceptable... we're saying, 'you should care'.",
+          "summary": "The drastic ticket price changes are unacceptable; clubs need to care about fans.",
+          "id": "bebf9365-a507-42e7-b8c4-a0267d159bd0",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "e123904d-7e01-49c5-a6ea-5b4fddb0ea23",
+          "similarity_score": 0.566188514232635
+        },
+        {
+          "speaker_name": "Gareth Roberts",
+          "raw_quote_text": "[Discussing the consequences of pricing out fans] Where will that lead? That will lead, I think, to a 'product' where you've got people coming, tick it off the bucket list... wonder why it's not that noisy and not that passionate anymore... keep the game affordable.",
+          "summary": "If ticket prices keep rising, games will lose their passion and affordability.",
+          "id": "6330a91a-e503-4ae8-acd2-8746a1e14cb1",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a692f315-be8a-47f6-9d6c-c4f35266d51f",
+          "similarity_score": 0.554338097572327
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/nobody-knows-what-expect-marcus-30492288",
+        "article_headline": "'Nobody knows what to expect' - Marcus Rashford gives verdict on new Manchester United system",
+        "article_text": "'Nobody knows what to expect' - Marcus Rashford gives verdict on new Manchester United system - Manchester Evening News\n===============\n                                 \n\nMarcus Rashford scored twice in Man United's 4-0 win over Everton at Old Trafford on Sunday afternoon.\n------------------------------------------------------------------------------------------------------\n\nBy\n\nGeorge Smith Senior Football Writer\n\nMarcus Rashford believes Manchester United's players \"can get a lot stronger\" in Ruben Amorim's 3-4-3 system.\n\nRashford scored a brace to help United record their biggest Premier League win of the season against Everton on Sunday, winning 4-0 at Old Trafford.\n\nThe forward, who was recalled to the starting XI after starting the 3-2 win over Bodo/Glimt on the bench, scored either side of half-time to claim his second and third goals since Amorim replaced Erik ten Hag last month.\n\nAs a result of Rashford's brace and a double from fellow attacker Joshua Zirkzee, United have won two and drawn one of Amorim's first three games in charge.\n\nRashford was asked about Amorim's switch to a 3-4-3 by MUTV after the win against Everton and said: \"Not only is it difficult for us, it is also encouraging for us to learn something new. We feel we can get a lot stronger in this system.\n\n\"Also, we've not played this system before and nobody knows what to expect from us. It puts us in a good position because we have got so many personnel and different players that can play in different positions.\n\n\"We can change a lot in games and set up differently for different games, so like I have said, it is exciting. I don't want to get too carried away, but like I have said earlier, the energy and the atmosphere is what we want from Old Trafford.\"\n\nRashford opened the scoring at Old Trafford, connecting with a Bruno Fernandes corner after arriving late inside the penalty area. It was a tactic United worked on during training on Saturday.\n\n\"For me, the first one is something that we deliberately worked on just yesterday,\" Rashford added. \"When you don't have many days between games, you work on these things to try and catch teams off their guard, because a lot of teams' set-ups are good.\n\n\"We need to find these little things, and it is not going to happen every game, but as long as the intent is there and we believe that we're going to score and we try, at the end of the game we can't complain about anything.\"",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[Discussing the impact of strengthening their system] \"Not only is it difficult for us, it is also encouraging for us to learn something new. We feel we can get a lot stronger in this system.\"",
+          "summary": "I find it challenging yet motivating to learn a new system that can strengthen us.",
+          "id": "6c72bc78-38cd-48c4-8ed9-afe3538340bb",
+          "similar_to_quote_id": "92b5d56c-0910-4240-b8fc-b4378e1843bc",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.568805694580078
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[About unpredictability in their game] \"Also, we've not played this system before and nobody knows what to expect from us. It puts us in a good position because we have got so many personnel and different players that can play in different positions.\"",
+          "summary": "We've never used this system before, making us unpredictable and versatile.",
+          "id": "2ab173c7-d9cf-4443-bb2c-0823ef1d0622",
+          "similar_to_quote_id": "0817fc10-be73-482d-97ef-375c0f533c42",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.596081793308258
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[On the excitement of the new system] \"We can change a lot in games and set up differently for different games, so like I have said, it is exciting. I don't want to get too carried away, but like I have said earlier, the energy and the atmosphere is what we want from Old Trafford.\"",
+          "summary": "I believe we can adapt our approach in matches, which is exciting and can enhance the atmosphere at Old Trafford.",
+          "id": "c5405c1b-68be-469b-8da0-d17f3259ba63",
+          "similar_to_quote_id": "5693865c-a77c-46a7-bea5-57d191846009",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.655048489570618
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[Describing tactical preparation] \"For me, the first one is something that we deliberately worked on just yesterday. When you don't have many days between games, you work on these things to try and catch teams off their guard, because a lot of teams' set-ups are good.\"",
+          "summary": "We practiced specific tactics recently to surprise opponents due to limited preparation time.",
+          "id": "cd8719e8-29d3-4d45-8fc6-ba44efd14b72",
+          "similar_to_quote_id": "128dcb37-c284-4903-b51b-770521c26540",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.527132749557495
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[On intent and belief in scoring] \"We need to find these little things, and it is not going to happen every game, but as long as the intent is there and we believe that we're going to score and we try, at the end of the game we can't complain about anything.\"",
+          "summary": "We need to focus on the small details; if we have the intent and belief, we can't be disappointed in our efforts.",
+          "id": "af344237-d3eb-42bc-8635-cfcc03cb4f24",
+          "similar_to_quote_id": "6534e870-5e6a-4d1c-a36a-177893e0856e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.60269570350647
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-handed-huge-double-30491567",
+        "article_headline": "Ruben Amorim handed huge double blow ahead of Manchester United vs Arsenal",
+        "article_text": "Ruben Amorim handed huge double blow ahead of Manchester United vs Arsenal - Manchester Evening News\n\nLisandro Martinez and Kobbie Mainoo were both booked in Man United's clash with Everton on Sunday.\n\nLisandro Martinez and Kobbie Mainoo will not be available for Manchester United's trip to Arsenal on Wednesday.\n\nBoth Martinez and Mainoo were on four bookings for the season ahead of Sunday's clash with Everton. A booking for either player would see them handed an automatic one-game suspension, meaning they would miss the trip to the Emirates.\n\nWith United 3-0 ahead in the early minutes of the second half Ruben Amorim was set to enjoy the perfect afternoon, but Martinez and Mainoo were both booked within the space of a few minutes and both will now miss the trip to Arsenal.\n\nMainoo was making his first appearance under Amorim having been an unused substitute in both of the Portuguese's first two games in charge. He lined up alongside Casemiro in midfield as he made his long awaited return to the starting XI after injury.\n\nMartinez and Mainoo will both be available for United's home clash with Nottingham Forest on Saturday.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216",
+        "article_headline": "Football fans protest LIVE: Man United and Man City supporters join forces over ticket prices",
+        "article_text": "Football fans protest LIVE: Man United and Man City supporters join forces over ticket prices - Manchester Evening News\n===============\n                   \n\n \n\n[Sport](https://www.manchestereveningnews.co.uk/sport/)\n\nFootball fans protest LIVE: Man United and Man City supporters join forces over ticket prices\n=============================================================================================\n\nPremier League supporters will be joining forces on Sunday to protest against rising ticket prices before Manchester United vs Everton and Liverpool vs Man City\n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n[men](https://www.manchestereveningnews.co.uk/)\n\n*   Bookmark\n    \n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\nBy\n\n[Chris Slater](https://www.manchestereveningnews.co.uk/authors/chris-slater/)Senior Reporter\n\n[Shane Ireland](https://www.manchestereveningnews.co.uk/authors/shane-ireland/)Sport Central Content Editor\n\n[Tyrone Marshall](https://www.manchestereveningnews.co.uk/authors/tyrone-marshall/)\n\n[Steven Railston](https://www.manchestereveningnews.co.uk/authors/steven-railston/)\n\n[Stephen Killen](https://www.manchestereveningnews.co.uk/authors/stephen-killen/)\n\n*   Updated15:55, 1 DEC 2024\n\n*   Bookmark\n    \n\n![Image 1](https://i2-prod.manchestereveningnews.co.uk/incoming/article30490955.ece/ALTERNATES/s1200/1_CapturePNG.png)\n\nManchester United and Manchester City supporters will join forces today to protest rising ticket prices.\n\nSupporting a Football Supporters' Association (FSA) campaign, [United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc) fans plan to hold a joint 'Stop Exploiting Loyalty' banner at the Trinity Statue along with Everton supporters before their Premier League clash at Old Trafford (1:30pm kick-off).\n\nAn FC58 spokesperson said: “The rivalry between these four clubs has been, and is fierce. But we all go to games, love our club and want to keep football affordable for future generations whilst protecting heritage and communities.”\n\nIt comes after [United announced hiked ticket prices to £66 per game mid-season](https://www.manchestereveningnews.co.uk/sport/football/sir-jim-ratcliffe-ineos-betraying-30480953), with no concessions for children or pensioners and without fan consultation.\n\nMeanwhile, travelling [City](https://www.manchestereveningnews.co.uk/all-about/manchester-city-fc) fans will come together with Liverpool supporters before their match at Anfield (4pm kick-off).\n\nFans of both sides from the 1894, MCFC Fans Foodbank Support and Spirit of Shankly groups [will gather by the Kop to pose in front of the banner at 3pm.](https://www.manchestereveningnews.co.uk/sport/football/football-news/man-city-liverpool-manchester-united-30472728)\n\n**You can follow live updates from the protests with the Manchester Evening News below…**\n\nStephen Killen\n\n### POLL: Have your say\n\nLet us know how you feel about Manchester United's ticket price rises.\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n15:55Stephen Killen\n\n### Man City and Liverpool fans join forces\n\nA 'Stop Exploiting Loyalty' banner was unfurled across the home-away divide.\n\n> [#LFC](https://twitter.com/hashtag/LFC?src=hash&ref_src=twsrc%5Etfw) and [#MCFC](https://twitter.com/hashtag/MCFC?src=hash&ref_src=twsrc%5Etfw) fans hold up a 'Stop exploiting loyalty' banner following the protests against rising ticket prices earlier today. [pic.twitter.com/Hb2He0TEqU](https://t.co/Hb2He0TEqU)\n> \n> — Theo Squires (@TheoSquiresECHO) [December 1, 2024](https://twitter.com/TheoSquiresECHO/status/1863249561600307459?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n15:45Stephen Killen\n\n### Football ticket price increases 'bitter and resentful'\n\nNick Clarke from Manchester City Fans Supporting Foodbanks said: \"Tribalism ultimately holds back supporters across the country, who all experience the same issues to getting things done from protecting the game, as we know and knew it.\n\n\"Spirit of Shankly reached out to us, we looked at the fixture list and United were playing Everton at home on the same day, the four biggest clubs in the north west, all together. We reached out to United fans, for me as a City fan, all the hatred and bitterness that exists between our two clubs, to reach out to United was a tough thing to do but the 1958 group were absolutely fantastic.\n\n\"They understand we can hate each other in the stand to an extent but we will not get anything done outside of it. I want to be there in the same stands in 20 years slagging them off, I want my sons, daughters, nieces and nephews to also be there - it doesn't seem possible with the way football is going now.\n\n\"United, Everton, Liverpool (and) City have all hated each other at different times across the decades, to be doing this is brilliant and inspiring. During a time where fans feel downbeat and depressed, it's not like a one off issue, Villa putting the prices up for [Champions League](https://www.liverpoolecho.co.uk/all-about/uefa-champions-league) tickets but at City, we've experienced 12 out of 14 seasons price increases - it's death by a thousand cuts, that's what hurts, it's bitter and resentful. It affects us over years, know I've never felt like this before, speaking to Liverpool and United fans, they way we are now I feel so hopeful.\n\n\"English football needs to change, this (protesting) is how we'll change it through the fans - who people say are the lifeblood of the game but none of them act like it.\"\n\n![Image 2](https://i2-prod.football.london/incoming/article30491944.ece/ALTERNATES/s510b/0_Liverpool.jpg)\n\nFans of Liverpool are seen with a banner which reads #Stop Exploiting Loyalty as they protest against the price of tickets outside Anfield prior to the Premier League match against Manchester City FC (Image: Carl Recine/Getty Images)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n15:18Stephen Killen\n\n### United fans chant: £66, taking the p\\*\\*s'\n\n> United fans chanting '£66, taking the p\\*\\*s'. [#mufc](https://twitter.com/hashtag/mufc?src=hash&ref_src=twsrc%5Etfw)\n> \n> — Samuel Luckhurst (@samuelluckhurst) [December 1, 2024](https://twitter.com/samuelluckhurst/status/1863238995678728458?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n15:03Tyrone Marshall\n\n### Some City fans join Liverpool protest\n\nAbout 40 to 50 fans at the ticket price protest outside Anfield at the moment. Some City fans have joined Liverpool supporters behind a banner reading ‘Stop Exploiting Loyalty’, with another banner reading ‘Unity is Strength’.\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n14:58Stephen Killen\n\n### Ticket price protest begins at Anfield\n\nThe Athletic's Liverpool reporter James Pearce has posted a video on X with supporters beginning their protest.\n\n> [#LFC](https://twitter.com/hashtag/LFC?src=hash&ref_src=twsrc%5Etfw) and [#MCFC](https://twitter.com/hashtag/MCFC?src=hash&ref_src=twsrc%5Etfw) fans coming together outside Anfield to protest at rising ticket prices. [pic.twitter.com/994BVBt3jb](https://t.co/994BVBt3jb)\n> \n> — James Pearce (@JamesPearceLFC) [December 1, 2024](https://twitter.com/JamesPearceLFC/status/1863235392624808435?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n14:41Stephen Killen\n\n### Manchester United fans send message in stadium\n\nLeading 2-0 at the break, thanks to a Jarrad Branthwaite own-goal and Joshua Zirkzee's second of the campaign, Manchester United fans have once again sent a message to their owners in protest.\n\nFollowing on from their pre-match protests, the Stretford End unfurled the #StopExploitingLoyalty banner.\n\n> [#StopExploitingLoyalty](https://twitter.com/hashtag/StopExploitingLoyalty?src=hash&ref_src=twsrc%5Etfw) [pic.twitter.com/be2inroayC](https://t.co/be2inroayC)\n> \n> — Steven Railston (@StevenRailston) [December 1, 2024](https://twitter.com/StevenRailston/status/1863229705664528533?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n14:35Stephen Killen\n\n### The next protest at Anfield will commence in less than 30 minutes\n\nDown the M62, there will be another protest against increasing ticket prices.\n\nLiverpool and Manchester City supporters will come together before their Premier League showdown.\n\n> Clubs listen to fans when we stand together. Unity is strength.  \n>   \n> If you’re worried about rising ticket prices or cuts to concessions in the Premier League, join our short peaceful protest today.[#StopExploitingLoyalty](https://twitter.com/hashtag/StopExploitingLoyalty?src=hash&ref_src=twsrc%5Etfw)  \n>   \n> Kop/KD Stand corner, 3pm [pic.twitter.com/yq3iJ32Yrq](https://t.co/yq3iJ32Yrq)\n> \n> — Spirit of Shankly (@spiritofshankly) [December 1, 2024](https://twitter.com/spiritofshankly/status/1863175685042520561?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n13:57Stephen Killen\n\n### Old Trafford protest key points\n\n*   RAILSTON: United fans can't lose their momentum and must keep protesting if they want to change.\n*   Banner read: \"Man Utd ripping off kids\"\n*   Chants directed at INEOS, Sir Jim Ratcliffe and Glazer family\n\nDemonstrators sang: \"Sell United and f\\*\\*\\* off home,\" as well as \"we want our club back\".\n\n![Image 3](https://i2-prod.manchestereveningnews.co.uk/incoming/article30490968.ece/ALTERNATES/s510b/0_GettyImages-2187184781.jpg)\n\nFans of Manchester United protest against the new increase in price tickets for Children and OAP's ahead of the Premier League match against Everton. (Image: Photo by Robbie Jay Barratt - AMA/Getty Images)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n13:12Stephen Killen\n\n### Sign reads: \"It's all my fault, so charge me more\"\n\nChris Slater has spoken to fan Ross Jenkins with his son, William, 8, from Sale.\n\nHe said: \"How is United going to be sustainable without fans of the future.\"\n\nRoss says the increase means he'll have to stop bringing William and his brother to the match - as a result, he will stop going himself.\n\nWilliam holds up a sign: \"It's all my fault, so charge me more.\"\n\n> This is Ross Jenkins from Sale, with his eight year-old son William. He says the price increases means he’ll have to stop bringing William and his brother to the match and as a result, won’t come himself. “How is United going to be sustainable without fans of the future” he says [pic.twitter.com/79njnImnhV](https://t.co/79njnImnhV)\n> \n> — Chris Slater (@chrisslaterMEN) [December 1, 2024](https://twitter.com/chrisslaterMEN/status/1863206785009463798?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:53Steven Railston\n\n### The message was clear: they are furious with the £66 ticket price\n\nI've just left the protest to ensure I don't miss kick-off, but that was a decent showing from United fans. There were a couple of hundred protesting and their message was clear: they are furious with the £66 ticket price.\n\nSir Jim Ratcliffe's honeymoon period is over and it will be interesting to see whether he responds.\n\nUnited fans can't lose their momentum and must keep protesting if they want to change.\n\n![Image 4](https://i2-prod.birminghammail.co.uk/sport/football/article30490993.ece/ALTERNATES/s510b/0_JS353280944.jpg)\n\nManchester United and Everton supporters take part in a '#stopexploitingloyalty' protest (Image: James Gill - Danehouse/Getty Images)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:49Stephen Killen\n\n### Three young fans at the front: 'Man United ripping off kids'\n\nDuring a period of more football than ever, equally more televised action than before, it is brilliant to see young fans attend matches up and down the country.\n\nHowever, this cardboard banner from three young United fans is pretty damning.\n\n\"Man Utd ripping off kids,\" it reads.\n\n> Three young fans hold up a homemade sign which reads “Man Utd Ripping off kids” [pic.twitter.com/1E6kzPl9qA](https://t.co/1E6kzPl9qA)\n> \n> — Chris Slater (@chrisslaterMEN) [December 1, 2024](https://twitter.com/chrisslaterMEN/status/1863203403221839956?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:47Stephen Killen\n\n### \"Sell United and f\\*\\*\\* off home\"\n\nThere are 'Glazers out' banners, yellow and green scarves and hats at Old Trafford.\n\nThe demonstrators have began singing: \"Sell United and f\\*\\*\\* off home,\" as well as \"we want our club back\".\n\nRed and blue smoke bombs have also been set off.\n\nKick off in Greater Manchester is just under an hour away.\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:43Stephen Killen\n\n### A reminder of why there is a protest outside Old Trafford\n\nIn a joint statement from supporters groups of Manchester City, United, Everton and Liverpool read: \"Fan groups from all four clubs are joining to support the Football Supporters’ Association’s #StopExploitingLoyalty campaign, which highlights soaring ticket prices, the erosion of concessionary rates, and above-inflation increases that are pricing out the very people who form the backbone of English football culture.\n\n\"It comes in the same week the Premier League’s new broadcast rights deal rose by 17% to a staggering £12.25bn, further diminishing the significance of general admission ticket income to clubs’ finances. Yet, despite this, all but one Premier League club raised ticket prices last season, and this week Manchester United announced that all new tickets for children and older fans at Old Trafford will increase to £66.\n\n\"There is also growing concern that some clubs are now targeting the £30 cap on away tickets in the Premier League, threatening to dismantle one of the last safeguards for fans, many of whom make multiple financial sacrifices to continue supporting their club. Football does not have a revenue problem; it has a spending problem – and loyal supporters should not bear the cost.\"\n\n![Image 5](https://i2-prod.manchestereveningnews.co.uk/incoming/article30490968.ece/ALTERNATES/s510b/0_GettyImages-2187184781.jpg)\n\nFans of Manchester United protest against the new increase in price tickets for Children and OAP's ahead of the Premier League match against Everton. (Image: Photo by Robbie Jay Barratt - AMA/Getty Images)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:37Stephen Killen\n\n### Demonstration underway\n\nThe demonstration is underway at Old Trafford.\n\nDerogatory chants are being aimed at Sir Jim Ratcliffe and the Glazer family.\n\nA banner reading 'Stop Exploiting Loyalty' has been unfurled.\n\n> [#StopExploitingLoyalty](https://twitter.com/hashtag/StopExploitingLoyalty?src=hash&ref_src=twsrc%5Etfw) protest [pic.twitter.com/TlupS1dYDB](https://t.co/TlupS1dYDB)\n> \n> — Steven Railston (@StevenRailston) [December 1, 2024](https://twitter.com/StevenRailston/status/1863199165871751367?ref_src=twsrc%5Etfw)\n\n> There are derogatory chants being aimed at Sir Jim Ratcliffe as well as the Glazer family. This is one banner being held up [pic.twitter.com/gDdT9CWFq7](https://t.co/gDdT9CWFq7)\n> \n> — Chris Slater (@chrisslaterMEN) [December 1, 2024](https://twitter.com/chrisslaterMEN/status/1863199266799313407?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:35Stephen Killen\n\n### 'We want our club back'\n\nMEN reporter Chris Slater has arrived at Old Trafford ahead of the protest, this afternoon.\n\nThere is a banner on railings nearby which read 'We want out club back'.\n\nThe tweet read: \"I’m outside Old Trafford where both Manchester United and Everton fans are set to join a planned protest against ticket prices.\n\n\"This week United hiked prices to £66 per game mid-season, with no concessions for children or pensioners and without fan consultation\"\n\n> I’m outside Old Trafford where both Manchester United and Everton fans are set to join a planned protest against ticket prices. This week United hiked prices to £66 per game mid-season, with no concessions for children or pensioners and without fan consultation [pic.twitter.com/NNzJzQ7scA](https://t.co/NNzJzQ7scA)\n> \n> — Chris Slater (@chrisslaterMEN) [December 1, 2024](https://twitter.com/chrisslaterMEN/status/1863196469777358982?ref_src=twsrc%5Etfw)\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n12:24Stephen Killen\n\n### Sir Jim Ratcliffe must make a U-turn after 'kick in the teeth' Manchester United price hike\n\n[United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc) have made the mid-season decision to raise matchday ticket prices to £66 per game, with no concessions for children or pensioners, which has been described as a \"kick in the teeth.\"\n\nThe club have said the hike will only affect a small number of fans as 97 per cent of tickets have already been sold but the remainder and resold tickets will be subject to the increase.\n\nThe reality is supporters will be forced to walk away from attending games. One fan told the _Manchester Evening News_ the changes were \"gutting\" and another slammed it as a \"disgusting policy\", questioning how it has been deemed fair to charge children £66 to watch a game.\n\n**[Read the article, published earlier this week, from Steven Railston.](https://www.manchestereveningnews.co.uk/sport/football/football-news/kick-teeth-sir-jim-ratcliffe-30475527)**\n\n![Image 6](https://i2-prod.football.london/incoming/article30490052.ece/ALTERNATES/s510b/0_Manchester-United-v-Barnsley-EFL-Carabao-Cup-Third-Round-Football-Old-Trafford-Manchester-UK.jpg)\n\nManchester United and Everton fans will gather outside of Old Trafford for a joint protest ahead of the Premier League clash. (Image: Ryan Browne/REX/Shutterstock )\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n11:46Stephen Killen\n\n### Rise in season tickets since 2011\n\nIn October, a report was released which revealed that the cheapest tickets across English football has risen almost twice the rate of the cost of living since 2011.\n\nThe [BBC's Price of Football](https://www.bbc.co.uk/sport/football/29614980#:~:text=It%20has%20increased%2013%25%20since,the%201.2%25%20rate%20of%20inflation.) study analysed prices of 207 clubs and it found the cheapest ticket between the Premier League and League Two was £21.49 - a 13 percent increase since 2011, compared to a 6.8 percent rise in the cost of living.\n\nIt adds that year-on-year, it is up to 4.4 percent more than treble the rate of inflation (1.2 percent).\n\nManchester City have the league's cheapest season ticket at £299. That's cheaper than at 15 Championship clubs, 10 clubs in League One, four in League Two and even one in the Conference - while Arsenal have the most expensive ticket in the Premier League (£97).\n\n![Image 7](https://i2-prod.manchestereveningnews.co.uk/incoming/article30490532.ece/ALTERNATES/s510b/0_GettyImages-1763638874.jpg)\n\nFulham supporters protest prior to their clash with Manchester United. (Image: Photo by Jacques Feeney/Offside/Offside via Getty Images))\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n11:14Stephen Killen\n\n### What will happen?\n\nBoth sets of fans from Manchester and Liverpool will join together in a bid to combat the exploitation of fan loyalty.\n\nAt Old Trafford, Manchester United and Everton fans will come together at the Trinity Statue before kick-off.\n\nThey will hold a banner that reads ‘Stop Exploiting Loyalty’.\n\nKick off at the Theatre of Dreams will be 1:30pm.\n\n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/football-protest-live-man-united-30490216#comments-wrapper \"Comments\")\n\n10:46Shane Ireland\n\n### Why are fans protesting?\n\nA joint statement from the groups said:\n\n> Banners inside and outside the grounds will highlight a shared message: enough is enough – stop exploiting loyalty.\n> \n> Fan groups from all four clubs are joining to support the Football Supporters’ Association’s #StopExploitingLoyalty campaign, which highlights soaring ticket prices, the erosion of concessionary rates, and above-inflation increases that are pricing out the very people who form the backbone of English football culture.\n> \n> It comes in the same week the Premier League’s new broadcast rights deal rose by 17% to a staggering £12.25bn, further diminishing the significance of general admission ticket income to clubs’ finances. Yet, despite this, all but one Premier League club raised ticket prices last season, and this week Manchester United announced that all new tickets for children and older fans at Old Trafford will increase to £66.\n> \n> There is also growing concern that some clubs are now targeting the £30 cap on away tickets in the Premier League, threatening to dismantle one of the last safeguards for fans, many of whom make multiple financial sacrifices to continue supporting their club. Football does not have a revenue problem; it has a spending problem – and loyal supporters should not bear the cost.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "FC58 spokesperson",
+          "raw_quote_text": "(Regarding fan unity) The rivalry between these four clubs has been, and is fierce. But we all go to games, love our club and want to keep football affordable for future generations whilst protecting heritage and communities.",
+          "summary": "We want to keep football affordable for future generations.",
+          "id": "18d83ead-eb95-458c-9b9f-52c6fc7f5ad8",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a692f315-be8a-47f6-9d6c-c4f35266d51f",
+          "similarity_score": 0.663524389266968
+        },
+        {
+          "speaker_name": "Nick Clarke",
+          "raw_quote_text": "(On the collaboration of rival fans) Tribalism ultimately holds back supporters across the country, who all experience the same issues to getting things done from protecting the game, as we know and knew it. Spirit of Shankly reached out to us... for me as a City fan, all the hatred and bitterness that exists between our two clubs, to reach out to United was a tough thing to do but the 1958 group were absolutely fantastic. They understand we can hate each other in the stand to an extent but we will not get anything done outside of it. I want to be there in the same stands in 20 years slagging them off... it doesn't seem possible with the way football is going now.",
+          "summary": "Tribalism is holding back our efforts; collaboration is necessary for change.",
+          "id": "d8300b33-eb16-46c9-9cbc-4454ca2a3e96",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "e123904d-7e01-49c5-a6ea-5b4fddb0ea23",
+          "similarity_score": 0.706572294235229
+        },
+        {
+          "speaker_name": "Nick Clarke",
+          "raw_quote_text": "(About the overall impact of ticket prices) It's death by a thousand cuts, that's what hurts, it’s bitter and resentful. It affects us over years... the way we are now I feel so hopeful. English football needs to change, this (protesting) is how we'll change it through the fans.",
+          "summary": "Rising ticket prices hurt deeply, but I'm hopeful that through protests we can foster change.",
+          "id": "19f05c5d-4d37-418d-9b32-10ab29fa7e0e",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a692f315-be8a-47f6-9d6c-c4f35266d51f",
+          "similarity_score": 0.676885366439819
+        },
+        {
+          "speaker_name": "Ross Jenkins",
+          "raw_quote_text": "(As a father seeing his son's future at matches) How is United going to be sustainable without fans of the future. The increase means I'll have to stop bringing William and his brother to the match - as a result, I will stop going myself.",
+          "summary": "The rising prices make it unsustainable for future fans, including my kids.",
+          "id": "f268928c-b7eb-45af-997c-d0e1bacb88db",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "a692f315-be8a-47f6-9d6c-c4f35266d51f",
+          "similarity_score": 0.599080681800842
+        },
+        {
+          "speaker_name": "Unnamed fan at the protest",
+          "raw_quote_text": "(During the protests) The message was clear: they are furious with the £66 ticket price. Sir Jim Ratcliffe's honeymoon period is over... United fans can’t lose their momentum and must keep protesting if they want to change.",
+          "summary": "We're united in our anger over the ticket price hike.",
+          "id": "cb207709-23de-47b0-b423-983240845994",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "e123904d-7e01-49c5-a6ea-5b4fddb0ea23",
+          "similarity_score": 0.537847936153412
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/more-natural-ruben-amorim-sent-30488029",
+        "article_headline": "'More natural' - Ruben Amorim sent Man United demand for Everton Premier League clash",
+        "article_text": "'More natural' - Ruben Amorim sent Man United demand for Everton Premier League clash - Manchester Evening News\n\nManchester United will hope to continue a winning streak against the Toffees with Ruben Amorim's first Premier League home game in charge of the Reds\n\nBy\n\nThomas Fair Community Editor\n\nManchester Evening News readers\n\n*   16:16, 30 NOV 2024\n\nManchester United will be hoping to continue a winning streak against Everton on Sunday - and Manchester Evening News readers have been trying their hand at building the perfect line-up for the match.\n\nUnited will welcome the Toffees to Old Trafford off the back of Ruben Amorim's first win, with Rasmus Hojlund scoring a brace to beat Bodo/Glimt from behind. Amorim has yet to get off the mark in the Premier League, after drawing 1-1 with Ipswich in his first outing.\n\nThe busy winter period looms, and there is likely to be plenty of rotation - both for tired legs, and for settling into Amorim's preferred 3-4-3 formation. Goalkeeper Andre Onana will keep his nailed-on Premier League position, but who else should feature?\n\nReader Jungle Jerry writes: “I would play Shaw at LWB and Dalot at RWB. Rest Fernandes. Play Amad and Mount behind Højlund. Mazraoui, De Ligt, and Martinez keep their places in the backline, with Ugarte and Mainoo in midfield. More natural positions for players and more energy.”\n\nCommenter Tankjr would try something different, replying: “If playing a less physical team with less counter-attacking pace, or using a different formation that would seem like a really good starting 11, assuming we could handle resting captain fantastic, ever.\n\n\"But for Everton I would stick Dalot at RWB, with Malacia in the LWB position, drop Shaw in behind as the dedicated Left CB, Maguire at CB, stick with Mazroui at Right RB. Play De Ligt as a sweeper DMF in front of the back three, then Ugarte or Mainoo as a DMF/CMF level with the wingback midfield line. Bruno at AMF, Mount as Split Striker and Hojlund up top as the CF, to offset being too short and lightweight with the six attackers.”\n\nBen123456 says: ”Would rather see Bruno continuing to play the deeper role alongside Ugarte. Then you have someone destructive (Ugarte) to break up play and someone that can start attacks and pass FORWARD (Bruno). Also would then mean you play 2 from 3 of Mainoo, Mount and Garnacho playing off Hojlund. Mainoo’s greatest strengths are his ability to receive the ball in tight spaces, close control and dribbling. Amad to continue as the more attacking of the two wingbacks, and with Mazraoui behind him, you have a RCB who is comfortable drifting wider in coverage.\n\n\"LWB is still a problem as Dalot tends to want to drift inside, Malacia looked leggy in the week (to be expected given how long he’s been out), and Shaw may be technically the best option his durability as a LB has been terrible. LWB definitely the first area to prioritise when it comes to transfers, followed by a pacy CB as our current CBs don’t have a lot of pace. (Evans and Lindelof almost certainly gone in the summer and arguably Maguire could well be to for the same reason - he’s SLOW).”\n\nBruno Fernandes' continued inclusion remains a talking point for some. Reader Rubes1177 writes: “As good as Fernandes is at times, I think overall he is going to hold this team back playing this formation. He is too much of a luxury player. We need someone more athletic and strong in the press to fill the position behind the striker and I'm afraid he is not disciplined enough in the deeper roles. Sell him to someone like Barca where I'm sure he will thrive in a slower paced league.”\n\nZaynaldin says: “120% agree with you man... Rest Bruno for a few games and we'll see. Let Kobbie or Amad take his place.”\n\n**Have your say! Who's safe in this Manchester United team? Who has to prove a point to the new manager?**",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Jungle Jerry",
+          "raw_quote_text": "I would play Shaw at LWB and Dalot at RWB. Rest Fernandes. Play Amad and Mount behind Højlund. Mazraoui, De Ligt, and Martinez keep their places in the backline, with Ugarte and Mainoo in midfield. More natural positions for players and more energy.",
+          "summary": "I suggest playing Shaw and Dalot in wingback positions, resting Fernandes, and maximizing energy with natural player placements.",
+          "id": "bd0e495c-30f5-4c53-ab0c-9c7a8d0ba134",
+          "similar_to_quote_id": "162e95d4-c616-4431-8497-d5b180f4a6f1",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.548694610595703
+        },
+        {
+          "speaker_name": "Tankjr",
+          "raw_quote_text": "If playing a less physical team with less counter-attacking pace, or using a different formation that would seem like a really good starting 11, assuming we could handle resting captain fantastic, ever. But for Everton I would stick Dalot at RWB, with Malacia in the LWB position, drop Shaw in behind as the dedicated Left CB, Maguire at CB, stick with Mazroui at Right RB. Play De Ligt as a sweeper DMF in front of the back three, then Ugarte or Mainoo as a DMF/CMF level with the wingback midfield line. Bruno at AMF, Mount as Split Striker and Hojlund up top as the CF, to offset being too short and lightweight with the six attackers.",
+          "summary": "For Everton, I would use a specific formation with Dalot and Malacia in wingback roles and adjust other positions for balance.",
+          "id": "0ae31813-bb8a-4dcc-ae38-65d9ddaa37cc",
+          "similar_to_quote_id": "e4e2cd66-2a3b-44f0-a786-c6fe3214cf3c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.740339517593384
+        },
+        {
+          "speaker_name": "Ben123456",
+          "raw_quote_text": "Would rather see Bruno continuing to play the deeper role alongside Ugarte. Then you have someone destructive (Ugarte) to break up play and someone that can start attacks and pass FORWARD (Bruno). Also would then mean you play 2 from 3 of Mainoo, Mount and Garnacho playing off Hojlund. Mainoo’s greatest strengths are his ability to receive the ball in tight spaces, close control and dribbling. Amad to continue as the more attacking of the two wingbacks, and with Mazraoui behind him, you have a RCB who is comfortable drifting wider in coverage. LWB is still a problem as Dalot tends to want to drift inside, Malacia looked leggy in the week (to be expected given how long he’s been out), and Shaw may be technically the best option his durability as a LB has been terrible. LWB definitely the first area to prioritise when it comes to transfers, followed by a pacy CB as our current CBs don’t have a lot of pace. (Evans and Lindelof almost certainly gone in the summer and arguably Maguire could well be to for the same reason - he’s SLOW).",
+          "summary": "I prefer Bruno in a deeper role alongside Ugarte for better play-starting and defense while addressing wingback and CB issues.",
+          "id": "7eff96df-3d71-492a-a152-a5e733bd86c0",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bd0e495c-30f5-4c53-ab0c-9c7a8d0ba134",
+          "similarity_score": 0.705205321311951
+        },
+        {
+          "speaker_name": "Rubes1177",
+          "raw_quote_text": "As good as Fernandes is at times, I think overall he is going to hold this team back playing this formation. He is too much of a luxury player. We need someone more athletic and strong in the press to fill the position behind the striker and I'm afraid he is not disciplined enough in the deeper roles. Sell him to someone like Barca where I'm sure he will thrive in a slower paced league.",
+          "summary": "Fernandes may hinder the team in this formation; we need a more athletic player behind the striker instead.",
+          "id": "e630d1af-1741-4dfc-828f-a1863750d1ff",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "0ae31813-bb8a-4dcc-ae38-65d9ddaa37cc",
+          "similarity_score": 0.549375951290131
+        },
+        {
+          "speaker_name": "Zaynaldin",
+          "raw_quote_text": "120% agree with you man... Rest Bruno for a few games and we'll see. Let Kobbie or Amad take his place.",
+          "summary": "I completely agree; resting Bruno for a few games would be beneficial and alternatives should be considered.",
+          "id": "ecd11f49-9655-4286-8560-3fd09c5f8282",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "0ae31813-bb8a-4dcc-ae38-65d9ddaa37cc",
+          "similarity_score": 0.526993274688721
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/i-signed-for-manchester-united-and-asked-to-quit-after-my-first-training-session-29041031",
+        "article_headline": "I signed for Manchester United and asked to quit after my first training session",
+        "article_text": "",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "error"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/erik-ten-hags-man-united-30486981",
+        "article_headline": "Erik ten Hag's Man United signing before brutal sacking given green light as true stance emerges",
+        "article_text": "Erik ten Hag's Man United signing before brutal sacking given green light as true stance emerges - Manchester Evening News\nErik ten Hag was given the green light to sign one of his former players in the summer and the Manchester United board have been impressed.\nBy Matty Hewitt\n*   16:30, 30 NOV 2024\nIt's fair to say Erik ten Hag's signings at Manchester United struggled to make a major impact at Old Trafford. That was until the arrival of Noussair Mazraoui earlier this summer.\nThe Moroccan international has been one of the standout performers from a disappointing campaign for the Reds after joining the club from Bayern Munich earlier this summer. The 27-year-old, who worked with Ten Hag during their time at Ajax, signed a four-year deal and has been an ever present so far this season.\nSigning for a reported initial fee of for an initial fee of £12.8m, that transfer fee now looks like a steal after impressing in his first few months at United. Mazraoui has impressed that much, he's viewed internally as the best signing the club have made in recent years.\nThat's according to Sky Germany's Florian Plettenberg, who claim the Reds 'board and coaching staff are extremely satisfied with his performances.'\nHe tweeted: \"Noussair #Mazraoui is internally regarded as one of the strongest signings of recent years at @ManUtd. Both the board and the coaching staff are extremely satisfied with his performances. He is seen as an absolute leader and is expected to continue in this role under Ruben #Amorim in the future. Contract until 2028.\"\nIt's very difficult to argue otherwise. The defender has made 19 appearances in all competitions with two assists to his name and is already justifying the transfer fee paid earlier this summer.\nOn the other hand, it's perhaps indicative of United's recent luck in the transfer window that the defender is viewed as one of the best signings in recent seasons, with the Reds struggling in the bottom half of the table.\nAmorim will hope Mazraoui's form continues and is able to help United break into the top-half of the table and push on towards the European places.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Florian Plettenberg",
+          "raw_quote_text": "[Regarding Noussair Mazraoui's impact at Manchester United] \"Noussair #Mazraoui is internally regarded as one of the strongest signings of recent years at @ManUtd. Both the board and the coaching staff are extremely satisfied with his performances. He is seen as an absolute leader and is expected to continue in this role under Ruben #Amorim in the future. Contract until 2028.\"",
+          "summary": "Mazraoui is seen as a top signing and a leader at Manchester United.",
+          "id": "4da980fd-5ae4-49a6-a506-a50d6af28845",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "78577549-ba00-40bb-8f23-5ba3cab8475c",
+          "similarity_score": 0.524716377258301
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-discovers-new-man-30492106",
+        "article_headline": "Ruben Amorim discovers new Man United 'undroppable' in thumping Everton win",
+        "article_text": "Ruben Amorim discovers new Man United 'undroppable' in thumping Everton win - Manchester Evening News\n\nManchester United have thumped Everton 4-0 with Bruno Fernandes and Amad Diallo starring in the Premier League win at Old Trafford on Sunday\n\nBy\nThomas FairCommunity Editor\n\n*   16:22, 1 DEC 2024\n\nManchester United boss Ruben Amorim watched his side cruise to victory against Everton (Image: Robbie Jay Barratt - AMA/Getty Images)\n\nRuben Amorim has claimed his first Premier League victory in a new era for Manchester United, with his team brushing aside Everton with a 4-0 win - and Manchester Evening News readers in our comments section are full of praise for one man in particular.\n\nIt was Marcus Rashford and Joshua Zirkzee's turns to step up and prove a point to their new manager, both providing two goals in both halves. Everton had no response, and it was former transfer target Jarrad Branthwaite who ended up gifting some of those goals to United.\n\nAmad Diallo took full advantage of his chance to impress too, matching Bruno Fernandes' contribution of two assists. It was an ideal way for Amorim to end his first home game in charge of United, and there are visible signs that his coaching is starting to bear fruit.\n\nThe result lifts Manchester United into 9th place in the Premier League, and returns the team to having a positive goal difference in the competition.\n\nFans have only got kind words for one man on the pitch today. Reader Jnkem says: \"Amad is very dangerous! Ten Hag did him wrong by favoring Antony!\" Evillah agrees: \"Amad you beauty!\"\n\nCommenter Noronny writes: \"Amad is undroppable. Man of the match. He's got skill, energy, he's unselfish. Mazraoui is undroppable as well. Every other position is up for grabs.\"\n\nRed Devil says: \"Amorim has got them at it with good substitutions, nobody is safe, he's testing them out. Amad looking to be a really good prospect if he keeps grounded! Excellent young player, keep it up.\"\n\n1968red reckons we're getting a glimpse of what United should've been this season: \"Zirkzee with goals, Amad with 2 assists, and Rashford 2 goals. Where have this Zirkzee and this Rashford been hiding all this time?!\n\n\"We're winning again. Makes you wonder where we'd be if we had Amorim from the start, and Ratcliffe hadn't dithered about by giving Ten Hag more time. Amad is flourishing now when Ten Hag hardly gave him a look in over Antony. Even Zirkzee and Rashford have made positive steps today.\"\n\nGlazerclowns writes: \"This is promising. Zirkzee has his goals which will hopefully kickstart his career.\"\n\nGaryfoxtrot has one complaint: \"I know it was Everton, but some good intent on display, and good to be in positive GD. Hate the back and forth passing sideways at the back, we been done in by better teams for that. Job done Utd.\" Denislawking agrees: \"I hate the walking pace from the back and the constant sideways passing. Modern game I guess.\"\n\nDravic says: \"Well Amorin did say he wanted to get our strikers scoring, job done so far!\"\n\n**Have your say! Who is making themselves key to Amorim's Manchester United so far? Has anyone impressed that you didn't expect?**",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Jnkem",
+          "raw_quote_text": "[Comment on Amad Diallo's impact] \"Amad is very dangerous! Ten Hag did him wrong by favoring Antony!\"",
+          "summary": "Amad is a dangerous player, and Ten Hag misjudged him.",
+          "id": "556e3475-2bea-4a5f-b6d0-5dde6f90f672",
+          "similar_to_quote_id": "e4e2cd66-2a3b-44f0-a786-c6fe3214cf3c",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.492616981267929
+        },
+        {
+          "speaker_name": "Evillah",
+          "raw_quote_text": "[Affirmation on Amad Diallo] \"Amad you beauty!\"",
+          "summary": "Amad is impressive.",
+          "id": "176f496b-dacf-4312-bd5c-583e4eb44f62",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "40bc9199-aa23-4ab2-97d8-43dca8a6c654",
+          "similarity_score": 0.610794901847839
+        },
+        {
+          "speaker_name": "Noronny",
+          "raw_quote_text": "[Praise for Amad Diallo's performance] \"Amad is undroppable. Man of the match. He's got skill, energy, he's unselfish. Mazraoui is undroppable as well. Every other position is up for grabs.\"",
+          "summary": "Amad is essential and shows great skill and energy.",
+          "id": "7294edbb-e9f6-43cf-bfb0-0cc001125ca8",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "176f496b-dacf-4312-bd5c-583e4eb44f62",
+          "similarity_score": 0.642141819000244
+        },
+        {
+          "speaker_name": "Red Devil",
+          "raw_quote_text": "[Comment on Amorim's management style] \"Amorim has got them at it with good substitutions, nobody is safe, he's testing them out. Amad looking to be a really good prospect if he keeps grounded! Excellent young player, keep it up.\"",
+          "summary": "Amorim's making effective substitutions and Amad shows great promise.",
+          "id": "17ea1210-2ab6-4178-976f-2a438dd06de0",
+          "similar_to_quote_id": "d0051b06-f091-40f4-8a59-eaf6201094d0",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.603333353996277
+        },
+        {
+          "speaker_name": "1968red",
+          "raw_quote_text": "[Reflection on team's potential] \"Zirkzee with goals, Amad with 2 assists, and Rashford 2 goals. Where have this Zirkzee and this Rashford been hiding all this time?! We're winning again. Makes you wonder where we'd be if we had Amorim from the start, and Ratcliffe hadn't dithered about by giving Ten Hag more time. Amad is flourishing now when Ten Hag hardly gave him a look in over Antony. Even Zirkzee and Rashford have made positive steps today.\"",
+          "summary": "The team finally shows potential, especially with Amad and Zirkzee.",
+          "id": "967ecd6d-886e-439f-97ae-39584f469508",
+          "similar_to_quote_id": "13cf681f-9e6e-4dc2-bf90-e0c29dbcb350",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.634308338165283
+        },
+        {
+          "speaker_name": "Glazerclowns",
+          "raw_quote_text": "[Optimism about Zirkzee] \"This is promising. Zirkzee has his goals which will hopefully kickstart his career.\"",
+          "summary": "Zirkzee's goals are promising for his career.",
+          "id": "266db08d-7a08-4adb-8250-44359037a705",
+          "similar_to_quote_id": "82b1d4b3-bf2b-4ca6-8e73-92f083e1f051",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.632970929145813
+        },
+        {
+          "speaker_name": "Garyfoxtrot",
+          "raw_quote_text": "[Critique on playing style] \"I know it was Everton, but some good intent on display, and good to be in positive GD. Hate the back and forth passing sideways at the back, we been done in by better teams for that. Job done Utd.\"",
+          "summary": "The win was good, but concerns on passing style remain.",
+          "id": "a8aa5416-54c3-4b41-bc47-d1c6d03f98ce",
+          "similar_to_quote_id": "5eb3415a-10e3-401a-8c51-8bb7169ec424",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.598124146461487
+        },
+        {
+          "speaker_name": "Denislawking",
+          "raw_quote_text": "[Agreement on playing style] \"I hate the walking pace from the back and the constant sideways passing. Modern game I guess.\"",
+          "summary": "Discontent with the slow and sideways passing style.",
+          "id": "af7722ab-9634-480c-a1a7-91cec0d57502",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bbb86163-a96d-49ee-a9a4-d22880494812",
+          "similarity_score": 0.558438539505005
+        },
+        {
+          "speaker_name": "Dravic",
+          "raw_quote_text": "[On Amorim's goals for strikers] \"Well Amorin did say he wanted to get our strikers scoring, job done so far!\"",
+          "summary": "Amorim's aim to enhance strikers' scoring is showing results.",
+          "id": "e4645242-6594-4e26-a001-ff8ec8aadfe9",
+          "similar_to_quote_id": "78335f51-f064-4950-941b-de99ed1fb583",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.640770435333252
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/impossible-ruben-amorim-explains-shock-30491001",
+        "article_headline": "'Impossible' - Ruben Amorim explains shock Manchester United team selection vs Everton",
+        "article_text": "'Impossible' - Ruben Amorim explains shock Manchester United team selection vs Everton - Manchester Evening News\n===============\n\n\n\n[Sport](https://www.manchestereveningnews.co.uk/sport/)\n\n'Impossible' - Ruben Amorim explains shock Manchester United team selection vs Everton\n======================================================================================\n\nMan United head coach Ruben Amorim has made six changes to his starting line-up for the Premier League clash with Everton.\n--------------------------------------------------------------------------------------------------------------------------\n\n[men](https://www.manchestereveningnews.co.uk/)\n\n*   Bookmark\n    \n*   Share\n*   \n*   \n*   \n\n*   [Comments](https://www.manchestereveningnews.co.uk/sport/football/football-news/impossible-ruben-amorim-explains-shock-30491001#comments-wrapper \"Comments\")\n\n[Sport](https://www.manchestereveningnews.co.uk/sport/)\n\nBy\n\n[George Smith](https://www.manchestereveningnews.co.uk/authors/george-smith/)Senior Football Writer\n\n*   13:03, 1 DEC 2024\n\n*   Bookmark\n    \n\n![Image 1: Ruben Amorim has made more changes](https://i2-prod.manchestereveningnews.co.uk/sport/football/football-news/article30491002.ece/ALTERNATES/s615/0_IMG_6655.jpg)\n\nRuben Amorim has made more changes (Image: MUTV.)\n\n![Image 2: Manchester Evening News logo - whatsapp community](https://www.manchestereveningnews.co.uk/@trinitymirrordigital/chameleon-branding/publications/men/img/icon-men.png)\n\n###### Get the latest MEN breaking news on WhatsApp\n\nOur community members are treated to special offers, promotions and adverts from us and our partners. You can check out at any time. [More info](https://www.manchestereveningnews.co.uk/privacy-notice)\n\n[Join us on WhatsApp](https://chat.whatsapp.com/IG57qlIoDZM56XwrenyELG)\n\nRuben Amorim has said it is \"impossible\" to play the same team with games coming thick and fast for [Manchester United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc).\n\nThe [United](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc) boss has made six changes to his starting line-up for the [Premier League](https://www.manchestereveningnews.co.uk/all-about/premier-league) clash with Everton, handing recalls to Diogo Dalot, Kobbie Mainoo, Joshua Zirkzee, Marcus Rashford, Casemiro and Amad.\n\nAmorim has made no secret of the need to rotate his team to combat United's busy fixture schedule. Today's clash with Everton marks the first of nine games the Reds must navigate in the month of December.\n\n**READ MORE: [United vs Everton LIVE](https://www.manchestereveningnews.co.uk/sport/football/football-news/manchester-united-vs-everton-live-30489781)**\n\n**READ MORE:** **[Manuel Ugarte is doing what Dan Ashworth said he would do at United](https://www.manchestereveningnews.co.uk/sport/football/football-news/manuel-ugarte-doing-what-dan-30487343)**\n\nAmorim, speaking to MUTV, said: \"It is impossible to cope with all the games with the same team. We have to be ready, we are changing the way we are playing and everybody has to play and has to train.\n\n\"It is impossible in three days to recover all of the players. We played a different game against Bodo/Glimt, we pressed a lot, some players were tired, so I clearly prefer to have fresh legs.\n\n\"I also want us to have different characteristics to be harder for the opponent to understand how we are going to play. We have returns like Kobbie Mainoo, one of the best youngsters in this league.\n\n\"We have international players, just like I say all the time, and they are ready to win the game.\"\n\nThis article contains affiliate links, we will receive a commission on any sales we generate from it. [Learn more](https://www.manchestereveningnews.co.uk/affiliates/)\n\nKeep warm on the sidelines\n\n[Beat the cold weather with these winter warmers](https://amzn.to/4eJaWeM)\n\n![Image 3](https://i2-prod.manchestereveningnews.co.uk/incoming/article30461588.ece/ALTERNATES/s615/0_Untitledjpeg.jpg)\n\nThere's plenty of deals to keep you warm from head to toe on match day.\n\nWe've found heated clothing like [gloves](https://www.awin1.com/cread.php?awinmid=3595&awinaffid=213635&ued=https%3A%2F%2Fwww.wowcher.co.uk%2Fdeal%2Fshop%2Ffashion%2Fhats-scarves-gloves%2F30225657%2Funisex-winter-usb-heating-sport-gloves), [gilets](https://amzn.to/4eJaWeM) and [hats](https://www.awin1.com/cread.php?awinmid=3595&awinaffid=213635&ued=https%3A%2F%2Fwww.wowcher.co.uk%2Fdeal%2Fshop%2Ffashion%2Fhats-scarves-gloves%2F30458619%2Fusb-heated-unisex-winter-beanie), plus [foot warmers](https://amzn.to/499vlbE) and a simple [thermal beanie](https://go.skimresources.com/?id=76202X1558242&xs=1&url=https%3A%2F%2Fwww.debenhams.com%2Fproduct%2Fsockshop-heat-holders-1-pack-turn-over-cuff-thermal-hat_p-7a605ad7-c3ef-4bcb-b70e-22d663eb9e91) that'll help you beat the winter weather.\n\nfrom £9.99\n\nVarious\n\n[Shop here](https://amzn.to/4eJaWeM)\n\n**Black Friday is an annual shopping event of massive discounts. You can check out all the latest Black Friday weekend bargains and offers [here](https://www.manchestereveningnews.co.uk/all-about/black-friday).**\n\n**READ NEXT:**\n\n*   [Ruben Amorim handed huge double blow ahead of Manchester United vs Arsenal](https://www.manchestereveningnews.co.uk/sport/football/ruben-amorim-handed-huge-double-30491567?int_source=nba)\n*   [Man United transfer plan made clear after scouts watch £60million-rated star](https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-transfer-plan-made-30490851?int_source=nba)\n*   [Jo Malone has a little-known perfume brand where seven bottles cost £3 each](https://www.manchestereveningnews.co.uk/news/fashion-news/jo-malone-little-known-perfume-30480743?int_source=nba)\n*   [Get a LEGO set for £3.33 instead of £36 in one-day only Argos Black Friday deal](https://www.manchestereveningnews.co.uk/whats-on/family-kids-news/lego-set-333-instead-36-30479569?int_source=nba)\n*   [Ruben Amorim discovers new Man United 'undroppable' in thumping Everton win](https://www.manchestereveningnews.co.uk/sport/football/football-news/ruben-amorim-discovers-new-man-30492106?int_source=nba)\n\nStory Saved\n\nYou can find this story in  [My Bookmarks.](https://www.manchestereveningnews.co.uk/my-bookmarks)Or by navigating to the user icon in the top right.\n\nFollow Manchester Evening News\n\n[Facebook](https://www.facebook.com/ManchesterEveningNews)[Twitter](https://twitter.com/intent/follow?screen_name=MENSports)\n\n[Comment](https://www.manchestereveningnews.co.uk/sport/football/football-news/impossible-ruben-amorim-explains-shock-30491001#comments-wrapper)\n\nMore On\n\n*   [Manchester United FC](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc)\n*   [Manchester United fixtures](https://www.manchestereveningnews.co.uk/all-about/manchester-united-fixtures)\n*   [Premier League](https://www.manchestereveningnews.co.uk/all-about/premier-league)\n*   [Ruben Amorim](https://www.manchestereveningnews.co.uk/all-about/ruben-amorim)",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[As head coach for Manchester United] It is impossible to cope with all the games with the same team. We have to be ready, we are changing the way we are playing and everybody has to play and has to train.",
+          "summary": "I believe it's impossible to use the same team for every game.",
+          "id": "285ea8f2-6d97-42ea-a651-545275ec8763",
+          "similar_to_quote_id": "b6e57e7f-1b14-462b-9ead-674bfd6a0004",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.573481202125549
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "It is impossible in three days to recover all of the players. We played a different game against Bodo/Glimt, we pressed a lot, some players were tired, so I clearly prefer to have fresh legs.",
+          "summary": "I prefer to have fresh legs as recovery is impossible in three days.",
+          "id": "d1fe0a20-176c-4fb9-867d-d79729e4ce22",
+          "similar_to_quote_id": "8ac4d09a-a776-4713-8a6f-7c5572b776e5",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.61883533000946
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I also want us to have different characteristics to be harder for the opponent to understand how we are going to play. We have returns like Kobbie Mainoo, one of the best youngsters in this league.",
+          "summary": "We need different characteristics to confuse opponents, and we have talented players like Kobbie Mainoo returning.",
+          "id": "9576cc7d-4b69-4135-81c4-6b3d5708eb64",
+          "similar_to_quote_id": "9fa34601-4896-4619-b0f6-bfd8428562d5",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.495837926864624
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "We have international players, just like I say all the time, and they are ready to win the game.",
+          "summary": "Our international players are prepared to win.",
+          "id": "10880c99-a2bd-4945-a7cf-b762ffe2218c",
+          "similar_to_quote_id": "f3ce321f-017b-4f5f-92ed-bf1be8ca1fce",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.540998876094818
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-next-five-fixtures-30491676",
+        "article_headline": "Man United next five fixtures compared to Arsenal, Chelsea and other Premier League rivals",
+        "article_text": "",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "error"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-united-handed-fresh-liam-30489706",
+        "article_headline": "Man United handed fresh Liam Delap transfer headache as Man City buyback clause explained",
+        "article_text": "Man United handed fresh Liam Delap transfer headache as Man City buyback clause explained - Manchester Evening News\n\nLatest Manchester United transfer news and gossip includes an update on Liam Delap\n\nBy\nBruna Reis\n\n*   12:17, 1 DEC 2024\n\nLiam Delap of Ipswich Town (Image: Getty Images)\n\nLiam Delap continues to catch the attention since leaving Manchester City in the summer.\n\nSo much so that he has been linked with a return to the Etihad Stadium, though Manchester United are also on his trail. However, a new report by the Mirror suggests Juventus are eyeing the forward as a replacement for Dusan Vlahovic.\n\nThe Italian giants are said to be keen to tie Vlahovic to a new deal but talks over an extension have failed to bear fruit. As a result, that has forced them to look at potential alternatives and Delap is said to fit the profile the club are looking for.\n\nThe report claims Juve are drawing up contingency plans in case an agreement cannot be reached. So much so that they have already watched Delap in action for Ipswich at Portman Road this campaign.\n\nMeanwhile, United and Chelsea are also monitoring his progress. But it's City who have an advantage over other clubs after negotiating a 20 per cent sell-on clause with Ipswich.\n\nIpswich boss Kieran McKenna has refused to speak over Delap's future. He said: \"It's not anything I'm aware of or interested in to be honest. I think that's a question for other people and for chairman Mark Ashton.\n\n\"My full focus is on this season and, with regards to Liam, trying to help him to continue to improve. I know Liam's full focus is here and trying to help the team. He's had a good start to the season, but we have to remember that's it's very early stages for him.\n\n\"This is really his first season starting regularly as a number nine. He played off the side a lot of times last year at Hull, played as a wide striker in some earlier Championship loan moves. So this is his first season doing it week-in, week-out, maybe doing it two times a week, and he's doing it at Premier League level. It's positive that he's doing well, but it's really early days. His focus, my focus, our focus is to keep trying to improve.\"\n\nDelap scored a goal and provided an assist as Ipswich recorded a 2-1 win away at Tottenham Hotspur. The win in North London was Ipswich's first victory in the top flight this season since their promotion from the Championship. He also put in a fine performance in the 1-1 draw with United at Portman Road last month.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Kieran McKenna",
+          "raw_quote_text": "[On Delap's future] \"It's not anything I'm aware of or interested in to be honest. I think that's a question for other people and for chairman Mark Ashton.\"",
+          "summary": "I'm not concerned about Delap's future; that's for others to address.",
+          "id": "fd4ca299-a1ce-4a8b-97c4-fc5adcf97b65",
+          "similar_to_quote_id": "1a3245f0-b06f-4b24-ab7a-52493c0fc436",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.481548726558685
+        },
+        {
+          "speaker_name": "Kieran McKenna",
+          "raw_quote_text": "[On current focus] \"My full focus is on this season and, with regards to Liam, trying to help him to continue to improve. I know Liam's full focus is here and trying to help the team. He's had a good start to the season, but we have to remember that's it's very early stages for him.\"",
+          "summary": "My priority is helping Liam improve; he's doing well, but it's still early in the season.",
+          "id": "8dd66909-11cc-446e-a524-7c468ab5af66",
+          "similar_to_quote_id": "92b5d56c-0910-4240-b8fc-b4378e1843bc",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.501066625118256
+        },
+        {
+          "speaker_name": "Kieran McKenna",
+          "raw_quote_text": "[On Delap's progress] \"This is really his first season starting regularly as a number nine. He played off the side a lot of times last year at Hull, played as a wide striker in some earlier Championship loan moves. So this is his first season doing it week-in, week-out, maybe doing it two times a week, and he's doing it at Premier League level. It's positive that he's doing well, but it's really early days. His focus, my focus, our focus is to keep trying to improve.\"",
+          "summary": "It's Delap's first full season as a central striker in the Premier League; it's important we all keep improving.",
+          "id": "d37e9fdc-a38b-494d-9a4d-6d87b90eb62c",
+          "similar_to_quote_id": "cc779149-a205-4af7-b595-ea99b23b15d0",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.602789998054504
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/manchester-united-could-confirm-two-30479959",
+        "article_headline": "LUCKHURST: Manchester United could confirm two new first teamers vs Everton",
+        "article_text": "Manchester United could confirm two new first teamers vs Everton - Samuel Luckhurst - Manchester Evening News\n\nMan United take on Everton in the Premier League today and here are five things to look out for at Old Trafford.\n\nManchester United are back at Old Trafford today for the first of nine games in 30 days in December as they look to end a gruelling year on an upbeat note.\n\nUnited got their first win under new head coach Ruben Amorim on Thursday and are seeking their first in the Premier League on the Portuguese's watch against Everton.\n\nCentre backs Harry Maguire, Leny Yoro, Victor Lindelof and Jonny Evans could all still be unavailable after their absences against Bodo/Glimt three days ago but Amorim has a fullish squad to select from.\n\nWith United and Everton fans scheduled to protest against scandalous ticket price increases before kick-off, it is worth keeping an eye out off the pitch as much as on it.\n\nHere are five things to look out for:\n\n**How many more changes?**\n\nAmorim reiterated again on Thursday night United \"have to rotate the team\". Six changes against Bodo/Glimt was more than expected and he could stray close to that number against Everton.\n\nRasmus Hojlund was \"dead\" after a 90-minute shift and some of the substitutions were made with today's game in mind. Diogo Dalot, Amad and Marcus Rashford will all be relatively fresh after their second-half appearances. Christian Eriksen did not play at all and United are certain to have the majority of possession this afternoon.\n\n**Who will have the ball?**\n\n\"We need to have the ball because we have a short time to recover,\" Amorim stressed. It is curious that Kobbie Mainoo has been completely unused in the Portuguese's first two games in charge when United would benefit from a conductor in midfield against shot-shy Everton.\n\nMainoo's full Premier League debut was a memorable one in a 3-0 victory at Goodison Park 12 months ago but he is unlikely to be parachuted back into the starting XI eight weeks on from his last outing at Villa Park. Eriksen is an option or Bruno Fernandes could continue in a deeper role. Fernandes was especially excellent there against Everton at Old Trafford last season and the season before.\n\n**Mason Mounting a comeback?**\n\nAfter a first start in 96 days in midweek today could be Mason Mount's first Premier League start in 99 days. His last one - at Brighton - was his most impressive for United yet it was cut short by injury.\n\nMount lasted just shy of an hour against Bodo and his removal was possibly as much to preserve him for today as it was to manage his return. Amorim has waxed lyrical about Mount in successive weeks and he looked comfortable as one of the two 10s behind Hojlund.\n\n**Eyes on Branthwaite**\n\nUnited had two offers of £43million and £50m rejected for Jarrad Branthwaite in the summer before they made Leny Yoro their marquee 'potential' signing. Branthwaite, like Yoro, has had his fair share of injury problems and has only made three starts this term.\n\nHis return has coincided with Everton keeping two successive clean sheets. They did not score at the other end, mind, and played more than a half against ten-man Brentford last week.\n\nBranthwaite, 22, will inevitably leave Everton for big money but maybe not as big as the £70m they held out for in the summer. United will need to sign probably two centre backs next year and Branthwaite still fits the bill.\n\n**Amad to cement his place?**\n\nAmad will be in the majority of United fans' starting XIs today and his selection would confirm his first-team status under the new head coach. Today should be Amad's fourth start in five games and he was very clearly rested on Thursday night.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "We need to have the ball because we have a short time to recover.",
+          "summary": "I emphasized the need to possess the ball due to our limited recovery time.",
+          "id": "c76851cb-9c50-46e7-84aa-26adccaab4f4",
+          "similar_to_quote_id": "74c77465-1b5a-41de-9bfd-158ad09882b4",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.423605561256409
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "have to rotate the team",
+          "summary": "It's essential for us to rotate the squad.",
+          "id": "f4178bf0-74c0-48a4-92f9-f3824f5b2be4",
+          "similar_to_quote_id": "ea8e1f88-ad71-486f-97a4-8ab1049e2f95",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.546335458755493
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "I have waxed lyrical about Mount in successive weeks",
+          "summary": "I've praised Mount consistently over recent weeks.",
+          "id": "ab53a938-5238-412d-a2e3-4fcc7f2a8c26",
+          "similar_to_quote_id": "acf88b30-895f-4dc8-a265-6f034bd9d189",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.396871209144592
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-uniteds-geovany-quenda-transfer-30487141",
+        "article_headline": "Man United's Geovany Quenda transfer plan is insight into Ineos and Dan Ashworth blueprint",
+        "article_text": "Man United's Geovany Quenda transfer plan is insight into Ineos and Dan Ashworth blueprint - Matty Hewitt - Manchester Evening News\n\nManchester United have been linked with a move for upcoming Sporting star Geovany Quenda.\n\nBy Matty Hewitt * 15:30, 30 NOV 2024 \n\nRuben Amorim becoming Manchester United head coach was the first major managerial appointment Ineos and Sir Jim Ratcliffe have had to make since becoming minority shareholders at the club.\n\nThe Portuguese head coach is unbeaten in his first two games in charge of the Reds, drawing his first Premier League clash with Ipswich Town before coming from behind to beat Bodo/Glimt in the Europa League in midweek. The United boss has already called for patience as he looks to implement his ideas with the Reds in a new look 3-4-2-1 formation.\n\nAmorim has made the decision to split his coaching staff into groups in an attempt to fast track his ideas across the the players. There's not much the new boss can do in terms of changing personnel given the transfer window is shut until New Year's Day, but we're already hearing murmurings about potential additions to the United squad.\n\nUnited have met with the representatives of Sporting's rising star Geovany Quenda - a player Amorim knows well from his time at the Portuguese club. That being said, he's a player the Reds have been tracking since before Amorim's arrival.\n\nIt's yet another indication as to the direction Ineos and Dan Ashworth want to take the club, having overseen their first transfer window at the club this summer. However, we didn't necessarily see a huge change in tact from previous windows given Erik ten Hag's desire to work with former players.\n\nUnited signed Noussair Mazraoui and Matthijs de Ligt as per Ten Hag's wishes, but there was one signing that offered a huge insight into the direction the club wants to go in. Leny Yoro may have endured a disappointing start to life at United through injuries, but the young French defender is one of the most exciting prospects in European football, linked with Real Madrid prior to his move to United.\n\nQuenda is a player of a similar profile, albeit unlike Yoro, was largely unheard until the last few months. United sporting director Dan Ashworth built an impressive profile of signings during his time as Brighton director, before moving on to Newcastle United.\n\nThe now-Reds chief didn't necessarily work much magic at St, James' Park given the length of his tenure in the North East, but we're already starting to see his influence at Old Trafford. Brighton excelled in signing players with huge potential, for very little value before generating huge transfer profits.\n\nAt United, the model is different, but the underlying ethos remains the same. Quenda has only made 20 senior appearances for Sporting having been named in their matchday squad for the first time by none other than Amorim.\n\nHe became the club's youngest league scorer against Famalicão last month, beating Cristiano Ronaldo's record, and is Sporting's youngest player to start in the Champions League. It's clear the youngster has huge potential but offers a huge insight into the profile of players United are now targeting.\n\nHowever, there is the warning from Amorim that he won't raid his former club for players in January, hinting that a move for Quenda will likely be a summer switch.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[The United boss discusses his approach] \"I've already called for patience as I look to implement my ideas with the Reds in a new look 3-4-2-1 formation.\"",
+          "summary": "I called for patience while implementing my new ideas with the team.",
+          "id": "ca0556cd-98b3-434f-9ea7-f5bb6746f6d4",
+          "similar_to_quote_id": "831657cf-d9af-488c-a720-a634cf6c685a",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.553292095661163
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[The coach mentions his strategy] \"I won't raid my former club for players in January, hinting that a move for Quenda will likely be a summer switch.\"",
+          "summary": "I won't take players from my old club in January; Quenda will likely join in the summer.",
+          "id": "c6a4d0f7-fb57-4edb-9f40-06a96c0ef4ba",
+          "similar_to_quote_id": "1a3245f0-b06f-4b24-ab7a-52493c0fc436",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.469470888376236
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/manchester-united-warned-tough-viktor-30490507",
+        "article_headline": "Manchester United warned about 'tough' Viktor Gyokeres transfer amid clear Sir Jim Ratcliffe stance",
+        "article_text": "Manchester United warned about 'tough' Viktor Gyokeres transfer amid clear Sir Jim Ratcliffe stance - Manchester Evening News  \n\nThe Sporting CP striker remains on the radar of Manchester United with Ruben Amorim a known admirer of the Swede\n\nManchester United have been cautioned about a 'tough negotiation' for Viktor Gyokeres, a move that could potentially rankle Sir Jim Ratcliffe and play into the hands of another club.\n\nGyokeres is said to be eager for a reunion with his former Sporting Clube de Portugal manager Ruben Amorim at Old Trafford. Since his transfer from Coventry City in 2023, the forward has had an exceptional run in Portugal, propelling Sporting to Primeira Liga glory last season and netting 24 goals already this campaign.\n\nIt's thought that Gyokeres is looking to join Amorim at United, possibly in January or next summer. However, United's top brass have been alerted to expect 'tough negotiations' with Sporting by Coventry owner Doug King, who orchestrated Gyokeres' switch to Sporting just over twelve months ago.\n\nDiscussing the complexities of the deal, King disclosed to talkSPORT that if the striker moves on, it would not only profit Coventry but also Brighton, where Gyokeres played for three years, due to a sell-on fee arrangement. \"That was a tough negotiation with Sporting Lisbon,\" King revealed.\n\n\"If he does get moved on to another chapter in his career, then we'll benefit, but I'm not holding my breath. We're not running the club on that basis [but] we'll take it when and if it comes. But realise as well that a large part of anything that comes our way heads down to his original club at Brighton.\n\n\"Everybody seems to think it goes straight into the coffers, but these sell-ons accumulate down the chain, so you need to be bringing them up from your academy, hopefully, to get the full 100 per cent, but a lot of it still goes down the chain.\"\n\nGiven that at least two of Gyokeres' former clubs are due some of the fee Sporting receive for the Swede, the Portuguese champions will be keen to maximise their profit. It is claimed that Gyokeres has a release clause to the tune of £83million (€100m).\n\nIf Sporting do ensure any interested party matches that price tag, it could leave United co-owner Ratcliffe upset. The INEOS billionaire has previously insisted that he will not be forced into over-paying for targets.\n\nUnited pulled out of a move for Everton's Jarrad Branthwaite during the summer over the asking price, signing Leny Yoro from Lille, instead. Answering a question specifically about Kylian Mbappe on the Geraint Thomas Cycling podcast last year, Ratcliffe said: \"It's not where our focus is, the solution isn't spending a lot of money on a couple of great players.\"\n\n\"I would rather sign the next Mbappe rather than spend a fortune buying success. It's not that clever buying Mbappe. Anyone could figure that one out. More challenging is to find the next Mbappe or next Bellingham or next Roy Keane.\"\n\nUnited might therefore have a challenging negotiation ahead as they aim to reduce the fee for Gyokeres.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Doug King",
+          "raw_quote_text": "[Discussing the complexities of the deal] \"That was a tough negotiation with Sporting Lisbon,\" King revealed.",
+          "summary": "Negotiating with Sporting Lisbon was difficult.",
+          "id": "72bcbb95-2d85-4480-bfb3-e99dee5cc6ad",
+          "similar_to_quote_id": "78335f51-f064-4950-941b-de99ed1fb583",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.48660409450531
+        },
+        {
+          "speaker_name": "Doug King",
+          "raw_quote_text": "[On potential profits from the transfer] \"If he does get moved on to another chapter in his career, then we'll benefit, but I'm not holding my breath. We're not running the club on that basis [but] we'll take it when and if it comes. But realise as well that a large part of anything that comes our way heads down to his original club at Brighton.\"",
+          "summary": "If Gyokeres transfers, Coventry will benefit, but actual profits depend on Brighton.",
+          "id": "fc8ad047-8af3-4ca3-8bae-f865983c8cfb",
+          "similar_to_quote_id": "f056a7d7-8415-4e99-8e7e-cddb5f3a1f5e",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.489659070968628
+        },
+        {
+          "speaker_name": "Doug King",
+          "raw_quote_text": "[On sell-on fees] \"Everybody seems to think it goes straight into the coffers, but these sell-ons accumulate down the chain, so you need to be bringing them up from your academy, hopefully, to get the full 100 per cent, but a lot of it still goes down the chain.\"",
+          "summary": "Sell-on fees can be complicated; profits don't always go directly to us.",
+          "id": "65bb3688-b158-43b8-9c7a-e4bf7eadb93f",
+          "similar_to_quote_id": "1a3245f0-b06f-4b24-ab7a-52493c0fc436",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.462271928787231
+        },
+        {
+          "speaker_name": "Sir Jim Ratcliffe",
+          "raw_quote_text": "[On spending and focus] \"It's not where our focus is, the solution isn't spending a lot of money on a couple of great players.\"",
+          "summary": "Our focus isn’t on overspending for big-name players.",
+          "id": "54dd4c3d-8ff6-4f37-8407-6f6228c07ff8",
+          "similar_to_quote_id": "ecc4a621-ceea-4247-beab-242474c7e064",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.456041693687439
+        },
+        {
+          "speaker_name": "Sir Jim Ratcliffe",
+          "raw_quote_text": "[On pursuing talent] \"I would rather sign the next Mbappe rather than spend a fortune buying success. It's not that clever buying Mbappe. Anyone could figure that one out. More challenging is to find the next Mbappe or next Bellingham or next Roy Keane.\"",
+          "summary": "I prefer to find emerging talent than to overpay for established stars.",
+          "id": "44a8c3f4-42df-4d1c-898f-01133d4ca289",
+          "similar_to_quote_id": "9fa34601-4896-4619-b0f6-bfd8428562d5",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.519463300704956
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+        "article_url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-eye-69m-victor-30489144",
+        "article_headline": "Man United eye £69m Victor Osimhen swap as January transfer 'targeted'",
+        "article_text": "Man United eye £69m Victor Osimhen swap as January transfer 'targeted' - Manchester Evening News\n\nManchester United are thought to be on the hunt for a centre-forward following Ruben Amorim's arrival at Old Trafford.\n\nBy Jack Flintham Sport Central Audience Writer\n\n* 05:00, 1 DEC 2024\n\nManchester United are reportedly open to the idea of swapping new signing Joshua Zirkzee for Napoli striker Victor Osimhen in the January transfer window.\n\nZirkzee has struggled to adapt to life in the Premier League since signing from Bologna in the summer. MEN Sport understands there are some doubts inside United that the Dutchman may not have what it takes to be a regular fixture in the Reds' squad.\n\nAs such, rumours have circulated suggesting a return to Italy is a possibility for the forward. With United looking to bolster their attack, the latest name to be linked with the Reds is Osimhen.\n\nThe Nigerian was previously a target under Erik ten Hag but United were unable to afford him at the time. However, a move never materialised in the summer and Osimhen was shipped out on loan to Galatasaray for this season.\n\nIt is believed a break clause was included in the loan to allow Osimhen to join one of ten top European clubs. It is unclear whether United are one of them.\n\nAccording to Area Napoli, United are looking to kill two birds with one stone by organising a swap deal with the Naples club. United are thought to be ready to offer £33.2m plus Zirkzee for the talented striker - taking the value of the swap to around £69m.\n\nSince moving to Turkey, Osimhen has bagged eight goals across 11 appearances. Elsewhere, PSV Eindhoven's attacking midfielder Malik Tillman is also thought to be on United's wishlist for January.\n\nThe attacking midfielder has impressed in the Eredivisie this season with eight goals and four assists to his name in 19 appearances. However, the former Bayern Munich man's form has not gone unnoticed in the Premier League.\n\nWhile United are believed to be interested, Tottenham Hotspur and Aston Villa are also thought to be keen. Tillman is believed to favour a move to the Premier League but the Reds would need to splash as much as £33m to bag him this winter.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.sportbible.com/premier-league",
+        "article_url": "https://www.sportbible.com/football/football-news/man-utd/man-utd-erik-ten-hag-everton-amad-diallo-901881-20241201",
+        "article_headline": "Erik ten Hag was a huge talking point during Man Utd's win over Everton and it's all because of Amad Diallo",
+        "article_text": "Fans are genuinely baffled by Erik ten Hag decision after Amad Diallo produces masterclass against Everton - Man Utd - SPORTbible\n===============\n\n**It's been just over a month since Erik ten Hag was relieved of his duties by Manchester United** **but he still remains a huge talking point amongst fans, especially after this weekend's game against Everton.**\n\nUnited walked away with all three points on Sunday afternoon as goals from Marcus Rashford and Joshua Zirkzee sealed a convincing 4-0 victory over Everton.\n\nAfter securing his first win as United manager on Thursday against Bodo/Glimt, you could say it has been a solid start to life at Old Trafford for Ruben Amorim, who has publicly praised a number of his players in recent days.\n\nHaving been deployed at right-wing-back in their 1-1 draw against Ipswich Town, the in-form Amad Diallo received plaudits from his new manager.\n\n\"I think it was very good, he has improved a lot,\" said Amorim. \"Since these three days, he improved so much defensively but for him, the opponent he had all the time was the left back. He was so focused on everything, I think he did a great job.\"\n\nAmad continued his superb run of form against Everton on Sunday as he notched two assists.\n\nAnd after impressing once more at Old Trafford, plenty of fans brought up Erik ten Hag and his decision to use the Ivorian sparingly throughout his reign as manager.\n\nIn fact, Ten Hag's decision to use Antony over Amad as they searched for a winner against Fenerbache in October was mentioned by many on social media.\n\nOne said: \"The fact ETH watched him every day in training and continued to play Antony over him blows my mind. What a player we have in Amad,\" while another commented: \"Not sure I’ll ever forgive Erik Ten Hag for his treatment of Amad Diallo.\"\n\nA third wrote: \"Bizarre that it took more than four months for Amad to get a start last season. Even more bizarre that Omari Forson once started ahead of him. He's torn Everton to shreds today. Perfect profile of player for Amorim in this formation.\"\n\nA fourth said: \"Erik ten Hag should be hired just so he can be fired again. Why on God’s green earth did he not platform Amad?!\" and a fifth added: \"Amad is the best pressing player we have by a million miles, and Ten Hag, who wanted to play pressing football, barely used him.\"\n\nAfter that match against Fenerbache in the Champions League, Ten Hag explained his decision.\n\n\"Amad, he is doing well,\" he said. \"But I must also reward the performances of Antony in training. He is a threat almost every training session, so I felt in that moment the right thing to do was bring him on to decide the game.\"\n\nAmad was eventually brought on after Antony picked up an injury in the latter stages but the change was deemed too late for many supporters.\n\nThoughts on Amad's form of late? Let us know in the comments.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Speaking about Amad Diallo's performance] \"I think it was very good, he has improved a lot. Since these three days, he improved so much defensively but for him, the opponent he had all the time was the left back. He was so focused on everything, I think he did a great job.\"",
+          "summary": "I believe Amad has significantly improved and performed excellently.",
+          "id": "78577549-ba00-40bb-8f23-5ba3cab8475c",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "556e3475-2bea-4a5f-b6d0-5dde6f90f672",
+          "similarity_score": 0.664299190044403
+        },
+        {
+          "speaker_name": "Erik ten Hag",
+          "raw_quote_text": "[Regarding Amad and Antony's performance] \"Amad, he is doing well. But I must also reward the performances of Antony in training. He is a threat almost every training session, so I felt in that moment the right thing to do was bring him on to decide the game.\"",
+          "summary": "I needed to reward Antony's training performances, which is why I chose him.",
+          "id": "62bf0f1e-0527-4837-99b7-d22056c136ca",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "7294edbb-e9f6-43cf-bfb0-0cc001125ca8",
+          "similarity_score": 0.615926265716553
+        }
+      ],
+      "status": "quotesPublished"
+    },
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.theguardian.com/football/manchester-united",
+        "article_url": "https://www.theguardian.com/football/2024/nov/28/manchester-united-v-bodglimt-europa-league-live",
+        "article_headline": "Manchester United 3-2 Bodø/Glimt: Europa League – as it happened",
+        "article_text": "Page Not Found | The Guardian\n===============\n\nSorry – we haven’t been able to serve the page you asked for.\n\nYou may have followed an outdated link, or have mistyped a URL. If you believe this to be an error please [report it](https://www.theguardian.com/info/tech-feedback).\n\n[The Guardian homepage](https://www.theguardian.com/)\n\n ![Image 1](https://beacon.gu-web.net/count/40x.gif)",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [],
+      "status": "quotesExtracted"
+    }
+  ]
+}

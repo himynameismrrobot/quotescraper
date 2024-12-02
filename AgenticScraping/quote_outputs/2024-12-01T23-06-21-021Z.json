@@ -1,0 +1,87 @@
+{
+  "model": "openai",
+  "timestamp": "2024-12-01T23:06:21.021Z",
+  "parent_urls": [
+    "https://www.bbc.com/sport/football/teams/manchester-united",
+    "https://www.manchestereveningnews.co.uk/all-about/manchester-united-fc",
+    "https://www.sportbible.com/premier-league",
+    "https://www.theguardian.com/football/manchester-united"
+  ],
+  "quotes": [
+    {
+      "article_metadata": {
+        "parent_monitored_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_url": "https://www.bbc.com/sport/football/teams/manchester-united",
+        "article_headline": "BBC Manchester United Homepage",
+        "article_text": "Manchester United\n=================\n\nManchester United's win over Everton at Old Trafford under Ruben Amorim is the biggest margin of victory for a permanent manager in their first home match in the competition for the club.\n\nMarcus Rashford has now scored in back-to-back Premier League matches under Ruben Amorim (three goals), as many goals as he managed in his previous 23 matches under both Ruud van Nistelrooy and Erik ten Hag.\n\n**Manchester United manager Ruben Amorim has been talking to BBC Match of the Day after the win:** \"It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls.\n\n\"I felt that the players could solve some problems that we had as a team because of the quality that they have, but it was far from a perfect performance. But it was a really good result and a tough match.\"\n\n**On their opening goal:** \"You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job.\n\n**On Amad Diallo:** \"He is really big in talent, but small in size. He did a great job but he also has to improve. He is in a great moment. Ruud van Nistelrooy helped him a lot in his games in charge and now he is helping me.\"\n\n**On the mood becoming more buoyant and optimistic:** \"It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help.\n\n\"Rather than trying to convince the fans about this performance, [it is better to say] we have a lot to do, it will take time. Sometimes we are not playing well but everyone defended together.\n\n\"Our fans just ask for hard work and then, in time, they will ask for better football.\"\n\n**Manchester United forward Marcus Rashford has been talking to Sky Sports following the victory:** \"It is a nice result. It is important with a new coach and a new way of playing, when we are still learning. We have to back up this performance and win midweek.\n\n**Latest updates**\n\n*   **17:25** *'Atmosphere speaks for itself' - Amorim restores feel-good factor*\n*   **16:36** *'It's just madness' - Dyche perplexed by Everton defending*\n*   **16:24** *Man Utd 'far from perfect' in win over Everton - Amorim*  \n\n*   **15:28** *Man Utd thump Everton to give Amorim first league win*\n\n**Manchester United manager Ruben Amorim, speaking to TNT Sports**: \"Of course, I see what what everybody sees, good moments, difficult moments.\n\n\"There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won!\n\n\"Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special.\n\n**On the game:** \"Like a real ride. We started well, but then suffered two goals in two transitions. I like the way the players tried to play our game.\n\n\"Sometimes we won the ball and have had problems in the past giving the ball away too much - the mindset is keeping the ball.\n\n\"They are really trying and I think we deserved the win.\"\n\nAdditionally, Manchester United have scored 13 goals from an xG of 18.3 in the Premier League this term, netting about five goals fewer than the quality of their chances suggests they should have. No team is underperforming compared to their xG more than the Red Devils.",
+        "article_date": "2024-12-01"
+      },
+      "quotes": [
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[After the match] \"It was far from a perfect performance. We have to improve, you can feel that in the game. After 15 minutes, Everton controlled the game and it was difficult for us and we were losing the second balls. I felt that the players could solve some problems that we had as a team because of the quality that they have, but it was far from a perfect performance. But it was a really good result and a tough match.\"",
+          "summary": "The performance wasn't perfect, but it was a good result.",
+          "id": "a212591e-35df-45a1-b4bb-bca883bc437d",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bbb86163-a96d-49ee-a9a4-d22880494812",
+          "similarity_score": 0.966361403465271
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On their opening goal] \"You have to congratulate the players and the rest of the staff. The most important thing on set-pieces is the staff, so great job.\"",
+          "summary": "The staff did a great job on the set-pieces.",
+          "id": "92399e02-1266-468d-8e52-44d5da68788f",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "ef3bde92-bb1d-4a88-895b-97b1c4dcc43a",
+          "similarity_score": 0.968635082244873
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On Amad Diallo] \"He is really big in talent, but small in size. He did a great job but he also has to improve. He is in a great moment. Ruud van Nistelrooy helped him a lot in his games in charge and now he is helping me.\"",
+          "summary": "Amad has great talent but needs to improve.",
+          "id": "f0611df9-20d4-4fef-8469-576c202420b8",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "78577549-ba00-40bb-8f23-5ba3cab8475c",
+          "similarity_score": 0.988760590553284
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the mood becoming more buoyant and optimistic] \"It helps to have a new face, it always helps. We have to be very clear to our fans and this will always help. Rather than trying to convince the fans about this performance, [it is better to say] we have a lot to do, it will take time. Sometimes we are not playing well but everyone defended together. Our fans just ask for hard work and then, in time, they will ask for better football.\"",
+          "summary": "Having a new face helps, and fans will need to be patient.",
+          "id": "6368d5d9-7ad0-47e8-bd09-fec0cccb01ea",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "bd914c84-ea85-4934-90e1-36f4ebdd9ec0",
+          "similarity_score": 0.983591198921204
+        },
+        {
+          "speaker_name": "Marcus Rashford",
+          "raw_quote_text": "[Following the victory] \"It is a nice result. It is important with a new coach and a new way of playing, when we are still learning. We have to back up this performance and win midweek.\"",
+          "summary": "We need to build on this nice result with a win next week.",
+          "id": "a25dbdb6-3edf-4115-b4dd-58c59c1b858f",
+          "similar_to_quote_id": null,
+          "similar_to_staged_quote_id": "8142d8c8-2b65-4cd1-8584-233bbf4a36dc",
+          "similarity_score": 0.852187693119049
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[Speaking to TNT Sports] \"Of course, I see what what everybody sees, good moments, difficult moments. There was some confusion in the end trying to hold the result, but the lads did a great job. They ran, they pressed, they tried to do the things we have worked on in the last three days and we won! Half of the stadium doesn't know me. I came from Portugal and I did nothing for this club. Yet, the way they make me feel at home is special.\"",
+          "summary": "The team worked hard, and I've felt welcomed at the club.",
+          "id": "a1778f42-5fac-41e5-abe1-73bad9ea18b1",
+          "similar_to_quote_id": "92b5d56c-0910-4240-b8fc-b4378e1843bc",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.663153111934662
+        },
+        {
+          "speaker_name": "Ruben Amorim",
+          "raw_quote_text": "[On the game] \"Like a real ride. We started well, but then suffered two goals in two transitions. I like the way the players tried to play our game. Sometimes we won the ball and have had problems in the past giving the ball away too much - the mindset is keeping the ball. They are really trying and I think we deserved the win.\"",
+          "summary": "It was a rollercoaster game, but we deserved the win.",
+          "id": "de0f5975-06b8-4051-a48b-e960085a0743",
+          "similar_to_quote_id": "22156dd7-af16-4aad-9711-6213ebdc6b8f",
+          "similar_to_staged_quote_id": null,
+          "similarity_score": 0.849738895893097
+        }
+      ],
+      "status": "quotesPublished"
+    }
+  ]
+}
